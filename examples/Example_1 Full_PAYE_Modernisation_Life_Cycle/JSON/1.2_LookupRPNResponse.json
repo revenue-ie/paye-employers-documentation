@@ -1,0 +1,59 @@
+{
+	"employerName": "Employer1",
+	"employerRegistrationNumber": "3980609P",
+	"taxYear": 2019,
+	"totalRPNCount": 1,
+	"dateTimeEffective": "29/01/2019",
+	"rpns": [{
+		"rpnNumber": "5",
+		"employeeID": {
+			"employeePpsn": "00000008P",
+			"employmentID": "1"
+		},
+		"dateLastUpdated": "10/01/2019",
+		"name": {
+			"firstName": "Ann",
+			"familyName": "Doe"
+		},
+		"effectiveDate": "01/01/2019",
+		"endDate": "31/12/2019",
+		"incomeTaxCalculationBasis": "CUMULATIVE",
+		"yearlyTaxCredits": 3300.00,
+		"taxRates": [{
+				"index": 1,
+				"taxRatePercent": 20,
+				"yearlyRateCutOff": 33800.00
+			},
+			{
+				"index": 2,
+				"taxRatePercent": 40
+			}
+		],
+		"payForIncomeTaxToDate": 1230.00,
+		"incomeTaxDeductedToDate": 0,
+		"uscStatus": "ORDINARY",
+		"uscRates": [{
+				"index": 1,
+				"uscRatePercent": 0.5,
+				"yearlyUSCRateCutOff": 12012.00
+			},
+			{
+				"index": 2,
+				"uscRatePercent": 2.5,
+				"yearlyUSCRateCutOff": 18772.00
+			},
+			{
+				"index": 3,
+				"uscRatePercent": 5,
+				"yearlyUSCRateCutOff": 70044.00
+			},
+			{
+				"index": 4,
+				"uscRatePercent": 8
+			}
+		],
+		"payForUSCToDate": 1230.00,
+		"uscDeductedToDate": 12.28,
+		"lptToDeduct": 191.00
+	}]
+}

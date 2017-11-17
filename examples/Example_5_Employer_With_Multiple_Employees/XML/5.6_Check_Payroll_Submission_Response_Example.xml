@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+		Removed the element: "SubmissionType" 								
+-->
+<pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:SubmissionID>05</pay:SubmissionID>
+	<pay:Status>Completed</pay:Status>
+	<pay:BatchCount>6</pay:BatchCount>
+	<pay:BatchStatus>
+		<pay:Index>1</pay:Index>
+		<pay:Status>Completed</pay:Status>
+	</pay:BatchStatus>
+	<pay:SubmissionHeader>
+		<pay:EmployerRegistrationNumber>4587256A</pay:EmployerRegistrationNumber>
+		<pay:PayrollRunReference>0000001</pay:PayrollRunReference>
+		<pay:TaxYear>2019</pay:TaxYear>
+		<pay:SoftwareUsed>
+			<pay:Name>The Software</pay:Name>
+			<pay:Version>Version10.0</pay:Version>
+		</pay:SoftwareUsed>
+	</pay:SubmissionHeader>
+	<pay:SubmissionSummary>
+		<pay:TaxOnIncome>1334.48</pay:TaxOnIncome>
+		<pay:PRSI>1535.55</pay:PRSI>
+		<pay:USC>333.94</pay:USC>
+		<pay:LPT>48.75</pay:LPT>
+		<pay:PayslipCount>6</pay:PayslipCount>
+		<pay:PayslipToDeleteCount>0</pay:PayslipToDeleteCount>
+	</pay:SubmissionSummary>
+</pay:CheckPayrollSubmissionResponse>

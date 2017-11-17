@@ -1,0 +1,22 @@
+html, body, div#i-index-container, div#i-index-body
+{
+	height: auto;
+	overflow: visible;
+}
+
+#i-index-header, #i-index-body
+{
+    position: inherit;
+    left: auto;
+    right: auto;
+}
+
+#i-index-body
+{
+    top: auto;
+}
+
+#i-index-header
+{
+    height: auto;
+}

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the “Class" (type="pc:calculationBasis") to "IncomeTaxCalculatonBasis"
+		Renamed the element: "employeePPSN" to "EmployeePPSN"
+		Renamed the element: "RunReference" to "PayrollRunReference"
+
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
+	<!--PAYE-specific Simple Types -->
+	<xs:simpleType name="submissionID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="requestID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="payrollRunLineItemID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="acknowledgementID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="PayrollRunReference">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="rpnNumber">
+		<xs:restriction base="pc:IDString">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="employmentID">
+		<xs:restriction base="pc:IDString">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="employerReference">
+		<xs:restriction base="pc:defaultString">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="employerReg">
+		<xs:restriction base="pc:defaultString">
+			<xs:pattern value="[0-9]{7,8}[A-Wa-w][A-ITWXZa-itwxz ]?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="agentTAIN">
+		<xs:restriction base="pc:defaultString">
+			<xs:pattern value="[0-9]{5}[A-Wa-w]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmployeePPSN">
+		<xs:restriction base="pc:defaultString">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9A-Za-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="pensionTracingNumber">
+		<xs:restriction base="pc:defaultString">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[0-9A-Za-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dateYear">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="2000"/>
+			<xs:maxInclusive value="2100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eircode">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[A-Za-z0-9 ]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="countryCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="prsiClass">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][0-9A-Za-z ]?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="prsiExemptionReason">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A1PortableDocument"/>
+			<xs:enumeration value="CertificateOfCoverage"/>
+			<xs:enumeration value="PostedWorkerOtherNotification"/>
+			<xs:enumeration value="FamilyMember"/>
+			<xs:enumeration value="Under16"/>
+			<xs:enumeration value="SocialWelfareScheme"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncomeTaxCalculationBasis">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Cumulative"/>
+			<xs:enumeration value="Week1"/>
+			<xs:enumeration value="Emergency"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="uscStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ordinary"/>
+			<xs:enumeration value="Exempt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="processingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotAcknowledged"/>
+			<xs:enumeration value="Pending"/>
+			<xs:enumeration value="Completed"/>
+			<xs:enumeration value="Processed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="acknowledgementStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Acknowledged"/>
+			<xs:enumeration value="Rejected"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="county">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Carlow"/>
+			<xs:enumeration value="Cavan"/>
+			<xs:enumeration value="Clare"/>
+			<xs:enumeration value="Cork"/>
+			<xs:enumeration value="Donegal"/>
+			<xs:enumeration value="Dublin"/>
+			<xs:enumeration value="Galway"/>
+			<xs:enumeration value="Kerry"/>
+			<xs:enumeration value="Kildare"/>
+			<xs:enumeration value="Kilkenny"/>
+			<xs:enumeration value="Laois"/>
+			<xs:enumeration value="Leitrim"/>
+			<xs:enumeration value="Limerick"/>
+			<xs:enumeration value="Longford"/>
+			<xs:enumeration value="Louth"/>
+			<xs:enumeration value="Mayo"/>
+			<xs:enumeration value="Meath"/>
+			<xs:enumeration value="Monaghan"/>
+			<xs:enumeration value="Offaly"/>
+			<xs:enumeration value="Roscommon"/>
+			<xs:enumeration value="Sligo"/>
+			<xs:enumeration value="Tipperary"/>
+			<xs:enumeration value="Waterford"/>
+			<xs:enumeration value="Wexford"/>
+			<xs:enumeration value="Westmeath"/>
+			<xs:enumeration value="Wicklow"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Validation - Simple Types -->
+	<xs:simpleType name="errorCode">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorPath">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorDescription">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<xs:simpleType name="warningCode">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="warningPath">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<xs:simpleType name="warningDescription">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<!--Common Default Simple Types -->
+	<xs:simpleType name="dateString">
+		<xs:restriction base="pc:defaultString">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9/\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDString">
+		<xs:restriction base="pc:defaultString">
+			<xs:maxLength value="50"/>
+			<xs:pattern value="[A-Za-z0-9_\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="defaultString">
+		<xs:restriction base="pc:longString">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="longString">
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="500"/>
+			<xs:pattern value="[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&amp;&quot;&apos;&lt;&gt;\\\.\*\(\)\[\]\{\}\+\-\?\|]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="defaultDecimal">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-999999999.00"/>
+			<xs:maxInclusive value="999999999.99"/>
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

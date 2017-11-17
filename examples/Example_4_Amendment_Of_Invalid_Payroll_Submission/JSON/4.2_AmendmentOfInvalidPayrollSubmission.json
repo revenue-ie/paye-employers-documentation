@@ -1,0 +1,48 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "E3-v2",
+      "employeeID": {
+        "employeePpsn": "00000012G",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Patrick",
+        "familyName": "Blogs"
+      },
+      "payFrequency": "WEEKLY",
+      "rpnNumber": "1",
+      "taxCredits": 63.46,
+      "taxRates": [
+        {
+          "index": 1,
+          "rateCutOff": 650
+        }
+      ],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "11/01/2019",
+      "grossPay": 500,
+      "payForIncomeTax": 500,
+      "incomeTaxPaid": 36.54,
+      "payForEmployeePRSI": 500,
+      "payForEmployerPRSI": 500,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 1
+        }
+      ],
+      "employeePRSIPaid": 20,
+      "employerPRSIPaid": 53.75,
+      "payForUSC": 500,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 11.36
+    }
+  ],
+  "lineItemIDToDelete": [
+    {
+      "lineItem":"E3-v1"
+    }
+  ]
+}

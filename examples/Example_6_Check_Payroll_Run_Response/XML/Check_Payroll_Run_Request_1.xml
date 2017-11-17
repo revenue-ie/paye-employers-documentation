@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 24/08/2017: 
+		The element "TaxYear" was added to the "CheckPayrollRunRequest"
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+-->
+
+<pay:CheckPayrollRunRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:EmployerRegistrationNumber>0202020G</pay:EmployerRegistrationNumber>
+	<pay:TaxYear>2019</pay:TaxYear>
+	<pay:SoftwareUsed>
+		<pay:Name>The Software</pay:Name>
+		<pay:Version>Version 10.0</pay:Version>
+	</pay:SoftwareUsed>
+	<pay:PayrollRunReference>Week1</pay:PayrollRunReference>
+</pay:CheckPayrollRunRequest>

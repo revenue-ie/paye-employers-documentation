@@ -1,0 +1,255 @@
+{
+  "employerName": "Employer2",
+  "employerRegistrationNumber": "4587256A",
+  "agentTain": "45879C",
+  "taxYear": 2019,
+  "totalRPNCount": 5,
+  "dateTimeEffective": "30/01/2019",
+  "rpns": [{
+    "rpnNumber": "5",
+    "employeeID": {
+      "employeePpsn": "1175228T",
+      "employmentID": "1"
+    },
+    "dateLastUpdated": "30/01/2019",
+    "name": {
+      "firstName": "Cathal",
+      "familyName": "Blogs"
+    },
+    "effectiveDate": "01/01/2019",
+    "endDate": "31/12/2019",
+    "incomeTaxCalculationBasis": "CUMULATIVE",
+    "yearlyTaxCredits": 3300,
+    "taxRates": [{
+      "index": 1,
+      "taxRatePercent": 20,
+      "yearlyRateCutOff": 30070.08
+    },
+      {
+        "index": 2,
+        "taxRatePercent": 40
+      }
+    ],
+    "payForIncomeTaxToDate": 0,
+    "incomeTaxDeductedToDate": 0,
+    "uscStatus": "ORDINARY",
+    "uscRates": [{
+      "index": 1,
+      "uscRatePercent": 0.5,
+      "yearlyUSCRateCutOff": 12012.00
+    },
+      {
+        "index": 2,
+        "uscRatePercent": 2.5,
+        "yearlyUSCRateCutOff": 18772.00
+      },
+      {
+        "index": 3,
+        "uscRatePercent": 5,
+        "yearlyUSCRateCutOff": 3100408.00
+      },
+      {
+        "index": 4,
+        "uscRatePercent": 8
+      }
+    ],
+    "payForUSCToDate": 0,
+    "uscPaidToDate": 0
+  },
+    {
+      "rpnNumber": "6",
+      "employeeID": {
+        "employeePpsn": "1175228T",
+        "employmentID": "2"
+      },
+      "dateLastUpdated": "30/01/2019",
+      "name": {
+        "firstName": "Cathal",
+        "familyName": "Blogs"
+      },
+      "effectiveDate": "01/01/2019",
+      "endDate": "31/12/2019",
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "yearlyTaxCredits": 0,
+      "taxRates": [{
+        "index": 1,
+        "taxRatePercent": 20,
+        "yearlyRateCutOff": 3729.92
+      },
+        {
+          "index": 2,
+          "taxRatePercent": 40
+        }
+      ],
+      "payForIncomeTaxToDate": 0,
+      "incomeTaxDeductedToDate": 0,
+      "uscStatus": "ORDINARY",
+      "uscRates": [{
+        "index": 3,
+        "uscRatePercent": 5,
+        "yearlyUSCCutOff": 39037.84
+      },
+        {
+          "index": 4,
+          "uscRatePercent": 8
+        }
+      ],
+      "payForUSCToDate": 0,
+      "uscPaidToDate": 0
+    },
+    {
+      "rpnNumber": "1",
+      "employeeID": {
+        "employeePpsn": "2548936K",
+        "employmentID": "1"
+      },
+      "rpnIssueDate": "30/01/2019",
+      "name": {
+        "firstName": "Caitlin",
+        "familyName": "Doe"
+      },
+      "effectiveDate": "01/01/2019",
+      "endDate": "31/12/2019",
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "yearlyTaxCredits": 3300,
+      "taxRates": [{
+        "index": 1,
+        "taxRatePercent": 20,
+        "yearlyUSCRateCutOff": 33800
+      },
+        {
+          "index": 2,
+          "taxRatePercent": 40
+        }
+      ],
+      "payForIncomeTaxToDate": 0,
+      "incomeTaxDeductedToDate": 0,
+      "uscStatus": "ORDINARY",
+      "uscRates": [{
+        "index": 1,
+        "uscRatePercent": 0.5,
+        "yearlyUSCRateCutOff": 12012.00
+      },
+        {
+          "index": 2,
+          "uscRatePercent": 2.5,
+          "yearlyUSCRateCutOff": 18772.00
+        },
+        {
+          "index": 3,
+          "uscRatePercent": 5,
+          "yearlyUSCRateCutOff": 70044.00
+        },
+        {
+          "index": 4,
+          "uscRatePercent": 8
+        }
+      ],
+      "payForUSCToDate": 0,
+      "uscPaidToDate": 0
+    },
+    {
+      "rpnNumber": "2",
+      "employeeID": {
+        "employeePpsn": "7425001H",
+        "employmentID": "1"
+      },
+      "rpnIssueDate": "30/01/2019",
+      "name": {
+        "firstName": "Brian",
+        "familyName": "Blogs"
+      },
+      "effectiveDate": "01/01/2019",
+      "endDate": "31/12/2019",
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "yearlyTaxCredits": 3300,
+      "taxRates": [{
+        "index": 1,
+        "taxRatePercent": 20,
+        "yearlyUSCRateCutOff": 33800
+      },
+        {
+          "index": 2,
+          "taxRatePercent": 40
+        }
+      ],
+      "payForIncomeTaxToDate": 2583,
+      "incomeTaxDeductedToDate": 241.6,
+      "uscStatus": "ORDINARY",
+      "uscRates": [{
+        "index": 1,
+        "uscRatePercent": 0.5,
+        "yearlyUSCRateCutOff": 12012.00
+      },
+        {
+          "index": 2,
+          "uscRatePercent": 2.5,
+          "yearlyUSCRateCutOff": 18772.00
+        },
+        {
+          "index": 3,
+          "uscRatePercent": 5,
+          "yearlyUSCRateCutOff": 70044.00
+        },
+        {
+          "index": 4,
+          "uscRatePercent": 8
+        }
+      ],
+      "payForUSCToDate": 2583,
+      "uscPaidToDate": 74.58
+    },
+    {
+      "rpnNumber": "5",
+      "employeeID": {
+        "employeePpsn": "0852473A",
+        "employmentID": "1"
+      },
+      "rpnIssueDate": "30/01/2019",
+      "name": {
+        "firstName": "Seán",
+        "familyName": "Blogs"
+      },
+      "effectiveDate": "01/01/2019",
+      "endDate": "31/12/2019",
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "yearlyTaxCredits": 4950.00,
+      "taxRates": [{
+        "index": 1,
+        "taxRatePercent": 20,
+        "yearlyUSCRateCutOff": 42800
+      },
+        {
+          "index": 2,
+          "taxRatePercent": 40
+        }
+      ],
+      "payForIncomeTaxToDate": 0,
+      "incomeTaxDeductedToDate": 0,
+      "uscStatus": "ORDINARY",
+      "uscRates": [{
+        "index": 1,
+        "uscRatePercent": 0.5,
+        "yearlyUSCRateCutOff": 12012.00
+      },
+        {
+          "index": 2,
+          "uscRatePercent": 2.5,
+          "yearlyUSCRateCutOff": 18772.00
+        },
+        {
+          "index": 3,
+          "uscRatePercent": 5,
+          "yearlyUSCRateCutOff": 70044.00
+        },
+        {
+          "index": 4,
+          "uscRatePercent": 8
+        }
+      ],
+      "payForUSCToDate": 0,
+      "uscPaidToDate": 0,
+      "lptToDeduct": 585.00
+    }
+  ]
+}

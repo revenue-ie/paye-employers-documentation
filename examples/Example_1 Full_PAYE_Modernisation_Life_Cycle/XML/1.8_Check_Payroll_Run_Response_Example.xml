@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 1.0 Milestone 1 ====================================
+i. Document Updated 17/11/2017
+-->
+<pay:CheckPayrollRunResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:Status>Pending</pay:Status>
+	<pay:Submission>
+		<pay:SubmissionID>01</pay:SubmissionID>
+		<pay:Status>Pending</pay:Status>
+	</pay:Submission>
+</pay:CheckPayrollRunResponse>

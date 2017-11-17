@@ -1,0 +1,51 @@
+﻿<xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/paye/list-of-employees/v1/employer-schema.xsd" xmlns:ns1="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/paye/list-of-employees/v1/employer-schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
+	<xsd:import namespace="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" schemaLocation="./employee-schema.xsd"/>
+	<xsd:element name="Employer">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ns1:Employee" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="employerRegistrationNumber" type="ros:registration" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 202</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="employerName" type="ros:string70" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 203</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="tradename" type="ros:string70" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 204</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="address1" type="ros:alphaSpecial30All" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 205</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="address2" type="ros:alphaSpecial30All" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 206</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="address3" type="ros:alphaSpecial30All" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 207</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="phone" type="ros:positive12" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 208</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="contact" type="ros:alphaSpecial30All" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 209</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

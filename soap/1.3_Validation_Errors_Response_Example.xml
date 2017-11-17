@@ -1,0 +1,85 @@
+<!--Document History:
+======== Version 1.0 Milestone 1 ====================================
+i. Document updated on 17/11/2017: 
+		Renamed the element: "PPSN" to "EmployeePPSN"
+		Renamed the element: "DateLastUpdated" to "RPNIssueDate"	
+		Renamed the element: "calculationBasis" to "IncomeTaxCalculatonBasis"
+		Renamed the element: "PayToDate" to "PayForIncomeTaxToDate"	
+		Renamed the element: "TaxToDate" to "IncomeTaxDeductedToDate"
+		Renamed the element: "YearlyUSCCutOff" to "YearlyUSCRateCutOff"	
+		Renamed the element: "USCPaidToDate" to "USCDeductedToDate"	
+
+-->
+
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+   <env:Header/>
+   <env:Body>	
+		<rat:LookupRPNResponse xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/ file:///O:/soap/v1/rpn/rpn-schema.xsd">
+			<rat:EmployerName>Employer1</rat:EmployerName>
+			<rat:EmployerRegistrationNumber>3980609P</rat:EmployerRegistrationNumber>
+			<rat:TaxYear>2019</rat:TaxYear>
+			<rat:TotalRPNCount>1</rat:TotalRPNCount>
+			<rat:DateTimeEffective>29/01/2019</rat:DateTimeEffective>
+			<rat:RPN>
+				<rat:RPNNumber>5</rat:RPNNumber>
+				<rat:EmployeeID>
+					<rat:EmployeePPSN>00000008P</rat:EmployeePPSN>
+					<rat:EmploymentID>1</rat:EmploymentID>
+				</rat:EmployeeID>
+				<rat:RPNIssueDate>10/01/2019</rat:RPNIssueDate>
+				<rat:Name>
+					<rat:FirstName>Ann</rat:FirstName>
+					<rat:FamilyName>Doe</rat:FamilyName>
+				</rat:Name>
+				<rat:EffectiveDate>01/01/2019</rat:EffectiveDate>
+				<rat:EndDate>31/12/2019</rat:EndDate>
+				<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+				<rat:YearlyTaxCredits>3300.00</rat:YearlyTaxCredits>
+				<rat:TaxRate>
+					<rat:Index>1</rat:Index>
+					<rat:TaxRatePercent>20</rat:TaxRatePercent>
+					<rat:YearlyRateCutOff>33800.00</rat:YearlyRateCutOff>
+				</rat:TaxRate>
+				<rat:TaxRate>
+					<rat:Index>2</rat:Index>
+					<rat:TaxRatePercent>40</rat:TaxRatePercent>
+				</rat:TaxRate>
+				<rat:PayForIncomeTaxToDate>1230.00</rat:PayForIncomeTaxToDate>
+				<rat:IncomeTaxDeductedToDate>0.00</rat:IncomeTaxDeductedToDate>
+				<rat:USCStatus>Ordinary</rat:USCStatus>
+				<rat:USCRate>
+					<rat:Index>1</rat:Index>
+					<rat:USCRatePercent>.5</rat:USCRatePercent>
+					<rat:YearlyUSCRateCutOff>12012.00</rat:YearlyUSCRateCutOff>
+				</rat:USCRate>
+				<rat:USCRate>
+					<rat:Index>2</rat:Index>
+					<rat:USCRatePercent>2.5</rat:USCRatePercent>
+					<rat:YearlyUSCRateCutOff>18772.00</rat:YearlyUSCRateCutOff>
+				</rat:USCRate>
+				<rat:USCRate>
+					<rat:Index>3</rat:Index>
+					<rat:USCRatePercent>5</rat:USCRatePercent>
+					<rat:YearlyUSCRateCutOff>70044.00</rat:YearlyUSCRateCutOff>
+				</rat:USCRate>
+				<rat:USCRate>
+					<rat:Index>4</rat:Index>
+					<rat:USCRatePercent>8</rat:USCRatePercent>
+				</rat:USCRate>
+				<rat:PayForUSCToDate>1230.00</rat:PayForUSCToDate>
+				<rat:USCDeductedToDate>12.28</rat:USCDeductedToDate>
+				<rat:LPTToDeduct>191.00</rat:LPTToDeduct>
+			</rat:RPN>
+			<rat:NoRPN>
+				<rat:EmployeePPSN>00000008T</rat:EmployeePPSN>
+				<rat:EmploymentID>1</rat:EmploymentID>
+			</rat:NoRPN>
+			<rat:ValidationError>
+				<rat:Code>1010</rat:Code>
+				<rat:Path>//LookupRPNRequest/EmployeeID[1]</rat:Path>
+				<rat:Description>Invalid format employee PPSN.</rat:Description>
+			</rat:ValidationError>
+		</rat:LookupRPNResponse>
+   </env:Body>
+</env:Envelope>		
+		

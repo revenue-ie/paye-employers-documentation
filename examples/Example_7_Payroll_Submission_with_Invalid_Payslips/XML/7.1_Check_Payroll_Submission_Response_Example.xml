@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.10 ====================================
+i. Document Created 07/09/2017
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+		Removed the element: "SubmissionType" 		
+-->
+<pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:SubmissionID>03</pay:SubmissionID>
+	<pay:Status>Completed</pay:Status>
+	<pay:SubmissionHeader>
+		<pay:EmployerRegistrationNumber>1112215f</pay:EmployerRegistrationNumber>
+		<pay:PayrollRunReference>0000003</pay:PayrollRunReference>
+		<pay:TaxYear>2019</pay:TaxYear>
+		<pay:SoftwareUsed>
+			<pay:Name>The Software</pay:Name>
+			<pay:Version>Version10.0</pay:Version>
+		</pay:SoftwareUsed>
+	</pay:SubmissionHeader>
+	<pay:SubmissionSummary>
+		<pay:TaxOnIncome>900</pay:TaxOnIncome>
+		<pay:PRSI>1000</pay:PRSI>
+		<pay:USC>300</pay:USC>
+		<pay:LPT>80</pay:LPT>
+		<pay:PayslipCount>3</pay:PayslipCount>
+		<pay:PayslipToDeleteCount>0</pay:PayslipToDeleteCount>
+	</pay:SubmissionSummary>
+	<pay:InvalidPayslip>
+		<pay:LineItemID>E12-V1</pay:LineItemID>
+		<pay:Error>
+			<pay:Code>Technical_error_code</pay:Code>
+			<pay:Path>Path to error in schema if available.</pay:Path>
+			<pay:Description>Technical description of the error.</pay:Description>
+		</pay:Error>
+	</pay:InvalidPayslip>
+	<pay:InvalidPayslip>
+		<pay:LineItemID>E22-V1</pay:LineItemID>
+		<pay:Error>
+			<pay:Code>Technical_error_code</pay:Code>
+			<pay:Path>Path to error in schema if available.</pay:Path>
+			<pay:Description>Technical description of the error.</pay:Description>
+		</pay:Error>
+	</pay:InvalidPayslip>
+</pay:CheckPayrollSubmissionResponse>

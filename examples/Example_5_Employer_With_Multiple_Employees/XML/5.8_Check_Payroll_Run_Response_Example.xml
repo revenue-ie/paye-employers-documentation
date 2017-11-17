@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		The complex type "PayslipSummary" was added to the "CheckPayrollRunResponse" 
+====== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "PPSN" to "EmployeePPSN"
+-->
+<pay:CheckPayrollRunResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:Status>Processed</pay:Status>
+	<pay:TaxOnIncome>1334.48</pay:TaxOnIncome>
+	<pay:PRSI>1535.55</pay:PRSI>
+	<pay:USC>333.94</pay:USC>
+	<pay:LPT>48.75</pay:LPT>
+	<pay:Submission>
+		<pay:SubmissionID>05</pay:SubmissionID>
+		<pay:Status>Completed</pay:Status>
+		<pay:SubmissionSummary>
+			<pay:TaxOnIncome>1334.48</pay:TaxOnIncome>
+			<pay:PRSI>1535.55</pay:PRSI>
+			<pay:USC>333.94</pay:USC>
+			<pay:LPT>48.75</pay:LPT>
+			<pay:PayslipCount>6</pay:PayslipCount>
+			<pay:PayslipToDeleteCount>0</pay:PayslipToDeleteCount>
+		</pay:SubmissionSummary>
+	</pay:Submission>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E1-v1</pay:LineItemID>
+		<pay:EmployeeID>
+			<pay:EmployeePPSN>1175228T</pay:EmployeePPSN>
+			<pay:EmploymentID>1</pay:EmploymentID>
+		</pay:EmployeeID>
+		<pay:TaxOnIncome>226.17</pay:TaxOnIncome>
+		<pay:PRSI>381.04</pay:PRSI>
+		<pay:USC>70.04</pay:USC>
+		<pay:LPT>0</pay:LPT>
+	</pay:PayslipSummary>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E2-v1</pay:LineItemID>
+		<pay:EmployeeID>
+			<pay:EmployeePPSN>1175228T</pay:EmployeePPSN>
+			<pay:EmploymentID>2</pay:EmploymentID>
+		</pay:EmployeeID>
+		<pay:TaxOnIncome>417.84</pay:TaxOnIncome>
+		<pay:PRSI>177</pay:PRSI>
+		<pay:USC>60</pay:USC>
+		<pay:LPT>0</pay:LPT>
+	</pay:PayslipSummary>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E3-v2</pay:LineItemID>
+		<pay:EmployeeID>
+			<pay:EmployeePPSN>2548936K</pay:EmployeePPSN>
+			<pay:EmploymentID>1</pay:EmploymentID>
+		</pay:EmployeeID>
+		<pay:TaxOnIncome>0</pay:TaxOnIncome>
+		<pay:PRSI>19.89</pay:PRSI>
+		<pay:USC>.93</pay:USC>
+		<pay:LPT>0</pay:LPT>
+	</pay:PayslipSummary>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E4-v3</pay:LineItemID>
+		<pay:EmployeeID>
+			<pay:EmployeePPSN>7425001H</pay:EmployeePPSN>
+			<pay:EmploymentID>1</pay:EmploymentID>
+		</pay:EmployeeID>
+		<pay:TaxOnIncome>117.11</pay:TaxOnIncome>
+		<pay:PRSI>381.04</pay:PRSI>
+		<pay:USC>37.29</pay:USC>
+		<pay:LPT>0</pay:LPT>
+	</pay:PayslipSummary>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E5-v1</pay:LineItemID>
+		<pay:EmployeeID>
+			<pay:EmployeePPSN>0852473A</pay:EmployeePPSN>
+			<pay:EmploymentID>1</pay:EmploymentID>
+		</pay:EmployeeID>
+		<pay:TaxOnIncome>476.42</pay:TaxOnIncome>
+		<pay:PRSI>605.98</pay:PRSI>
+		<pay:USC>146.29</pay:USC>
+		<pay:LPT>48.75</pay:LPT>
+	</pay:PayslipSummary>
+	<pay:PayslipSummary>
+		<pay:LineItemID>E6-v3</pay:LineItemID>
+		<pay:EmployerReference>0001</pay:EmployerReference>
+		<pay:TaxOnIncome>96.94</pay:TaxOnIncome>
+		<pay:PRSI>20.60</pay:PRSI>
+		<pay:USC>19.39</pay:USC>
+		<pay:LPT>0</pay:LPT>
+	</pay:PayslipSummary>
+</pay:CheckPayrollRunResponse>

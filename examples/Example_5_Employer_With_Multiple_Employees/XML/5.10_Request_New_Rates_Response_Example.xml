@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "PPSN" to "EmployeePPSN"
+		Renamed the element: “calculationBasis" to "IncomeTaxCalculatonBasis"
+		Renamed the element: "DateLastUpdated" to "RPNIssueDate"	
+		Renamed the element: "PayToDate" to "PayForIncomeTaxToDate"	
+		Renamed the element: "TaxToDate" to "IncomeTaxDeductedToDate"
+		Renamed the element: "USCPaidToDate" to "USCDeductedToDate"	
+
+-->
+<rat:NewRPNResponse xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema.xsd">
+	<rat:EmployerName>Employer2</rat:EmployerName>
+	<rat:EmployerRegistrationNumber>4587256A</rat:EmployerRegistrationNumber>
+	<rat:AgentTain>45879C</rat:AgentTain>
+	<rat:DateTimeEffective>02/02/2019</rat:DateTimeEffective>
+	<rat:RPN>
+		<rat:RPNNumber>1</rat:RPNNumber>
+		<rat:EmployeeID>
+			<rat:EmployeePPSN>1112215F</rat:EmployeePPSN>
+			<rat:EmploymentID>1</rat:EmploymentID>
+		</rat:EmployeeID>
+		<rat:RPNIssueDate>02/02/2019</rat:RPNIssueDate>
+		<rat:EmployerReference>0001</rat:EmployerReference>
+		<rat:Name>
+			<rat:FirstName>Jessica</rat:FirstName>
+			<rat:FamilyName>Doe</rat:FamilyName>
+		</rat:Name>
+		<rat:EffectiveDate>01/01/2019</rat:EffectiveDate>
+		<rat:EndDate>31/12/2019</rat:EndDate>
+		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:YearlyTaxCredits>3300</rat:YearlyTaxCredits>
+		<rat:TaxRate>
+			<rat:Index>1</rat:Index>
+			<rat:TaxRatePercent>20</rat:TaxRatePercent>
+			<rat:YearlyRateCutOff>33800</rat:YearlyRateCutOff>
+		</rat:TaxRate>
+		<rat:TaxRate>
+			<rat:Index>2</rat:Index>
+			<rat:TaxRatePercent>40</rat:TaxRatePercent>
+		</rat:TaxRate>
+		<rat:PayForIncomeTaxToDate>727.05</rat:PayForIncomeTaxToDate>
+		<rat:IncomeTaxDeductedToDate>290.82</rat:IncomeTaxDeductedToDate>
+		<rat:USCStatus>Exempt</rat:USCStatus>
+		<rat:PayForUSCToDate>727.05</rat:PayForUSCToDate>
+		<rat:USCDeductedToDate>58.16</rat:USCDeductedToDate>
+		<rat:PRSIExempt>false</rat:PRSIExempt>
+	</rat:RPN>
+</rat:NewRPNResponse>

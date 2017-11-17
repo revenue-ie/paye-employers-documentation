@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+		Removed the element: "SubmissionType" 
+-->
+<pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:SubmissionID>01</pay:SubmissionID>
+	<pay:Status>Pending</pay:Status>
+	<pay:SubmissionHeader>
+		<pay:EmployerRegistrationNumber>3980609P</pay:EmployerRegistrationNumber>
+		<pay:PayrollRunReference>00001</pay:PayrollRunReference>
+		<pay:TaxYear>2019</pay:TaxYear>
+		<pay:SoftwareUsed>
+			<pay:Name>The Software</pay:Name>
+			<pay:Version>Version 10.0</pay:Version>
+		</pay:SoftwareUsed>
+	</pay:SubmissionHeader>
+</pay:CheckPayrollSubmissionResponse>

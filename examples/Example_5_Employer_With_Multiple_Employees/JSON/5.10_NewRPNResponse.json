@@ -1,0 +1,40 @@
+{
+  "employerName": "Employer2",
+  "employerRegistrationNumber": "4587256A",
+  "agentTain": "45879C",
+  "taxYear": 2019,
+  "totalRPICount": 1,
+  "dateTimeEffective": "02/02/2019",
+  "rpns": [{
+    "rpnNumber": "1",
+    "employeeID": {
+      "employeePpsn": "1112215F",
+      "employmentID": "1"
+    },
+    "rpnIssueDate": "02/02/2019",
+    "employerReference": "0001",
+    "name": {
+      "firstName": "Jessica",
+      "familyName": "Doe"
+    },
+    "effectiveDate": "01/01/2019",
+    "endDate": "31/12/2019",
+    "incomeTaxCalculationBasis": "CUMULATIVE",
+    "yearlyTaxCredits": 3300,
+    "taxRates": [{
+      "index": 1,
+      "taxRatePercent": 20,
+      "yearlyUSCRateCutOff": 33800
+    },
+      {
+        "index": 2,
+        "taxRatePercent": 40
+      }
+    ],
+    "payForIncomeTaxToDate": 727.05,
+    "incomeTaxDeductedToDate": 290.82,
+    "uscStatus": "EXEMPT",
+    "payForUSCToDate": 727.05,
+    "uscPaidToDate": 58.16
+  }]
+}

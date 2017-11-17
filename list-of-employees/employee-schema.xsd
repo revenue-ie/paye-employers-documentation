@@ -1,0 +1,65 @@
+﻿<xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema-v1.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" targetNamespace="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
+	<xsd:element name="Employee">
+		<xsd:annotation>
+			<xsd:documentation>Data Item Ref: 201</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="ppsn" type="ros:registration" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 210</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="familyName" type="ros:alphaSpecialNonCurr20All" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 211</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="firstName" type="ros:alphaSpecialNonCurr20All" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 212</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="dob" type="ros:date" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 213</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="employmentrefnum" type="ros:alpha12All" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 214</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="employmentId" type="ros:alphaSpecial20All" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 215</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="startDate" type="ros:date" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Date Item Ref: 216</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="ExclusionOrder" type="ros:numericboolean" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 217</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="ExclusionStartDate" type="ros:date" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 218</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="ExclusionEndDate" type="ros:date" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 219</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="directorMarker" type="ros:numericboolean" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Data Item Ref: 220</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
