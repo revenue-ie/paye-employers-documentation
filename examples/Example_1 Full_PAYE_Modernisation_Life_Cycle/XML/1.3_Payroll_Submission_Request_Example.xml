@@ -12,6 +12,9 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: "PPSN" to "EmployeePPSN"
 		Renamed the element: "calculationBasis" to "IncomeTaxCalculationBasis"
 		Removed the element: "SubmissionType" 
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates re-formatted	
 -->
 <pay:PayrollSubmissionRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
 	<pay:SubmissionID>01</pay:SubmissionID>
@@ -42,7 +45,7 @@ iii. Document updated on 17/11/2017:
 			<pay:RateCutOff>650</pay:RateCutOff>
 		</pay:TaxRate>
 		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
-		<pay:PayDate>01/02/2019</pay:PayDate>
+		<pay:PayDate>2019-02-01</pay:PayDate>
 		<pay:GrossPay>307.50</pay:GrossPay>
 		<pay:PayForIncomeTax>307.50</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>0.00</pay:IncomeTaxPaid>

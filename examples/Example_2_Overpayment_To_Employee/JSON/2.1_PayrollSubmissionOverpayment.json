@@ -10,7 +10,7 @@
         "firstName": "John",
         "familyName": "Blogs"
       },
-      "startDate": "07/01/2019",
+      "startDate": "2019-01-07",
       "payFrequency": "WEEKLY",
       "rpnNumber": "1",
       "taxCredits": 63.46,
@@ -21,7 +21,7 @@
         }
       ],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "11/01/2019",
+      "payDate": "2019-01-11",
       "grossPay": 500,
       "payForIncomeTax": 500,
       "incomeTaxPaid": 36.54,

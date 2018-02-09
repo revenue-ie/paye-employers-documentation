@@ -18,7 +18,11 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: "taxToDate" to "incomeTaxDeductedToDate"
 		Renamed the element: "YearlyUSCCutOff" to "YearlyUSCRateCutOff"
 		Renamed the element: "USCPaidToDate" to "USCDeductedToDate"
-			
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates formatting changed to YYYY-MM-DD 
+		"employment start date" added as an optional request field
+		Dates/times changed to types xs:date and xs:dateTime
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types.xsd"/>
@@ -69,7 +73,7 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>The tax year to which the RPN lookup relates (YYYY).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="dateLastUpdated" type="pc:dateString" minOccurs="0">
+			<xs:element name="dateLastUpdated" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Parameter to lookup for RPN updated on or since a given date.</xs:documentation>
 				</xs:annotation>
@@ -116,9 +120,9 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Data Item Ref: N/A. The total number of RPN that are associated with the RPN request submitted. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DateTimeEffective" type="pc:dateString">
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued.</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
@@ -173,6 +177,11 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Details of employees who require a new RPN.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="EmploymentStartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The date which the employee commences (YYYY-MM-DD).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NewRPNResponse">
@@ -195,9 +204,9 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Data Item Ref: N/A. Tax Advisor Identification Number. Required if RPN queried by agent on behalf of employer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DateTimeEffective" type="pc:dateString">
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued.</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
@@ -283,9 +292,9 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Employee's PPS Number and Employment ID (if available).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RPNIssueDate" type="pc:dateString">
+			<xs:element name="RPNIssueDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date the RPN was issued.</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date the RPN was issued (YYYY-MM-DD).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
@@ -303,12 +312,12 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Data Item Ref: 109. Used to identify employee's previous PPS number if applicable e.g. PPS number with 'W' suffix.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EffectiveDate" type="pc:dateString">
+			<xs:element name="EffectiveDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future.</xs:documentation>
+					<xs:documentation>Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future (YYYY-MM-DD).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EndDate" type="pc:dateString">
+			<xs:element name="EndDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested.</xs:documentation>
 				</xs:annotation>

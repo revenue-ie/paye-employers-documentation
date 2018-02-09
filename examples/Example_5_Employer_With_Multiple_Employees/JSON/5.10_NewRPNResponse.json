@@ -4,21 +4,21 @@
   "agentTain": "45879C",
   "taxYear": 2019,
   "totalRPICount": 1,
-  "dateTimeEffective": "02/02/2019",
+  "dateTimeEffective": "2019-02-02T11:58:02.000+0000",
   "rpns": [{
     "rpnNumber": "1",
     "employeeID": {
       "employeePpsn": "1112215F",
       "employmentID": "1"
     },
-    "rpnIssueDate": "02/02/2019",
+    "rpnIssueDate": "2019-02-02",
     "employerReference": "0001",
     "name": {
       "firstName": "Jessica",
       "familyName": "Doe"
     },
-    "effectiveDate": "01/01/2019",
-    "endDate": "31/12/2019",
+    "effectiveDate": "2019-01-01",
+    "endDate": "2019-12-31",
     "incomeTaxCalculationBasis": "CUMULATIVE",
     "yearlyTaxCredits": 3300,
     "taxRates": [{

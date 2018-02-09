@@ -3,20 +3,20 @@
 	"employerRegistrationNumber": "3980609P",
 	"taxYear": 2019,
 	"totalRPNCount": 1,
-	"dateTimeEffective": "29/01/2019",
+	"dateTimeEffective": "2019-01-09T11:58:02.000+0000",
 	"rpns": [{
 		"rpnNumber": "5",
 		"employeeID": {
 			"employeePpsn": "00000008P",
 			"employmentID": "1"
 		},
-		"dateLastUpdated": "10/01/2019",
+		"rpnIssueDate": "2019-01-10",
 		"name": {
 			"firstName": "Ann",
 			"familyName": "Doe"
 		},
-		"effectiveDate": "01/01/2019",
-		"endDate": "31/12/2019",
+		"effectiveDate": "2019-01-01",
+		"endDate": "2019-12-31",
 		"incomeTaxCalculationBasis": "CUMULATIVE",
 		"yearlyTaxCredits": 3300.00,
 		"taxRates": [{

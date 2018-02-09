@@ -17,7 +17,7 @@
       "rateCutOff": 2505.84
     }],
     "incomeTaxCalculationBasis": "CUMULATIVE",
-    "payDate": "31/01/2019",
+    "payDate": "2019-01-31",
     "grossPay": 2583.34,
     "payForIncomeTax": 2505.84,
     "incomeTaxPaid": 226.17,
@@ -57,7 +57,7 @@
         "rateCutOff": 310.83
       }],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "31/01/2019",
+      "payDate": "2019-01-31",
       "grossPay": 1200,
       "payForIncomeTax": 1200,
       "incomeTaxPaid": 417.84,
@@ -92,7 +92,7 @@
         "rateCutOff": 650
       }],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "31/01/2019",
+      "payDate": "2019-01-31",
       "grossPay": 185.00,
       "payForIncomeTax": 185.00,
       "incomeTaxPaid": 0,
@@ -127,7 +127,7 @@
         "rateCutOff": 1300
       }],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "07/02/2019",
+      "payDate": "2019-02-07",
       "grossPay": 1291.67,
       "payForIncomeTax": 1220.17,
       "incomeTaxPaid": 117.11,
@@ -167,7 +167,7 @@
         "rateCutOff": 3566.67
       }],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "31/01/2019",
+      "payDate": "2019-01-31",
       "grossPay": 4108.33,
       "payForIncomeTax": 4005.64,
       "incomeTaxPaid": 476.42,
@@ -205,8 +205,8 @@
         ],
         "county": "WEXFORD"
       },
-      "dateOfBirth": "04/01/2000",
-      "startDate": "10/01/2019",
+      "dateOfBirth": "2000-01-04",
+      "startDate": "2019-01-10",
       "payFrequency": "WEEKLY",
       "taxCredits": 0,
       "taxRates": [{
@@ -215,7 +215,7 @@
       }],
       "incomeTacCalculationBasis": "EMERGENCY",
       "exclusionOrder": false,
-      "payDate": "31/01/2019",
+      "payDate": "2019-01-31",
       "grossPay": 242.35,
       "payForIncomeTax": 242.35,
       "incomeTaxPaid": 96.94,

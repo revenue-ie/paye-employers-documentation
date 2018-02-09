@@ -47,7 +47,7 @@ iii. Document updated on 17/11/2017:
 		<pay:USC>100</pay:USC>
 		<pay:LPT>80</pay:LPT>
 	</pay:PayslipSummary>
-		<pay:PayslipSummary>
+	<pay:PayslipSummary>
 		<pay:LineItemID>E9-v3</pay:LineItemID>
 		<pay:EmployeeID>
 			<pay:EmployeePPSN>1175228T</pay:EmployeePPSN>
@@ -58,7 +58,7 @@ iii. Document updated on 17/11/2017:
 		<pay:USC>100</pay:USC>
 		<pay:LPT>0</pay:LPT>
 	</pay:PayslipSummary>
-		<pay:PayslipSummary>
+	<pay:PayslipSummary>
 		<pay:LineItemID>E21-v2</pay:LineItemID>
 		<pay:EmployeeID>
 			<pay:EmployeePPSN>2548936K</pay:EmployeePPSN>
@@ -69,7 +69,7 @@ iii. Document updated on 17/11/2017:
 		<pay:USC>100</pay:USC>
 		<pay:LPT>0</pay:LPT>
 	</pay:PayslipSummary>
-		<pay:PayslipSummary>
+	<pay:PayslipSummary>
 		<pay:LineItemID>E12-V1</pay:LineItemID>
 		<pay:EmployeeID>
 			<pay:EmployeePPSN>7425001H</pay:EmployeePPSN>
@@ -80,7 +80,7 @@ iii. Document updated on 17/11/2017:
 		<pay:USC>50</pay:USC>
 		<pay:LPT>0</pay:LPT>
 	</pay:PayslipSummary>
-		<pay:PayslipSummary>
+	<pay:PayslipSummary>
 		<pay:LineItemID>E22-V1</pay:LineItemID>
 		<pay:EmployeeID>
 			<pay:EmployeePPSN>0852473A</pay:EmployeePPSN>

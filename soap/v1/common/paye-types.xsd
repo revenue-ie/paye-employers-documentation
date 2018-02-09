@@ -10,7 +10,9 @@ iii. Document updated on 17/11/2017:
 		Renamed the “Class" (type="pc:calculationBasis") to "IncomeTaxCalculatonBasis"
 		Renamed the element: "employeePPSN" to "EmployeePPSN"
 		Renamed the element: "RunReference" to "PayrollRunReference"
-
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		dateString pattern and minLength changed
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
@@ -100,6 +102,7 @@ iii. Document updated on 17/11/2017:
 			<xs:enumeration value="FamilyMember"/>
 			<xs:enumeration value="Under16"/>
 			<xs:enumeration value="SocialWelfareScheme"/>
+			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IncomeTaxCalculationBasis">
@@ -181,9 +184,9 @@ iii. Document updated on 17/11/2017:
 	<!--Common Default Simple Types -->
 	<xs:simpleType name="dateString">
 		<xs:restriction base="pc:defaultString">
-			<xs:minLength value="8"/>
+			<xs:minLength value="10"/>
 			<xs:maxLength value="10"/>
-			<xs:pattern value="[0-9/\-]*"/>
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IDString">

@@ -11,7 +11,10 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: "RunReference" to "PayrollRunReference"
 		Renamed the element: "PPSN" to "EmployeePPSN"
 		Renamed the element: “calculationBasis" to "IncomeTaxCalculatonBasis"
-		Removed the element: "SubmissionType" 			
+		Removed the element: "SubmissionType" 
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates re-formatted				
 -->
 
 <pay:PayrollSubmissionRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
@@ -35,7 +38,7 @@ iii. Document updated on 17/11/2017:
 			<pay:FirstName>John</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:StartDate>07/01/2019</pay:StartDate>
+		<pay:StartDate>2019-01-07</pay:StartDate>
 		<pay:PayFrequency>Weekly</pay:PayFrequency>
 		<pay:RPNNumber>1</pay:RPNNumber>
 		<pay:TaxCredits>63.46</pay:TaxCredits>
@@ -44,7 +47,7 @@ iii. Document updated on 17/11/2017:
 			<pay:RateCutOff>650</pay:RateCutOff>
 		</pay:TaxRate>
 		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
-		<pay:PayDate>11/01/2019</pay:PayDate>
+		<pay:PayDate>2019-01-11</pay:PayDate>
 		<pay:GrossPay>500</pay:GrossPay>
 		<pay:PayForIncomeTax>500</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>36.54</pay:IncomeTaxPaid>

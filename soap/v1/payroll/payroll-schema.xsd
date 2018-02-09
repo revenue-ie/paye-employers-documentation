@@ -20,6 +20,12 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: “Class" (type="pc:calculationBasis") to "IncomeTaxCalculatonBasis"
 		Updated Pension Tracing Number to Data Item 39.
 		Removed the element: "SubmissionType" 
+		
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates formatting changed to YYYY-MM-DD 
+		New PRSI Exemption Reason 'Other' added
+		Dates updated to type xs:date
 	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
@@ -364,17 +370,17 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Elements required when Employee PPSN is not known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DateOfBirth" type="pc:dateString" minOccurs="0">
+			<xs:element name="DateOfBirth" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 12. Employee's Date of Birth - format DD/MM/YYYY. This will be Mandatory if the PPSN isn’t available.</xs:documentation>
+					<xs:documentation>Data Item Ref: 12. Employee's Date of Birth - format YYYY-MM-DD . This will be Mandatory if the PPSN isn’t available.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StartDate" type="pc:dateString" minOccurs="0">
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 15. Employment Start Date. Only include this forthe first time you pay a new employee or if there is a correction being made to the StartDate.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LeaveDate" type="pc:dateString" minOccurs="0">
+			<xs:element name="LeaveDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 16. Report this date when an employee is leaving (date contract terminates) or if employer ceases trading.</xs:documentation>
 				</xs:annotation>
@@ -424,9 +430,9 @@ iii. Document updated on 17/11/2017:
 					<xs:documentation>Data Item Ref: 23. This indicates that the Employer does not have to deduct Income Tax for the Employee.  This will be either ‘True’ or ‘False’. Set to “true” if an exclusion order is on file for the employee.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PayDate" type="pc:dateString">
+			<xs:element name="PayDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 17. Date Employee is being paid (DD/MM/YYYY).</xs:documentation>
+					<xs:documentation>Data Item Ref: 17. Date Employee is being paid (YYYY-MM-DD ).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="GrossPay" type="pc:defaultDecimal">
@@ -461,7 +467,7 @@ iii. Document updated on 17/11/2017:
 			</xs:element>
 			<xs:element name="PRSIExemptionReason" type="pc:prsiExemptionReason" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers),  FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes).</xs:documentation>
+					<xs:documentation>Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers),  FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes), Other.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRSIClassDetail" type="pp:PRSIClassDetail" minOccurs="0" maxOccurs="unbounded">

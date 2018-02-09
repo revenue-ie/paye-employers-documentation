@@ -4,20 +4,20 @@
   "agentTain": "45879C",
   "taxYear": 2019,
   "totalRPNCount": 5,
-  "dateTimeEffective": "30/01/2019",
+  "dateTimeEffective": "2019-01-30T11:58:02.000+0000",
   "rpns": [{
     "rpnNumber": "5",
     "employeeID": {
       "employeePpsn": "1175228T",
       "employmentID": "1"
     },
-    "dateLastUpdated": "30/01/2019",
+    "rpnIssueDate": "2019-01-30",
     "name": {
       "firstName": "Cathal",
       "familyName": "Blogs"
     },
-    "effectiveDate": "01/01/2019",
-    "endDate": "31/12/2019",
+    "effectiveDate": "2019-01-01",
+    "endDate": "2019-12-31",
     "incomeTaxCalculationBasis": "CUMULATIVE",
     "yearlyTaxCredits": 3300,
     "taxRates": [{
@@ -62,13 +62,13 @@
         "employeePpsn": "1175228T",
         "employmentID": "2"
       },
-      "dateLastUpdated": "30/01/2019",
+      "rpnIssueDate": "2019-01-30",
       "name": {
         "firstName": "Cathal",
         "familyName": "Blogs"
       },
-      "effectiveDate": "01/01/2019",
-      "endDate": "31/12/2019",
+      "effectiveDate": "2019-01-01",
+      "endDate": "2019-12-31",
       "incomeTaxCalculationBasis": "CUMULATIVE",
       "yearlyTaxCredits": 0,
       "taxRates": [{
@@ -87,7 +87,7 @@
       "uscRates": [{
         "index": 3,
         "uscRatePercent": 5,
-        "yearlyUSCCutOff": 39037.84
+        "yearlyUSCRateCutOff": 39037.84
       },
         {
           "index": 4,
@@ -103,13 +103,13 @@
         "employeePpsn": "2548936K",
         "employmentID": "1"
       },
-      "rpnIssueDate": "30/01/2019",
+      "rpnIssueDate": "2019-01-30",
       "name": {
         "firstName": "Caitlin",
         "familyName": "Doe"
       },
-      "effectiveDate": "01/01/2019",
-      "endDate": "31/12/2019",
+      "effectiveDate": "2019-01-01",
+      "endDate": "2019-01-01",
       "incomeTaxCalculationBasis": "CUMULATIVE",
       "yearlyTaxCredits": 3300,
       "taxRates": [{
@@ -154,13 +154,13 @@
         "employeePpsn": "7425001H",
         "employmentID": "1"
       },
-      "rpnIssueDate": "30/01/2019",
+      "rpnIssueDate": "2019-01-30",
       "name": {
         "firstName": "Brian",
         "familyName": "Blogs"
       },
-      "effectiveDate": "01/01/2019",
-      "endDate": "31/12/2019",
+      "effectiveDate": "2019-01-01",
+      "endDate": "2019-12-31",
       "incomeTaxCalculationBasis": "CUMULATIVE",
       "yearlyTaxCredits": 3300,
       "taxRates": [{
@@ -205,13 +205,13 @@
         "employeePpsn": "0852473A",
         "employmentID": "1"
       },
-      "rpnIssueDate": "30/01/2019",
+      "rpnIssueDate": "2019-01-30",
       "name": {
         "firstName": "Seán",
         "familyName": "Blogs"
       },
-      "effectiveDate": "01/01/2019",
-      "endDate": "31/12/2019",
+      "effectiveDate": "2019-01-01",
+      "endDate": "2019-12-31",
       "incomeTaxCalculationBasis": "CUMULATIVE",
       "yearlyTaxCredits": 4950.00,
       "taxRates": [{

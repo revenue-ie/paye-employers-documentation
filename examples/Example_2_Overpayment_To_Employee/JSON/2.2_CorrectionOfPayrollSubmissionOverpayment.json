@@ -20,7 +20,7 @@
         }
       ],
       "incomeTaxCalculationBasis": "CUMULATIVE",
-      "payDate": "18/01/2019",
+      "payDate": "2019-01-18",
       "grossPay": 400,
       "payForIncomeTax": 400,
       "incomeTaxPaid": 16.54,

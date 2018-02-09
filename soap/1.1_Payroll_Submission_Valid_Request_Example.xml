@@ -2,6 +2,9 @@
 ======== Version 1.0 Milestone 1 ====================================
 i. Document updated on 17/11/2017: 
 		Renamed the element: "RunReference" to "PayrollRunReference"
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Timestamp format updated to reflect changes in the schemas
 -->
 
 <soap:Envelope xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -62,8 +65,8 @@ i. Document updated on 17/11/2017:
 				</ds:KeyInfo>
 			</ds:Signature>
 			<wsu:Timestamp wsu:Id="timeStamp">
-				<wsu:Created>2017-09-15T08:53:14.494Z</wsu:Created>
-				<wsu:Expires>2017-09-15T09:03:14.494Z</wsu:Expires>
+				<wsu:Created>2017-09-15T08:53:14.494+01:00</wsu:Created>
+				<wsu:Expires>2017-09-15T09:03:14.494+01:00</wsu:Expires>
 			</wsu:Timestamp>
 		</wsse:Security>
 	</soap:Header>

@@ -13,27 +13,29 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: "PayToDate" to "PayForIncomeTaxToDate"	
 		Renamed the element: "TaxToDate" to "IncomeTaxDeductedToDate"
 		Renamed the element: "USCPaidToDate" to "USCDeductedToDate"	
-
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Date/Time re-formatted
 -->
 <rat:NewRPNResponse xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema.xsd">
 	<rat:EmployerName>Employer2</rat:EmployerName>
 	<rat:EmployerRegistrationNumber>4587256A</rat:EmployerRegistrationNumber>
 	<rat:AgentTain>45879C</rat:AgentTain>
-	<rat:DateTimeEffective>02/02/2019</rat:DateTimeEffective>
+	<rat:DateTimeEffective>2019-02-02T11:58:02.000+00:00</rat:DateTimeEffective>
 	<rat:RPN>
 		<rat:RPNNumber>1</rat:RPNNumber>
 		<rat:EmployeeID>
 			<rat:EmployeePPSN>1112215F</rat:EmployeePPSN>
 			<rat:EmploymentID>1</rat:EmploymentID>
 		</rat:EmployeeID>
-		<rat:RPNIssueDate>02/02/2019</rat:RPNIssueDate>
+		<rat:RPNIssueDate>2019-02-02</rat:RPNIssueDate>
 		<rat:EmployerReference>0001</rat:EmployerReference>
 		<rat:Name>
 			<rat:FirstName>Jessica</rat:FirstName>
 			<rat:FamilyName>Doe</rat:FamilyName>
 		</rat:Name>
-		<rat:EffectiveDate>01/01/2019</rat:EffectiveDate>
-		<rat:EndDate>31/12/2019</rat:EndDate>
+		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
+		<rat:EndDate>2019-12-31</rat:EndDate>
 		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
 		<rat:YearlyTaxCredits>3300</rat:YearlyTaxCredits>
 		<rat:TaxRate>
