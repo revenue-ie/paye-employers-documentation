@@ -8,7 +8,6 @@ ii. Document updated on 17/11/2017:
 		Removed the element: "SubmissionType" 		
 -->
 
--->
 <pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
 	<pay:SubmissionID>08</pay:SubmissionID>
 	<pay:Status>Pending</pay:Status>

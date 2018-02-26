@@ -377,7 +377,7 @@ iv. Document updated on 09/02/2018:
 			</xs:element>
 			<xs:element name="StartDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 15. Employment Start Date. Only include this forthe first time you pay a new employee or if there is a correction being made to the StartDate.</xs:documentation>
+					<xs:documentation>Data Item Ref: 15. Employment Start Date. Only include this for the first time you pay a new employee or if there is a correction being made to the StartDate.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LeaveDate" type="xs:date" minOccurs="0">

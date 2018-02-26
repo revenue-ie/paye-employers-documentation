@@ -102,7 +102,6 @@ iv. Document updated on 09/02/2018:
 			<xs:enumeration value="FamilyMember"/>
 			<xs:enumeration value="Under16"/>
 			<xs:enumeration value="SocialWelfareScheme"/>
-			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IncomeTaxCalculationBasis">

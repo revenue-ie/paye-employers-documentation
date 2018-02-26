@@ -1,11 +1,15 @@
 {
   "requestId": "324XYZ",
-  "employeeID": {
-    "ppsn": "1112215F",
-    "employmentID": "1"
-  },
-  "name": {
-    "firstName": "Jessica",
-    "familyName": "Doe"
-  }
+  "newEmployeeDetails": [{
+
+      "employeeID": {
+        "employeePpsn": "1112215F",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Jessica",
+        "familyName": "Doe"
+      }
+  }]
+
 }

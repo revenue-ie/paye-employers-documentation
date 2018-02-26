@@ -54,7 +54,7 @@
       }
     ],
     "payForUSCToDate": 0,
-    "uscPaidToDate": 0
+    "uscDeductedToDate": 0
   },
     {
       "rpnNumber": "6",
@@ -95,7 +95,7 @@
         }
       ],
       "payForUSCToDate": 0,
-      "uscPaidToDate": 0
+      "uscDeductedToDate": 0
     },
     {
       "rpnNumber": "1",
@@ -115,7 +115,7 @@
       "taxRates": [{
         "index": 1,
         "taxRatePercent": 20,
-        "yearlyUSCRateCutOff": 33800
+        "yearlyRateCutOff": 33800
       },
         {
           "index": 2,
@@ -146,7 +146,7 @@
         }
       ],
       "payForUSCToDate": 0,
-      "uscPaidToDate": 0
+      "uscDeductedToDate": 0
     },
     {
       "rpnNumber": "2",
@@ -166,7 +166,7 @@
       "taxRates": [{
         "index": 1,
         "taxRatePercent": 20,
-        "yearlyUSCRateCutOff": 33800
+        "yearlyRateCutOff": 33800
       },
         {
           "index": 2,
@@ -197,7 +197,7 @@
         }
       ],
       "payForUSCToDate": 2583,
-      "uscPaidToDate": 74.58
+      "uscDeductedToDate": 74.58
     },
     {
       "rpnNumber": "5",
@@ -217,7 +217,7 @@
       "taxRates": [{
         "index": 1,
         "taxRatePercent": 20,
-        "yearlyUSCRateCutOff": 42800
+        "yearlyRateCutOff": 42800
       },
         {
           "index": 2,
@@ -248,7 +248,7 @@
         }
       ],
       "payForUSCToDate": 0,
-      "uscPaidToDate": 0,
+      "uscDeductedToDate": 0,
       "lptToDeduct": 585.00
     }
   ]

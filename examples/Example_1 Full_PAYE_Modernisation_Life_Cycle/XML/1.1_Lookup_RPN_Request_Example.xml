@@ -8,7 +8,6 @@ ii. Document updated on 07/09/2017:
 ======== Version 1.0 Milestone 1 ====================================
 iii. Document updated on 17/11/2017: 
 		Renamed the element: "employeePPSN" to "EmployeePPSN"
-		Renamed the element: "DateLastUpdated" to "RPNIssueDate"
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		Dates re-formatted
@@ -20,7 +19,7 @@ iv. Document updated on 09/02/2018:
 		<rat:Version>Version 10.0</rat:Version>
 	</rat:SoftwareUsed>
 	<rat:TaxYear>2019</rat:TaxYear>
-	<rat:dateLastUpdated>2019-01-10</rat:dateLastUpdated>
+	<rat:DateLastUpdated>2019-01-10</rat:DateLastUpdated>
 	<rat:EmployeeID>
 		<rat:EmployeePPSN>00000008P</rat:EmployeePPSN>
 		<rat:EmploymentID>1</rat:EmploymentID>

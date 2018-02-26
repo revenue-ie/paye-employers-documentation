@@ -20,7 +20,7 @@ iv. Document updated on 09/02/2018:
 		<rat:Version>Version 10.0</rat:Version>
 	</rat:SoftwareUsed>
 	<rat:TaxYear>2019</rat:TaxYear>
-	<rat:dateLastUpdated>2018-01-10</rat:dateLastUpdated>
+	<rat:DateLastUpdated>2018-01-10</rat:DateLastUpdated>
 	<rat:EmployeeID>
 		<rat:EmployeePPSN>1175228T</rat:EmployeePPSN>
 		<rat:EmploymentID>1</rat:EmploymentID>

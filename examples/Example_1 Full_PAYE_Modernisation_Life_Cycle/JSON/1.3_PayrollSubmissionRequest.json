@@ -16,7 +16,7 @@
 			"index": 1,
 			"rateCutOff": 650
 		}],
-		"incomeTaxCalculatonBasis": "CUMULATIVE",
+		"incomeTaxCalculationBasis": "CUMULATIVE",
 		"payDate": "2019-02-01",
 		"grossPay": 307.50,
 		"payForIncomeTax": 307.50,

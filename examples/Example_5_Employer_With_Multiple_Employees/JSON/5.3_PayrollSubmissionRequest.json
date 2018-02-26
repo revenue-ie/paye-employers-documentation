@@ -1,5 +1,6 @@
 {
-  "payslips": [{
+  "payslips": [
+    {
     "lineItemID": "E1-v1",
     "employeeID": {
       "employeePpsn": "1175228T",
@@ -33,8 +34,10 @@
     "payForUSC": 2583.34,
     "uscStatus": "ORDINARY",
     "uscPaid": 70.04,
-    "pensionTracingNumber": [
-      "PB853942"
+    "pensionTracingNumbers": [
+      {
+        "pensionTracingNumber": "PB367419"
+      }
     ],
     "employerRBS": 77.50,
     "employeeRBS": 77.50
@@ -143,8 +146,10 @@
       "payForUSC": 1291.67,
       "uscStatus": "ORDINARY",
       "uscPaid": 37.29,
-      "pensionTracingNumber": [
-        "PB365741"
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB367419"
+        }
       ],
       "employerRBS": 103.33,
       "employeeRBS": 77.50
@@ -186,9 +191,10 @@
       "lptDeducted": 48.75,
       "grossMedicalInsurance": 95,
       "taxableBenefits": 400.00,
-      "pensionTracingNumber": [
-        "PB367419"
-      ],
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB367419"
+        }],
       "employerRBS": 102.69,
       "employeeRBS": 102.69
     },
@@ -213,7 +219,7 @@
         "index": 1,
         "rateCutOff": 0.0
       }],
-      "incomeTacCalculationBasis": "EMERGENCY",
+      "incomeTaxCalculationBasis": "EMERGENCY",
       "exclusionOrder": false,
       "payDate": "2019-01-31",
       "grossPay": 242.35,

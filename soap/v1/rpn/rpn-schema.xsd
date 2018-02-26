@@ -23,6 +23,9 @@ iv. Document updated on 09/02/2018:
 		Dates formatting changed to YYYY-MM-DD 
 		"employment start date" added as an optional request field
 		Dates/times changed to types xs:date and xs:dateTime
+		
+v. Document updated on 26/02/2018:
+		'EmploymentStartDate' changed to field of 'NewEmployeeDetails' property
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types.xsd"/>
@@ -73,7 +76,7 @@ iv. Document updated on 09/02/2018:
 					<xs:documentation>The tax year to which the RPN lookup relates (YYYY).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="dateLastUpdated" type="xs:date" minOccurs="0">
+			<xs:element name="DateLastUpdated" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Parameter to lookup for RPN updated on or since a given date.</xs:documentation>
 				</xs:annotation>
@@ -122,7 +125,7 @@ iv. Document updated on 09/02/2018:
 			</xs:element>
 			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hhmm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
@@ -177,11 +180,6 @@ iv. Document updated on 09/02/2018:
 					<xs:documentation>Details of employees who require a new RPN.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EmploymentStartDate" type="xs:date" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Data Item Ref: N/A. The date which the employee commences (YYYY-MM-DD).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NewRPNResponse">
@@ -206,7 +204,7 @@ iv. Document updated on 09/02/2018:
 			</xs:element>
 			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hhmm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
@@ -402,6 +400,11 @@ iv. Document updated on 09/02/2018:
 			<xs:element name="Name" type="pr:Name">
 				<xs:annotation>
 					<xs:documentation>The employee name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentStartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The date which the employee commences (YYYY-MM-DD).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

@@ -271,7 +271,7 @@
         }, {
           "name" : "employeeIDs",
           "in" : "query",
-          "description" : "Look up multiple empleyees at once. Required to lookup RPN for an employee. Concatenation of Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID(Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated)",
+          "description" : "Look up multiple employees at once. Required to lookup RPN for an employee. Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID(Unique identifier for each distinct employment for an employee) are joined using a hyphen (eg.'1234567T-1'). If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated)",
           "required" : false,
           "type" : "array",
           "items" : {
@@ -364,12 +364,6 @@
           "in" : "query",
           "description" : "Third party software product identifier.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "employmentStartDate",
-          "in" : "query",
-          "description" : "The date the employee commences. ",
-          "required" : false,
           "type" : "string"
         }, {
           "in" : "body",
@@ -507,6 +501,7 @@
         }
       },
       "description" : "Elements required when Employee PPSN is not known."
+   
     },
     "AddressLine" : {
       "type" : "object",
@@ -517,6 +512,7 @@
           "maxLength" : 100
         }
       }
+      
     },
     "BatchStatus" : {
       "type" : "object",
@@ -582,6 +578,7 @@
         }
       },
       "description" : "Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions."
+      
     },
     "CheckPayrollSubmissionResponse" : {
       "type" : "object",
@@ -638,6 +635,7 @@
         }
       },
       "description" : "Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions."
+      
     },
     "InvalidPayslip" : {
       "type" : "object",
@@ -659,6 +657,7 @@
         }
       },
       "description" : "List of Invalid Payslips (if any). Any payslips in this list will not have been saved so the payslips will not feed into the employer liability for the statuatory return for the period. Included when the submission has completed processing (if required)."
+   
     },
     "LineItemID" : {
       "type" : "object",
@@ -746,6 +745,11 @@
         },
         "name" : {
           "$ref" : "#/definitions/RPNName"
+        },
+        "employmentStartDate" : {
+          "description" : "The date the employee commences. ",
+          "type" : "string",
+          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}[+-][0-9]{4}"
         }
       },
       "description" : "Details of employees who require a new RPN."
@@ -914,7 +918,6 @@
     },
     "PayrollSubmission" : {
       "type" : "object",
-      "required" : [ "payslips" ],
       "properties" : {
         "payslips" : {
           "type" : "array",
@@ -1052,7 +1055,7 @@
             "$ref" : "#/definitions/PayslipTaxRate"
           }
         },
-        "incomeTaxCalculatonBasis" : {
+        "incomeTaxCalculationBasis" : {
           "type" : "string",
           "description" : "Data Item Ref: 22. PAYE calculation basis used in the submission. Options allowed are Cumulative, Week1 and Emergency. This is mandatory when the RPN is not used.",
           "enum" : [ "CUMULATIVE", "WEEK_1", "EMERGENCY" ]
@@ -1225,6 +1228,7 @@
         }
       },
       "description" : "List of payslips that make up the employer payroll submission. for Original submissions this should include at least one new payslip. For Correction submissions this should include any new or corrected payslips."
+      
     },
     "PayslipSummary" : {
       "type" : "object",
@@ -1313,6 +1317,7 @@
           "maxLength" : 8
         }
       }
+     
     },
     "RPN" : {
       "type" : "object",

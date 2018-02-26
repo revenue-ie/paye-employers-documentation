@@ -2,8 +2,6 @@
   "employerName": "Employer2",
   "employerRegistrationNumber": "4587256A",
   "agentTain": "45879C",
-  "taxYear": 2019,
-  "totalRPICount": 1,
   "dateTimeEffective": "2019-02-02T11:58:02.000+0000",
   "rpns": [{
     "rpnNumber": "1",
@@ -24,7 +22,7 @@
     "taxRates": [{
       "index": 1,
       "taxRatePercent": 20,
-      "yearlyUSCRateCutOff": 33800
+      "yearlyRateCutOff": 33800
     },
       {
         "index": 2,
@@ -35,6 +33,6 @@
     "incomeTaxDeductedToDate": 290.82,
     "uscStatus": "EXEMPT",
     "payForUSCToDate": 727.05,
-    "uscPaidToDate": 58.16
+    "uscDeductedToDate": 58.16
   }]
 }
