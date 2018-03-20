@@ -21,14 +21,17 @@
 <link href="web-resources/css/site.css" rel="stylesheet">
 <link href="web-resources/css/myDocs.css" rel="stylesheet">
 <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
-
 <script
-    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
 <script src="web-resources/angular-cookie-law.min.js"></script>
 <script>
-        angular.module('documentation', ['angular-cookie-law']);
-        angular.module('documentation').controller('DocumentationController', ['$http', function($http) {
+        angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
+        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', function($http, $sce) {
             var vm = this;
+			vm.success = false;
+			vm.error = false;
             $http.get('web-resources/data.json').then(function(data) {
                 vm.data = data.data;
             })
@@ -47,6 +50,9 @@
         , #eee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+ul {
+  padding-left: 3em;
 }
 </style>
 
@@ -94,6 +100,7 @@
                                         <div class="section-header pull-left" style= "margin-bottom: 1rem;">
                                             <h3>{{data.title}}</h3>
                                         </div>
+											<i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i><br/><br/>
                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
                                             <div class="bold">
                                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-xxs-5">
@@ -110,10 +117,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <div class="card"
+											<div class="card"
                                                 data-ng-repeat="document in data.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
                                                 <div class="col-sm-5 col-xs-5 col-xxs-5">
                                                     <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
+													
                                                 </div>
                                                 <div class="col-sm-2 col-xs-2 col-xxs-3">{{document.type}}</div>
                                                 <div class="col-sm-3 col-xs-3 col-xxs-4"style="padding: 0rem !important;">{{document.version}}</div>

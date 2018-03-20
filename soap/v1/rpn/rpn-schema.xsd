@@ -125,7 +125,7 @@ v. Document updated on 26/02/2018:
 			</xs:element>
 			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hhmm).</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
@@ -204,7 +204,7 @@ v. Document updated on 26/02/2018:
 			</xs:element>
 			<xs:element name="DateTimeEffective" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hhmm).</xs:documentation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">

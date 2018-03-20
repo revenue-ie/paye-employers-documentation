@@ -1,296 +1,312 @@
 {
-    "guide": {
-        "title": "Guide",
-        "cards": [
-            {
-                "link": "guide/Documentation_Guide.pdf",
-                "description": "Documentation Guide",
-                "type": "PDF",
-                "version": "1.0 Milestone 2",
-                "dateLastUpdated": "09/02/2018",
-                "category": "download"
-            },
-            {
-                "link": "Schema Publication Changelog.xlsx",
-                "description": "Schema Publication Changelog",
-                "type": "XLSX",
-                "version": "1.0 Milestone 2",
-                "dateLastUpdated": "26/02/2018",
-                "category": "download"
-            }
-        ]
-    },
+	"PIT": {
+		"title": "Public Interface Testing – Guides and useful info",
+		"cardText": "<p>This section provides documentation which advises users on:</p><ul><li>How to register for access to the Public Interface Testing (PIT) environment for the new PAYE Modernisation services</li><li>How to raise queries or issues arising from either PIT or in relation to our published technical documentation</li><li>Supported conformance test scenarios which can be executed in the PIT environment</li></ul>",
+		"cards": [{
+			"link": "PIT/Conformance Test Scenarios - Connectivity Testing.pdf",
+			"description": "Conformance Test Scenarios - Connectivity Testing",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/03/2018",
+			"category": "download"
+		},
+		{
+			"link": "PIT/PAYE PIT Help Desk User Guide.pdf",
+			"description": "PAYE PIT Help Desk User Guide",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/03/2018",
+			"category": "download"
+		},
+		{
+			"link": "https://revenuehelpdesk.supatools.com/portal/revenueie/register.html",
+			"description": "Help Desk Registration",
+			"type": "LINK",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/03/2018",
+			"category": "LINK"
+		}]
+	},
+	"guide": {
+		"title": "Guide",
+		"cards": [{
+			"link": "guide/Documentation_Guide.pdf",
+			"description": "Documentation Guide",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "Schema Publication Changelog.xlsx",
+			"description": "Schema Publication Changelog",
+			"type": "XLSX",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		}]
+	},
 	"soap": {
 		"title": "PAYE Web Service Specifications (SOAP/XML)",
-		"cards": [
-			{
-				"link": "soap/v1/payroll.wsdl",
-				"description": "Payroll Web Service Definition",
-				"type": "WSDL File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/v1/rpn.wsdl",
-				"description": "RPN Web Service Definition",
-				"type": "WSDL File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/v1/payroll/payroll-schema.xsd",
-				"description": "Payroll Schema",
-				"type": "Schema",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/v1/rpn/rpn-schema.xsd",
-				"description": "RPN Schema",
-				"type": "Schema",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/v1/common/paye-types.xsd",
-				"description": "Common PAYE Types Schema",
-				"type": "Schema",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/soap-schema-reference/webframe.html",
-				"description": "SOAP Schema Reference",
-				"type": "Link",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018",
-                "category": "navigation"
-			},
-			{
-				"link": "soap/SOAP_Web_Service_Integration_Guide.pdf",
-				"description": "SOAP Web Service Integration Guide",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "soap/SOAP_Web_Service_Integration_Guide_Examples.zip",
-				"description": "SOAP Web Service Integration Guide Examples",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			}
-		]
+		"cards": [{
+			"link": "soap/v1/payroll.wsdl",
+			"description": "Payroll Web Service Definition",
+			"type": "WSDL File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/v1/rpn.wsdl",
+			"description": "RPN Web Service Definition",
+			"type": "WSDL File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/v1/payroll/payroll-schema.xsd",
+			"description": "Payroll Schema",
+			"type": "Schema",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/v1/rpn/rpn-schema.xsd",
+			"description": "RPN Schema",
+			"type": "Schema",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/v1/common/paye-types.xsd",
+			"description": "Common PAYE Types Schema",
+			"type": "Schema",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/soap-schema-reference/webframe.html",
+			"description": "SOAP Schema Reference",
+			"type": "Link",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "navigation"
+		},
+		{
+			"link": "soap/SOAP_Web_Service_Integration_Guide.pdf",
+			"description": "SOAP Web Service Integration Guide",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "soap/SOAP_Web_Service_Integration_Guide_Examples.zip",
+			"description": "SOAP Web Service Integration Guide Examples",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		}]
 	},
 	"rest": {
 		"title": "PAYE Web Service Specifications (REST/JSON)",
-		"cards": [
-			{
-				"link": "rest/paye-employers-rest-api.json",
-				"description": "REST Open API Specification",
-				"type": "API File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018",
-                "category": "download"
-			},
-            {
-                "link": "rest/paye-employers-rest-api.html",
-                "description": "REST API Reference",
-                "type": "Link",
-                "version": "1.0 Milestone 2",
-                "dateLastUpdated": "26/02/2018",
-                "category": "navigation"
-            },
-            {
-                "link": "rest/REST_Web_Service_Integration_Guide.pdf",
-                "description": "REST Web Service Integration Guide",
-                "type": "PDF",
-                "version": "1.0 Milestone 2",
-                "dateLastUpdated": "26/02/2018",
-                "category": "download"
-            },
-            {
-                "link": "rest/REST_Web_Service_Integration_Guide_Sample_Http_Messages.zip",
-                "description": "REST Web Service Integration Guide Sample Messages",
-                "type": "ZIP",
-                "version": "1.0 Milestone 2",
-                "dateLastUpdated": "09/02/2018",
-                "category": "download"
-            }
-		]
+		"cards": [{
+			"link": "rest/paye-employers-rest-api.json",
+			"description": "REST Open API Specification",
+			"type": "API File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "rest/paye-employers-rest-api.html",
+			"description": "REST API Reference",
+			"type": "Link",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "navigation"
+		},
+		{
+			"link": "rest/REST_Web_Service_Integration_Guide.pdf",
+			"description": "REST Web Service Integration Guide",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "rest/REST_Web_Service_Integration_Guide_Sample_Http_Messages.zip",
+			"description": "REST Web Service Integration Guide Sample Messages",
+			"type": "ZIP",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		}]
 	},
 	"support": {
 		"title": "Supporting Documentation",
-		"cards": [
-			{
-				"link": "data-items/PAYE Modernisation - Payroll Submission Request Data Items.pdf",
-				"description": "Payroll Submission Request: Data Items",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "data-items/PAYE Modernisation - RPN Data Items.pdf",
-				"description": "RPN : Data Items",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "data-items/Employer_Submission_RPN_Validation_Rules.xlsx",
-				"description": "Validation Rules: Employer Submission And RPN",
-				"type": "Excel File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			}
-		]
+		"cards": [{
+			"link": "data-items/PAYE Modernisation - Payroll Submission Request Data Items.pdf",
+			"description": "Payroll Submission Request: Data Items",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "data-items/PAYE Modernisation - RPN Data Items.pdf",
+			"description": "RPN : Data Items",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "data-items/Employer_Submission_RPN_Validation_Rules.xlsx",
+			"description": "Validation Rules: Employer Submission And RPN",
+			"type": "Excel File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		}]
 	},
 	"examples": {
 		"title": "PAYE Web Service Examples",
-		"cards": [
-			{
-				"link": "examples/PAYE Modernisation - Overview of Web Service Examples.pdf",
-				"description": "PAYE Modernisation Description Of Web Service Examples",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_1 Full_PAYE_Modernisation_Life_Cycle.zip",
-				"description": "Example 1: Full PAYE Modernisation Life Cycle",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_2_Overpayment_To_Employee.zip",
-				"description": "Example 2: Overpayment To Employee   ",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_3_Underpayment_To_Employee.zip",
-				"description": "Example 3: Underpayment To Employee  ",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_4_Amendment_Of_Invalid_Payroll_Submission.zip",
-				"description": "Example 4: Amendment Of Invalid Payroll Submission    ",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018"	,
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_5_Employer_With_Multiple_Employees.zip",
-				"description": "Example 5: Employer With Multiple Employees",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_6_Check_Payroll_Run_Response.zip",
-				"description": "Example 6: Check Payroll Run Response",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_7_Payroll_Submission_with_Invalid_Payslips.zip",
-				"description": "Example 7: Payroll Submission with Invalid Payslips",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_8_Batched_Submissions.zip",
-				"description": "Example 8: Batched Submissions",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "examples/Example_9_Deletion_Of_Incorrect_Payslip_From_Submission.zip",
-				"description": "Example 9: Deletion Of Incorrect Payslip From Submission",
-				"type": "ZIP File",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "26/02/2018",
-                "category": "download"
-			}
-		]
+		"cards": [{
+			"link": "examples/PAYE Modernisation - Overview of Web Service Examples.pdf",
+			"description": "PAYE Modernisation Description Of Web Service Examples",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_1 Full_PAYE_Modernisation_Life_Cycle.zip",
+			"description": "Example 1: Full PAYE Modernisation Life Cycle",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_2_Overpayment_To_Employee.zip",
+			"description": "Example 2: Overpayment To Employee   ",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_3_Underpayment_To_Employee.zip",
+			"description": "Example 3: Underpayment To Employee  ",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_4_Amendment_Of_Invalid_Payroll_Submission.zip",
+			"description": "Example 4: Amendment Of Invalid Payroll Submission    ",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_5_Employer_With_Multiple_Employees.zip",
+			"description": "Example 5: Employer With Multiple Employees",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_6_Check_Payroll_Run_Response.zip",
+			"description": "Example 6: Check Payroll Run Response",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_7_Payroll_Submission_with_Invalid_Payslips.zip",
+			"description": "Example 7: Payroll Submission with Invalid Payslips",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_8_Batched_Submissions.zip",
+			"description": "Example 8: Batched Submissions",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "examples/Example_9_Deletion_Of_Incorrect_Payslip_From_Submission.zip",
+			"description": "Example 9: Deletion Of Incorrect Payslip From Submission",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "26/02/2018",
+			"category": "download"
+		}]
 	},
 	"employee": {
 		"title": "List of Employees",
-		"cards": [
-			{
-				"link": "list-of-employees/employer-schema.xsd",
-				"description": "Employer Schema",
-				"type": "Schema",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "list-of-employees/employee-schema.xsd",
-				"description": "Employee Schema",
-				"type": "Schema",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "list-of-employees/CSV_list-of-employee.pdf",
-				"description": "List Of Employees CSV format",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "list-of-employees/List_of_Employees_Data_Items.pdf",
-				"description": "List Of Employees: Data Items",
-				"type": "PDF",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "list-of-employees/listOfEmployeesSample.xml",
-				"description": "List Of Employees sample XML file",
-				"type": "XML",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			},
-			{
-				"link": "list-of-employees/listOfEmployeesSampleCSV.csv",
-				"description": "List Of Employees sample CSV file",
-				"type": "CSV",
-				"version": "1.0 Milestone 2",
-				"dateLastUpdated": "09/02/2018",
-                "category": "download"
-			}
-		]
+		"cards": [{
+			"link": "list-of-employees/employer-schema.xsd",
+			"description": "Employer Schema",
+			"type": "Schema",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "list-of-employees/employee-schema.xsd",
+			"description": "Employee Schema",
+			"type": "Schema",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "list-of-employees/CSV_list-of-employee.pdf",
+			"description": "List Of Employees CSV format",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "list-of-employees/List_of_Employees_Data_Items.pdf",
+			"description": "List Of Employees: Data Items",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "list-of-employees/listOfEmployeesSample.xml",
+			"description": "List Of Employees sample XML file",
+			"type": "XML",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		},
+		{
+			"link": "list-of-employees/listOfEmployeesSampleCSV.csv",
+			"description": "List Of Employees sample CSV file",
+			"type": "CSV",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "09/02/2018",
+			"category": "download"
+		}]
 	}
 }
