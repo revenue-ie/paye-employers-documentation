@@ -1,0 +1,20 @@
+{
+    "requestType": "createRPN",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2018,
+	"softwareUsed": "OPA",
+	"softwareVersion": "1.0",
+	"requestBody": {
+		"requestId": "request1",
+		"newEmployeeDetails": [{
+			 "employeeID": {
+				 "employeePpsn": "1234567T",
+				 "employmentID": "1"
+			 },
+			 "name": {
+				 "firstName": "John",
+				 "familyName": "Smith"
+			}
+		}]
+	}
+}
