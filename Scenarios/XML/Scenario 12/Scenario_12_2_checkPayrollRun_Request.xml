@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+   <soap:Header/>
+   <soap:Body>
+      <pay:CheckPayrollRunRequest>
+         <pay:EmployerRegistrationNumber>8000075FH</pay:EmployerRegistrationNumber>
+         <pay:TaxYear>2018</pay:TaxYear>
+         <pay:SoftwareUsed>
+            <pay:Name>SOAP UI</pay:Name>
+            <pay:Version>5.4.0</pay:Version>
+         </pay:SoftwareUsed>
+         <pay:PayrollRunReference>Payroll-Run-Reference-12-NextRun</pay:PayrollRunReference>
+      </pay:CheckPayrollRunRequest>
+   </soap:Body>
+</soap:Envelope>	

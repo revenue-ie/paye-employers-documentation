@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PayrollSubmissionResponse xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+    <AcknowledgementStatus>Rejected</AcknowledgementStatus>
+    <ValidationError>
+        <Code>2001</Code>
+        <Path>SubmissionID</Path>
+        <Description>Duplicate submission across Submission ID, Batch Index (if applicable) and Employer Registration
+            Number.
+        </Description>
+    </ValidationError>
+</PayrollSubmissionResponse>
+

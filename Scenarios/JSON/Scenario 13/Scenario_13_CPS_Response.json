@@ -1,0 +1,12 @@
+{
+    "submissionID": "Submission_00001",
+    "status": "COMPLETED",
+    "submissionSummary": {
+        "taxOnIncome": 300.00,
+        "prsi": 150.00,
+        "usc": 200.00,
+        "lpt": 0,
+        "payslipCount": 1,
+        "payslipToDeleteCount": 0
+    }
+}

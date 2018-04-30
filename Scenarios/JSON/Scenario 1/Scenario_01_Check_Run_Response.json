@@ -1,0 +1,33 @@
+{
+    "status": "PROCESSED",
+    "taxOnIncome": 400,
+    "prsi": 480,
+    "usc": 240,
+    "lpt": 0,
+    "submissions": [
+        {
+            "submissionID": "Submission_00001",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 200,
+                "prsi": 480,
+                "usc": 240,
+                "lpt": 0,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        }
+    ],
+    "payslipSummaries": [
+        {
+            "lineItemID": "LineItem-XYZ",
+            "employeeID": {
+                "employeePpsn": "01074096Q",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 200,
+            "prsi": 480,
+            "usc": 240
+        }
+    ]
+}

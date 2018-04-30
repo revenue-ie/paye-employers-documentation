@@ -141,6 +141,7 @@ ul {
                                             </div>
 											<div
                                                 data-ng-repeat="document in data.cards track by $index">
+                                                <div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="document.sub_hedaing" ng-bind-html="vm.generateHTML(document)"></div>
 												<i>
 													<div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="document.explainer" ng-bind-html="vm.generateHTML(document)"></div>
 												</i>
@@ -154,23 +155,22 @@ ul {
                     <div class="row">
                         <h2>Support Facilities</h2>
                         <p>
-                            Revenue provides an email support facility for software
-                            developers. <br /> Contact <a
-                                href="mailto:payemodschemas_support@revenue.ie">payemodschemas_support@revenue.ie</a>
-                            for the following: <br />
+                            Revenue provides a <a
+                                href="https://revenuehelpdesk.supatools.com/login.php">Help Desk</a> facility for software
+                            developers. To register for this facility go <a
+                                href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">here</a>.
+                            <br/><br/>
+							Once registered with the Help Desk you can:<br/>
                         <ul>
-                            <li>Requests for your email address to be added to the email
-                                distribution list for updates to the PAYE Web Service
-                                Specifications</li>
-                            <li>Technical issues encountered validating your files using
-                                the PIT facility or queries in relation to the PAYE Web Service
-                                Specifications, Supporting Documentation or PAYE Web Service
-                                Examples</li>
-                            <li>
+                            
+                            <li>Get access to the Public Interface Testing facility for PAYE Modernisation</li>
+							<li>Raise technical issues encountered while validating your files using the PIT facility</li>
+							<li>Raise queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+                           
+                        </ul>
+						
                                 This documentation is served from Revenue's GitHub PAYE Modernisation repository, which
                                 can be found <a href="https://github.com/revenue-ie/paye-employers-documentation">here</a>.
-                            </li>
-                        </ul>
                         </p>
                     </div>
                 </div>

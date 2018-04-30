@@ -1,0 +1,52 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ-1",
+      "employeeID": {	
+        "employeePpsn": "01074096Q",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "shadowPayroll": false,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 52,
+      "rpnNumber": "3",
+      "exclusionOrder": false,
+      "payDate": "2018-01-16",
+	  "leaveDate": "2018-01-02"
+      "grossPay": -100.00,
+      "payForIncomeTax": -100.00,
+      "incomeTaxPaid": -20.00,
+      "payForEmployeePRSI": -100.00,
+      "payForEmployerPRSI": -100.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 0.00
+        }
+      ],
+      "employeePRSIPaid": -20.00,
+      "employerPRSIPaid": -20.00,
+      "payForUSC": -100.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": -8.00,
+      "lptDeducted": 0.00,
+      "grossMedicalInsurance": 0.00,
+      "shareBasedRemuneration": 0.00,
+      "taxableBenefits": 0.00,
+      "taxableLumpSum": 0.00,
+      "nonTaxableLumpSum": 0.00,
+      "employerRBS": 0.00,
+      "employeeRBS": 0.00,
+      "employerPRSA": 0.00,
+      "employeePRSA": 0.00,
+      "employeeRAC": 0.00,
+      "employeeAVC": 0.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

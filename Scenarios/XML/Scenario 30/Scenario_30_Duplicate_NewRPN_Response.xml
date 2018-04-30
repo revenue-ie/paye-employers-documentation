@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NewRPNResponse xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/">
+    <EmployerRegistrationNumber>08003222HH</EmployerRegistrationNumber>
+    <ValidationError>
+        <Code>4001</Code>
+        <Path>requestID</Path>
+        <Description>Duplicate request across RequestID and Employer Registration Number.</Description>
+    </ValidationError>
+</NewRPNResponse>
+

@@ -1,0 +1,60 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ",
+      "employeeID": {	
+        "employeePpsn": "01070390T",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "startDate": "2018-01-01",
+      "shadowPayroll": true,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 53,
+      "taxCredits": 3300.00,
+      "taxRates": [
+        {
+          "index": 1,
+          "rateCutOff": 34550.00
+        }
+      ],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "exclusionOrder": false,
+      "payDate": "2018-01-18",
+      "grossPay": 2000.00,
+      "payForIncomeTax": 2000.00,
+      "incomeTaxPaid": 300.00,
+      "payForEmployeePRSI": 2000.00,
+      "payForEmployerPRSI": 2000.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 0
+        }
+      ],
+      "employeePRSIPaid": 150.00,
+      "employerPRSIPaid": 150.00,
+      "payForUSC": 2000.00,
+      "uscStatus": "EXEMPT",
+      "uscPaid": 200.00,
+      "lptDeducted": 0.00,
+      "grossMedicalInsurance": 0.00,
+      "shareBasedRemuneration": 0.00,
+      "taxableBenefits": 0.00,
+      "taxableLumpSum": 0.00,
+      "nonTaxableLumpSum": 0.00,
+      "pensionTracingNumbers": [],
+      "employerRBS": 0.00,
+      "employeeRBS": 0.00,
+      "employerPRSA": 0.00,
+      "employeePRSA": 0.00,
+      "employeeRAC": 0.00,
+      "employeeAVC": 0.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

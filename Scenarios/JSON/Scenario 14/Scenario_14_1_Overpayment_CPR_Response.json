@@ -1,0 +1,34 @@
+{
+    "status": "PROCESSED",
+    "taxOnIncome": 400.65,
+    "prsi": 480.44,
+    "usc": 240,
+    "lpt": 100,
+    "submissions": [
+        {
+            "submissionID": "Submission_00001",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 400.65,
+                "prsi": 480.44,
+                "usc": 240,
+                "lpt": 100,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        }
+    ],
+    "payslipSummaries": [
+        {
+            "lineItemID": "LineItem-XYZ-Overpayment",
+            "employeeID": {
+                "employeePpsn": "01070390T",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 400.65,
+            "prsi": 480.44,
+            "usc": 240,
+            "lpt": 100
+        }
+    ]
+}

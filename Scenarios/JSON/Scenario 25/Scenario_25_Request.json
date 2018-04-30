@@ -1,0 +1,58 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ-001",
+      "employeeID": {	
+        "employeePpsn": "01070390T",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "shadowPayroll": false,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 52,
+      "rpnNumber": "3",
+      "exclusionOrder": false,
+      "payDate": "2018-04-11",
+      "grossPay": 2000.00,
+      "payForIncomeTax": 2000.00,
+      "incomeTaxPaid": 400.00,
+      "payForEmployeePRSI": 2000.00,
+      "payForEmployerPRSI": 2000.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 12
+        }
+      ],
+      "employeePRSIPaid": 400.00,
+      "employerPRSIPaid": 400.00,
+      "payForUSC": 2000.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 160.00,
+      "lptDeducted": 0.00,
+      "grossMedicalInsurance": 0.00,
+      "shareBasedRemuneration": 0.00,
+      "taxableBenefits": 0.00,
+      "taxableLumpSum": 0.00,
+      "nonTaxableLumpSum": 0.00,
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB123456"
+        } ,  {
+          "pensionTracingNumber": "PB654321"
+        }
+      ],
+      "employerRBS": 500.00,
+      "employeeRBS": 500.00,
+      "employerPRSA": 500.00,
+      "employeePRSA": 500.00,
+      "employeeRAC": 500.00,
+      "employeeAVC": 500.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

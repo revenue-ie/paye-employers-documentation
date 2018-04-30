@@ -1,0 +1,46 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ-00001",
+      "employeeID": {	
+        "employeePpsn": "01074096Q",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "startDate": "2018-01-01",
+      "shadowPayroll": true,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 53,
+      "rpnNumber": "1",
+      "exclusionOrder": false,
+      "payDate": "2018-01-31",
+      "grossPay": 0.00,
+      "payForIncomeTax": 0.00,
+      "incomeTaxPaid": 0.00,
+      "payForEmployeePRSI": 3000.00,
+      "payForEmployerPRSI": 0.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 1
+        }
+      ],
+      "employeePRSIPaid": 240.00,
+      "employerPRSIPaid": 0.00,
+      "payForUSC": 0.00,
+      "uscStatus": "EXEMPT",
+      "uscPaid": 0.00,
+      "lptDeducted": 0.00,
+      "grossMedicalInsurance": 0.00,
+      "shareBasedRemuneration": 0.00,
+      "taxableBenefits": 0.00,
+      "taxableLumpSum": 0.00,
+      "nonTaxableLumpSum": 0.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

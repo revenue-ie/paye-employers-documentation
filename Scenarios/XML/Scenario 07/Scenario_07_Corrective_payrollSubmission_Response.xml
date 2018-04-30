@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:PayrollSubmissionResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+    <ns2:AcknowledgementStatus>Acknowledged</ns2:AcknowledgementStatus>
+    <ns2:AcknowledgementID>5eac2c0d-8382-4fb9-8871-d31d45846d3c</ns2:AcknowledgementID>
+</ns2:PayrollSubmissionResponse>

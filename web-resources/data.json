@@ -64,8 +64,17 @@
 				"category": "download"
 			},
 			{
+				"link": "Screens/Overview_of_ROS_Payroll_Reporting.pdf",
+				"description": "ROS Payroll Reporting Application Guide",
+				"anchor": "ROS_Payroll_Reporting_Application",
+				"type": "PDF",
+				"version": "1.0 Milestone 2",
+				"dateLastUpdated": "05/04/2018",
+				"category": "download"
+			},
+			{
 				"link": "Screens/ROS_Payroll_Reporting_Message_guide.pdf",
-				"description": "ROS Payroll Reporting Message guide",
+				"description": "ROS Payroll Reporting Message Guide",
 				"anchor": "ROS_Payroll_Reporting_Message_guide",
 				"type": "PDF",
 				"version": "1.0 Milestone 2",
@@ -379,6 +388,38 @@
 			"type": "ZIP File",
 			"version": "1.0 Milestone 2",
 			"dateLastUpdated": "26/02/2018",
+			"sub_heading" : "Additional Payroll Scenarios",
+			"category": "download"
+		},
+		{
+			"link": "Scenarios/PSDA_Scenarios.pdf",
+			"description": "Payroll Scenarios",
+			"anchor": "Scenarios_Document",
+			"type": "PDF",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/04/2018",
+			"category": "download"
+		},
+		{
+			"link": "Scenarios/XML.zip",
+			"description": "Additional Example Scenarios - XML",
+			"explainer": "This ZIP file contains 30 diverse XML examples of payroll scenarios",
+			"explainerIndex": "2",
+			"anchor": "Scenarios",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/04/2018",
+			"category": "download"
+		},
+		{
+			"link": "Scenarios/JSON.zip",
+			"description": "Additional Example Scenarios - JSON",
+			"explainer": "This ZIP file contains 30 diverse JSON examples of payroll scenarios",
+			"explainerIndex": "3",
+			"anchor": "Scenarios",
+			"type": "ZIP File",
+			"version": "1.0 Milestone 2",
+			"dateLastUpdated": "20/04/2018",
 			"category": "download"
 		}]
 	},
