@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rr:LookupPayrollDetailsByReturnPeriodRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rr="http://www.ros.ie/schemas/paye-employers/v1/payroll_return/" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll_return/returns_reconciliation.xsd">
+	<rr:EmployerRegistrationNumber>1234567T</rr:EmployerRegistrationNumber>
+	<rr:AgentTain>45879C</rr:AgentTain>
+	<rr:SoftwareUsed>
+		<rr:Name>The Software</rr:Name>
+		<rr:Version>Version 10.0</rr:Version>
+	</rr:SoftwareUsed>
+	<rr:ReturnPeriod>
+		<rr:PeriodStartDate>2019-01-01</rr:PeriodStartDate>
+		<rr:PeriodEndDate>2019-01-31</rr:PeriodEndDate>
+	</rr:ReturnPeriod>
+</rr:LookupPayrollDetailsByReturnPeriodRequest>

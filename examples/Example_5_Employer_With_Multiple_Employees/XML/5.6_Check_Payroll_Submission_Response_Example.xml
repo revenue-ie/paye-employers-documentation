@@ -5,15 +5,18 @@ i. Document Created 30/06/2017
 ======== Version 1.0 Milestone 1 ====================================
 iii. Document updated on 17/11/2017: 
 		Renamed the element: "RunReference" to "PayrollRunReference"
-		Removed the element: "SubmissionType" 								
+		Removed the element: "SubmissionType"
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 <pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
 	<pay:SubmissionID>05</pay:SubmissionID>
-	<pay:Status>Completed</pay:Status>
+	<pay:Status>COMPLETED</pay:Status>
 	<pay:BatchCount>6</pay:BatchCount>
 	<pay:BatchStatus>
 		<pay:Index>1</pay:Index>
-		<pay:Status>Completed</pay:Status>
+		<pay:Status>COMPLETED</pay:Status>
 	</pay:BatchStatus>
 	<pay:SubmissionHeader>
 		<pay:EmployerRegistrationNumber>4587256A</pay:EmployerRegistrationNumber>

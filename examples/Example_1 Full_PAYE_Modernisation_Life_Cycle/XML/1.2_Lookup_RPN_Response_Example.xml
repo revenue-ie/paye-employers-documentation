@@ -18,6 +18,9 @@ iii. Document updated on 17/11/2017:
 iv. Document updated on 09/02/2018:
 		Date/Time re-formatted
 
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 <rat:LookupRPNResponse xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema.xsd">
 	<rat:EmployerName>Employer1</rat:EmployerName>
@@ -38,7 +41,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:YearlyTaxCredits>3300.00</rat:YearlyTaxCredits>
 		<rat:TaxRate>
 			<rat:Index>1</rat:Index>
@@ -51,7 +54,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>1230.00</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>0.00</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>1</rat:Index>
 			<rat:USCRatePercent>.5</rat:USCRatePercent>

@@ -26,6 +26,12 @@ iv. Document updated on 09/02/2018:
 		Dates formatting changed to YYYY-MM-DD 
 		New PRSI Exemption Reason 'Other' added
 		Dates updated to type xs:date
+		
+======== Version 1.0 Release Candidate 2 ====================================
+iv. Document updated on 17/05/2018:
+		Enum values changed from CamelCase to standard Java enum format (e.g. BiAnnual to BI_ANNUAL) for following fields
+		payFrequency
+		directorType
 	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
@@ -880,16 +886,16 @@ iv. Document updated on 09/02/2018:
 			<xs:documentation>Indicates the frequency of the employees payments.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Weekly"/>
-			<xs:enumeration value="Fortnightly"/>
-			<xs:enumeration value="Monthly"/>
-			<xs:enumeration value="FourWeekly"/>
-			<xs:enumeration value="TwiceMonthly"/>
-			<xs:enumeration value="Quarterly"/>
-			<xs:enumeration value="BiAnnual"/>
-			<xs:enumeration value="WkBasedMonthly"/>
-			<xs:enumeration value="Annual"/>
-			<xs:enumeration value="Other"/>
+			<xs:enumeration value="WEEKLY"/>
+			<xs:enumeration value="FORTNIGHTLY"/>
+			<xs:enumeration value="MONTHLY"/>
+			<xs:enumeration value="FOUR_WEEKLY"/>
+			<xs:enumeration value="TWICE_MONTHLY"/>
+			<xs:enumeration value="QUARTERLY"/>
+			<xs:enumeration value="BI_ANNUAL"/>
+			<xs:enumeration value="WK_BASED_MONTHLY"/>
+			<xs:enumeration value="ANNUAL"/>
+			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="directorType">
@@ -897,8 +903,8 @@ iv. Document updated on 09/02/2018:
 			<xs:documentation>This should be included at the start of a director's employment or if there is any change</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Proprietary"/>
-			<xs:enumeration value="NonProprietary"/>
+			<xs:enumeration value="PROPRIETARY"/>
+			<xs:enumeration value="NON_PROPRIETARY"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

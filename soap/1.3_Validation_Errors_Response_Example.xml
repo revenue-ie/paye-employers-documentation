@@ -11,6 +11,8 @@ i. Document updated on 17/11/2017:
 ======== Version 1.0 Milestone 2 ====================================
 ii. Document updated on 09/02/2018:
 		Date formatting changed to reflect changes in the schemas
+======== Version 1.0 Release Candidate 2 ====================================
+iv. Document updated on 17/05/2018
 -->
 
 <env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">

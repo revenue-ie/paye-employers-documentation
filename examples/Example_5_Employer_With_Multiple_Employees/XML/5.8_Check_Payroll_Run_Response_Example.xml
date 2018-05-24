@@ -8,16 +8,19 @@ ii. Document updated on 07/09/2017:
 ====== Version 1.0 Milestone 1 ====================================
 iii. Document updated on 17/11/2017: 
 		Renamed the element: "PPSN" to "EmployeePPSN"
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 <pay:CheckPayrollRunResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
-	<pay:Status>Processed</pay:Status>
+	<pay:Status>PROCESSED</pay:Status>
 	<pay:TaxOnIncome>1334.48</pay:TaxOnIncome>
 	<pay:PRSI>1535.55</pay:PRSI>
 	<pay:USC>333.94</pay:USC>
 	<pay:LPT>48.75</pay:LPT>
 	<pay:Submission>
 		<pay:SubmissionID>05</pay:SubmissionID>
-		<pay:Status>Completed</pay:Status>
+		<pay:Status>COMPLETED</pay:Status>
 		<pay:SubmissionSummary>
 			<pay:TaxOnIncome>1334.48</pay:TaxOnIncome>
 			<pay:PRSI>1535.55</pay:PRSI>

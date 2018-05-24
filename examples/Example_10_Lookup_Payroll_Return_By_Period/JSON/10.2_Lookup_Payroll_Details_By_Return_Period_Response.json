@@ -1,0 +1,45 @@
+{
+  "employerReg": "1234567T",
+  "agentTAIN": "12345A",
+  "returnPeriod": {
+    "periodStartDate": "2019-01-01T00:00:00Z",
+    "periodEndDate": "2019-01-31T23:59:59Z"
+  },
+  "dateLastUpdated": "2019-02-06T12:38:28.726Z",
+  "version": "12456R",
+  "periodSummary": {
+    "taxOnIncome": 3000,
+    "prsi": 6000,
+    "usc": 4500,
+    "lpt": 1200
+  },
+  "payrollRunDetails": [
+    {
+      "payrollRunReference": "2019_Jan_Week1",
+      "runDate": "2019-01-12T12:38:28.726Z",
+      "multiPeriod": false,
+      "taxOnIncome": 1000,
+      "prsi": 2000,
+      "usc": 1500,
+      "lpt": 400
+    }
+	{
+      "payrollRunReference": "2019_Jan_Week2",
+      "runDate": "2019-01-20T12:38:28.726Z",
+      "multiPeriod": true,
+      "taxOnIncome": 1000,
+      "prsi": 2000,
+      "usc": 1500,
+      "lpt": 400
+    }
+	{
+      "payrollRunReference": "2019_Jan_Week3",
+      "runDate": "2019-01-28T12:38:28.726Z",
+      "multiPeriod": true,
+      "taxOnIncome": 1000,
+      "prsi": 2000,
+      "usc": 1500,
+      "lpt": 400
+    }
+  ]
+}

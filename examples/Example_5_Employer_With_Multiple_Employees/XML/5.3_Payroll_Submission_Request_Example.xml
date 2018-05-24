@@ -13,7 +13,10 @@ iii. Document updated on 17/11/2017:
 		Removed the element: "SubmissionType" 
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
-		Date re-formatted					
+		Date re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 
 <pay:PayrollSubmissionRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
@@ -42,21 +45,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>Cathal</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Monthly</pay:PayFrequency>
+		<pay:PayFrequency>MONTHLY</pay:PayFrequency>
 		<pay:RPNNumber>5</pay:RPNNumber>
 		<pay:TaxCredits>275.00</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>2505.84</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-01-31</pay:PayDate>
 		<pay:GrossPay>2583.34</pay:GrossPay>
 		<pay:PayForIncomeTax>2505.84</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>226.17</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>2583.34</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>2583.34</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
 			<pay:InsurableWeeks>5</pay:InsurableWeeks>
@@ -64,7 +67,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>103.33</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>277.71</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>2583.34</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>70.04</pay:USCPaid>
 		<pay:PensionTracingNumber>PB853942</pay:PensionTracingNumber>
 		<pay:EmployerRBS>77.50</pay:EmployerRBS>
@@ -80,21 +83,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>Cathal</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Monthly</pay:PayFrequency>
+		<pay:PayFrequency>MONTHLY</pay:PayFrequency>
 		<pay:RPNNumber>6</pay:RPNNumber>
 		<pay:TaxCredits>0.00</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>310.83</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-01-31</pay:PayDate>
 		<pay:GrossPay>1200.00</pay:GrossPay>
 		<pay:PayForIncomeTax>1200.00</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>417.84</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>1200.00</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>1200.00</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
 			<pay:InsurableWeeks>5</pay:InsurableWeeks>
@@ -102,7 +105,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>48.00</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>129.00</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>1200.00</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>60.00</pay:USCPaid>
 	</pay:Payslip>
 	<pay:Payslip>
@@ -115,21 +118,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>Caitlin</pay:FirstName>
 			<pay:FamilyName>Doe</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Weekly</pay:PayFrequency>
+		<pay:PayFrequency>WEEKLY</pay:PayFrequency>
 		<pay:RPNNumber>1</pay:RPNNumber>
 		<pay:TaxCredits>63.46</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>650</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-01-31</pay:PayDate>
 		<pay:GrossPay>185.00</pay:GrossPay>
 		<pay:PayForIncomeTax>185.00</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>0</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>185.00</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>185.00</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A0</pay:PRSIClass>
 			<pay:InsurableWeeks>2</pay:InsurableWeeks>
@@ -137,7 +140,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>0</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>19.89</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>185</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>.93</pay:USCPaid>
 	</pay:Payslip>
 	<pay:Payslip>
@@ -150,21 +153,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>Brian</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Fortnightly</pay:PayFrequency>
+		<pay:PayFrequency>FORTNIGHTLY</pay:PayFrequency>
 		<pay:RPNNumber>2</pay:RPNNumber>
 		<pay:TaxCredits>126.92</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>1300</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-02-07</pay:PayDate>
 		<pay:GrossPay>1291.67</pay:GrossPay>
 		<pay:PayForIncomeTax>1220.17</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>117.11</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>1291.67</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>1291.67</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
 			<pay:InsurableWeeks>6</pay:InsurableWeeks>
@@ -172,7 +175,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>103.33</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>277.71</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>1291.67</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>37.29</pay:USCPaid>
 		<pay:PensionTracingNumber>PB365741</pay:PensionTracingNumber>
 		<pay:EmployerRBS>103.33</pay:EmployerRBS>
@@ -188,21 +191,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>Seán</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Monthly</pay:PayFrequency>
+		<pay:PayFrequency>MONTHLY</pay:PayFrequency>
 		<pay:RPNNumber>5</pay:RPNNumber>
 		<pay:TaxCredits>412.50</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>3566.67</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-01-31</pay:PayDate>
 		<pay:GrossPay>4108.33</pay:GrossPay>
 		<pay:PayForIncomeTax>4005.64</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>476.42</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>4108.33</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>4108.33</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
 			<pay:InsurableWeeks>5</pay:InsurableWeeks>
@@ -210,7 +213,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>164.33</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>441.65</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>4108.33</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>146.29</pay:USCPaid>
 		<pay:LPTDeducted>48.75</pay:LPTDeducted>
 		<pay:GrossMedicalInsurance>95</pay:GrossMedicalInsurance>
@@ -229,17 +232,17 @@ iv. Document updated on 09/02/2018:
 		<pay:Address>
 			<pay:AddressLine>No 3 Hynes Yard</pay:AddressLine>
 			<pay:AddressLine>Mountbellew</pay:AddressLine>
-			<pay:County>Wexford</pay:County>
+			<pay:County>WEXFORD</pay:County>
 		</pay:Address>
 		<pay:DateOfBirth>2000-01-04</pay:DateOfBirth>
 		<pay:StartDate>2019-01-10</pay:StartDate>
-		<pay:PayFrequency>Weekly</pay:PayFrequency>
+		<pay:PayFrequency>WEEKLY</pay:PayFrequency>
 		<pay:TaxCredits>0.00</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>2</pay:Index>
 			<pay:RateCutOff>0</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Emergency</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>EMERGENCY</pay:IncomeTaxCalculationBasis>
 		<pay:ExclusionOrder>false</pay:ExclusionOrder>
 		<pay:PayDate>2019-01-31</pay:PayDate>
 		<pay:GrossPay>242.35</pay:GrossPay>
@@ -247,7 +250,7 @@ iv. Document updated on 09/02/2018:
 		<pay:IncomeTaxPaid>96.94</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>242.35</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>242.35</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A0</pay:PRSIClass>
 			<pay:InsurableWeeks>3</pay:InsurableWeeks>
@@ -255,7 +258,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>0.00</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>20.60</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>242.35</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>19.39</pay:USCPaid>
 	</pay:Payslip>
 </pay:PayrollSubmissionRequest>

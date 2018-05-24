@@ -11,6 +11,9 @@ iii. Document updated on 17/11/2017:
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		Dates re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 <rat:LookupRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema.xsd">
 	<rat:EmployerRegistrationNumber>3980609P</rat:EmployerRegistrationNumber>

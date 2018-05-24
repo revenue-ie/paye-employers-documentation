@@ -17,6 +17,9 @@ iii. Document updated on 17/11/2017:
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		Date/Time re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 <rat:LookupRPNResponse xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema.xsd">
 	<rat:EmployerName>Employer2</rat:EmployerName>
@@ -38,7 +41,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:ExclusionOrder>false</rat:ExclusionOrder>
 		<rat:YearlyTaxCredits>3300</rat:YearlyTaxCredits>
 		<rat:TaxRate>
@@ -52,7 +55,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>0</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>0</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>1</rat:Index>
 			<rat:USCRatePercent>.5</rat:USCRatePercent>
@@ -74,7 +77,7 @@ iv. Document updated on 09/02/2018:
 		</rat:USCRate>
 		<rat:PayForUSCToDate>0</rat:PayForUSCToDate>
 		<rat:USCDeductedToDate>0</rat:USCDeductedToDate>
-		<rat:PRSIExempt>false</rat:PRSIExempt>
+		<rat:PRSIEXEMPT>false</rat:PRSIEXEMPT>
 	</rat:RPN>
 	<rat:RPN>
 		<rat:RPNNumber>6</rat:RPNNumber>
@@ -89,7 +92,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:ExclusionOrder>false</rat:ExclusionOrder>
 		<rat:YearlyTaxCredits>0</rat:YearlyTaxCredits>
 		<rat:TaxRate>
@@ -103,7 +106,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>0</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>0</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>3</rat:Index>
 			<rat:USCRatePercent>5</rat:USCRatePercent>
@@ -115,7 +118,7 @@ iv. Document updated on 09/02/2018:
 		</rat:USCRate>
 		<rat:PayForUSCToDate>0</rat:PayForUSCToDate>
 		<rat:USCDeductedToDate>0</rat:USCDeductedToDate>
-		<rat:PRSIExempt>false</rat:PRSIExempt>
+		<rat:PRSIEXEMPT>false</rat:PRSIEXEMPT>
 	</rat:RPN>
 	<rat:RPN>
 		<rat:RPNNumber>1</rat:RPNNumber>
@@ -130,7 +133,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:ExclusionOrder>false</rat:ExclusionOrder>
 		<rat:YearlyTaxCredits>3300.00</rat:YearlyTaxCredits>
 		<rat:TaxRate>
@@ -144,7 +147,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>0.00</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>0.00</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>1</rat:Index>
 			<rat:USCRatePercent>.5</rat:USCRatePercent>
@@ -166,7 +169,7 @@ iv. Document updated on 09/02/2018:
 		</rat:USCRate>
 		<rat:PayForUSCToDate>0.00</rat:PayForUSCToDate>
 		<rat:USCDeductedToDate>0.00</rat:USCDeductedToDate>
-		<rat:PRSIExempt>false</rat:PRSIExempt>
+		<rat:PRSIEXEMPT>false</rat:PRSIEXEMPT>
 	</rat:RPN>
 	<rat:RPN>
 		<rat:RPNNumber>2</rat:RPNNumber>
@@ -181,7 +184,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:ExclusionOrder>false</rat:ExclusionOrder>
 		<rat:YearlyTaxCredits>3300.00</rat:YearlyTaxCredits>
 		<rat:TaxRate>
@@ -195,7 +198,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>2583</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>241.6</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>1</rat:Index>
 			<rat:USCRatePercent>.5</rat:USCRatePercent>
@@ -217,7 +220,7 @@ iv. Document updated on 09/02/2018:
 		</rat:USCRate>
 		<rat:PayForUSCToDate>2583</rat:PayForUSCToDate>
 		<rat:USCDeductedToDate>74.58</rat:USCDeductedToDate>
-		<rat:PRSIExempt>false</rat:PRSIExempt>
+		<rat:PRSIEXEMPT>false</rat:PRSIEXEMPT>
 	</rat:RPN>
 	<rat:RPN>
 		<rat:RPNNumber>5</rat:RPNNumber>
@@ -232,7 +235,7 @@ iv. Document updated on 09/02/2018:
 		</rat:Name>
 		<rat:EffectiveDate>2019-01-01</rat:EffectiveDate>
 		<rat:EndDate>2019-12-31</rat:EndDate>
-		<rat:IncomeTaxCalculationBasis>Cumulative</rat:IncomeTaxCalculationBasis>
+		<rat:IncomeTaxCalculationBasis>CUMULATIVE</rat:IncomeTaxCalculationBasis>
 		<rat:ExclusionOrder>false</rat:ExclusionOrder>
 		<rat:YearlyTaxCredits>4950.00</rat:YearlyTaxCredits>
 		<rat:TaxRate>
@@ -246,7 +249,7 @@ iv. Document updated on 09/02/2018:
 		</rat:TaxRate>
 		<rat:PayForIncomeTaxToDate>0</rat:PayForIncomeTaxToDate>
 		<rat:IncomeTaxDeductedToDate>0</rat:IncomeTaxDeductedToDate>
-		<rat:USCStatus>Ordinary</rat:USCStatus>
+		<rat:USCStatus>ORDINARY</rat:USCStatus>
 		<rat:USCRate>
 			<rat:Index>1</rat:Index>
 			<rat:USCRatePercent>.5</rat:USCRatePercent>
@@ -269,6 +272,6 @@ iv. Document updated on 09/02/2018:
 		<rat:PayForUSCToDate>0</rat:PayForUSCToDate>
 		<rat:USCDeductedToDate>0</rat:USCDeductedToDate>
 		<rat:LPTToDeduct>585.00</rat:LPTToDeduct>
-		<rat:PRSIExempt>false</rat:PRSIExempt>
+		<rat:PRSIEXEMPT>false</rat:PRSIEXEMPT>
 	</rat:RPN>
 </rat:LookupRPNResponse>

@@ -5,6 +5,8 @@ i. Document updated on 17/11/2017:
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		Timestamp format updated to reflect changes in the schemas
+======== Version 1.0 Release Candidate 2 ====================================
+iv. Document updated on 17/05/2018
 -->
 
 <soap:Envelope xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">

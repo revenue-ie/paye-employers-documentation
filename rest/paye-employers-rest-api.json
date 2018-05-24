@@ -8,23 +8,23 @@
     "contact" : {
       "name" : "PAYE Modernisation Schema Support",
       "url" : "https://revenue-ie.github.io/paye-employers-documentation/",
-      "email" : "payemodschemas_support@revenue.ie"
+      "email" : null
     }
   },
   "host" : "softwaretest.ros.ie",
-  "basePath" : "/paye/employers/v1/rest",
+  "basePath" : "/paye-employers/v1/rest",
   "tags" : [ {
-    "name" : "Payroll",
-    "description" : "PAYE Employers Payroll REST API"
+    "name" : "PAYE Employers Payroll REST API"
   }, {
-    "name" : "RPN",
-    "description" : "PAYE Employers RPN REST API"
+    "name" : "PAYE Employers RPN REST API"
+  }, {
+    "name" : "Period Return REST API"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
     "/payroll/{employerRegistrationNumber}/{taxYear}/{payrollRunReference}" : {
       "get" : {
-        "tags" : [ "Payroll" ],
+        "tags" : [ "PAYE Employers Payroll REST API" ],
         "summary" : "Check PayrollRun Request",
         "description" : "Request to check the current status of an Employer's PAYE Payroll Run, based on the RunReference.",
         "operationId" : "checkPayrollRunComplete",
@@ -44,7 +44,7 @@
         }, {
           "name" : "payrollRunReference",
           "in" : "path",
-          "description" : "Used to identify the Payroll event that the submission refers to e.g. â€˜Site 1 Week 1â€™.",
+          "description" : "Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
           "required" : true,
           "type" : "string"
         }, {
@@ -93,7 +93,7 @@
     },
     "/payroll/{employerRegistrationNumber}/{taxYear}/{payrollRunReference}/{submissionID}" : {
       "get" : {
-        "tags" : [ "Payroll" ],
+        "tags" : [ "PAYE Employers Payroll REST API" ],
         "summary" : "Check Payroll Submission Request",
         "description" : "Request to check the current status of an Employer's PAYE Payroll Submission, based on the Submission ID.",
         "operationId" : "checkPayrollSubmissionComplete",
@@ -113,7 +113,7 @@
         }, {
           "name" : "payrollRunReference",
           "in" : "path",
-          "description" : "Used to identify the Payroll event that the submission refers to e.g. â€˜Site 1 Week 1â€™.",
+          "description" : "Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
           "required" : true,
           "type" : "string"
         }, {
@@ -166,7 +166,7 @@
         }
       },
       "post" : {
-        "tags" : [ "Payroll" ],
+        "tags" : [ "PAYE Employers Payroll REST API" ],
         "summary" : "Payroll Submission Request",
         "description" : "Employer's PAYE Payroll Submission Request.",
         "operationId" : "createPayrollSubmission",
@@ -188,7 +188,7 @@
         }, {
           "name" : "payrollRunReference",
           "in" : "path",
-          "description" : "Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. â€˜Site 1 Week 1â€™.",
+          "description" : "Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
           "required" : true,
           "type" : "string"
         }, {
@@ -248,42 +248,36 @@
         }
       }
     },
-    "/rpn/{employerRegistrationNumber}/{taxYear}" : {
+    "/returns_reconciliation/{employerRegistrationNumber}" : {
       "get" : {
-        "tags" : [ "RPN" ],
-        "summary" : "Look Up RPN ByEmployer and optionally filter by date last updated and/or employee id's",
-        "description" : "Request to get an RPN by Employer Registration Number. Additionally",
-        "operationId" : "lookUpRPNByEmployer",
+        "tags" : [ "Period Return REST API" ],
+        "summary" : "Look Up Payroll by Return Period",
+        "description" : "Look up payroll by returns period based on a range of dates.",
+        "operationId" : "lookUpPayrollReturnByPeriod",
+        "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "employerRegistrationNumber",
-          "in" : "path",
+          "in" : "body",
+          "name" : "body",
           "description" : "Employer's PAYE Registration Number.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "taxYear",
-          "in" : "path",
-          "description" : "The tax year to which the RPN lookup relates (YYYY).",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "employeeIDs",
-          "in" : "query",
-          "description" : "Look up multiple employees at once. Required to lookup RPN for an employee. Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID(Unique identifier for each distinct employment for an employee) are joined using a hyphen (eg.'1234567T-1'). If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated)",
           "required" : false,
-          "type" : "array",
-          "items" : {
+          "schema" : {
             "type" : "string"
-          },
-          "collectionFormat" : "multi"
+          }
         }, {
-          "name" : "dateLastUpdated",
+          "name" : "periodStartDate",
           "in" : "query",
-          "description" : "Parameter to lookup for RPN updated on or since a given date.",
-          "required" : false,
-          "type" : "string"
+          "description" : "Period start date e.g. 01/01/2019.",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "periodEndDate",
+          "in" : "query",
+          "description" : "Period end date e.g.31/01/2019.",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
         }, {
           "name" : "agentTain",
           "in" : "query",
@@ -302,6 +296,87 @@
           "description" : "Version of third party software product.",
           "required" : true,
           "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/LookupPayrollDetailsByReturnPeriodResponse"
+            }
+          },
+          "400" : {
+            "description" : "Bad request. Invalid path, parameter or value supplied"
+          },
+          "401" : {
+            "description" : "Authentication is required or has failed"
+          },
+          "403" : {
+            "description" : "Insufficient permissions to process request"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "405" : {
+            "description" : "Request method is not supported for the requested resource"
+          }
+        }
+      }
+    },
+    "/rpn/{employerRegistrationNumber}/{taxYear}" : {
+      "get" : {
+        "tags" : [ "PAYE Employers RPN REST API" ],
+        "summary" : "Look Up RPN ByEmployer and optionally filter by date last updated and/or employee id's",
+        "description" : "Request to get an RPN by Employer Registration Number. Additionally",
+        "operationId" : "lookUpRPNByEmployer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "employerRegistrationNumber",
+          "in" : "path",
+          "description" : "Employer's PAYE Registration Number.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "taxYear",
+          "in" : "path",
+          "description" : "The tax year to which the RPN lookup relates (YYYY).",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "dateLastUpdated",
+          "in" : "query",
+          "description" : "Parameter to lookup for RPN updated on or since a given date.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "agentTain",
+          "in" : "query",
+          "description" : "Tax Advisor Identification Number. Required if payroll submission is filed by agent on behalf of employer.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "softwareUsed",
+          "in" : "query",
+          "description" : "Name of third party software product.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "softwareVersion",
+          "in" : "query",
+          "description" : "Version of third party software product.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "employeeIDs",
+          "in" : "query",
+          "description" : "Look up multiple employees at once. Required to lookup RPN for an employee. Concatenation of Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID(Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated)",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
         } ],
         "responses" : {
           "200" : {
@@ -328,10 +403,10 @@
         }
       },
       "post" : {
-        "tags" : [ "RPN" ],
-        "summary" : "Create New RPN",
+        "tags" : [ "PAYE Employers RPN REST API" ],
+        "summary" : "Create temporary RPN.",
         "description" : "Create new RPN.",
-        "operationId" : "createNewRPN",
+        "operationId" : "createTemporaryRpn",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -350,19 +425,19 @@
         }, {
           "name" : "agentTain",
           "in" : "query",
-          "description" : "Tax Advisor Identification Number. Required if payroll submission filed by agent on behalf of employer.",
+          "description" : "Tax Advisor Identification Number. Required if payroll submission is filed by agent on behalf of employer.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "softwareUsed",
           "in" : "query",
-          "description" : "Third party software product identifier.",
+          "description" : "Name of third party software product.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "softwareVersion",
           "in" : "query",
-          "description" : "Third party software product identifier.",
+          "description" : "Version of third party software product.",
           "required" : true,
           "type" : "string"
         }, {
@@ -400,7 +475,7 @@
     },
     "/rpn/{employerRegistrationNumber}/{taxYear}/{employeeId}" : {
       "get" : {
-        "tags" : [ "RPN" ],
+        "tags" : [ "PAYE Employers RPN REST API" ],
         "summary" : "Look Up RPN By Employee",
         "description" : "Request to get an RPN by Employee ID(employee Ppsn and employment ID).",
         "operationId" : "lookUpRPNByEmployee",
@@ -421,7 +496,7 @@
         }, {
           "name" : "employeeId",
           "in" : "path",
-          "description" : "Required to lookup RPN for an employee. Concatenation of Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID(Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated)",
+          "description" : "Required to lookup RPN for an employee. Concatenation of Employee's PPS Number(Used to identify the employee to which the RPN relates) and Employee's Employment ID e.g. {PPS_Number}-{Employment_ID}(Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated e.g. {PPS_Number}-)",
           "required" : true,
           "type" : "string"
         }, {
@@ -475,7 +550,7 @@
       "properties" : {
         "addressLines" : {
           "type" : "array",
-          "description" : "Data Item Ref: 11(a)-(c). The address will be Mandatory if the PPSN isnâ€™t available. Line 1 of the employee's address is required.",
+          "description" : "Data Item Ref: 11(a)-(c). The address will be Mandatory if the PPSN isn’t available. Line 1 of the employee's address is required.",
           "items" : {
             "$ref" : "#/definitions/AddressLine"
           },
@@ -485,7 +560,7 @@
         "county" : {
           "type" : "string",
           "description" : "Data Item Ref: 11(d). County element of the employee's address (required).",
-          "enum" : [ "CARLOW", "CAVAN", "CLARE", "CORK", "DONEGAL", "DUBLIN", "GALWAY", "KERRY", "KILDARE", "KILKENNY", "LAOIS", "LEITRIM", "LIMERICK", "LONGFORD", "LOUTH", "MAYO", "MEATH", "MONAGHAN", "OFFALY", "ROSCOMMON", "SLIGO", "TIPPERARY", "WATERFORD", "WEXFORD", "WESTMEATH", "WICKLOW" ]
+          "enum" : [ "ANTRIM", "ARMAGH", "CARLOW", "CAVAN", "CLARE", "CORK", "DERRY", "DONEGAL", "DOWN", "DUBLIN", "FERMANAGH", "GALWAY", "KERRY", "KILDARE", "KILKENNY", "LAOIS", "LEITRIM", "LIMERICK", "LONGFORD", "LOUTH", "MAYO", "MEATH", "MONAGHAN", "OFFALY", "ROSCOMMON", "SLIGO", "TIPPERARY", "TYRONE", "WATERFORD", "WEXFORD", "WESTMEATH", "WICKLOW" ]
         },
         "eircode" : {
           "type" : "string",
@@ -501,7 +576,6 @@
         }
       },
       "description" : "Elements required when Employee PPSN is not known."
-   
     },
     "AddressLine" : {
       "type" : "object",
@@ -512,7 +586,6 @@
           "maxLength" : 100
         }
       }
-      
     },
     "BatchStatus" : {
       "type" : "object",
@@ -578,7 +651,6 @@
         }
       },
       "description" : "Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions."
-      
     },
     "CheckPayrollSubmissionResponse" : {
       "type" : "object",
@@ -634,8 +706,7 @@
           }
         }
       },
-      "description" : "Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions."
-      
+      "description" : "Return the current status of an Employer's PAYE Payroll Submission. If processed, includes summary totals of valid payslips and validation errors for invalid payslips."
     },
     "InvalidPayslip" : {
       "type" : "object",
@@ -657,7 +728,6 @@
         }
       },
       "description" : "List of Invalid Payslips (if any). Any payslips in this list will not have been saved so the payslips will not feed into the employer liability for the statuatory return for the period. Included when the submission has completed processing (if required)."
-   
     },
     "LineItemID" : {
       "type" : "object",
@@ -670,6 +740,58 @@
         }
       }
     },
+    "LookupPayrollDetailsByReturnPeriodResponse" : {
+      "type" : "object",
+      "required" : [ "employerReg", "returnPeriod" ],
+      "properties" : {
+        "employerReg" : {
+          "type" : "string",
+          "description" : "Employer's PAYE Registration Number.",
+          "minLength" : 0,
+          "maxLength" : 100,
+          "pattern" : "[0-9]{7,8}[A-Wa-w][A-ITWXZa-itwxz ]?"
+        },
+        "agentTAIN" : {
+          "type" : "string",
+          "description" : "Tax Advisor Identification Number. Required if return request is filed by agent on behalf of employer.",
+          "pattern" : "[0-9]{5}[A-Wa-w]"
+        },
+        "returnPeriod" : {
+          "description" : "The period the return relates to.",
+          "$ref" : "#/definitions/Return Period"
+        },
+        "dateLastUpdated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date the Return was either accepted / Deemed / amended."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Indicates the version of the return that is being requested.",
+          "minLength" : 0,
+          "maxLength" : 100
+        },
+        "periodSummary" : {
+          "description" : "The overall PREM Return totals for PAYE, PRSI, USC and LPT.",
+          "$ref" : "#/definitions/Period Summary"
+        },
+        "payrollRunDetails" : {
+          "type" : "array",
+          "description" : "List of individual payroll runs with pay dates in the selected period.",
+          "items" : {
+            "$ref" : "#/definitions/Payroll Run Details"
+          }
+        },
+        "validationErrors" : {
+          "type" : "array",
+          "description" : "List of Validation errors (if any) on the LookupPayrollDetailsByPeriodReturn.",
+          "items" : {
+            "$ref" : "#/definitions/PayrollReturnError"
+          }
+        }
+      },
+      "description" : "Response that lets the employer view a return for a specific period."
+    },
     "LookupRPNResponse" : {
       "type" : "object",
       "required" : [ "dateTimeEffective", "employerName", "employerRegistrationNumber", "taxYear", "totalRPNCount" ],
@@ -679,7 +801,7 @@
           "description" : "Data Item Ref: N/A. The Official Name of the employer.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "employerRegistrationNumber" : {
           "type" : "string",
@@ -697,8 +819,8 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "Data Item Ref: N/A. The tax year to which the RPN lookup relates (YYYY).",
-          "minimum" : 2E+3,
-          "maximum" : 2.1E+3
+          "minimum" : 2000.0,
+          "maximum" : 2100.0
         },
         "totalRPNCount" : {
           "type" : "integer",
@@ -707,10 +829,8 @@
         },
         "dateTimeEffective" : {
           "type" : "string",
-          "description" : "Data Item Ref: N/A. The date and time the RPN was requested",
-          "minLength" : 28,
-          "maxLength" : 28,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}[+-][0-9]{4}"
+          "format" : "date-time",
+          "description" : "Data Item Ref: N/A. The date and time the RPN was requested"
         },
         "rpns" : {
           "type" : "array",
@@ -747,9 +867,9 @@
           "$ref" : "#/definitions/RPNName"
         },
         "employmentStartDate" : {
-          "description" : "The date the employee commences. ",
           "type" : "string",
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}[+-][0-9]{4}"
+          "format" : "date",
+          "description" : "The date the employee commences."
         }
       },
       "description" : "Details of employees who require a new RPN."
@@ -784,7 +904,7 @@
           "description" : "Data Item Ref: N/A. Employer's PAYE Registration Number.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "employerRegistrationNumber" : {
           "type" : "string",
@@ -800,10 +920,8 @@
         },
         "dateTimeEffective" : {
           "type" : "string",
-          "description" : "Data Item Ref: N/A. The date and time at which the RPN's returned are correct/were issued.",
-          "minLength" : 28,
-          "maxLength" : 28,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}[+-][0-9]{4}"
+          "format" : "date-time",
+          "description" : "Data Item Ref: N/A. The date and time at which the RPN's returned are correct/were issued."
         },
         "rpns" : {
           "type" : "array",
@@ -846,6 +964,45 @@
       },
       "description" : "PRSI Class, subclass and Insurable weeks detail."
     },
+    "Payroll Run Details" : {
+      "type" : "object",
+      "required" : [ "lpt", "multiPeriod", "payrollRunReference", "prsi", "runDate", "taxOnIncome", "usc" ],
+      "properties" : {
+        "payrollRunReference" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50,
+          "pattern" : "[A-Za-z0-9_\\-]*"
+        },
+        "runDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date the payroll run was submitted. If there are multiple submissions in a payroll run then this will be the date of the last submission."
+        },
+        "multiPeriod" : {
+          "type" : "boolean",
+          "description" : "Indicates if the Payroll Run includes pay dates in other periods. (Only payroll figures with pay dates in the selected month are included in this period's totals).",
+          "default" : false
+        },
+        "taxOnIncome" : {
+          "type" : "number",
+          "description" : "Total Tax on Income amount for this Payroll Run."
+        },
+        "prsi" : {
+          "type" : "number",
+          "description" : "Total PRSI amount for this Payroll Run."
+        },
+        "usc" : {
+          "type" : "number",
+          "description" : "Total USC amount for this Payroll Run."
+        },
+        "lpt" : {
+          "type" : "number",
+          "description" : "Total LPT amount for this Payroll Run."
+        }
+      },
+      "description" : "Details of individual payroll runs that have finished processing and that apply to this period."
+    },
     "PayrollEmployeeID" : {
       "type" : "object",
       "required" : [ "employeePpsn", "employmentID" ],
@@ -883,14 +1040,14 @@
           "description" : "Path to error in schema, if available.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "description" : {
           "type" : "string",
           "description" : "Technical description of error.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         }
       },
       "description" : "Details of validation check failure."
@@ -904,17 +1061,45 @@
           "description" : "Data Item Ref: 9. The first name of the employee.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "familyName" : {
           "type" : "string",
           "description" : "Data Item Ref: 10. The surname/family name of the employee.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         }
       },
       "description" : "Employee Name."
+    },
+    "PayrollReturnError" : {
+      "type" : "object",
+      "required" : [ "code", "description" ],
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "Technical Error Code - to be used for mapping to error messages.",
+          "minLength" : 0,
+          "maxLength" : 50,
+          "pattern" : "[A-Za-z0-9_\\-]*"
+        },
+        "path" : {
+          "type" : "string",
+          "description" : "Path to error in schema, if available.",
+          "minLength" : 0,
+          "maxLength" : 500,
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Description of error - to be used for support.",
+          "minLength" : 0,
+          "maxLength" : 500,
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+        }
+      },
+      "description" : "Standard Validation error."
     },
     "PayrollSubmission" : {
       "type" : "object",
@@ -984,10 +1169,10 @@
         },
         "employerReference" : {
           "type" : "string",
-          "description" : "Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isnâ€™t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.",
+          "description" : "Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.",
           "minLength" : 0,
           "maxLength" : 50,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "name" : {
           "$ref" : "#/definitions/PayrollName"
@@ -997,24 +1182,18 @@
         },
         "dateOfBirth" : {
           "type" : "string",
-          "description" : "Data Item Ref: 12. Employee's Date of Birth - format DD/MM/YYYY. This will be Mandatory if the PPSN isnâ€™t available.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 12. Employee's Date of Birth - format DD/MM/YYYY. This will be Mandatory if the PPSN isn’t available."
         },
         "startDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 15. Employment Start Date. Only include this forthe first time you pay a new employee or if there is a correction being made to the StartDate.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 15. Employment Start Date. Only include this forthe first time you pay a new employee or if there is a correction being made to the StartDate."
         },
         "leaveDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 16. Report this date when an employee is leaving (date contract terminates) or if employer ceases trading.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 16. Report this date when an employee is leaving (date contract terminates) or if employer ceases trading."
         },
         "director" : {
           "type" : "string",
@@ -1046,8 +1225,8 @@
         "taxCredits" : {
           "type" : "number",
           "description" : "Data Item Ref: 21. Amount of tax credits available for use in the PAYE calculation. Where the employee is taxed on a cumulative basis, this will be the cumulative amount of tax credits for the pay period. This is mandatory when the RPN is not used.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "taxRates" : {
           "type" : "array",
@@ -1062,54 +1241,52 @@
         },
         "exclusionOrder" : {
           "type" : "boolean",
-          "description" : "Data Item Ref: 23. This indicates that the Employer does not have to deduct Income Tax for the Employee. This will be either â€˜Trueâ€™ or â€˜Falseâ€™. Set to â€œtrueâ€� if an exclusion order is on file for the employee.",
+          "description" : "Data Item Ref: 23. This indicates that the Employer does not have to deduct Income Tax for the Employee. This will be either ‘True’ or ‘False’. Set to “true” if an exclusion order is on file for the employee.",
           "default" : false
         },
         "payDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 17. Date Employee is being paid (YYYY-MM-DD).",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 17. Date Employee is being paid (DD/MM/YYYY)."
         },
         "grossPay" : {
           "type" : "number",
-          "description" : "Data Item Ref: 24. Employee Gross Pay. Gross pay is the employeeâ€™s pay of any kind, including notional pay and share based remuneration and, before any pension contributions or salary sacrifice deductions are made.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 24. Employee Gross Pay. Gross pay is the employee’s pay of any kind, including notional pay and share based remuneration and, before any pension contributions or salary sacrifice deductions are made.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "payForIncomeTax" : {
           "type" : "number",
           "description" : "Data Item Ref: 25. Pay for Income Tax. Gross pay reduced by allowable superannuation contributions, income continuance contributions, relevant reliefs such as SARP and approved salary sacrifice. Euro and Cent required.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "incomeTaxPaid" : {
           "type" : "number",
           "description" : "Data Item Ref: 26. Employee Tax deducted or refunded in this employment. Negative if tax refunded. Euro and Cent required.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "payForEmployeePRSI" : {
           "type" : "number",
           "description" : "Data Item Ref: 27. Pay subject to employee PRSI. Euro and Cent required.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "payForEmployerPRSI" : {
           "type" : "number",
           "description" : "Data Item Ref: 28. Pay subject to employer PRSI. Euro and Cent required.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "prsiExempt" : {
           "type" : "boolean",
-          "description" : "Data Item Ref: 29. This field allows for the filing of returns for employees who are exempt from paying PRSI in Ireland. This will be either â€˜trueâ€™ or â€˜falseâ€™. 'True' if employee is exempt from paying PRSI in Ireland.",
+          "description" : "Data Item Ref: 29. This field allows for the filing of returns for employees who are exempt from paying PRSI in Ireland. This will be either ‘true’ or ‘false’. 'True' if employee is exempt from paying PRSI in Ireland.",
           "default" : false
         },
         "prsiExemptionReason" : {
           "type" : "string",
-          "description" : "Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers), FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes), Other.",
+          "description" : "Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers), FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes).",
           "enum" : [ "A_1_PORTABLE_DOCUMENT", "CERTIFICATE_OF_COVERAGE", "POSTED_WORKER_OTHER_NOTIFICATION", "FAMILY_MEMBER", "UNDER_16", "SOCIAL_WELFARE_SCHEME", "OTHER" ]
         },
         "prsiClassDetails" : {
@@ -1121,20 +1298,20 @@
         "employeePRSIPaid" : {
           "type" : "number",
           "description" : "Data Item Ref: 33. Employee PRSI deducted. This is Mandatory if not PRSI exempt.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employerPRSIPaid" : {
           "type" : "number",
           "description" : "Data Item Ref: 34. Employer PRSI Paid. This is Mandatory if not PRSI exempt.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "payForUSC" : {
           "type" : "number",
           "description" : "Data Item Ref: 35. Pay for USC. Includes notional pay and all Superannuation and Income Continuance Scheme Contributions. Excludes DSP payments, Illness Benefit and payments of a similar nature under certain approved schemes.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "uscStatus" : {
           "type" : "string",
@@ -1144,48 +1321,48 @@
         "uscPaid" : {
           "type" : "number",
           "description" : "Data Item Ref: 37. USC deducted or refunded in this employment. Negative if USC refunded. Required if USC Status is Ordinary.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "lptDeducted" : {
           "type" : "number",
           "description" : "Data Item Ref: 50. LPT Deducted. Local Property Tax amount paid. This is mandatory if applicable.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "grossMedicalInsurance" : {
           "type" : "number",
           "description" : "Data Item Ref: 38. Gross Medical Insurance paid by Employer for the Employee. This is mandatory if applicable.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "shareBasedRemuneration" : {
           "type" : "number",
-          "description" : "Data Item Ref: 46. This is share-based remuneration consisting of shares in the employer company or a company that controls the employer company that is included in â€˜Gross Payâ€™.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 46. This is share-based remuneration consisting of shares in the employer company or a company that controls the employer company that is included in ‘Gross Pay’.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "taxableBenefits" : {
           "type" : "number",
-          "description" : "Data Item Ref: 47. Taxable value of benefits provided to the employee. This is the amount of non-cash benefits (for example, private use of a company car, free or subsidised accommodation, preferential loans), other than company Share-based Remuneration (but including shares in companies that are not the employer company or a company that controls the employer company), that is included in â€˜Gross Payâ€™. This is mandatory if applicable.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 47. Taxable value of benefits provided to the employee. This is the amount of non-cash benefits (for example, private use of a company car, free or subsidised accommodation, preferential loans), other than company Share-based Remuneration (but including shares in companies that are not the employer company or a company that controls the employer company), that is included in ‘Gross Pay’. This is mandatory if applicable.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "taxableLumpSum" : {
           "type" : "number",
-          "description" : "Data Item Ref: 48. Amount of taxable lump sum payment included in â€˜Pay for Income Taxâ€™. This is mandatory if applicable.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 48. Amount of taxable lump sum payment included in ‘Pay for Income Tax’. This is mandatory if applicable.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "nonTaxableLumpSum" : {
           "type" : "number",
-          "description" : "Data Item Ref: 49. Amount of lump sum payment not included in â€˜Pay for Income Taxâ€™, excluding statutory redundancy payments. This is mandatory if applicable.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 49. Amount of lump sum payment not included in ‘Pay for Income Tax’, excluding statutory redundancy payments. This is mandatory if applicable.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "pensionTracingNumbers" : {
           "type" : "array",
-          "description" : "Data Item Ref: 38. Pension Tracing Number. The format of the pension tracing number is â€œPBXXXXXXâ€�, where XXXXXX is a number with up to 6 digits. E.g. PB123456. This is mandatory if applicable. Should only be provided when the Employee joins a pension or changes pension.",
+          "description" : "Data Item Ref: 38. Pension Tracing Number. The format of the pension tracing number is “PBXXXXXX”, where XXXXXX is a number with up to 6 digits. E.g. PB123456. This is mandatory if applicable. Should only be provided when the Employee joins a pension or changes pension.",
           "items" : {
             "$ref" : "#/definitions/PensionTracingNumber"
           }
@@ -1193,42 +1370,41 @@
         "employerRBS" : {
           "type" : "number",
           "description" : "Data Item Ref: 40. Amount contributed by employer to Retirement Benefit Scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employeeRBS" : {
           "type" : "number",
           "description" : "Data Item Ref: 41. Amount contributed by employee to Retirement Benefit Scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employerPRSA" : {
           "type" : "number",
           "description" : "Data Item Ref: 42. Amount contributed by employer to Personal Retirement Savings Accounts (PRSA) scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employeePRSA" : {
           "type" : "number",
           "description" : "Data Item Ref: 43. Amount contributed by employee to Personal Retirement Savings Accounts (PRSA) scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employeeRAC" : {
           "type" : "number",
           "description" : "Data Item Ref: 44. Amount contributed by employee to Retirement Annuity Contracts (RAC) scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "employeeAVC" : {
           "type" : "number",
           "description" : "Data Item Ref: 45. Amount contributed by employee to Additional Voluntary Contributions (AVC) scheme.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         }
       },
       "description" : "List of payslips that make up the employer payroll submission. for Original submissions this should include at least one new payslip. For Correction submissions this should include any new or corrected payslips."
-      
     },
     "PayslipSummary" : {
       "type" : "object",
@@ -1246,10 +1422,10 @@
         },
         "employerReference" : {
           "type" : "string",
-          "description" : "Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isnâ€™t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.",
+          "description" : "Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.",
           "minLength" : 0,
           "maxLength" : 50,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "taxOnIncome" : {
           "type" : "number",
@@ -1282,8 +1458,8 @@
         "rateCutOff" : {
           "type" : "number",
           "description" : "Data Item Ref: 20. Amount of Cut Off Point available for use in the PAYE calculation for selected rate. Where the employee is taxed on a week 1 basis, this will be the cut off point for the pay period. If the employee is taxed on the cumulative basis, this will be the cumulative cut off point for the pay period. This is mandatory when the RPN is not used.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         }
       },
       "description" : "Details of Rate Cut Offs. At least one TaxRate (with Index value of 1) is mandatory when the RPN is not used."
@@ -1317,11 +1493,33 @@
           "maxLength" : 8
         }
       }
-     
+    },
+    "Period Summary" : {
+      "type" : "object",
+      "required" : [ "lpt", "prsi", "taxOnIncome", "usc" ],
+      "properties" : {
+        "taxOnIncome" : {
+          "type" : "number",
+          "description" : "Total Tax on Income amount for this period."
+        },
+        "prsi" : {
+          "type" : "number",
+          "description" : "Total PRSI amount (employer and employee) for this period."
+        },
+        "usc" : {
+          "type" : "number",
+          "description" : "Total USC amount for this period."
+        },
+        "lpt" : {
+          "type" : "number",
+          "description" : "Total LPT amount for this period."
+        }
+      },
+      "description" : "Summary totals accross valid line items for a specific period."
     },
     "RPN" : {
       "type" : "object",
-      "required" : [ "incomeTaxCalculationBasis", "rpnIssueDate", "effectiveDate", "employeeID", "endDate", "name", "payForIncomeTaxToDate", "rpnNumber", "taxRates", "incomeTaxDeductedToDate", "uscStatus", "yearlyTaxCredits" ],
+      "required" : [ "effectiveDate", "employeeID", "endDate", "incomeTaxCalculationBasis", "incomeTaxDeductedToDate", "name", "payForIncomeTaxToDate", "previousEmployeePPSN", "rpnIssueDate", "rpnNumber", "taxRates", "uscStatus", "yearlyTaxCredits" ],
       "properties" : {
         "rpnNumber" : {
           "type" : "string",
@@ -1335,17 +1533,15 @@
         },
         "rpnIssueDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 105. The date the RPN was issued.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 105. The date the RPN was issued."
         },
         "employerReference" : {
           "type" : "string",
           "description" : "Data Item Ref: 111. Employee's internal staff identifier/reference.",
           "minLength" : 0,
           "maxLength" : 50,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "name" : {
           "$ref" : "#/definitions/RPNName"
@@ -1359,17 +1555,13 @@
         },
         "effectiveDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future."
         },
         "endDate" : {
           "type" : "string",
-          "description" : "Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested.",
-          "minLength" : 10,
-          "maxLength" : 10,
-          "pattern" : "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          "format" : "date",
+          "description" : "Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested."
         },
         "incomeTaxCalculationBasis" : {
           "type" : "string",
@@ -1378,14 +1570,14 @@
         },
         "exclusionOrder" : {
           "type" : "boolean",
-          "description" : "Data Item Ref: 113. Indicates if there is an exclusion order on file for the employee. Set to â€œtrueâ€� if an exclusion order is on file for the employee.",
+          "description" : "Data Item Ref: 113. Indicates if there is an exclusion order on file for the employee. Set to “true” if an exclusion order is on file for the employee.",
           "default" : false
         },
         "yearlyTaxCredits" : {
           "type" : "number",
           "description" : "Data Item Ref: 118. Net Tax Credits. Amount of tax credits available to the employee for the year the RPN relates to. Amount of tax credits available for use in the PAYE calculation.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "taxRates" : {
           "type" : "array",
@@ -1395,15 +1587,15 @@
         },
         "payForIncomeTaxToDate" : {
           "type" : "number",
-          "description" : "Data Item Ref: 116. Total Pay for Income Tax to Date. This will include total income liable to Income Tax to date â€“ including previous employment income. In the case of recommencements, this includes previous pay from that employer in the same tax year.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 116. Total Pay for Income Tax to Date. This will include total income liable to Income Tax to date – including previous employment income. In the case of recommencements, this includes previous pay from that employer in the same tax year.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "incomeTaxDeductedToDate" : {
           "type" : "number",
-          "description" : "Data Item Ref: 117. Total Income Tax Deducted to Date. Total amount of employeeâ€™s Income Tax deducted to date. In the case of recommencements, this includes previous tax from that employer in the same tax year.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 117. Total Income Tax Deducted to Date. Total amount of employee’s Income Tax deducted to date. In the case of recommencements, this includes previous tax from that employer in the same tax year.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "uscStatus" : {
           "type" : "string",
@@ -1418,21 +1610,21 @@
         },
         "payForUSCToDate" : {
           "type" : "number",
-          "description" : "Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date â€“ including previous employment income and any additional declared income liable to USC e.g. Rental Income.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "description" : "Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date – including previous employment income and any additional declared income liable to USC e.g. Rental Income.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "uscDeductedToDate" : {
           "type" : "number",
           "description" : "Data Item Ref: 134. Total Previous USC Paid to Date. Taking into account any USC refunded through any unemployment repayment claim(s).",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "lptToDeduct" : {
           "type" : "number",
           "description" : "Data Item Ref: 135. LPT to be Deducted. Amount of LPT to be deducted through payroll.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "prsiExempt" : {
           "type" : "boolean",
@@ -1444,7 +1636,8 @@
           "description" : "Data Item Ref: 123. PRSI Class and Subclass that the employee should be updated to. This will appear only where DSP updates the class or where DSP knows the individual is on the wrong class. i.e. where a review has been carried out by DSP.",
           "pattern" : "[A-Za-z][0-9A-Za-z ]?"
         }
-      }
+      },
+      "description" : "Revenue Payroll Notification (RPN) for an employment for an employee"
     },
     "RPNEmployeeID" : {
       "type" : "object",
@@ -1483,14 +1676,14 @@
           "description" : "Path to error in schema, if available.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "description" : {
           "type" : "string",
           "description" : "Description of error - to be used for support.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         }
       },
       "description" : "Standard Validation error."
@@ -1504,14 +1697,14 @@
           "description" : "Data Item Ref: 106.The first name of the employee.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "familyName" : {
           "type" : "string",
           "description" : "Data Item Ref: 107 The surname/family name of the employee.",
           "minLength" : 0,
           "maxLength" : 100,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         }
       },
       "description" : "Employee Name."
@@ -1528,17 +1721,34 @@
         "taxRatePercent" : {
           "type" : "number",
           "description" : "Data Item Ref: 119, 121. Tax rate percentage to be applied.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "yearlyRateCutOff" : {
           "type" : "number",
           "description" : "Data Item Ref: 120. Total allocated to the specified Rate Cut Off. No cut off for highest band.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         }
       },
       "description" : "Details of Tax Rates and Rate Cut Offs."
+    },
+    "Return Period" : {
+      "type" : "object",
+      "required" : [ "periodEndDate", "periodStartDate" ],
+      "properties" : {
+        "periodStartDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Period start date e.g. 01/01/2019."
+        },
+        "periodEndDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Period end date e.g.31/01/2019."
+        }
+      },
+      "description" : "The period the return relates to."
     },
     "SubmissionStatus" : {
       "type" : "object",
@@ -1607,14 +1817,14 @@
         "uscRatePercent" : {
           "type" : "number",
           "description" : "Data Item Ref: 125, 127, 129, 131. USC Rate percentage to be applied.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         },
         "yearlyUSCRateCutOff" : {
           "type" : "number",
           "description" : "Data Item Ref: 126, 128, 130, 132. Total allocated to the specified USC Cut Off.",
-          "minimum" : -999999999,
-          "maximum" : 999999999.99
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
         }
       },
       "description" : "Details of USC Rates."
@@ -1635,14 +1845,14 @@
           "description" : "Path to warning in schema, if available.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         },
         "description" : {
           "type" : "string",
           "description" : "Technical description of warning.",
           "minLength" : 0,
           "maxLength" : 500,
-          "pattern" : "[A-Za-z0-9Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš =_^,~!/'@:;Â£â‚¬$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
         }
       },
       "description" : "List of validation warnings related to the payslip."

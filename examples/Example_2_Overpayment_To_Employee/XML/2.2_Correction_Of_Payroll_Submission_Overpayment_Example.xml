@@ -11,7 +11,10 @@ iii. Document updated on 17/11/2017:
 		Removed the element: "SubmissionType"
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
-		Dates re-formatted	 		
+		Dates re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 17/05/2018
+	 Updated ENUM Values to reflect schematic changes
 -->
 
 <pay:PayrollSubmissionRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
@@ -35,21 +38,21 @@ iv. Document updated on 09/02/2018:
 			<pay:FirstName>John</pay:FirstName>
 			<pay:FamilyName>Blogs</pay:FamilyName>
 		</pay:Name>
-		<pay:PayFrequency>Weekly</pay:PayFrequency>
+		<pay:PayFrequency>WEEKLY</pay:PayFrequency>
 		<pay:RPNNumber>2</pay:RPNNumber>
 		<pay:TaxCredits>63.46</pay:TaxCredits>
 		<pay:TaxRate>
 			<pay:Index>1</pay:Index>
 			<pay:RateCutOff>650</pay:RateCutOff>
 		</pay:TaxRate>
-		<pay:IncomeTaxCalculationBasis>Cumulative</pay:IncomeTaxCalculationBasis>
+		<pay:IncomeTaxCalculationBasis>CUMULATIVE</pay:IncomeTaxCalculationBasis>
 		<pay:PayDate>2019-01-18</pay:PayDate>
 		<pay:GrossPay>400</pay:GrossPay>
 		<pay:PayForIncomeTax>400</pay:PayForIncomeTax>
 		<pay:IncomeTaxPaid>16.54</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>400</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>400</pay:PayForEmployerPRSI>
-		<pay:PRSIExempt>false</pay:PRSIExempt>
+		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
 			<pay:InsurableWeeks>2</pay:InsurableWeeks>
@@ -57,7 +60,7 @@ iv. Document updated on 09/02/2018:
 		<pay:EmployeePRSIPaid>16</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>43.00</pay:EmployerPRSIPaid>
 		<pay:PayForUSC>400</pay:PayForUSC>
-		<pay:USCStatus>Ordinary</pay:USCStatus>
+		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>11.36</pay:USCPaid>
 		<pay:LPTDeducted>12.33</pay:LPTDeducted>
 	</pay:Payslip>

@@ -13,6 +13,16 @@ iii. Document updated on 17/11/2017:
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		dateString pattern and minLength changed
+======== Version 1.0 Release Candidate 2 ====================================
+v. Document updatd on 17/05/2018:
+		Enum values changed from CamelCase to standard Java enum format (e.g. Week1 to WEEK_1) for following fields
+			prsiExemptionReason
+			IncomeTaxCalculationBasis
+			uscStatus
+			processingStatus
+			acknowledgementStatus
+			county
+		Six new Northern Irish Counties added in "County" field
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
@@ -96,70 +106,76 @@ iv. Document updated on 09/02/2018:
 	</xs:simpleType>
 	<xs:simpleType name="prsiExemptionReason">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="A1PortableDocument"/>
-			<xs:enumeration value="CertificateOfCoverage"/>
-			<xs:enumeration value="PostedWorkerOtherNotification"/>
-			<xs:enumeration value="FamilyMember"/>
-			<xs:enumeration value="Under16"/>
-			<xs:enumeration value="SocialWelfareScheme"/>
-			<xs:enumeration value="Other"/>
+			<xs:enumeration value="A_1_PORTABLE_DOCUMENT"/>
+			<xs:enumeration value="CERTIFICATE_OF_COVERAGE"/>
+			<xs:enumeration value="POSTED_WORKER_OTHER_NOTIFICATION"/>
+			<xs:enumeration value="FAMILY_MEMBER"/>
+			<xs:enumeration value="UNDER_16"/>
+			<xs:enumeration value="SOCIAL_WELFARE_SCHEME"/>
+			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IncomeTaxCalculationBasis">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Cumulative"/>
-			<xs:enumeration value="Week1"/>
-			<xs:enumeration value="Emergency"/>
+			<xs:enumeration value="CUMULATIVE"/>
+			<xs:enumeration value="WEEK_1"/>
+			<xs:enumeration value="EMERGENCY"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="uscStatus">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Ordinary"/>
-			<xs:enumeration value="Exempt"/>
+			<xs:enumeration value="ORDINARY"/>
+			<xs:enumeration value="EXEMPT"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="processingStatus">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="NotAcknowledged"/>
-			<xs:enumeration value="Pending"/>
-			<xs:enumeration value="Completed"/>
-			<xs:enumeration value="Processed"/>
+			<xs:enumeration value="NOT_ACKNOWLEDGED"/>
+			<xs:enumeration value="PENDING"/>
+			<xs:enumeration value="COMPLETED"/>
+			<xs:enumeration value="PROCESSED"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="acknowledgementStatus">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Acknowledged"/>
-			<xs:enumeration value="Rejected"/>
+			<xs:enumeration value="ACKNOWLEDGED"/>
+			<xs:enumeration value="REJECTED"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="county">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Carlow"/>
-			<xs:enumeration value="Cavan"/>
-			<xs:enumeration value="Clare"/>
-			<xs:enumeration value="Cork"/>
-			<xs:enumeration value="Donegal"/>
-			<xs:enumeration value="Dublin"/>
-			<xs:enumeration value="Galway"/>
-			<xs:enumeration value="Kerry"/>
-			<xs:enumeration value="Kildare"/>
-			<xs:enumeration value="Kilkenny"/>
-			<xs:enumeration value="Laois"/>
-			<xs:enumeration value="Leitrim"/>
-			<xs:enumeration value="Limerick"/>
-			<xs:enumeration value="Longford"/>
-			<xs:enumeration value="Louth"/>
-			<xs:enumeration value="Mayo"/>
-			<xs:enumeration value="Meath"/>
-			<xs:enumeration value="Monaghan"/>
-			<xs:enumeration value="Offaly"/>
-			<xs:enumeration value="Roscommon"/>
-			<xs:enumeration value="Sligo"/>
-			<xs:enumeration value="Tipperary"/>
-			<xs:enumeration value="Waterford"/>
-			<xs:enumeration value="Wexford"/>
-			<xs:enumeration value="Westmeath"/>
-			<xs:enumeration value="Wicklow"/>
+			<xs:enumeration value="ANTRIM"/>
+			<xs:enumeration value="ARMAGH"/>
+			<xs:enumeration value="CARLOW"/>
+			<xs:enumeration value="CAVAN"/>
+			<xs:enumeration value="CLARE"/>
+			<xs:enumeration value="CORK"/>
+			<xs:enumeration value="DERRY"/>
+			<xs:enumeration value="DONEGAL"/>
+			<xs:enumeration value="DOWN"/>
+			<xs:enumeration value="DUBLIN"/>
+			<xs:enumeration value="FERMANAGH"/>
+			<xs:enumeration value="GALWAY"/>
+			<xs:enumeration value="KERRY"/>
+			<xs:enumeration value="KILDARE"/>
+			<xs:enumeration value="KILKENNY"/>
+			<xs:enumeration value="LAOIS"/>
+			<xs:enumeration value="LEITRIM"/>
+			<xs:enumeration value="LIMERICK"/>
+			<xs:enumeration value="LONGFORD"/>
+			<xs:enumeration value="LOUTH"/>
+			<xs:enumeration value="MAYO"/>
+			<xs:enumeration value="MEATH"/>
+			<xs:enumeration value="MONAGHAN"/>
+			<xs:enumeration value="OFFALY"/>
+			<xs:enumeration value="ROSCOMMON"/>
+			<xs:enumeration value="SLIGO"/>
+			<xs:enumeration value="TIPPERARY"/>
+			<xs:enumeration value="TYRONE"/>
+			<xs:enumeration value="WATERFORD"/>
+			<xs:enumeration value="WEXFORD"/>
+			<xs:enumeration value="WESTMEATH"/>
+			<xs:enumeration value="WICKLOW"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!--Validation - Simple Types -->

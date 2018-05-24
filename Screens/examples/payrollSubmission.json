@@ -1,69 +1,69 @@
 {
-		  "payslips": [
-            {
-			  "lineItemID": "lineItem1",
-			  "previousLineItemID": "",
-			  "employeeID": {
+	"requestType": "payrollSubmission",
+	"employerRegistrationNumber": "0000000T",
+	"taxYear": 2018,
+	"softwareUsed": "test",
+	"softwareVersion": "1.234",
+	"payrollRunReference": "test-run-1",
+	"submissionID": "test-submission-1-1",
+	"requestBody": {
+		"payslips": [{
+			"lineItemID": "lineItem1",
+			"previousLineItemID": "",
+			"employeeID": {
 				"employeePpsn": "1234567X",
 				"employmentID": ""
-			  },
-			  "employerReference": "John",
-			  "name": {
+			},
+			"employerReference": "John",
+			"name": {
 				"firstName": "PAYEOS-MOSE",
-				"familyName":"PAYEOS-NADER"
-			  },
-			  "dateOfBirth": "1970-01-01",
-			  "startDate": "2013-01-01",
-			  "director": "PROPRIETARY",
-			  "shadowPayroll": false,
-			  "payFrequency": "MONTHLY",
-			  "numberOfPayPeriods": 12,
-			  "rpnNumber": "rpnNumber",
-			  "taxCredits": 275.0,
-			  "taxRates": [
-				{
-				  "index": 1,
-				  "rateCutOff": 2505.84
-				}
-			  ],
-			  "incomeTaxCalculationBasis": "CUMULATIVE",
-			  "exclusionOrder": false,
-			  "payDate": "1970-01-01",
-			  "grossPay": 0.0,
-			  "payForIncomeTax": 226.17,
-			  "incomeTaxPaid": 103.33,
-			  "payForEmployeePRSI": 2583.34,
-			  "payForEmployerPRSI": 2583.34,
-			  "prsiExempt": false,
-			  "prsiClassDetails": [
-				{
-				  "prsiClass": "A1",
-				  "insurableWeeks": 0
-				}
-			  ],
-			  "employeePRSIPaid": 0.0,
-			  "employerPRSIPaid": 0.0,
-			  "payForUSC": 2583.34,
-			  "uscStatus": "EXEMPT",
-			  "uscPaid": 0.0,
-			  "lptDeducted": 0.0,
-			  "grossMedicalInsurance": 0.0,
-			  "shareBasedRemuneration": 0.0,
-			  "taxableBenefits": 0.0,
-			  "taxableLumpSum": 0.0,
-			  "nonTaxableLumpSum": 0.0,
-			  "employerRBS": 0.0,
-			  "employeeRBS": 0.0,
-			  "employerPRSA": 0.0,
-			  "employeePRSA": 0.0,
-			  "employeeRAC": 0.0,
-			  "employeeAVC": 0.0
-			}
-		  ],
-		  "lineItemIDsToDelete": [
-			{
-			  "lineItem": ""
-			}
-		  ]
-
+				"familyName": "PAYEOS-NADER"
+			},
+			"dateOfBirth": "1970-01-01",
+			"startDate": "2013-01-01",
+			"director": "PROPRIETARY",
+			"shadowPayroll": false,
+			"payFrequency": "MONTHLY",
+			"numberOfPayPeriods": 12,
+			"rpnNumber": "rpnNumber",
+			"taxCredits": 275.0,
+			"taxRates": [{
+				"index": 1,
+				"rateCutOff": 2505.84
+			}],
+			"incomeTaxCalculationBasis": "CUMULATIVE",
+			"exclusionOrder": false,
+			"payDate": "1970-01-01",
+			"grossPay": 0.0,
+			"payForIncomeTax": 226.17,
+			"incomeTaxPaid": 103.33,
+			"payForEmployeePRSI": 2583.34,
+			"payForEmployerPRSI": 2583.34,
+			"prsiExempt": false,
+			"prsiClassDetails": [{
+				"prsiClass": "A1",
+				"insurableWeeks": 0
+			}],
+			"employeePRSIPaid": 0.0,
+			"employerPRSIPaid": 0.0,
+			"payForUSC": 2583.34,
+			"uscStatus": "EXEMPT",
+			"uscPaid": 0.0,
+			"lptDeducted": 0.0,
+			"grossMedicalInsurance": 0.0,
+			"shareBasedRemuneration": 0.0,
+			"taxableBenefits": 0.0,
+			"taxableLumpSum": 0.0,
+			"nonTaxableLumpSum": 0.0,
+			"employerRBS": 0.0,
+			"employeeRBS": 0.0,
+			"employerPRSA": 0.0,
+			"employeePRSA": 0.0,
+			"employeeRAC": 0.0,
+			"employeeAVC": 0.0
+		}],
+		"lineItemIDsToDelete": [{
+			"lineItem": ""
+		}]
+	}
 }
