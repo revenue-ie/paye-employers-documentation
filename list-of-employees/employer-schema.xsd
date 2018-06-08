@@ -1,4 +1,3 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/paye/list-of-employees/v1/employer-schema.xsd" xmlns:ns1="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/paye/list-of-employees/v1/employer-schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
 <xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
 <xsd:import namespace="http://www.ros.ie/schemas/paye/list-of-employees/v1/employee-schema.xsd" schemaLocation="./employee-schema.xsd"/>
