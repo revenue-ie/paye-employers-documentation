@@ -458,6 +458,15 @@
 			"version": "1.0 Release Candidate 2",
 			"dateLastUpdated": "24/05/2018",
 			"category": "download"
+		},
+		{
+			"link": "https://gist.github.com/RevenueGitHubAdmin",
+			"description": "Sample Code Gists",
+			"anchor": "Gists",
+			"type": "LINK",
+			"version": "1.0 Release Candidate 2",
+			"dateLastUpdated": "14/06/2018",
+			"category": "LINK"
 		}]
 	},
 	"employee": {
