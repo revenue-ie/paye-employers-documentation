@@ -9,7 +9,7 @@
 			"anchor": "Conformance_Test_Scenarios",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -146,7 +146,7 @@
 			"anchor": "Schema_Publication_Changelog",
 			"type": "XLSX",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "08/06/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		}]
 	},
@@ -186,7 +186,7 @@
 			"anchor": "Payroll_Schema",
 			"type": "Schema",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -222,7 +222,7 @@
 			"anchor": "SOAP_Schema_Reference",
 			"type": "Link",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "navigation"
 		},
 		{
@@ -231,7 +231,7 @@
 			"anchor": "SOAP_integration_guide",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -240,7 +240,7 @@
 			"anchor": "SOAP_integration_guide_Examples",
 			"type": "ZIP File",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "17/05/2018",
 			"category": "download"
 		}]
 	},
@@ -253,7 +253,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -262,7 +262,7 @@
 			"anchor": "REST_API_Ref",
 			"type": "Link",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "navigation"
 		},
 		{
@@ -271,7 +271,7 @@
 			"anchor": "REST_Integration_Guide",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -280,7 +280,7 @@
 			"anchor": "REST_Integration_Guide_Sample_Messages",
 			"type": "ZIP",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		}]
 	},
@@ -293,7 +293,7 @@
 			"anchor": "Payroll_Submission_Data_Items",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -320,7 +320,7 @@
 			"anchor": "Validation_Rules",
 			"type": "Excel File",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		}]
 	},
@@ -333,7 +333,7 @@
 			"anchor": "Overview_Of_Web_Service_Examples",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
@@ -434,13 +434,13 @@
 			"anchor": "Scenarios_Document",
 			"type": "PDF",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "24/05/2018",
+			"dateLastUpdated": "19/06/2018",
 			"category": "download"
 		},
 		{
 			"link": "Scenarios/XML.zip",
-			"description": "Additional Example Scenarios - XML",
-			"explainer": "This ZIP file contains 30 diverse XML examples of payroll scenarios",
+			"description": "Payroll Scenarios - XML",
+			"explainer": "This ZIP file contains 30 diverse XML examples outlined in the payroll scenarios document",
 			"explainerIndex": "2",
 			"anchor": "Scenarios",
 			"type": "ZIP File",
@@ -450,8 +450,8 @@
 		},
 		{
 			"link": "Scenarios/JSON.zip",
-			"description": "Additional Example Scenarios - JSON",
-			"explainer": "This ZIP file contains 30 diverse JSON examples of payroll scenarios",
+			"description": "Payroll Scenarios - JSON",
+			"explainer": "This ZIP file contains 30 diverse JSON examples outlined in the payroll scenarios document",
 			"explainerIndex": "3",
 			"anchor": "Scenarios",
 			"type": "ZIP File",
@@ -467,6 +467,15 @@
 			"version": "1.0 Release Candidate 2",
 			"dateLastUpdated": "14/06/2018",
 			"category": "LINK"
+		},
+		{
+			"link": "examples/REST_Request_Authentication_V1.pdf",
+			"description": "REST Request Authentication Presentation",
+			"anchor": "REST_Presentation",
+			"type": "PDF",
+			"version": "1.0 Release Candidate 2",
+			"dateLastUpdated": "19/06/2018",
+			"category": "download"
 		}]
 	},
 	"employee": {

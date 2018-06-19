@@ -121,12 +121,12 @@ ii. Document updated 18/05/2018
 		<xs:sequence>
 			<xs:element name="PeriodStartDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 203. Period start date e.g. 01/01/2019. Used to identify the period the request relates to.</xs:documentation>
+					<xs:documentation>Data Item Ref: 203. Period start date e.g. 2019-01-01. Used to identify the period the request relates to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PeriodEndDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 204. Period end date e.g.31/01/2019. Used to identify the period the request relates to.</xs:documentation>
+					<xs:documentation>Data Item Ref: 204. Period end date e.g.2019-01-31. Used to identify the period the request relates to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

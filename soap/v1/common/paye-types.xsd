@@ -14,7 +14,7 @@ iii. Document updated on 17/11/2017:
 iv. Document updated on 09/02/2018:
 		dateString pattern and minLength changed
 ======== Version 1.0 Release Candidate 2 ====================================
-v. Document updatd on 17/05/2018:
+v. Document updatd on 24/05/2018:
 		Enum values changed from CamelCase to standard Java enum format (e.g. Week1 to WEEK_1) for following fields
 			prsiExemptionReason
 			IncomeTaxCalculationBasis

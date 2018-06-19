@@ -8,6 +8,8 @@ ii. Document updated 18/05/2018
 		Changed definition name from "GetReturn" to "LookupPayrollDetailsByReturnPeriod".
 		Changed response message "LookUpPayrollReturnByPeriodRequest" to "LookupPayrollDetailsByReturnPeriodRequest".
 		Changed response message "LookUpPayrollReturnByPeriodResponse" to "LookupPayrollDetailsByReturnPeriodResponse".
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 24/05/2017:  
 -->
 <wsdl:definitions name="LookupPayrollDetailsByReturnPeriod" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/">
 

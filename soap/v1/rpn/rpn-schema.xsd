@@ -27,7 +27,7 @@ iv. Document updated on 09/02/2018:
 v. Document updated on 26/02/2018:
 		'EmploymentStartDate' changed to field of 'NewEmployeeDetails' property		
 ======== Version 1.0 Release Candidate 2 ====================================
-vi. Document update on 17/05/2018
+vi. Document update on 24/05/2018
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">

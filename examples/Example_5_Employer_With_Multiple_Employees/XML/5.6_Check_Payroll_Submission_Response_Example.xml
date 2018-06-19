@@ -7,7 +7,7 @@ iii. Document updated on 17/11/2017:
 		Renamed the element: "RunReference" to "PayrollRunReference"
 		Removed the element: "SubmissionType"
 ======== Version 1.0 Release Candidate 2 ===========
-v. Document updated on 17/05/2018
+v. Document updated on 24/05/2018
 	 Updated ENUM Values to reflect schematic changes
 -->
 <pay:CheckPayrollSubmissionResponse xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">

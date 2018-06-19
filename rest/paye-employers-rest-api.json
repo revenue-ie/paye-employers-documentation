@@ -267,14 +267,14 @@
         }, {
           "name" : "periodStartDate",
           "in" : "query",
-          "description" : "Period start date e.g. 01/01/2019.",
+          "description" : "Period start date e.g. 2019-01-01.",
           "required" : true,
           "type" : "string",
           "format" : "date"
         }, {
           "name" : "periodEndDate",
           "in" : "query",
-          "description" : "Period end date e.g.31/01/2019.",
+          "description" : "Period end date e.g.2019-01-31.",
           "required" : true,
           "type" : "string",
           "format" : "date"
@@ -762,7 +762,7 @@
         },
         "dateLastUpdated" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The date the Return was either accepted / Deemed / amended."
         },
         "version" : {
@@ -976,7 +976,7 @@
         },
         "runDate" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The date the payroll run was submitted. If there are multiple submissions in a payroll run then this will be the date of the last submission."
         },
         "multiPeriod" : {
@@ -1183,7 +1183,7 @@
         "dateOfBirth" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Data Item Ref: 12. Employee's Date of Birth - format DD/MM/YYYY. This will be Mandatory if the PPSN isn’t available."
+          "description" : "Data Item Ref: 12. Employee's Date of Birth - format YYYY-MM-DD. This will be Mandatory if the PPSN isn’t available."
         },
         "startDate" : {
           "type" : "string",
@@ -1247,7 +1247,7 @@
         "payDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Data Item Ref: 17. Date Employee is being paid (DD/MM/YYYY)."
+          "description" : "Data Item Ref: 17. Date Employee is being paid (YYYY-MM-DD)."
         },
         "grossPay" : {
           "type" : "number",
@@ -1400,6 +1400,12 @@
         "employeeAVC" : {
           "type" : "number",
           "description" : "Data Item Ref: 45. Amount contributed by employee to Additional Voluntary Contributions (AVC) scheme.",
+          "minimum" : -9.99999999E8,
+          "maximum" : 9.9999999999E8
+        },
+        "employeeASC" : {
+          "type" : "number",
+          "description" : "Data Item Ref: 54. Amount contributed by employee to Additional Superannuation Contribution (ASC) scheme.",
           "minimum" : -9.99999999E8,
           "maximum" : 9.9999999999E8
         }
@@ -1739,13 +1745,13 @@
       "properties" : {
         "periodStartDate" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Period start date e.g. 01/01/2019."
+          "format" : "date",
+          "description" : "Period start date e.g. 2019-01-01."
         },
         "periodEndDate" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Period end date e.g.31/01/2019."
+          "format" : "date",
+          "description" : "Period end date e.g.2019-01-31."
         }
       },
       "description" : "The period the return relates to."
