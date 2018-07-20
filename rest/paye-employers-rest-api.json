@@ -1362,7 +1362,7 @@
         },
         "pensionTracingNumbers" : {
           "type" : "array",
-          "description" : "Data Item Ref: 38. Pension Tracing Number. The format of the pension tracing number is “PBXXXXXX”, where XXXXXX is a number with up to 6 digits. E.g. PB123456. This is mandatory if applicable. Should only be provided when the Employee joins a pension or changes pension.",
+          "description" : "Data Item Ref: 39. Pension Tracing Number. The format of the pension tracing number is “PBXXXXXX”, where XXXXXX is a number with up to 6 digits. E.g. PB123456. This is mandatory if applicable. Should only be provided when the Employee joins a pension or changes pension.",
           "items" : {
             "$ref" : "#/definitions/PensionTracingNumber"
           }
