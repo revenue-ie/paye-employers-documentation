@@ -157,6 +157,15 @@
 				"version": "1.0 Release Candidate 2",
 				"dateLastUpdated": "27/06/2018",
 				"category": "download"
+			},
+			{
+				"link": "guide/Compression_Guide_PIT.pdf",
+				"description": "Guide to web service compression",
+				"anchor": "CompressionGuide",
+				"type": "PDF",
+				"version": "1.0 Release Candidate 2",
+				"dateLastUpdated": "24/07/2018",
+				"category": "download"
 			}]
 	},
 	"soap": {
@@ -348,6 +357,15 @@
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
 				"dateLastUpdated": "29/06/2018",
+				"category": "download"
+			},
+			{
+				"link": "USC Regulations 20180724 Consultation.pdf",
+				"description": "USC Regulations 20180724 Consultation",
+				"anchor": "USC Regulations Consultation",
+				"type": "PDF",
+				"version": "1.0 Release Candidate 2",
+				"dateLastUpdated": "24/07/2018",
 				"category": "download"
 			}]
 	},
