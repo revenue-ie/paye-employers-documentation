@@ -150,15 +150,6 @@
 				"category": "download"
 			},
 			{
-				"link": "Screens/ReleaseSchedule.xlsx",
-				"description": "Release Schedule",
-				"anchor": "ReleaseSchedule",
-				"type": "XLSX",
-				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "27/06/2018",
-				"category": "download"
-			},
-			{
 				"link": "guide/Compression_Guide_PIT.pdf",
 				"description": "Guide to web service compression",
 				"anchor": "CompressionGuide",
