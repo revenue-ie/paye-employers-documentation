@@ -240,7 +240,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "09/08/2018",
 				"category": "download"
 			},
 			{
@@ -338,7 +338,25 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "20/07/2018",
+				"dateLastUpdated": "09/08/2018",
+				"category": "download"
+			},
+			{
+				"link": "guide/Error_Structure_Guide.pdf",
+				"description": "Error Message Guide",
+				"anchor": "Error_Structure",
+				"type": "PDF",
+				"version": "1.0 Release Candidate 2",
+				"dateLastUpdated": "09/08/2018",
+				"category": "download"
+			},
+			{
+				"link": "guide/Employment_ID_Guide.pdf",
+				"description": "Employment ID Guide",
+				"anchor": "Employment_ID_Guide",
+				"type": "PDF",
+				"version": "1.0 Release Candidate 2",
+				"dateLastUpdated": "09/08/2018",
 				"category": "download"
 			},
 			{
