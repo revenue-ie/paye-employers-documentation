@@ -1,4 +1,17 @@
 {
+	"Parallel": {
+		"title": "Parallel Test Documents",
+		"anchor": "parallel",
+		"cards": [{
+			"link": "Parallel/ROS Payroll Application Reporting.pdf",
+			"description": "Parallel ROS Payroll Reporting Application Guide",
+			"anchor": "parallel_guide",
+			"type": "PDF",
+			"version": "1.0 Release Candidate 2",
+			"dateLastUpdated": "12/09/2018",
+			"category": "download"
+		}]
+	},
 	"PIT": {
 		"title": "Public Interface Testing – Guides and useful info",
 		"anchor": "PIT",
@@ -146,7 +159,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "31/07/2018",
+				"dateLastUpdated": "21/09/2018",
 				"category": "download"
 			},
 			{
@@ -240,7 +253,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "09/08/2018",
+				"dateLastUpdated": "21/09/2018",
 				"category": "download"
 			},
 			{
@@ -271,7 +284,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "31/07/2018",
+			"dateLastUpdated": "21/09/2018",
 			"category": "download"
 		},
 			{
@@ -280,7 +293,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "31/07/2018",
+				"dateLastUpdated": "21/09/2018",
 				"category": "navigation"
 			},
 			{
@@ -320,7 +333,7 @@
 				"anchor": "RPN_Data_Items",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "07/06/2018",
 				"category": "download"
 			},
 			{
@@ -338,7 +351,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "09/08/2018",
+				"dateLastUpdated": "21/09/2018",
 				"category": "download"
 			},
 			{
@@ -582,6 +595,24 @@
 				"version": "1.0 Final",
 				"dateLastUpdated": "20/07/2018",
 				"category": "download"
-			}]
+			},
+            {
+              "link": "https://rospublictestnextversion.ros.ie/employee-list-web/validation",
+              "description": "List of Employees Validation",
+              "anchor": "List_of_Employees_Validation",
+              "type": "LINK",
+              "version": "1.0 Release Candidate 2",
+              "dateLastUpdated": "21/09/2018",
+              "category": "LINK"
+            },
+            {
+              "link": "https://rospublictestnextversion.ros.ie/devsupport/file-format-test-facility.html",
+              "description": "File Format Test Facility",
+              "anchor": "Test_Facility",
+              "type": "LINK",
+              "version": "1.0 Release Candidate 2",
+              "dateLastUpdated": "21/09/2018",
+              "category": "LINK"
+            }]
 	}
 }

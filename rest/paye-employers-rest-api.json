@@ -256,15 +256,7 @@
         "operationId" : "lookUpPayrollReturnByPeriod",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Employer's PAYE Registration Number.",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
+        "parameters" : [  {
           "name" : "periodStartDate",
           "in" : "query",
           "description" : "Period start date e.g. 2019-01-01.",
@@ -550,7 +542,7 @@
       "properties" : {
         "addressLines" : {
           "type" : "array",
-          "description" : "Data Item Ref: 11(a)-(c). The address will be Mandatory if the PPSN isn’t available. Line 1 of the employee's address is required.",
+          "description" : "Data Item Ref: 11(a)-(c). The address will be Mandatory if the PPSN isn’t available. Line 1 of the employee's address is required. Maximum of 3 lines",
           "items" : {
             "$ref" : "#/definitions/AddressLine"
           },
