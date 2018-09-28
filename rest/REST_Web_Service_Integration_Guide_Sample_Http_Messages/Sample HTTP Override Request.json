@@ -1,7 +1,7 @@
 -- Sample HTTP Method override Request with full 'Signature' Header --
 POST /v1/rest/rpn/8000075FH/2018?softwareUsed=softwareABC&softwareVersion=1.0.0 HTTP/1.1
 Host: softwaretest.ros.ie
-X-Date: Wed Jul 18 2018 16:15:23 GMT+0100 (Irish Standard Time)
+X-Date: Mon, 28 May 2018 16:32:44 GMT 
 X-HTTP-Method-Override: GET
 Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 Digest: KdQDkUyVUpSURIIoV9BhsW883Lq8rzMMdQtPYVK1jfXt83PCkwS0Sf1ti2NJQvAhI5RhrYvxzJN8zk4kvecXlQ==
