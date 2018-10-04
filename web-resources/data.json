@@ -221,7 +221,7 @@
 				"category": "download"
 			},
 			{
-				"link": "soap/v1/returns/returns_reconciliation-schema.xsd",
+				"link": "soap/v1/returns_reconciliation/returns_reconciliation-schema.xsd",
 				"description": "Returns Reconciliation Schema",
 				"anchor": "Returns_Schema",
 				"type": "Schema",
