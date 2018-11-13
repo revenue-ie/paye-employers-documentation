@@ -23,12 +23,11 @@ iv. Document updated on 09/02/2018:
 		Dates formatting changed to YYYY-MM-DD 
 		"employment start date" added as an optional request field
 		Dates/times changed to types xs:date and xs:dateTime
-		
 v. Document updated on 26/02/2018:
-		'EmploymentStartDate' changed to field of 'NewEmployeeDetails' property		
+		'EmploymentStartDate' changed to field of 'NewEmployeeDetails' property
 ======== Version 1.0 Release Candidate 2 ====================================
-vi. Document update on 24/05/2018
-
+vi.  Document updated on 12/11/2018:
+		Updated description of "PreviousEmployeePPSN" to show it's conditional
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types.xsd"/>
@@ -310,7 +309,7 @@ vi. Document update on 24/05/2018
 			</xs:element>
 			<xs:element name="PreviousEmployeePPSN" type="pc:EmployeePPSN" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 109. Used to identify employee's previous PPS number if applicable e.g. PPS number with 'W' suffix.</xs:documentation>
+					<xs:documentation>Data Item Ref: 109. Conditionally Returned. Used to identify employee's previous PPS number if available e.g. PPS number with 'W' suffix.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EffectiveDate" type="xs:date">
@@ -325,7 +324,7 @@ vi. Document update on 24/05/2018
 			</xs:element>
 			<xs:element name="IncomeTaxCalculationBasis" type="pc:IncomeTaxCalculationBasis">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are Cumulative, Week1 and Emergency.</xs:documentation>
+					<xs:documentation>Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are "CUMULATIVE", "WEEK_1" and "EMERGENCY".</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExclusionOrder" type="xs:boolean" minOccurs="0">

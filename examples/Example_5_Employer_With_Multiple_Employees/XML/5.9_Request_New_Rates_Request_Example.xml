@@ -11,7 +11,7 @@ iii. Document updated on 17/11/2017:
 v. Document updated on 24/05/2018
 	 Updated ENUM Values to reflect schematic changes
 -->
-<rat:NewRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/ file:///S:/Public/ITS/ITP/APPLICAT/PAYE%20Modernisation/Schema%20Publication%20June%202017/Design/SOAP-XML_Schemas/rpn/v1/rpn-schema.xsd">
+<rat:NewRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/">
 	<rat:RequestID>001</rat:RequestID>
 	<rat:EmployerRegistrationNumber>4587256A</rat:EmployerRegistrationNumber>
 	<rat:AgentTain>45879C</rat:AgentTain>

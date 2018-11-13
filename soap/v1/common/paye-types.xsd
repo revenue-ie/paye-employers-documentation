@@ -2,19 +2,23 @@
 <!--Document History:
 ======== Version 0.9 ====================================
 i. Document Created 30/06/2017
+
 ======== Version 0.10 ====================================
-ii. Document updated on 07/09/2017: 
+ii. Document updated on 07/09/2017:
 		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+
 ======== Version 1.0 Milestone 1 ====================================
-iii. Document updated on 17/11/2017: 
+iii. Document updated on 17/11/2017:
 		Renamed the “Class" (type="pc:calculationBasis") to "IncomeTaxCalculatonBasis"
 		Renamed the element: "employeePPSN" to "EmployeePPSN"
 		Renamed the element: "RunReference" to "PayrollRunReference"
+
 ======== Version 1.0 Milestone 2 ====================================
 iv. Document updated on 09/02/2018:
 		dateString pattern and minLength changed
+
 ======== Version 1.0 Release Candidate 2 ====================================
-v. Document updatd on 24/05/2018:
+v. Document updated on 17/04/2018:
 		Enum values changed from CamelCase to standard Java enum format (e.g. Week1 to WEEK_1) for following fields
 			prsiExemptionReason
 			IncomeTaxCalculationBasis
@@ -23,6 +27,9 @@ v. Document updatd on 24/05/2018:
 			acknowledgementStatus
 			county
 		Six new Northern Irish Counties added in "County" field
+
+vi. Document updated on 02/11/2018:
+		County field within Address, changed from enumeration to String
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
@@ -76,7 +83,7 @@ v. Document updatd on 24/05/2018:
 	</xs:simpleType>
 	<xs:simpleType name="pensionTracingNumber">
 		<xs:restriction base="pc:defaultString">
-			<xs:minLength value="8"/>
+			<xs:minLength value="3"/>
 			<xs:maxLength value="8"/>
 			<xs:pattern value="[0-9A-Za-z]*"/>
 		</xs:restriction>
@@ -144,38 +151,7 @@ v. Document updatd on 24/05/2018:
 	</xs:simpleType>
 	<xs:simpleType name="county">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="ANTRIM"/>
-			<xs:enumeration value="ARMAGH"/>
-			<xs:enumeration value="CARLOW"/>
-			<xs:enumeration value="CAVAN"/>
-			<xs:enumeration value="CLARE"/>
-			<xs:enumeration value="CORK"/>
-			<xs:enumeration value="DERRY"/>
-			<xs:enumeration value="DONEGAL"/>
-			<xs:enumeration value="DOWN"/>
-			<xs:enumeration value="DUBLIN"/>
-			<xs:enumeration value="FERMANAGH"/>
-			<xs:enumeration value="GALWAY"/>
-			<xs:enumeration value="KERRY"/>
-			<xs:enumeration value="KILDARE"/>
-			<xs:enumeration value="KILKENNY"/>
-			<xs:enumeration value="LAOIS"/>
-			<xs:enumeration value="LEITRIM"/>
-			<xs:enumeration value="LIMERICK"/>
-			<xs:enumeration value="LONGFORD"/>
-			<xs:enumeration value="LOUTH"/>
-			<xs:enumeration value="MAYO"/>
-			<xs:enumeration value="MEATH"/>
-			<xs:enumeration value="MONAGHAN"/>
-			<xs:enumeration value="OFFALY"/>
-			<xs:enumeration value="ROSCOMMON"/>
-			<xs:enumeration value="SLIGO"/>
-			<xs:enumeration value="TIPPERARY"/>
-			<xs:enumeration value="TYRONE"/>
-			<xs:enumeration value="WATERFORD"/>
-			<xs:enumeration value="WEXFORD"/>
-			<xs:enumeration value="WESTMEATH"/>
-			<xs:enumeration value="WICKLOW"/>
+			<xs:maxLength value="35"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!--Validation - Simple Types -->
@@ -209,6 +185,11 @@ v. Document updatd on 24/05/2018:
 		<xs:restriction base="pc:defaultString">
 			<xs:maxLength value="50"/>
 			<xs:pattern value="[A-Za-z0-9_\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="pc:defaultString">
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="defaultString">

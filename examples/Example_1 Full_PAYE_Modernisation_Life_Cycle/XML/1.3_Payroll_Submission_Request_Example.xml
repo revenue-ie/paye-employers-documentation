@@ -54,7 +54,7 @@ v. Document updated on 24/05/2018
 		<pay:IncomeTaxPaid>0.00</pay:IncomeTaxPaid>
 		<pay:PayForEmployeePRSI>307.50</pay:PayForEmployeePRSI>
 		<pay:PayForEmployerPRSI>307.50</pay:PayForEmployerPRSI>
-		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
+		<pay:PRSIExempt>false</pay:PRSIExempt>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A0</pay:PRSIClass>
 			<pay:InsurableWeeks>5</pay:InsurableWeeks>

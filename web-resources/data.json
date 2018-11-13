@@ -159,7 +159,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "12/10/2018",
+				"dateLastUpdated": "13/11/2018",
 				"category": "download"
 			},
 			{
@@ -244,7 +244,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "13/11/2018",
 				"category": "navigation"
 			},
 			{
@@ -302,7 +302,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "21/09/2018",
+				"dateLastUpdated": "13/11/2018",
 				"category": "navigation"
 			},
 			{
@@ -360,7 +360,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "28/09/2018",
+				"dateLastUpdated": "13/11/2018",
 				"category": "download"
 			},
 			{

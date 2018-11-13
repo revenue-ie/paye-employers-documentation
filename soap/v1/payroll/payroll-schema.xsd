@@ -26,15 +26,15 @@ iv. Document updated on 09/02/2018:
 		Dates formatting changed to YYYY-MM-DD 
 		New PRSI Exemption Reason 'Other' added
 		Dates updated to type xs:date
-		
+
 ======== Version 1.0 Release Candidate 2 ====================================
 v. Document updated on 17/05/2018:
 		Enum values changed from CamelCase to standard Java enum format (e.g. BiAnnual to BI_ANNUAL) for following fields
 		payFrequency
 		directorType
+
 vi. Document updated on 19/06/2018:
 		"EmployeeASC" property added to payslip
-	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types.xsd"/>
@@ -355,7 +355,7 @@ vi. Document updated on 19/06/2018:
 			</xs:element>
 			<xs:element name="PreviousLineItemID" type="pc:payrollRunLineItemID" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: N/A. Used to identify a previous version of this line item when corrections are made.</xs:documentation>
+					<xs:documentation>Data Item Ref: N/A. Used to identify a previous version of this line item when corrections are made. Can only reference line items within the same payroll run.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EmployeeID" type="pp:EmployeeID" minOccurs="0">
