@@ -11,7 +11,7 @@
       "email": ""
     }
   },
-  "host": "rospublictestnextversion.ros.ie",
+  "host": "softwaretest.ros.ie",
   "basePath": "/paye/employers/v1/rest",
   "tags": [
     {
