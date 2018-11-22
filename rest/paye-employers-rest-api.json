@@ -1,22 +1,21 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "REST API from enable employers from request Revenue Payroll Notification (RPN) details and from submit details of payroll runs.",
+    "description": "REST API to enable employers to request Revenue Payroll Notification (RPN) details and to submit details of payroll runs.",
     "version": "0.10",
     "title": "PAYE Employers REST API",
     "termsOfService": "",
     "contact": {
       "name": "PAYE Modernisation Schema Support",
-      "url": "",
+      "url": "https://revenue-ie.github.io/paye-employers-documentation/",
       "email": ""
     }
   },
   "host": "softwaretest.ros.ie",
-  "basePath": "/paye/employers/v1/rest",
-  "tags": [
-    {
-      "name": "PAYE Employers Handshake (Connection Test) REST API"
-    },
+  "basePath": "/paye-employers/v1/rest",
+  "tags": [{
+    "name": "PAYE Employers Handshake (Connection Test) REST API"
+  },
     {
       "name": "PAYE Employers Payroll REST API"
     },
@@ -25,28 +24,22 @@
     },
     {
       "name": "Period Return REST API"
-    }
-  ],
-  "schemes": [
-    "https"
-  ],
+    }],
+  "schemes": ["https"],
   "paths": {
     "/handshake": {
       "get": {
-        "tags": [
-          "PAYE Employers Handshake (Connection Test) REST API"
-        ],
+        "tags": ["PAYE Employers Handshake (Connection Test) REST API"],
         "summary": "Handshake Request",
         "description": "Employer's PAYE Handshake Request.",
         "operationId": "handshakeEndpoint",
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "query",
-            "description": "Employer's PAYE Registration Number.",
-            "required": false,
-            "type": "string"
-          },
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "query",
+          "description": "Employer's PAYE Registration Number.",
+          "required": false,
+          "type": "string"
+        },
           {
             "name": "agentTain",
             "in": "query",
@@ -67,8 +60,7 @@
             "description": "Version of third party software product.",
             "required": true,
             "type": "string"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -96,20 +88,17 @@
     },
     "/payroll/{employerRegistrationNumber}/{taxYear}/{payrollRunReference}": {
       "get": {
-        "tags": [
-          "PAYE Employers Payroll REST API"
-        ],
+        "tags": ["PAYE Employers Payroll REST API"],
         "summary": "Check PayrollRun Request",
         "description": "Request to check the current status of an Employer's PAYE Payroll Run, based on the RunReference.",
         "operationId": "checkPayrollRunComplete",
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -145,8 +134,7 @@
             "description": "Version of third party software product.",
             "required": true,
             "type": "string"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -174,20 +162,17 @@
     },
     "/payroll/{employerRegistrationNumber}/{taxYear}/{payrollRunReference}/{submissionID}": {
       "get": {
-        "tags": [
-          "PAYE Employers Payroll REST API"
-        ],
+        "tags": ["PAYE Employers Payroll REST API"],
         "summary": "Check Payroll Submission Request",
         "description": "Request to check the current status of an Employer's PAYE Payroll Submission, based on the Submission ID.",
         "operationId": "checkPayrollSubmissionComplete",
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -230,8 +215,7 @@
             "description": "Version of third party software product.",
             "required": true,
             "type": "string"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -257,26 +241,19 @@
         }
       },
       "post": {
-        "tags": [
-          "PAYE Employers Payroll REST API"
-        ],
+        "tags": ["PAYE Employers Payroll REST API"],
         "summary": "Payroll Submission Request",
         "description": "Employer's PAYE Payroll Submission Request.",
         "operationId": "createPayrollSubmission",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Data Item Ref: 1. Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Data Item Ref: 1. Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -295,7 +272,7 @@
           {
             "name": "submissionID",
             "in": "path",
-            "description": "Data Item Ref: N/A. Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number. For batch submissions, all submissions should have the same SubmissionID and should have the BatchID and BatchCount populated.",
+            "description": "Data Item Ref: N/A. Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number.",
             "required": true,
             "type": "string"
           },
@@ -321,20 +298,13 @@
             "type": "string"
           },
           {
-            "name": "",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "required": false,
             "schema": {
               "$ref": "#/definitions/PayrollSubmission"
             }
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -362,27 +332,22 @@
     },
     "/returns_reconciliation/{employerRegistrationNumber}": {
       "get": {
-        "tags": [
-          "Period Return REST API"
-        ],
+        "tags": ["Period Return REST API"],
         "summary": "Look Up Payroll by Return Period",
         "description": "Look up payroll by returns period based on a range of dates.",
         "operationId": "lookUpPayrollReturnByPeriod",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
           },
           {
             "name": "periodStartDate",
             "in": "query",
-            "description": "Period start date e.g. 01/01/2019.",
+            "description": "Period start date e.g. 2019-01-01.",
             "required": true,
             "type": "string",
             "format": "date"
@@ -390,7 +355,7 @@
           {
             "name": "periodEndDate",
             "in": "query",
-            "description": "Period end date e.g.31/01/2019.",
+            "description": "Period end date e.g.2019-01-31.",
             "required": true,
             "type": "string",
             "format": "date"
@@ -415,8 +380,7 @@
             "description": "Version of third party software product.",
             "required": true,
             "type": "string"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -444,23 +408,18 @@
     },
     "/rpn/{employerRegistrationNumber}/{taxYear}": {
       "get": {
-        "tags": [
-          "PAYE Employers RPN REST API"
-        ],
+        "tags": ["PAYE Employers RPN REST API"],
         "summary": "Look Up RPN ByEmployer and optionally filter by date last updated and/or employee id's",
         "description": "Request to get an RPN by Employer Registration Number. Additionally",
         "operationId": "lookUpRPNByEmployer",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -508,8 +467,7 @@
               "type": "string"
             },
             "collectionFormat": "multi"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -535,26 +493,19 @@
         }
       },
       "post": {
-        "tags": [
-          "PAYE Employers RPN REST API"
-        ],
+        "tags": ["PAYE Employers RPN REST API"],
         "summary": "Create temporary RPN.",
         "description": "Create new RPN.",
         "operationId": "createTemporaryRpn",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -585,20 +536,13 @@
             "type": "string"
           },
           {
-            "name": "",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "required": false,
             "schema": {
               "$ref": "#/definitions/NewRPN"
             }
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -626,23 +570,18 @@
     },
     "/rpn/{employerRegistrationNumber}/{taxYear}/{employeeId}": {
       "get": {
-        "tags": [
-          "PAYE Employers RPN REST API"
-        ],
+        "tags": ["PAYE Employers RPN REST API"],
         "summary": "Look Up RPN By Employee",
         "description": "Request to get an RPN by Employee ID(employee Ppsn and employment ID).",
         "operationId": "lookUpRPNByEmployee",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "employerRegistrationNumber",
-            "in": "path",
-            "description": "Employer's PAYE Registration Number.",
-            "required": true,
-            "type": "string"
-          },
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "employerRegistrationNumber",
+          "in": "path",
+          "description": "Employer's PAYE Registration Number.",
+          "required": true,
+          "type": "string"
+        },
           {
             "name": "taxYear",
             "in": "path",
@@ -678,8 +617,7 @@
             "description": "Version of third party software product.",
             "required": true,
             "type": "string"
-          }
-        ],
+          }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -752,10 +690,8 @@
     },
     "BatchStatus": {
       "type": "object",
-      "required": [
-        "index",
-        "processingStatus"
-      ],
+      "required": ["index",
+        "processingStatus"],
       "properties": {
         "index": {
           "type": "integer",
@@ -765,31 +701,25 @@
         "processingStatus": {
           "type": "string",
           "description": "Current Status of the batch in the Payroll Submission. Possible values are Pending, Completed or NotAcknowledged.",
-          "enum": [
-            "NOT_ACKNOWLEDGED",
+          "enum": ["NOT_ACKNOWLEDGED",
             "PENDING",
             "COMPLETED",
-            "PROCESSED"
-          ]
+            "PROCESSED"]
         }
       },
       "description": "Status of each batch for a submission recieved in multiple batches."
     },
     "CheckPayrollRunResponse": {
       "type": "object",
-      "required": [
-        "status"
-      ],
+      "required": ["status"],
       "properties": {
         "status": {
           "type": "string",
           "description": "Current Status of Payroll Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the Payroll Run are at a status of Pending.",
-          "enum": [
-            "NOT_ACKNOWLEDGED",
+          "enum": ["NOT_ACKNOWLEDGED",
             "PENDING",
             "COMPLETED",
-            "PROCESSED"
-          ]
+            "PROCESSED"]
         },
         "taxOnIncome": {
           "type": "number",
@@ -832,13 +762,11 @@
     },
     "CheckPayrollSubmissionResponse": {
       "type": "object",
-      "required": [
-        "submissionID"
-      ],
+      "required": ["submissionID"],
       "properties": {
         "submissionID": {
           "type": "string",
-          "description": "Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number. For batch submissions, all submissions should have the same SubmissionID and should have the BatchID and BatchCount populated.",
+          "description": "Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number.",
           "minLength": 0,
           "maxLength": 50,
           "pattern": "[A-Za-z0-9_\\-]*"
@@ -846,24 +774,10 @@
         "status": {
           "type": "string",
           "description": "Current Status of Payroll Submission. Possible values are Pending or Completed.",
-          "enum": [
-            "NOT_ACKNOWLEDGED",
+          "enum": ["NOT_ACKNOWLEDGED",
             "PENDING",
             "COMPLETED",
-            "PROCESSED"
-          ]
-        },
-        "batchCount": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Total number of batches for a submission recieved in multiple batches."
-        },
-        "batchStatuses": {
-          "type": "array",
-          "description": "Status of each batch for a submission recieved in multiple batches.",
-          "items": {
-            "$ref": "#/definitions/BatchStatus"
-          }
+            "PROCESSED"]
         },
         "submissionSummary": {
           "description": "Summary totals for submission. Included when submission has completed processing.",
@@ -895,9 +809,7 @@
     },
     "HandshakeResponse": {
       "type": "object",
-      "required": [
-        "connectionStatus"
-      ],
+      "required": ["connectionStatus"],
       "properties": {
         "connectionStatus": {
           "type": "string",
@@ -908,10 +820,8 @@
     },
     "InvalidPayslip": {
       "type": "object",
-      "required": [
-        "errors",
-        "lineItemID"
-      ],
+      "required": ["errors",
+        "lineItemID"],
       "properties": {
         "lineItemID": {
           "type": "string",
@@ -943,10 +853,8 @@
     },
     "LookupPayrollDetailsByReturnPeriodResponse": {
       "type": "object",
-      "required": [
-        "employerReg",
-        "returnPeriod"
-      ],
+      "required": ["employerReg",
+        "returnPeriod"],
       "properties": {
         "employerReg": {
           "type": "string",
@@ -998,13 +906,11 @@
     },
     "LookupRPNResponse": {
       "type": "object",
-      "required": [
-        "dateTimeEffective",
+      "required": ["dateTimeEffective",
         "employerName",
         "employerRegistrationNumber",
         "taxYear",
-        "totalRPNCount"
-      ],
+        "totalRPNCount"],
       "properties": {
         "employerName": {
           "type": "string",
@@ -1068,10 +974,8 @@
     },
     "NewEmployeeDetail": {
       "type": "object",
-      "required": [
-        "employeeID",
-        "name"
-      ],
+      "required": ["employeeID",
+        "name"],
       "properties": {
         "employeeID": {
           "$ref": "#/definitions/RPNEmployeeID"
@@ -1089,9 +993,7 @@
     },
     "NewRPN": {
       "type": "object",
-      "required": [
-        "requestId"
-      ],
+      "required": ["requestId"],
       "properties": {
         "requestId": {
           "type": "string",
@@ -1112,11 +1014,9 @@
     },
     "NewRPNResponse": {
       "type": "object",
-      "required": [
-        "dateTimeEffective",
+      "required": ["dateTimeEffective",
         "employerName",
-        "employerRegistrationNumber"
-      ],
+        "employerRegistrationNumber"],
       "properties": {
         "employerName": {
           "type": "string",
@@ -1168,9 +1068,7 @@
     },
     "PRSIClassDetail": {
       "type": "object",
-      "required": [
-        "prsiClass"
-      ],
+      "required": ["prsiClass"],
       "properties": {
         "prsiClass": {
           "type": "string",
@@ -1187,15 +1085,13 @@
     },
     "Payroll Run Details": {
       "type": "object",
-      "required": [
-        "lpt",
+      "required": ["lpt",
         "multiPeriod",
         "payrollRunReference",
         "prsi",
         "runDate",
         "taxOnIncome",
-        "usc"
-      ],
+        "usc"],
       "properties": {
         "payrollRunReference": {
           "type": "string",
@@ -1234,10 +1130,8 @@
     },
     "PayrollEmployeeID": {
       "type": "object",
-      "required": [
-        "employeePpsn",
-        "employmentID"
-      ],
+      "required": ["employeePpsn",
+        "employmentID"],
       "properties": {
         "employeePpsn": {
           "type": "string",
@@ -1258,10 +1152,8 @@
     },
     "PayrollError": {
       "type": "object",
-      "required": [
-        "code",
-        "description"
-      ],
+      "required": ["code",
+        "description"],
       "properties": {
         "code": {
           "type": "string",
@@ -1289,10 +1181,8 @@
     },
     "PayrollName": {
       "type": "object",
-      "required": [
-        "familyName",
-        "firstName"
-      ],
+      "required": ["familyName",
+        "firstName"],
       "properties": {
         "firstName": {
           "type": "string",
@@ -1313,10 +1203,8 @@
     },
     "PayrollReturnError": {
       "type": "object",
-      "required": [
-        "code",
-        "description"
-      ],
+      "required": ["code",
+        "description"],
       "properties": {
         "code": {
           "type": "string",
@@ -1363,17 +1251,13 @@
     },
     "PayrollSubmissionResult": {
       "type": "object",
-      "required": [
-        "acknowledgementStatus"
-      ],
+      "required": ["acknowledgementStatus"],
       "properties": {
         "acknowledgementStatus": {
           "type": "string",
           "description": "Acknowledgement status for Employer's PAYE Payroll Submission Request. Possible values are Acknowledged or Rejected.",
-          "enum": [
-            "ACKNOWLEDGED",
-            "REJECTED"
-          ]
+          "enum": ["ACKNOWLEDGED",
+            "REJECTED"]
         },
         "acknowledgementID": {
           "type": "string",
@@ -1394,8 +1278,7 @@
     },
     "Payslip": {
       "type": "object",
-      "required": [
-        "grossPay",
+      "required": ["grossPay",
         "incomeTaxPaid",
         "lineItemID",
         "name",
@@ -1406,8 +1289,7 @@
         "payForUSC",
         "payFrequency",
         "prsiExempt",
-        "uscStatus"
-      ],
+        "uscStatus"],
       "properties": {
         "lineItemID": {
           "type": "string",
@@ -1442,7 +1324,7 @@
         "dateOfBirth": {
           "type": "string",
           "format": "date",
-          "description": "Data Item Ref: 12. Employee's Date of Birth - format DD/MM/YYYY. This will be Mandatory if the PPSN isn’t available."
+          "description": "Data Item Ref: 12. Employee's Date of Birth - format YYYY-MM-DD. This will be Mandatory if the PPSN isn’t available."
         },
         "startDate": {
           "type": "string",
@@ -1457,10 +1339,8 @@
         "director": {
           "type": "string",
           "description": "Data Item Ref: 51. Director marker. Options allowed are Proprietary and NonProprietary.This should be included at start of Employment or if there is any change",
-          "enum": [
-            "PROPRIETARY",
-            "NON_PROPRIETARY"
-          ]
+          "enum": ["PROPRIETARY",
+            "NON_PROPRIETARY"]
         },
         "shadowPayroll": {
           "type": "boolean",
@@ -1470,8 +1350,7 @@
         "payFrequency": {
           "type": "string",
           "description": "Data Item Ref: 18. Pay Frequency. Options allowed are Weekly, Fortnightly, Monthly, FourWeekly, TwiceMonthly, Quarterly, BiAnnual, WkBasedMonthly, Annual and Other.",
-          "enum": [
-            "WEEKLY",
+          "enum": ["WEEKLY",
             "FORTNIGHTLY",
             "MONTHLY",
             "FOUR_WEEKLY",
@@ -1480,8 +1359,7 @@
             "BI_ANNUAL",
             "WK_BASED_MONTHLY",
             "ANNUAL",
-            "OTHER"
-          ]
+            "OTHER"]
         },
         "numberOfPayPeriods": {
           "type": "integer",
@@ -1510,11 +1388,9 @@
         "incomeTaxCalculationBasis": {
           "type": "string",
           "description": "Data Item Ref: 22. PAYE calculation basis used in the submission. Options allowed are Cumulative, Week1 and Emergency. This is mandatory when the RPN is not used.",
-          "enum": [
-            "CUMULATIVE",
+          "enum": ["CUMULATIVE",
             "WEEK_1",
-            "EMERGENCY"
-          ]
+            "EMERGENCY"]
         },
         "exclusionOrder": {
           "type": "boolean",
@@ -1524,7 +1400,7 @@
         "payDate": {
           "type": "string",
           "format": "date",
-          "description": "Data Item Ref: 17. Date Employee is being paid (DD/MM/YYYY)."
+          "description": "Data Item Ref: 17. Date Employee is being paid (YYYY-MM-DD)."
         },
         "grossPay": {
           "type": "number",
@@ -1564,15 +1440,13 @@
         "prsiExemptionReason": {
           "type": "string",
           "description": "Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers), FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes).",
-          "enum": [
-            "A_1_PORTABLE_DOCUMENT",
+          "enum": ["A_1_PORTABLE_DOCUMENT",
             "CERTIFICATE_OF_COVERAGE",
             "POSTED_WORKER_OTHER_NOTIFICATION",
             "FAMILY_MEMBER",
             "UNDER_16",
             "SOCIAL_WELFARE_SCHEME",
-            "OTHER"
-          ]
+            "OTHER"]
         },
         "prsiClassDetails": {
           "type": "array",
@@ -1601,10 +1475,8 @@
         "uscStatus": {
           "type": "string",
           "description": "Data Item Ref: 36. USC Status. Allowed values are Ordinary and Exempt.",
-          "enum": [
-            "ORDINARY",
-            "EXEMPT"
-          ]
+          "enum": ["ORDINARY",
+            "EXEMPT"]
         },
         "uscPaid": {
           "type": "number",
@@ -1702,13 +1574,11 @@
     },
     "PayslipSummary": {
       "type": "object",
-      "required": [
-        "lineItemID",
+      "required": ["lineItemID",
         "lpt",
         "prsi",
         "taxOnIncome",
-        "usc"
-      ],
+        "usc"],
       "properties": {
         "lineItemID": {
           "type": "string",
@@ -1748,10 +1618,8 @@
     },
     "PayslipTaxRate": {
       "type": "object",
-      "required": [
-        "index",
-        "rateCutOff"
-      ],
+      "required": ["index",
+        "rateCutOff"],
       "properties": {
         "index": {
           "type": "integer",
@@ -1769,10 +1637,8 @@
     },
     "PayslipWarning": {
       "type": "object",
-      "required": [
-        "lineItemID",
-        "warnings"
-      ],
+      "required": ["lineItemID",
+        "warnings"],
       "properties": {
         "lineItemID": {
           "type": "string",
@@ -1802,12 +1668,10 @@
     },
     "Period Summary": {
       "type": "object",
-      "required": [
-        "lpt",
+      "required": ["lpt",
         "prsi",
         "taxOnIncome",
-        "usc"
-      ],
+        "usc"],
       "properties": {
         "taxOnIncome": {
           "type": "number",
@@ -1830,8 +1694,7 @@
     },
     "RPN": {
       "type": "object",
-      "required": [
-        "effectiveDate",
+      "required": ["effectiveDate",
         "employeeID",
         "endDate",
         "incomeTaxCalculationBasis",
@@ -1842,8 +1705,7 @@
         "rpnNumber",
         "taxRates",
         "uscStatus",
-        "yearlyTaxCredits"
-      ],
+        "yearlyTaxCredits"],
       "properties": {
         "rpnNumber": {
           "type": "string",
@@ -1890,11 +1752,9 @@
         "incomeTaxCalculationBasis": {
           "type": "string",
           "description": "Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are Cumulative, Week1 and Emergency.",
-          "enum": [
-            "CUMULATIVE",
+          "enum": ["CUMULATIVE",
             "WEEK_1",
-            "EMERGENCY"
-          ]
+            "EMERGENCY"]
         },
         "exclusionOrder": {
           "type": "boolean",
@@ -1928,10 +1788,8 @@
         "uscStatus": {
           "type": "string",
           "description": "Data Item Ref: 124. USC Status. Allowed values are Ordinary and Exempt.",
-          "enum": [
-            "ORDINARY",
-            "EXEMPT"
-          ]
+          "enum": ["ORDINARY",
+            "EXEMPT"]
         },
         "uscRates": {
           "type": "array",
@@ -1972,10 +1830,8 @@
     },
     "RPNEmployeeID": {
       "type": "object",
-      "required": [
-        "employeePpsn",
-        "employmentID"
-      ],
+      "required": ["employeePpsn",
+        "employmentID"],
       "properties": {
         "employeePpsn": {
           "type": "string",
@@ -1996,10 +1852,8 @@
     },
     "RPNError": {
       "type": "object",
-      "required": [
-        "code",
-        "description"
-      ],
+      "required": ["code",
+        "description"],
       "properties": {
         "code": {
           "type": "string",
@@ -2027,10 +1881,8 @@
     },
     "RPNName": {
       "type": "object",
-      "required": [
-        "familyName",
-        "firstName"
-      ],
+      "required": ["familyName",
+        "firstName"],
       "properties": {
         "firstName": {
           "type": "string",
@@ -2051,10 +1903,8 @@
     },
     "RPNTaxRate": {
       "type": "object",
-      "required": [
-        "index",
-        "taxRatePercent"
-      ],
+      "required": ["index",
+        "taxRatePercent"],
       "properties": {
         "index": {
           "type": "integer",
@@ -2078,30 +1928,26 @@
     },
     "Return Period": {
       "type": "object",
-      "required": [
-        "periodEndDate",
-        "periodStartDate"
-      ],
+      "required": ["periodEndDate",
+        "periodStartDate"],
       "properties": {
         "periodStartDate": {
           "type": "string",
           "format": "date",
-          "description": "Period start date e.g. 01/01/2019."
+          "description": "Period start date e.g. 2019-01-01."
         },
         "periodEndDate": {
           "type": "string",
           "format": "date",
-          "description": "Period end date e.g.31/01/2019."
+          "description": "Period end date e.g.2019-01-31."
         }
       },
       "description": "The period the return relates to."
     },
     "SubmissionStatus": {
       "type": "object",
-      "required": [
-        "status",
-        "submissionID"
-      ],
+      "required": ["status",
+        "submissionID"],
       "properties": {
         "submissionID": {
           "type": "string",
@@ -2113,12 +1959,10 @@
         "status": {
           "type": "string",
           "description": "Current Status of Payroll Submission. Possible values are Pending or Completed.",
-          "enum": [
-            "NOT_ACKNOWLEDGED",
+          "enum": ["NOT_ACKNOWLEDGED",
             "PENDING",
             "COMPLETED",
-            "PROCESSED"
-          ]
+            "PROCESSED"]
         },
         "submissionSummary": {
           "$ref": "#/definitions/SubmissionSummary"
@@ -2128,14 +1972,12 @@
     },
     "SubmissionSummary": {
       "type": "object",
-      "required": [
-        "lpt",
+      "required": ["lpt",
         "payslipCount",
         "payslipToDeleteCount",
         "prsi",
         "taxOnIncome",
-        "usc"
-      ],
+        "usc"],
       "properties": {
         "taxOnIncome": {
           "type": "number",
@@ -2168,10 +2010,8 @@
     },
     "USCRate": {
       "type": "object",
-      "required": [
-        "index",
-        "uscRatePercent"
-      ],
+      "required": ["index",
+        "uscRatePercent"],
       "properties": {
         "index": {
           "type": "integer",
@@ -2195,10 +2035,8 @@
     },
     "Warning": {
       "type": "object",
-      "required": [
-        "code",
-        "description"
-      ],
+      "required": ["code",
+        "description"],
       "properties": {
         "code": {
           "type": "string",
