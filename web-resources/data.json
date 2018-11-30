@@ -239,7 +239,7 @@
 				"category": "download"
 			},
 			{
-				"link": "soap/v1/handshake/v1/handshake-schema.xsd",
+				"link": "soap/v1/handshake/handshake-schema.xsd",
 				"description": "Handshake Schema",
 				"anchor": "Handshake_Schema",
 				"type": "Schema",
@@ -329,7 +329,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "13/11/2018",
+				"dateLastUpdated": "22/11/2018",
 				"category": "navigation"
 			},
 			{
