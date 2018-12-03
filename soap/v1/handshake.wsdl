@@ -8,7 +8,7 @@ i. Document Created 30/06/2017
 
 	<wsdl:types>
 		<xs:schema>
-			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/handshake/" schemaLocation="handshake/v1/handshake-schema.xsd" />
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/handshake/" schemaLocation="handshake/handshake-schema.xsd" />
 		</xs:schema>
 	</wsdl:types>
 
