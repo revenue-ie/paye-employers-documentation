@@ -1,17 +1,4 @@
 {
-	"Parallel": {
-		"title": "Parallel Test Documents",
-		"anchor": "parallel",
-		"cards": [{
-			"link": "Parallel/ROS Payroll Application Reporting.pdf",
-			"description": "Parallel ROS Payroll Reporting Application Guide",
-			"anchor": "parallel_guide",
-			"type": "PDF",
-			"version": "1.0 Release Candidate 2",
-			"dateLastUpdated": "21/09/2018",
-			"category": "download"
-		}]
-	},
 	"PIT": {
 		"title": "Public Interface Testing – Guides and useful info",
 		"anchor": "PIT",
