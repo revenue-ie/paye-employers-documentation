@@ -494,9 +494,9 @@
       },
       "post": {
         "tags": ["PAYE Employers RPN REST API"],
-        "summary": "Create temporary RPN.",
+        "summary": "New RPN",
         "description": "Create new RPN.",
-        "operationId": "createTemporaryRpn",
+        "operationId": "newRpn",
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [{
