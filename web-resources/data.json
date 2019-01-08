@@ -148,7 +148,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "14/12/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -242,7 +242,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -251,7 +251,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "13/11/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "navigation"
 			},
 			{
@@ -260,7 +260,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "21/09/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -296,7 +296,7 @@
 				"anchor": "SOAP_Handshake_Guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "13/11/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			}]
 	},
@@ -318,7 +318,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "22/11/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "navigation"
 			},
 			{
@@ -327,7 +327,7 @@
 				"anchor": "REST_Integration_Guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "22/11/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -345,7 +345,7 @@
 				"anchor": "REST_Handshake_Guide",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "14/12/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			}]
 	},
@@ -367,7 +367,7 @@
 				"anchor": "Payroll_Submission_Data_Items",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "14/12/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -394,7 +394,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "14/12/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			},
 			{
@@ -534,7 +534,7 @@
 				"anchor": "Example_10",
 				"type": "ZIP File",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "08/01/2019",
 				"sub_heading" : "Additional Payroll Scenarios",
 				"category": "download"
 			},
@@ -584,7 +584,7 @@
 				"anchor": "REST_Presentation",
 				"type": "PDF",
 				"version": "1.0 Release Candidate 2",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			}]
 	},

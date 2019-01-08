@@ -156,7 +156,7 @@ vii. Document updated on 19/11/2018
 			</xs:element>
 			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
 				<xs:annotation>
-					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.</xs:documentation>
+					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubmissionID" type="pc:submissionID">
@@ -245,7 +245,7 @@ vii. Document updated on 19/11/2018
 			</xs:element>
 			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
 				<xs:annotation>
-					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.</xs:documentation>
+					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -331,7 +331,7 @@ vii. Document updated on 19/11/2018
 			</xs:element>
 			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.</xs:documentation>
+					<xs:documentation>Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TaxYear" type="pc:dateYear">

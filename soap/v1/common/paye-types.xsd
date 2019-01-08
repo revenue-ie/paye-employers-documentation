@@ -27,15 +27,18 @@ v. Document updated on 17/04/2018:
 			acknowledgementStatus
 			county
 		Six new Northern Irish Counties added in "County" field
-
 vi. Document updated on 02/11/2018:
 		County field within Address, changed from enumeration to String
-
+v. Document updated on 07/12/2018:
+		SubmissionID minLength restriction added.
+		PayrollRunReference minLength restriction added.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<!--PAYE-specific Simple Types -->
 	<xs:simpleType name="submissionID">
-		<xs:restriction base="pc:IDString"/>
+		<xs:restriction base="pc:IDString">
+			<xs:minLength value="1"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="requestID">
 		<xs:restriction base="pc:IDString"/>
@@ -47,7 +50,9 @@ vi. Document updated on 02/11/2018:
 		<xs:restriction base="pc:IDString"/>
 	</xs:simpleType>
 	<xs:simpleType name="PayrollRunReference">
-		<xs:restriction base="pc:IDString"/>
+		<xs:restriction base="pc:IDString">
+			<xs:minLength value="1"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="rpnNumber">
 		<xs:restriction base="pc:IDString">

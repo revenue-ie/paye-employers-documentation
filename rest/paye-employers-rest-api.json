@@ -110,7 +110,7 @@
           {
             "name": "payrollRunReference",
             "in": "path",
-            "description": "Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
+            "description": "Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’. [A-Za-z0-9_\\\\-]*",
             "required": true,
             "type": "string"
           },
@@ -184,7 +184,7 @@
           {
             "name": "payrollRunReference",
             "in": "path",
-            "description": "Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
+            "description": "Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’. [A-Za-z0-9_\\\\-]*",
             "required": true,
             "type": "string"
           },
@@ -265,7 +265,7 @@
           {
             "name": "payrollRunReference",
             "in": "path",
-            "description": "Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site 1 Week 1’.",
+            "description": "Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’. [A-Za-z0-9_\\\\-]*",
             "required": true,
             "type": "string"
           },
@@ -1329,7 +1329,7 @@
         "startDate": {
           "type": "string",
           "format": "date",
-          "description": "Data Item Ref: 15. Employment Start Date. Only include this forthe first time you pay a new employee or if there is a correction being made to the StartDate."
+          "description": "Data Item Ref: 15. Employment Start Date. Only include this for the first time you pay a new employee or if there is a correction being made to the StartDate."
         },
         "leaveDate": {
           "type": "string",
