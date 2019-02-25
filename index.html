@@ -106,19 +106,19 @@ ul {
                                 <div id="show-data">
                                     <!-- Container  -->
                                     <div data-ng-repeat="(header, data) in vm.data">
-                                        <div class="section-header pull-left" style= "margin-bottom: 1rem;">
+                                        <div class="section-header" style= "margin-bottom: 1rem;">
                                             <a name="{{data.anchor}}" style="text-decoration:none"><h3>{{data.title}}</h3></a>
                                         </div>
 											<i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i><br/><br/>
                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
                                             <div class="bold">
-                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-xxs-5">
+                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
                                                     <strong>Document Description</strong>
                                                 </div>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-3">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
                                                     <strong>Type</strong>
                                                 </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-4"style="padding: 0rem !important;">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">
                                                     <strong>Version</strong>
                                                 </div>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding-left: 1.25rem !important;">
@@ -128,22 +128,22 @@ ul {
                                         </div>
 											<div class="card"
                                                 data-ng-repeat="document in data.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
-												<div class="col-sm-5 col-xs-5 col-xxs-5">
+												<div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
                                                     <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
 													<sup data-ng-if="document.explainer">
 														{{document.explainerIndex}}
 													</sup>
                                                 </div>
 												<a name="{{document.anchor}}"> </a>
-                                                <div class="col-sm-2 col-xs-2 col-xxs-3">{{document.type}}</div>
-                                                <div class="col-sm-3 col-xs-3 col-xxs-4"style="padding: 0rem !important;">{{document.version}}</div>
-                                                <div class="col-sm-2 col-xs-2"style="padding left: 0rem !important;">{{document.dateLastUpdated}}</div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">{{document.version}}</div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding left: 0rem !important;">{{document.dateLastUpdated}}</div>
                                             </div>
 											<div
                                                 data-ng-repeat="document in data.cards track by $index">
                                                 <div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="document.sub_hedaing" ng-bind-html="vm.generateHTML(document)"></div>
 												<i>
-													<div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="document.explainer" ng-bind-html="vm.generateHTML(document)"></div>
+													<div class="col-sm-12 pull-left" style = "padding-left: 0rem !important"; data-ng-if="document.explainer" ng-bind-html="vm.generateHTML(document)"></div>
 												</i>
 												<br/><br/>
 											</div>
