@@ -55,7 +55,7 @@ v. Document updated on 24/05/2018
 		<pay:PRSIEXEMPT>false</pay:PRSIEXEMPT>
 		<pay:PRSIClassDetail>
 			<pay:PRSIClass>A1</pay:PRSIClass>
-			<pay:InsurableWeeks>2</pay:InsurableWeeks>
+			<pay:InsurableWeeks>1</pay:InsurableWeeks>
 		</pay:PRSIClassDetail>
 		<pay:EmployeePRSIPaid>16</pay:EmployeePRSIPaid>
 		<pay:EmployerPRSIPaid>43.00</pay:EmployerPRSIPaid>
