@@ -659,7 +659,7 @@
         },
         "county": {
           "type": "string",
-          "description": "Data Item Ref: 11(d). County element of the employee's address (required).",
+          "description": "Data Item Ref: 11(d). County element of the employee's address.",
           "minLength": 0,
           "maxLength": 35
         },
