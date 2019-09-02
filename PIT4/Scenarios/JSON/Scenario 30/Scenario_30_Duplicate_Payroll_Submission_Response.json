@@ -1,0 +1,10 @@
+{
+    "acknowledgementStatus": "REJECTED",
+    "validationErrors": [
+        {
+            "code": "2001",
+            "path": "SubmissionID",
+            "description": "Duplicate submission across Submission ID, Batch Index (if applicable) and Employer Registration Number."
+        }
+    ]
+}

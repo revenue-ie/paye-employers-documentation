@@ -1,0 +1,36 @@
+div#i-results p
+{
+	display: none;
+}
+
+div#i-results a
+{
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.i-result-list tr td:first-child
+{
+	display: none;
+}
+
+.i-result-list td.i-inner-row
+{
+	border: none;
+}
+
+div#i-operators
+{
+	display: none;
+}
+
+input#i-search
+{
+	height: 28px;
+}
+
+input#i-execute-search
+{
+	margin-top: 3px;
+	height: 28px;
+}

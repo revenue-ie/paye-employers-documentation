@@ -1,0 +1,10 @@
+{
+  "employerRegistrationNumber": "08003222HH",
+  "validationErrors": [
+    {
+      "code": "4001",
+      "path": "requestID",
+      "description": "Duplicate request across RequestID and Employer Registration Number."
+    }
+  ]
+}

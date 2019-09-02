@@ -1,0 +1,126 @@
+.i-header
+{
+	height: 36px;
+    line-height: 36px;
+	cursor: pointer;
+	font-size: 12pt;
+	font-weight: normal;
+	padding-left: 6px;
+	background-color: #426bad;
+	color: #ffffff;
+}
+
+.i-header.ui-state-active
+{
+    background-color: #6d86c7;
+}
+
+.i-header:focus
+{
+    outline: none;  
+}
+
+.i-header-text
+{
+	line-height: 28px;
+}
+
+.i-header img
+{
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin: 10px 6px;
+}
+
+body
+{
+	margin: 0px;    
+	padding: 0px;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+}
+
+html
+{
+	height: 100%;
+}
+
+iframe
+{
+	padding: 0;
+	margin: 0;
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+#i-accordion
+{
+	height: 100%;
+}
+
+div#i-close-pane
+{
+    display: none;
+}
+
+div#i-close-pane a.btn
+{
+	background-color: gainsboro;
+	background-image: none;
+}
+
+#i-close-pane .btn 
+{
+	padding: 0px;
+}
+
+.i-frame-container
+{
+	overflow-y: hidden;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.i-arrow-container 
+{
+	padding-top: 12px;
+	padding-right: 12px;
+	float: right;
+}
+
+.i-arrow 
+{
+	width: 0; 
+	height: 0; 
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;		
+}
+
+.i-arrow-right 
+{
+	border-left: 9px solid white;
+	float: right;
+	margin-left: 9px;
+}
+
+.i-arrow-left 
+{
+	border-right: 9px solid white; 
+	float:right;
+}
+
+.i-arrow-right-disabled 
+{
+	border-left: 9px solid #d5d5d5;
+}
+
+.i-arrow-left-disabled 
+{
+	border-right: 9px solid #d5d5d5; 
+}

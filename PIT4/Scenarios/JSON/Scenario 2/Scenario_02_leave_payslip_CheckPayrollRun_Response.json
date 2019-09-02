@@ -1,0 +1,45 @@
+{
+    "status": "PROCESSED",
+    "taxOnIncome": 200,
+    "prsi": 640,
+    "usc": 320,
+    "lpt": 10,
+    "submissions": [
+        {
+            "submissionID": "Submission_00001",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 200,
+                "prsi": 640,
+                "usc": 320,
+                "lpt": 10,
+                "payslipCount": 2,
+                "payslipToDeleteCount": 0
+            }
+        }
+    ],
+    "payslipSummaries": [
+        {
+            "lineItemID": "LineItem-XYZ-0029",
+            "employeeID": {
+                "employeePpsn": "01074096Q",
+                "employmentID": "2"
+            },
+            "taxOnIncome": 100,
+            "prsi": 160,
+            "usc": 80,
+            "lpt": 0
+        },
+        {
+            "lineItemID": "LineItem-XYZ-0028",
+            "employeeID": {
+                "employeePpsn": "01074096Q",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 100,
+            "prsi": 480,
+            "usc": 240,
+            "lpt": 10
+        }
+    ]
+}

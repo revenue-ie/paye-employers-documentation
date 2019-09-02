@@ -1,0 +1,89 @@
+{
+  "status": "PROCESSED",
+  "taxOnIncome": 1400,
+  "prsi": 1600,
+  "usc": 400,
+  "lpt": 80,
+  "submissions": [
+    {
+      "submissionID": "03",
+      "status": "COMPLETED",
+      "submissionSummary": {
+        "taxOnIncome": 900,
+        "prsi": 1000,
+        "usc": 300,
+        "lpt": 80,
+        "payslipCount": 3,
+        "payslipToDeleteCount": 0
+      }
+    },
+    {
+      "submissionID": "04",
+      "status": "COMPLETED",
+      "submissionSummary": {
+        "taxOnIncome": 500,
+        "prsi": 600,
+        "usc": 100,
+        "lpt": 0,
+        "payslipCount": 2,
+        "payslipToDeleteCount": 0
+      }
+    }
+  ],
+  "payslipSummaries": [
+    {
+      "lineItemID": "E5-V1",
+      "employeeID": {
+        "employeePpsn": "1112215f",
+        "employmentID": "01"
+      },
+      "taxOnIncome": 300,
+      "prsi": 333.33,
+      "usc": 100,
+      "lpt": 80
+    },{
+      "lineItemID": "E9-v3",
+      "employeeID": {
+        "employeePpsn": "1175228T",
+        "employmentID": "3"
+      },
+      "taxOnIncome": 300,
+      "prsi": 333.33,
+      "usc": 100,
+      "lpt": 0
+    },
+    {
+      "lineItemID": "E21-v2",
+      "employeeID": {
+        "employeePpsn": "2548936K",
+        "employmentID": "2"
+      },
+      "taxOnIncome": 300,
+      "prsi": 333.33,
+      "usc": 100,
+      "lpt": 0
+    },
+    {
+      "lineItemID": "E12-V1",
+      "employeeID": {
+        "employeePpsn": "7425001H",
+        "employmentID": "1"
+      },
+      "taxOnIncome": 250,
+      "prsi": 300,
+      "usc": 50,
+      "lpt": 0
+    },
+    {
+      "lineItemID": "E22-V1",
+      "employeeID": {
+        "employeePpsn": "0852473A",
+        "employmentID": "3"
+      },
+      "taxOnIncome": 250,
+      "prsi": 300,
+      "usc": 50,
+      "lpt": 0
+    }
+  ]
+}

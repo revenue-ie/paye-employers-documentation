@@ -1,0 +1,10 @@
+
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+   <env:Header/>
+   <env:Body>
+      <ns2:PayrollSubmissionResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+         <ns2:AcknowledgementStatus>Acknowledged</ns2:AcknowledgementStatus>
+         <ns2:AcknowledgementID>10fe116a-f86c-40b5-aa48-c7b3b622bb9d</ns2:AcknowledgementID>
+      </ns2:PayrollSubmissionResponse>
+   </env:Body>
+</env:Envelope>

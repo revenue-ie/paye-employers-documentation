@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Document History:
+======== Version 0.1 ====================================
+i. Document Created 28/03/2018
+======== Version 0.2 ====================================
+ii. Document updated 18/05/2018
+		Changed definition name from "GetReturn" to "LookupPayrollDetailsByReturnPeriod".
+		Changed response message "LookUpPayrollReturnByPeriodRequest" to "LookupPayrollDetailsByReturnPeriodRequest".
+		Changed response message "LookUpPayrollReturnByPeriodResponse" to "LookupPayrollDetailsByReturnPeriodResponse".
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 24/05/2017: 
+v.  'schemaLocation' updated to 'returns_reconciliation/returns_reconciliation-schema.xsd'
+-->
+<wsdl:definitions name="LookupPayrollDetailsByReturnPeriod" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/">
+
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/" schemaLocation="returns_reconciliation/returns_reconciliation-schema-pit3.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="LookupPayrollDetailsByReturnPeriodRequest">
+		<wsdl:part element="tns:LookupPayrollDetailsByReturnPeriodRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="LookupPayrollDetailsByReturnPeriodResponse">
+		<wsdl:part element="tns:LookupPayrollDetailsByReturnPeriodResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="LookupPayrollDetailsByReturnPeriodPortType">
+		<wsdl:operation name="LookupPayrollDetailsByReturnPeriod">
+			<wsdl:input message="tns:LookupPayrollDetailsByReturnPeriodRequest"/>
+			<wsdl:output message="tns:LookupPayrollDetailsByReturnPeriodResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="LookupPayrollDetailsByReturnPeriodBindingSOAP" type="tns:LookupPayrollDetailsByReturnPeriodPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="LookUpPayrollReturnByPeriodOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/LookUpPayrollReturnByPeriodOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LookupPayrollDetailsByReturnPeriodService">
+		<wsdl:port name="LookupPayrollDetailsByReturnPeriodBindingSOAP" binding="tns:LookupPayrollDetailsByReturnPeriodBindingSOAP">
+			<soap:address location="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

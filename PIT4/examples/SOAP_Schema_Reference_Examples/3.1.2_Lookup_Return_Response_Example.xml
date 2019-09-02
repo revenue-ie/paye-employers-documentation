@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rr:LookupPayrollDetailsByReturnPeriodResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rr="http://www.ros.ie/schemas/paye-employers/v1/payroll_return/" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll_return/returns_reconciliation.xsd">
+    <rr:EmployerRegistrationNumber>1234567T</rr:EmployerRegistrationNumber>
+    <rr:AgentTain>12345A</rr:AgentTain>
+    <rr:ReturnPeriod>
+        <rr:PeriodStartDate>2019-01-01</rr:PeriodStartDate>
+        <rr:PeriodEndDate>2019-01-31</rr:PeriodEndDate>
+    </rr:ReturnPeriod>
+    <rr:DateLastUpdated>2019-02-06</rr:DateLastUpdated>
+    <rr:Version>12456R</rr:Version>
+    <rr:PeriodSummary>
+        <rr:TaxOnIncome>3000</rr:TaxOnIncome>
+        <rr:PRSI>6000</rr:PRSI>
+        <rr:USC>4500</rr:USC>
+        <rr:LPT>1200</rr:LPT>
+    </rr:PeriodSummary>
+    <rr:PayrollRunDetails>
+        <rr:PayrollRunReference>2019_Jan_WEEK_1</rr:PayrollRunReference>
+        <rr:RunDate>2019-01-12</rr:RunDate>
+        <rr:multiPeriod>false</rr:multiPeriod>
+        <rr:TaxOnIncome>1000</rr:TaxOnIncome>
+        <rr:PRSI>2000</rr:PRSI>
+        <rr:USC>1500</rr:USC>
+        <rr:LPT>400</rr:LPT>
+    </rr:PayrollRunDetails>
+    <rr:PayrollRunDetails>
+        <rr:PayrollRunReference>2019_Jan_Week2</rr:PayrollRunReference>
+        <rr:RunDate>2019-01-20</rr:RunDate>
+        <rr:multiPeriod>true</rr:multiPeriod>
+        <rr:TaxOnIncome>1000</rr:TaxOnIncome>
+        <rr:PRSI>2000</rr:PRSI>
+        <rr:USC>1500</rr:USC>
+        <rr:LPT>400</rr:LPT>
+    </rr:PayrollRunDetails>
+    <rr:PayrollRunDetails>
+        <rr:PayrollRunReference>2019_Jan_Week3</rr:PayrollRunReference>
+        <rr:RunDate>2019-01-28</rr:RunDate>
+        <rr:multiPeriod>true</rr:multiPeriod>
+        <rr:TaxOnIncome>1000</rr:TaxOnIncome>
+        <rr:PRSI>2000</rr:PRSI>
+        <rr:USC>1500</rr:USC>
+        <rr:LPT>400</rr:LPT>
+    </rr:PayrollRunDetails>
+</rr:LookupPayrollDetailsByReturnPeriodResponse>

@@ -1,0 +1,20 @@
+{
+    "submissionID": "Submission_00001",
+    "status": "COMPLETED",
+    "submissionSummary": {
+        "payslipCount": 1,
+        "payslipToDeleteCount": 0
+    },
+    "invalidPayslips": [
+        {
+            "lineItemID": "LineItem-XYZ-Jan",
+            "errors": [
+                {
+                    "code": "2038",
+                    "path": "uscPaid",
+                    "description": "USCPaid amount is required for USCStatus of Ordinary."
+                }
+            ]
+        }
+    ]
+}

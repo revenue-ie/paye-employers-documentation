@@ -1,0 +1,44 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "E1-v2",
+      "employeeID": {
+        "employeePpsn": "00000007N",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "John",
+        "familyName": "Blogs"
+      },
+      "payFrequency": "WEEKLY",
+      "rpnNumber": "2",
+      "taxCredits": 63.46,
+      "taxRates": [
+        {
+          "index": 1,
+          "rateCutOff": 650
+        }
+      ],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "2019-01-18",
+      "grossPay": 400,
+      "payForIncomeTax": 400,
+      "incomeTaxPaid": 16.54,
+      "payForEmployeePRSI": 400,
+      "payForEmployerPRSI": 400,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 1
+        }
+      ],
+      "employeePRSIPaid": 16.00,
+      "employerPRSIPaid": 43,
+      "payForUSC": 400,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 11.36,
+      "lptDeducted": 12.33
+    }
+  ]
+}

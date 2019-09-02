@@ -1,0 +1,230 @@
+<!--
+Document History:
+======== Version 1.0 Release Candidate 2 ====================================
+i. Document Created 17/05/2018
+ii. Document updated 18/05/2018
+		Element name changed from "LookUpPayrollReturnByPeriodRequest" to "LookupPayrollDetailsByReturnPeriodRequest".
+		Element name changed from "LookUpPayrollReturnByPeriodResponse" to "LookupPayrollDetailsByReturnPeriodResponse".
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rr="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
+	<!--Payroll Return by Period Request and Response Operations -->
+	<xs:element name="LookupPayrollDetailsByReturnPeriodRequest" type="rr:LookupPayrollDetailsByReturnPeriodRequest">
+		<xs:annotation>
+			<xs:documentation>Employer/Agent requests to view a return for a specific period.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LookupPayrollDetailsByReturnPeriodResponse" type="rr:LookupPayrollDetailsByReturnPeriodResponse">
+		<xs:annotation>
+			<xs:documentation>Response that lets the employer/agent view a return for a specific period.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!--Payroll Return by Period Request Schema Elements -->
+	<xs:complexType name="LookupPayrollDetailsByReturnPeriodRequest">
+		<xs:annotation>
+			<xs:documentation>Data Items required for an employer/agent to request to view a Return for a specific period.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 201. Employer's PAYE-EMP Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 202. Tax Advisor Identification Number. Required if the Payroll Return by Period request is filed by an agent on behalf of an employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="rr:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReturnPeriod" type="rr:ReturnPeriod">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The period the Return relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Payroll Return by Period Response Schema Elements -->
+	<xs:complexType name="LookupPayrollDetailsByReturnPeriodResponse">
+		<xs:annotation>
+			<xs:documentation>Data Items sent to an employer/agent in response to a Payroll Return by Period request to view a Return for a specific period.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 201. Employer's PAYE-EMP Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 202. Tax Advisor Identification Number. Returned if the Payroll Return by Period request was filed by an agent on behalf of an employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReturnPeriod" type="rr:ReturnPeriod">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The period the return relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateLastUpdated" minOccurs="0" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 208. This date indicates when the return was last updated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" minOccurs="0" type="rr:version">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 207. Indicates the version of the return that is being requested.  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PeriodSummary" minOccurs="0" type="rr:PeriodSummary">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The overall totals for PAYE, PRSI (employer and employee), USC and LPT in the selected period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayrollRunDetails" type="rr:PayrollRunDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. List of individual payroll runs with pay dates in the selected period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="rr:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Submission Validation Errors (if any).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Payroll Return by Period Data Types -->
+	<xs:complexType name="SoftwareUsed">
+		<xs:annotation>
+			<xs:documentation>Data Item Ref: N/A. References to third party software used.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 205. Name of the third party software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 206. Version of the third party software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReturnPeriod">
+		<xs:annotation>
+			<xs:documentation>Data Item Ref: N/A. The period the return relates to.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PeriodStartDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 203. Period start date e.g. 01/01/2019. Used to identify the period the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PeriodEndDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 204. Period end date e.g.31/01/2019. Used to identify the period the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodSummary">
+		<xs:annotation>
+			<xs:documentation>Data Item Ref: N/A. Summary totals across valid line items for a specific period.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxOnIncome" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 209. The overall total income tax for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSI" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 210. The overall total PRSI (employer and employee) for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USC" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 211. The overall total USC for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPT" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 212. The overall total LPT for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PayrollRunDetails">
+		<xs:annotation>
+			<xs:documentation>Data Item Ref: N/A. Details of individual payroll runs that have finished processing and that apply to this period.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 213. The reference number identifies a specific payroll run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RunDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 214. The date the payroll run was submitted or last updated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="multiPeriod" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 215. Indicates if the Payroll Run includes pay dates in other periods. (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxOnIncome" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 216. The total amount of Income Tax in the payroll run for this period.  (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSI" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 217. The total amount of PRSI (employer and employee) in the payroll run for this period.  (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USC" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 218. The total amount of USC in the payroll run for this period.  (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPT" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 219. The total amount of LPT in the payroll run for this period.  (Only payroll figures with pay dates in the selected period are included in this period's totals).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Error">
+		<xs:annotation>
+			<xs:documentation>Details of validation check failure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Technical description of error.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="version">
+		<xs:restriction base="pc:defaultString">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

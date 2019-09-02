@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 1.0 Milestone 1 ====================================
+i. Document updated on 17/11/2017: 
+======== Version 1.0 Milestone 2 ====================================
+i. Document updated on 17/2/2017: 
+	SubmissionID changed to unique value	
+
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 24/05/2018
+	 Updated ENUM Values to reflect schematic changes
+-->
+
+<pay:PayrollSubmissionRequest xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/payroll/payroll-schema.xsd">
+	<pay:SubmissionID>68</pay:SubmissionID>
+	<pay:Header>
+		<pay:EmployerRegistrationNumber>0202020G</pay:EmployerRegistrationNumber>
+		<pay:PayrollRunReference>Site3Week8</pay:PayrollRunReference>
+		<pay:TaxYear>2019</pay:TaxYear>
+		<pay:SoftwareUsed>
+			<pay:Name>The Software</pay:Name>
+			<pay:Version>Version 10.0</pay:Version>
+		</pay:SoftwareUsed>
+	</pay:Header>
+
+	<pay:LineItemIDToDelete>E3-v1</pay:LineItemIDToDelete>
+</pay:PayrollSubmissionRequest>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+-->
+<wsdl:definitions name="PayeHandshake" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/v1/handshake/" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/handshake/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/handshake/" schemaLocation="handshake/handshake-schema-pit3.xsd" />
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="HandshakeRequest">
+		<wsdl:part element="tns:HandshakeRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="HandshakeResponse">
+		<wsdl:part element="tns:HandshakeResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:portType name="HandshakePortType">
+		<wsdl:operation name="HandshakeOperation">
+			<wsdl:input message="tns:HandshakeRequest"/>
+			<wsdl:output message="tns:HandshakeResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="HandshakeBindingSOAP" type="tns:HandshakePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="HandshakeOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/v1/handshake/HandshakeOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="HandshakeOnlineService">
+		<wsdl:port name="HandshakeBindingSOAP" binding="tns:HandshakeBindingSOAP">
+			<soap:address location="https://www.ros.ie/schemas/paye-employers/v1/handshake"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

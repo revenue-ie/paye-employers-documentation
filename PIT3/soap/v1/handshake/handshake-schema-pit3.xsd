@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Document History:
+======== Version 0.9 ====================================
+i. Document Created 23/10/2018
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/handshake/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/handshake/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
+	<!-- Handshake (Revenue Payroll Notification) Request and Response Schema Elements -->
+	<xs:element name="HandshakeRequest" type="pr:HandshakeRequest">
+		<xs:annotation>
+			<xs:documentation>Handshake Request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="HandshakeResponse" type="pr:HandshakeResponse">
+		<xs:annotation>
+			<xs:documentation>Handshake Response. Will either return Handshake detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- Handshake Data Types -->
+	<xs:complexType name="HandshakeRequest">
+		<xs:annotation>
+			<xs:documentation>Handshake Request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tax Advisor Identification Number. Required if Handshake is queried by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pr:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>References to third party software used to Handshake.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HandshakeResponse">
+		<xs:annotation>
+			<xs:documentation>Handshake Response. Will either return Handshake detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConnectionStatus" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Status of connection to be confirmed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pr:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the HandshakeRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoftwareUsed">
+		<xs:annotation>
+			<xs:documentation>References to third party software used.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Name of the software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Version of the software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Error">
+		<xs:annotation>
+			<xs:documentation>Standard Validation error.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Description of error - to be used for support.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 15/09/2017: 
+		Updated SOAP namespace to Version 1.2
+		Added "soapActionRequired" to "soap:operation"
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 16/11/2017:
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 24/05/2017:  
+-->
+<wsdl:definitions name="PayeEmployersPayroll" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/v1/payroll/" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" schemaLocation="payroll/payroll-schema-pit3.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="PayrollSubmissionRequest">
+		<wsdl:part element="tns:PayrollSubmissionRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="PayrollSubmissionResponse">
+		<wsdl:part element="tns:PayrollSubmissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPayrollSubmissionRequest">
+		<wsdl:part element="tns:CheckPayrollSubmissionRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPayrollSubmissionResponse">
+		<wsdl:part element="tns:CheckPayrollSubmissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPayrollRunRequest">
+		<wsdl:part element="tns:CheckPayrollRunRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPayrollRunResponse">
+		<wsdl:part element="tns:CheckPayrollRunResponse" name="parameters"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="PayrollPortType">
+		<wsdl:operation name="PayrollSubmissionOperation">
+			<wsdl:input message="tns:PayrollSubmissionRequest"/>
+			<wsdl:output message="tns:PayrollSubmissionResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPayrollSubmissionOperation">
+			<wsdl:input message="tns:CheckPayrollSubmissionRequest"/>
+			<wsdl:output message="tns:CheckPayrollSubmissionResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPayrollRunOperation">
+			<wsdl:input message="tns:CheckPayrollRunRequest"/>
+			<wsdl:output message="tns:CheckPayrollRunResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="PayrollBindingSOAP" type="tns:PayrollPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="PayrollSubmissionOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/v1/payroll/PayrollSubmissionOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPayrollSubmissionOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/v1/payroll/CheckPayrollSubmissionOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPayrollRunOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/v1/payroll/CheckPayrollRunOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="PayrollOnlineService">
+		<wsdl:port name="PayrollBindingSOAP" binding="tns:PayrollBindingSOAP">
+			<soap:address location="https://www.ros.ie/schemas/paye-employers/v1/payroll"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

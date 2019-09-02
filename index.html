@@ -89,6 +89,16 @@ ul {
                                 employee records and Employers employee records in advance of
                                 the changes to reporting obligations. The technical
                                 documentation is detailed below.</p>
+
+                            <p>
+                                There are two PIT Environments available to software developers, the first PIT
+                                environment is a representation of the live environment with functionality kept
+                                up to date with the functionality currently available in the live environment.
+                                The second PIT environment is the PIT Next Version environment, which will contain
+                                upcoming functionality that is pertinent for developers to test their software
+                                ahead of the live release.
+                            </p>
+
                         </div>
                     </div>
                     <div data-ng-controller="DocumentationController as vm">
@@ -110,7 +120,7 @@ ul {
                                                     <strong>Type</strong>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">
-                                                    <strong>Version</strong>
+                                                    <strong>Environment</strong>
                                                 </div>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding-left: 1.25rem !important;">
                                                     <strong>Date Last Updated</strong>
@@ -127,7 +137,7 @@ ul {
                                                 </div>
 												<a name="{{document.anchor}}"> </a>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">{{document.version}}</div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">{{document.environment}}</div>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding left: 0rem !important;">{{document.dateLastUpdated}}</div>
                                             </div>
 											<div

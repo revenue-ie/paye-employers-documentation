@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		Element “TotalRPNCount” given the type “xs:unsignedInt”
+		"minOccurs=0" added to Element "ExclusionOrder" 
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "calculationBasis" to "IncomeTaxCalculationBasis"
+		Renamed the element: "PPSN" to "EmployeePPSN"
+		Renamed the element: "DateLastUpdated" to "RPNIssueDate"
+		Renamed the element: "PreviousPPSN" to "PreviousEmployeePPSN"
+		Renamed the element: "PayToDate" to "PayForIncomeTaxToDate"
+		Renamed the element: "taxToDate" to "incomeTaxDeductedToDate"
+		Renamed the element: "YearlyUSCCutOff" to "YearlyUSCRateCutOff"
+		Renamed the element: "USCPaidToDate" to "USCDeductedToDate"
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates formatting changed to YYYY-MM-DD 
+		"employment start date" added as an optional request field
+		Dates/times changed to types xs:date and xs:dateTime
+v. Document updated on 26/02/2018:
+		'EmploymentStartDate' changed to field of 'NewEmployeeDetails' property
+======== Version 1.0 Release Candidate 2 ====================================
+vi.  Document updated on 12/11/2018:
+		Updated description of "PreviousEmployeePPSN" to show it's conditional
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
+	<!-- RPN (Revenue Payroll Notification) Request and Response Schema Elements -->
+	<xs:element name="LookupRPNRequest" type="pr:LookupRPNRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's Lookup RPN Request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LookupRPNResponse" type="pr:LookupRPNResponse">
+		<xs:annotation>
+			<xs:documentation>Employer's Lookup RPN Response. Will either return RPN detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NewRPNRequest" type="pr:NewRPNRequest">
+		<xs:annotation>
+			<xs:documentation>Request for RPN details for new employee(s).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NewRPNResponse" type="pr:NewRPNResponse">
+		<xs:annotation>
+			<xs:documentation>Employer's New RPN Response. Will either return RPN detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- RPN Data Types -->
+	<xs:complexType name="LookupRPNRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's Lookup RPN Request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tax Advisor Identification Number. Required if RPN is queried by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pr:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>References to third party software used to lookup RPN.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>The tax year to which the RPN lookup relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateLastUpdated" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Parameter to lookup for RPN updated on or since a given date.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pr:EmployeeID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Elements required to lookup RPN for an employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RangeParameters" type="pr:RangeParameters" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The range of RPN to be retrieved.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LookupRPNResponse">
+		<xs:annotation>
+			<xs:documentation>Employer's Lookup RPN Response. Will either return RPN detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The Official Name of the employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Tax Advisor Identification Number. Required if RPN queried by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The tax year to which the RPN lookup relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalRPNCount" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The total number of RPN that are associated with the RPN request submitted. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. List of RPN that make up a valid lookup RPN response.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NoRPN" type="pr:EmployeeID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. EmployeePPSNs and EmploymentIDs of employees who do not currently have an RPN associated with the employer. New RPN need to be requested for these employees using the NewRPNRequest service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pr:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the LookupRPNRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NewRPNRequest">
+		<xs:annotation>
+			<xs:documentation>Request for RPN details for new employee(s).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RequestID" type="pc:requestID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Unique identifier for the New RPN Request. Will be used in conjunctions with the EmployerRegistrationNumber to check for duplicate requests.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Tax Advisor Identification Number. Required if payroll submission filed by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pr:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>References to third party software used for payroll submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeDetail" type="pr:NewEmployeeDetail" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Details of employees who require a new RPN.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NewRPNResponse">
+		<xs:annotation>
+			<xs:documentation>Employer's New RPN Response. Will either return RPN detail or details of validation errors.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Tax Advisor Identification Number. Required if RPN queried by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 105. The date and time at which the RPN's returned are correct/were issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RPN" type="pr:RPN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Details of new RPN for an employment for an employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NoRPN" type="pr:EmployeeID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Employees where no RPN details could be returned. These employees should be calculated under an Emergency basis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pr:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Validation errors (if any) on the NewRPNRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoftwareUsed">
+		<xs:annotation>
+			<xs:documentation>References to third party software used.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Name of the software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Version of the software used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EmployeeID">
+		<xs:annotation>
+			<xs:documentation>Unique references to an employment for an employee. Includes EmployeePPSN and Employment ID.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployeePPSN" type="pc:EmployeePPSN">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 108. Employee's PPS Number. Used to identify the employee to which the RPN relates.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentID" type="pc:employmentID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 110. Employee's Employment ID. Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RangeParameters">
+		<xs:annotation>
+			<xs:documentation>The range of RPN to be retrieved.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="From" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Start index of range lookup.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="To" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>End index of range lookup.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RPN">
+		<xs:annotation>
+			<xs:documentation>Revenue Payroll Notification (RPN) for an employment for an employee</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RPNNumber" type="pc:rpnNumber">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 104. Reference number of the RPN for this employment for the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pr:EmployeeID">
+				<xs:annotation>
+					<xs:documentation>Employee's PPS Number and Employment ID (if available).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RPNIssueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 105. The date the RPN was issued (YYYY-MM-DD).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 111. Employee's internal staff identifier/reference.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="pr:Name">
+				<xs:annotation>
+					<xs:documentation>The employee name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreviousEmployeePPSN" type="pc:EmployeePPSN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 109. Conditionally Returned. Used to identify employee's previous PPS number if available e.g. PPS number with 'W' suffix.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectiveDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future (YYYY-MM-DD).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncomeTaxCalculationBasis" type="pc:IncomeTaxCalculationBasis">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are "CUMULATIVE", "WEEK_1" and "EMERGENCY".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExclusionOrder" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 113.  Indicates if there is an exclusion order on file for the employee. Set to “true” if an exclusion order is on file for the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="YearlyTaxCredits" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 118. Net Tax Credits. Amount of tax credits available to the employee for the year the RPN relates to. Amount of tax credits available for use in the PAYE calculation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxRate" type="pr:TaxRate" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Details of Tax Rates and Rate Cut Offs</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForIncomeTaxToDate" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 116. Total Pay for Income Tax to Date. This will include total income liable to Income Tax to date – including previous employment income. In the case of recommencements, this includes previous pay from that employer in the same tax year.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncomeTaxDeductedToDate" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 117. Total Income Tax Deducted to Date. Total amount of employee’s Income Tax deducted to date.  In the case of recommencements, this includes previous tax from that employer in the same tax year.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCStatus" type="pc:uscStatus">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 124. USC Status. Allowed values are Ordinary and Exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCRate" type="pr:USCRate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Details of USC Rates. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForUSCToDate" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date – including previous employment income and any additional declared income liable to USC e.g. Rental Income.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCDeductedToDate" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 134. Total Previous USC Paid to Date. Taking into account any USC refunded through any unemployment repayment claim(s).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPTToDeduct" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 135. LPT to be Deducted. Amount of LPT to be deducted through payroll.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSIExempt" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 122. True if employee is exempt from paying PRSI in Ireland. This field is only included if the employee is exempt from paying PRSI.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSIClass" type="pc:prsiClass" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 123. PRSI Class and Subclass that the employee should be updated to. This will appear only where DSP updates the class or where DSP knows the individual is on the wrong class. i.e. where a review has been carried out by DSP.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NewEmployeeDetail">
+		<xs:annotation>
+			<xs:documentation>Details of employees who require a new RPN.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployeeID" type="pr:EmployeeID">
+				<xs:annotation>
+					<xs:documentation>Uniquely identifies each employment for the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="pr:Name">
+				<xs:annotation>
+					<xs:documentation>The employee name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentStartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The date which the employee commences (YYYY-MM-DD).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Name">
+		<xs:annotation>
+			<xs:documentation>Employee Name.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 106.The first name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FamilyName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 107 The surname/family name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Error">
+		<xs:annotation>
+			<xs:documentation>Standard Validation error.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Description of error - to be used for support.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxRate">
+		<xs:annotation>
+			<xs:documentation>Details of Tax Rates and Rate Cut Offs</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Index of the tax rate. For example, Index of 1 would refer to tax rate 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxRatePercent" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 119, 121. Tax rate percentage to be applied.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="YearlyRateCutOff" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 120. Total allocated to the specified Rate Cut Off. No cut off for highest band.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="USCRate">
+		<xs:annotation>
+			<xs:documentation>Details of USC Rate. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Index of the rate. For example, Index of 1 would refer to USC Tax Rate 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCRatePercent" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 125, 127, 129, 131. USC Rate percentage to be applied.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="YearlyUSCRateCutOff" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> Data Item Ref: 126, 128, 130, 132. Total allocated to the specified USC Cut Off.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,52 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ-CorrectivePayment2",
+      "employeeID": {	
+        "employeePpsn": "01070390T",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "shadowPayroll": false,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 52,
+      "rpnNumber": "3",
+      "exclusionOrder": false,
+      "payDate": "2018-06-15",
+      "grossPay": 2000.00,
+      "payForIncomeTax": 2000.00,
+      "incomeTaxPaid": 600.00,
+      "payForEmployeePRSI": 2000.00,
+      "payForEmployerPRSI": 2000.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 8
+        }
+      ],
+      "employeePRSIPaid": 300.00,
+      "employerPRSIPaid": 300.00,
+      "payForUSC": 2000.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 300.00,
+      "lptDeducted": 0.00,
+      "grossMedicalInsurance": 0.00,
+      "shareBasedRemuneration": 0.00,
+      "taxableBenefits": 0.00,
+      "taxableLumpSum": 0.00,
+      "nonTaxableLumpSum": 0.00,
+      "pensionTracingNumbers": [],
+      "employerRBS": 0.00,
+      "employeeRBS": 0.00,
+      "employerPRSA": 0.00,
+      "employeePRSA": 0.00,
+      "employeeRAC": 0.00,
+      "employeeAVC": 0.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

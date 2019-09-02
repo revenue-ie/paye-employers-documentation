@@ -1,0 +1,98 @@
+{
+  "payslips": [
+    {
+      "lineItemID": "LineItem-XYZ-1",
+      "employeeID": {	
+        "employeePpsn": "01074096Q",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "leaveDate": "2017-12-31",
+      "shadowPayroll": false,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 52,
+      "rpnNumber": "3",
+      "exclusionOrder": false,
+      "payDate": "2018-01-29",
+      "grossPay": 1600.00,
+      "payForIncomeTax": 1600.00,
+      "incomeTaxPaid": 400.65,
+      "payForEmployeePRSI": 1600.00,
+      "payForEmployerPRSI": 1600.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "A1",
+          "insurableWeeks": 53
+        }
+      ],
+      "employeePRSIPaid": 240.33,
+      "employerPRSIPaid": 200.11,
+      "payForUSC": 1600.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 240.00,
+      "lptDeducted": 10.00,
+      "grossMedicalInsurance": 10.00,
+      "shareBasedRemuneration": 10.00,
+      "taxableBenefits": 10.00,
+      "taxableLumpSum": 10.00,
+      "nonTaxableLumpSum": 10.00,
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB123456"
+        }
+      ],
+      "employerRBS": 0.00,
+      "employeeRBS": 0.00,
+      "employerPRSA": 0.00,
+      "employeePRSA": 0.00,
+      "employeeRAC": 0.00,
+      "employeeAVC": 0.00
+    },    
+	{
+      "lineItemID": "LineItem-XYZ-2",
+      "employeeID": {	
+        "employeePpsn": "01074096Q",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Sara",
+        "familyName": "Tester"
+      },
+      "leaveDate": "2017-12-31",
+      "shadowPayroll": false,
+      "payFrequency": "WEEKLY",
+      "numberOfPayPeriods": 52,
+      "rpnNumber": "3",
+      "exclusionOrder": false,
+      "payDate": "2018-01-29",
+      "grossPay": 30000.00,
+      "payForIncomeTax": 30000.00,
+      "incomeTaxPaid": 4000.65,
+      "payForEmployeePRSI": 30000.00,
+      "payForEmployerPRSI": 30000.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [
+        {
+          "prsiClass": "M",
+          "insurableWeeks": 53
+        }
+      ],
+      "employeePRSIPaid": 240.33,
+      "employerPRSIPaid": 240.11,
+      "payForUSC": 3000.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 240.00,
+      "lptDeducted": 100.00,
+      "grossMedicalInsurance": 100.00,
+      "shareBasedRemuneration": 100.00,
+      "taxableBenefits": 100.00,
+      "taxableLumpSum": 100.00,
+      "nonTaxableLumpSum": 100.00
+    }
+  ],
+  "lineItemIDsToDelete": []
+}

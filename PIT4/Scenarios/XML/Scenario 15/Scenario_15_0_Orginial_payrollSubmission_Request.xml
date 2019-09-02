@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+   <soap:Header/>
+   <soap:Body>
+<PayrollSubmissionRequest xmlns="http://www.ros.ie/schemas/paye-employers/v1/payroll/">
+	<SubmissionID>Submission-15-Original</SubmissionID>
+	<BatchReference>
+		<Index>1</Index>
+		<Count>1</Count>
+	</BatchReference>
+	<Header>
+		<EmployerRegistrationNumber>8000074DH</EmployerRegistrationNumber>
+		<PayrollRunReference>Payroll-Run-Reference-1</PayrollRunReference>
+		<TaxYear>2019</TaxYear>
+		<SoftwareUsed>
+			<Name>SOAP UI</Name>
+			<Version>5.4.0</Version>
+		</SoftwareUsed>
+	</Header>
+	<Payslip>
+		<LineItemID>LineItem-XYZ-Original-15-0</LineItemID>
+		<EmployeeID>
+			<EmployeePPSN>01234567T</EmployeePPSN>
+			<EmploymentID>1</EmploymentID>
+		</EmployeeID>
+		<Name>
+			<FirstName>Sara</FirstName>
+			<FamilyName>Tester</FamilyName>
+		</Name>
+		<LeaveDate>2019-12-13</LeaveDate>
+		<ShadowPayroll>false</ShadowPayroll>
+		<PayFrequency>Monthly</PayFrequency>
+		<NumberOfPayPeriods>13</NumberOfPayPeriods>
+		<RPNNumber>3</RPNNumber>
+		<ExclusionOrder>false</ExclusionOrder>
+		<PayDate>2019-12-15</PayDate>
+		<GrossPay>2500.00</GrossPay>
+		<PayForIncomeTax>2500.00</PayForIncomeTax>
+		<IncomeTaxPaid>400.00</IncomeTaxPaid>
+		<PayForEmployeePRSI>2500.00</PayForEmployeePRSI>
+		<PayForEmployerPRSI>2500.00</PayForEmployerPRSI>
+		<PRSIExempt>false</PRSIExempt>
+		<PRSIClassDetail>
+			<PRSIClass>A1</PRSIClass>
+			<InsurableWeeks>48</InsurableWeeks>
+		</PRSIClassDetail>
+		<EmployeePRSIPaid>400.00</EmployeePRSIPaid>
+		<EmployerPRSIPaid>400.00</EmployerPRSIPaid>
+		<PayForUSC>2500.00</PayForUSC>
+		<USCStatus>Ordinary</USCStatus>
+		<USCPaid>300.00</USCPaid>
+		<LPTDeducted>0.00</LPTDeducted>
+		<GrossMedicalInsurance>0.00</GrossMedicalInsurance>
+		<ShareBasedRemuneration>0.00</ShareBasedRemuneration>
+		<TaxableBenefits>0.00</TaxableBenefits>
+		<TaxableLumpSum>0.00</TaxableLumpSum>
+		<NonTaxableLumpSum>0.00</NonTaxableLumpSum>
+		<EmployerRBS>0.00</EmployerRBS>
+		<EmployeeRBS>0.00</EmployeeRBS>
+		<EmployerPRSA>0.00</EmployerPRSA>
+		<EmployeePRSA>0.00</EmployeePRSA>
+		<EmployeeRAC>0.00</EmployeeRAC>
+		<EmployeeAVC>0.00</EmployeeAVC>
+	</Payslip>
+</PayrollSubmissionRequest>
+</soap:Body>
+</soap:Envelope>
+

@@ -1,0 +1,160 @@
+body
+{
+	margin: 4px 8px 8px 2px;
+}
+
+ul#i-root.i-visible, 
+ul#i-root ul.i-visible
+{
+	display: block;
+}
+
+ul#i-root, 
+ul#i-root ul
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: none;
+}
+
+ul#i-root
+{
+	margin-left: -18px;
+}
+
+ul#i-root li
+{
+	display: block;
+	min-height: 18px;
+	line-height: 18px;
+	white-space: nowrap;
+	min-width: 18px;
+	padding: 0;
+	margin: 1px 0 0 18px;
+}
+
+ul#i-root a
+{
+	display: inline-block;
+	line-height: 15px;
+	height: 17px;
+	color: black;
+	white-space: nowrap;
+	text-decoration: none;
+	padding: 1px 2px;
+	cursor: pointer;
+}
+
+ul#i-root a.i-selected
+{
+	background-color: #BEEBFF;
+	border: 1px solid #99DEFD;
+	padding: 0 2px 0 1px;
+}
+
+ul#i-root a.i-hover
+{
+	background-color: #E7F4F9;
+	border: 1px solid #D8F0FA;
+	padding: 0 2px 0 1px;
+}
+
+ul#i-root li *,
+ul#i-root ul li *
+{
+	vertical-align: top;
+}
+
+ul#i-root a > ins.i-icon
+{
+	display: inline-block;
+	text-decoration: none;
+	height: 16px;
+	width: 16px;
+	margin-right: 3px;
+	background-image: url("../images/icons.png");
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+li ins.i-spacer
+{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+li ins.i-expandorcollapse
+{
+	background-image: url("../images/icons.png");
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+li ins.i-expand
+{
+	background-position: -752px 0px;
+}
+
+li ins.i-collapse
+{
+	background-position: -770px 0px;
+}
+
+ul#i-root
+{
+	font-size: 10pt;
+	font-family: 'Segoe UI', Verdana, Arial, Helvetica, sans-serif;
+}
+
+li > a > ins.i-icon-0 { background-position: 0px 0px; height: 16px; }
+li > a > ins.i-icon-1 { background-position: -16px 0px; height: 16px; }
+li > a > ins.i-icon-2 { background-position: -32px 0px; height: 16px; }
+li > a > ins.i-icon-3 { background-position: -48px 0px; height: 16px; }
+li > a > ins.i-icon-4 { background-position: -64px 0px; height: 16px; }
+li > a > ins.i-icon-5 { background-position: -80px 0px; height: 16px; }
+li > a > ins.i-icon-6 { background-position: -96px 0px; height: 16px; }
+li > a > ins.i-icon-7 { background-position: -112px 0px; height: 16px; }
+li > a > ins.i-icon-8 { background-position: -128px 0px; height: 16px; }
+li > a > ins.i-icon-9 { background-position: -144px 0px; height: 16px; }
+li > a > ins.i-icon-10 { background-position: -160px 0px; height: 16px; }
+li > a > ins.i-icon-11 { background-position: -176px 0px; height: 16px; }
+li > a > ins.i-icon-12 { background-position: -192px 0px; height: 16px; }
+li > a > ins.i-icon-13 { background-position: -208px 0px; height: 16px; }
+li > a > ins.i-icon-14 { background-position: -224px 0px; height: 16px; }
+li > a > ins.i-icon-15 { background-position: -240px 0px; height: 16px; }
+li > a > ins.i-icon-16 { background-position: -256px 0px; height: 16px; }
+li > a > ins.i-icon-17 { background-position: -272px 0px; height: 16px; }
+li > a > ins.i-icon-18 { background-position: -288px 0px; height: 16px; }
+li > a > ins.i-icon-19 { background-position: -304px 0px; height: 16px; }
+li > a > ins.i-icon-20 { background-position: -320px 0px; height: 16px; }
+li > a > ins.i-icon-21 { background-position: -336px 0px; height: 16px; }
+li > a > ins.i-icon-22 { background-position: -352px 0px; height: 16px; }
+li > a > ins.i-icon-23 { background-position: -368px 0px; height: 16px; }
+li > a > ins.i-icon-24 { background-position: -384px 0px; height: 16px; }
+li > a > ins.i-icon-25 { background-position: -400px 0px; height: 16px; }
+li > a > ins.i-icon-26 { background-position: -416px 0px; height: 16px; }
+li > a > ins.i-icon-27 { background-position: -432px 0px; height: 16px; }
+li > a > ins.i-icon-28 { background-position: -448px 0px; height: 16px; }
+li > a > ins.i-icon-29 { background-position: -464px 0px; height: 16px; }
+li > a > ins.i-icon-30 { background-position: -480px 0px; height: 16px; }
+li > a > ins.i-icon-31 { background-position: -496px 0px; height: 16px; }
+li > a > ins.i-icon-32 { background-position: -512px 0px; height: 16px; }
+li > a > ins.i-icon-33 { background-position: -528px 0px; height: 16px; }
+li > a > ins.i-icon-34 { background-position: -544px 0px; height: 16px; }
+li > a > ins.i-icon-35 { background-position: -560px 0px; height: 16px; }
+li > a > ins.i-icon-36 { background-position: -576px 0px; height: 16px; }
+li > a > ins.i-icon-37 { background-position: -592px 0px; height: 16px; }
+li > a > ins.i-icon-38 { background-position: -608px 0px; height: 16px; }
+li > a > ins.i-icon-39 { background-position: -624px 0px; height: 16px; }
+li > a > ins.i-icon-40 { background-position: -640px 0px; height: 16px; }
+li > a > ins.i-icon-41 { background-position: -656px 0px; height: 16px; }
+li > a > ins.i-icon-42 { background-position: -672px 0px; height: 16px; }
+li > a > ins.i-icon-43 { background-position: -688px 0px; height: 16px; }
+li > a > ins.i-icon-44 { background-position: -704px 0px; height: 16px; }
+li > a > ins.i-icon-45 { background-position: -720px 0px; height: 16px; }
+li > a > ins.i-icon-46 { background-position: -736px 0px; height: 16px; }

@@ -1,0 +1,242 @@
+{
+  "payslips": [
+    {
+    "lineItemID": "E1-v1",
+    "employeeID": {
+      "employeePpsn": "1175228T",
+      "employmentID": "1"
+    },
+    "name": {
+      "firstName": "Cathal",
+      "familyName": "Blogs"
+    },
+    "payFrequency": "MONTHLY",
+    "rpnNumber": "5",
+    "taxCredits": 275.00,
+    "taxRates": [{
+      "index": 1,
+      "rateCutOff": 2505.84
+    }],
+    "incomeTaxCalculationBasis": "CUMULATIVE",
+    "payDate": "2019-01-31",
+    "grossPay": 2583.34,
+    "payForIncomeTax": 2505.84,
+    "incomeTaxPaid": 226.17,
+    "payForEmployeePRSI": 2583.34,
+    "payForEmployerPRSI": 2583.34,
+    "prsiExempt": false,
+    "prsiClassDetails": [{
+      "prsiClass": "A1",
+      "insurableWeeks": 5
+    }],
+    "employeePRSIPaid": 103.33,
+    "employerPRSIPaid": 277.71,
+    "payForUSC": 2583.34,
+    "uscStatus": "ORDINARY",
+    "uscPaid": 70.04,
+    "pensionTracingNumbers": [
+      {
+        "pensionTracingNumber": "PB367419"
+      }
+    ],
+    "employerRBS": 77.50,
+    "employeeRBS": 77.50
+  },
+    {
+      "lineItemID": "E2-v1",
+      "employeeID": {
+        "employeePpsn": "1175228T",
+        "employmentID": "2"
+      },
+      "name": {
+        "firstName": "Cathal",
+        "familyName": "Blogs"
+      },
+      "payFrequency": "MONTHLY",
+      "rpnNumber": "6",
+      "taxCredits": 0,
+      "taxRates": [{
+        "index": 1,
+        "rateCutOff": 310.83
+      }],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "2019-01-31",
+      "grossPay": 1200,
+      "payForIncomeTax": 1200,
+      "incomeTaxPaid": 417.84,
+      "payForEmployeePRSI": 1200,
+      "payForEmployerPRSI": 1200,
+      "prsiExempt": false,
+      "prsiClassDetails": [{
+        "prsiClass": "A1",
+        "insurableWeeks": 5
+      }],
+      "employeePRSIPaid": 48.00,
+      "employerPRSIPaid": 129.00,
+      "payForUSC": 1200,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 60
+    },
+    {
+      "lineItemID": "E3-v2",
+      "employeeID": {
+        "employeePpsn": "2548936K",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Caitlin",
+        "familyName": "Doe"
+      },
+      "payFrequency": "WEEKLY",
+      "rpnNumber": "1",
+      "taxCredits": 63.46,
+      "taxRates": [{
+        "index": 1,
+        "rateCutOff": 650
+      }],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "2019-01-31",
+      "grossPay": 185.00,
+      "payForIncomeTax": 185.00,
+      "incomeTaxPaid": 0,
+      "payForEmployeePRSI": 185.00,
+      "payForEmployerPRSI": 185.00,
+      "prsiExempt": false,
+      "prsiClassDetails": [{
+        "prsiClass": "A0",
+        "insurableWeeks": 2
+      }],
+      "employeePRSIPaid": 0,
+      "employerPRSIPaid": 19.89,
+      "payForUSC": 185.00,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 0.93
+    },
+    {
+      "lineItemID": "E4-v3",
+      "employeeID": {
+        "employeePpsn": "7425001H",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Brian",
+        "familyName": "Blogs"
+      },
+      "payFrequency": "FORTNIGHTLY",
+      "rpnNumber": "2",
+      "taxCredits": 126.92,
+      "taxRates": [{
+        "index": 1,
+        "rateCutOff": 1300
+      }],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "2019-02-07",
+      "grossPay": 1291.67,
+      "payForIncomeTax": 1220.17,
+      "incomeTaxPaid": 117.11,
+      "payForEmployeePRSI": 1291.67,
+      "payForEmployerPRSI": 1291.67,
+      "prsiExempt": false,
+      "prsiClassDetails": [{
+        "prsiClass": "A1",
+        "insurableWeeks": 6
+      }],
+      "employeePRSIPaid": 103.33,
+      "employerPRSIPaid": 277.71,
+      "payForUSC": 1291.67,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 37.29,
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB367419"
+        }
+      ],
+      "employerRBS": 103.33,
+      "employeeRBS": 77.50
+    },
+    {
+      "lineItemID": "E5-v1",
+      "employeeID": {
+        "employeePpsn": "0852473A",
+        "employmentID": "1"
+      },
+      "name": {
+        "firstName": "Seán",
+        "familyName": "Blogs"
+      },
+      "payFrequency": "MONTHLY",
+      "rpnNumber": "5",
+      "taxCredits": 412.50,
+      "taxRates": [{
+        "index": 1,
+        "rateCutOff": 3566.67
+      }],
+      "incomeTaxCalculationBasis": "CUMULATIVE",
+      "payDate": "2019-01-31",
+      "grossPay": 4108.33,
+      "payForIncomeTax": 4005.64,
+      "incomeTaxPaid": 476.42,
+      "payForEmployeePRSI": 4108.33,
+      "payForEmployerPRSI": 4108.33,
+      "prsiExempt": false,
+      "prsiClassDetails": [{
+        "prsiClass": "A1",
+        "insurableWeeks": 5
+      }],
+      "employeePRSIPaid": 164.33,
+      "employerPRSIPaid": 441.65,
+      "payForUSC": 4108.33,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 146.29,
+      "lptDeducted": 48.75,
+      "grossMedicalInsurance": 95,
+      "taxableBenefits": 400.00,
+      "pensionTracingNumbers": [
+        {
+          "pensionTracingNumber": "PB367419"
+        }],
+      "employerRBS": 102.69,
+      "employeeRBS": 102.69
+    },
+    {
+      "lineItemID": "E6-v3",
+      "employerReference": "0001",
+      "name": {
+        "firstName": "Jessica",
+        "familyName": "Doe"
+      },
+      "address": {
+        "addressLines": [
+          {"addressLine": "Test Address"}
+        ],
+        "county": "WEXFORD"
+      },
+      "dateOfBirth": "2000-01-04",
+      "startDate": "2019-01-10",
+      "payFrequency": "WEEKLY",
+      "taxCredits": 0,
+      "taxRates": [{
+        "index": 1,
+        "rateCutOff": 0.0
+      }],
+      "incomeTaxCalculationBasis": "EMERGENCY",
+      "exclusionOrder": false,
+      "payDate": "2019-01-31",
+      "grossPay": 242.35,
+      "payForIncomeTax": 242.35,
+      "incomeTaxPaid": 96.94,
+      "payForEmployeePRSI": 242.35,
+      "payForEmployerPRSI": 242.35,
+      "prsiExempt": false,
+      "prsiClassDetails": [{
+        "prsiClass": "A0",
+        "insurableWeeks": 3
+      }],
+      "employeePRSIPaid": 0,
+      "employerPRSIPaid": 20.60,
+      "payForUSC": 242.35,
+      "uscStatus": "ORDINARY",
+      "uscPaid": 19.39
+    }
+  ]
+}

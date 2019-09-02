@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		Renamed the element: “Class" (type="pc:prsiClass") to “PRSIClass”
+		The element "TaxYear" was added to the "CheckPayrollSubmissionRequest" and the "CheckPayrollRunRequest"
+		The element "RunReference" was added to the "CheckPayrollSubmissionRequest"
+		"PayslipSummary" Complex Type was added to CheckPayrollRunResponse
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+		"PreviousLineItemID" element added to "PayrollSubmissionRequest"
+		Annotation of "SubmissionType" element updated to be in line with Data Items Document
+
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+		Renamed the element: "PPSN" to "EmployeePPSN"
+		Renamed the element: “Class" (type="pc:calculationBasis") to "IncomeTaxCalculatonBasis"
+		Updated Pension Tracing Number to Data Item 39.
+		Removed the element: "SubmissionType" 
+		
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates formatting changed to YYYY-MM-DD 
+		New PRSI Exemption Reason 'Other' added
+		Dates updated to type xs:date
+
+======== Version 1.0 Release Candidate 2 ====================================
+v. Document updated on 17/05/2018:
+		Enum values changed from CamelCase to standard Java enum format (e.g. BiAnnual to BI_ANNUAL) for following fields
+		payFrequency
+		directorType
+
+vi. Document updated on 19/06/2018:
+		"EmployeeASC" property added to payslip
+
+vii. Document updated on 19/11/2018
+		(required) removed from County field
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
+	<!--Payroll Request and Response Schema Elements -->
+	<xs:element name="PayrollSubmissionRequest" type="pp:PayrollSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's PAYE Payroll Submission Request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PayrollSubmissionResponse" type="pp:PayrollSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Acknowledges the receipt of an Employer's PAYE Payroll Submission Request, or Validation Errors if validation failed.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckPayrollSubmissionRequest" type="pp:CheckPayrollSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Payroll Submission, based on the Submission ID.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckPayrollSubmissionResponse" type="pp:CheckPayrollSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Payroll Submission. If processed, includes summary totals of valid payslips and validation errors for invalid payslips.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckPayrollRunRequest" type="pp:CheckPayrollRunRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Payroll Run, based on the RunReference.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckPayrollRunResponse" type="pp:CheckPayrollRunResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!--Payroll Data Types-->
+	<xs:complexType name="PayrollSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's PAYE Payroll Submission Request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- Header Elements -->
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number. For batch submissions, all submissions should have the same SubmissionID and should have the BatchID and BatchCount populated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BatchReference" type="pp:BatchReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Reference used when batching a submission into mulitple submissions. Current Batch Index and Total Batch Count required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Header" type="pp:SubmissionHeader">
+				<xs:annotation>
+					<xs:documentation>Required header level elements for a payroll submission. For batch submission messages, the same header data should be included in each message.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- Line Item Elements -->
+			<xs:element name="Payslip" type="pp:Payslip" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of payslips that make up the employer payroll submission. for Original submissions this should include at least one new payslip. For Correction submissions this should include any new or corrected payslips.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LineItemIDToDelete" type="pc:payrollRunLineItemID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>For Correction submissions, this should include any line item IDs across the payroll run to be deleted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PayrollSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Acknowledges the receipt of an Employer's PAYE Payroll Submission Request, or Validation Errors if validation failed.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AcknowledgementStatus" type="pc:acknowledgementStatus">
+				<xs:annotation>
+					<xs:documentation>Acknowledgement status for Employer's PAYE Payroll Submission Request. Possible values are Acknowledged or Rejected.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AcknowledgementID" type="pc:acknowledgementID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique ID for acknowledged requests - to be used for technical support if required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Submission Validation Errors (if any).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckPayrollSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Payroll Submission, based on the Submission ID.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tax Advisor Identification Number. Required if payroll submission filed by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>Used to identify the tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
+				<xs:annotation>
+					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Unique Submission ID of the Employer Payroll Submission. Used to identify individual submissions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckPayrollSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Payroll Submission. If processed, includes summary totals of valid payslips and validation errors for invalid payslips.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number. For batch submissions, all submissions should have the same SubmissionID and should have the BatchID and BatchCount populated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="pc:processingStatus">
+				<xs:annotation>
+					<xs:documentation>Current Status of Payroll Submission. Possible values are Pending or Completed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BatchCount" type="xs:unsignedShort" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total number of batches for a submission recieved in multiple batches.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BatchStatus" type="pp:BatchStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Status of each batch for a submission recieved in multiple batches.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionHeader" type="pp:SubmissionHeader">
+				<xs:annotation>
+					<xs:documentation>Header elements that were included in payroll submission that is being checked.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionSummary" type="pp:SubmissionSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Summary totals for submission. Included when submission has completed processing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InvalidPayslip" type="pp:InvalidPayslip" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Invalid Payslips (if any). Any payslips in this list will not have been saved so the payslips will not feed into the employer liability for the statuatory return for the period. Included when the submission has completed processing (if required).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayslipWarning" type="pp:PayslipWarning" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Payslip warnings (if any) associated with Valid payslips. Any payslips in this list will have been saved so the payslips will feed into the employer liability for the statuatory return for the period. Included when the submission has completed processing (if required).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Errors (if any) on the CheckPayrollSubmissionRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckPayrollRunRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Payroll Run, based on the RunReference.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tax Advisor Identification Number. Required if payroll submission is filed by an agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>Used to identify the tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
+				<xs:annotation>
+					<xs:documentation>Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckPayrollRunResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Payroll Run. Includes list of submissions that make up the payroll run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Status" type="pc:processingStatus">
+				<xs:annotation>
+					<xs:documentation>Current Status of Payroll Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the Payroll Run are at a status of Pending.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxOnIncome" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total Tax on Income amount across valid line items for the payroll run. Included when all submissions received for the payroll run have been processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSI" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total PRSI amount across valid line items for the payroll run. Included when all submissions received for the payroll run have been processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USC" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total USC amount across valid line items for the payroll run. Included when all submissions received for the payroll run have been processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPT" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total LPT amount across valid line items for the payroll run. Included when all submissions received for the payroll run have been processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Submission" type="pp:SubmissionStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>High Level details of the Payroll Submissions that make up the Payroll Run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayslipSummary" type="pp:PayslipSummary" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Summary details of individual payslips that make up the Payroll Run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Errors (if any) on the CheckPayrollRunRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoftwareUsed">
+		<xs:annotation>
+			<xs:documentation>Third party software product identifier.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Name of third party software product.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Version of third party software product.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubmissionHeader">
+		<xs:annotation>
+			<xs:documentation>Required header level elements for a payroll submission.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 1. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 2. Tax Advisor Identification Number. Required if payroll submission is filed by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayrollRunReference" type="pc:PayrollRunReference">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 4. Payroll Run Reference. Used to identify the Payroll event that the submission refers to e.g. ‘Site_1_Week_1’.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:dateYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 5. Used to identify the tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 6 and 7. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Payslip">
+		<xs:annotation>
+			<xs:documentation>Individual payslip details for employer's Payroll submission.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:payrollRunLineItemID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Unique reference to line item/s across submissions for a given payroll run. Used to uniquely identify individual line items for correction purposeses.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreviousLineItemID" type="pc:payrollRunLineItemID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Used to identify a previous version of this line item when corrections are made. Can only reference line items within the same payroll run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pp:EmployeeID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="pp:Name">
+				<xs:annotation>
+					<xs:documentation>Employee Name. Mandatory.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="pp:Address" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Elements required when Employee PPSN is not known.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateOfBirth" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. Employee's Date of Birth - format YYYY-MM-DD . This will be Mandatory if the PPSN isn’t available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 15. Employment Start Date. Only include this for the first time you pay a new employee or if there is a correction being made to the StartDate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LeaveDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 16. Report this date when an employee is leaving (date contract terminates) or if employer ceases trading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Director" type="pp:directorType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 51. Director marker. Options allowed are Proprietary and NonProprietary.This should be included at start of Employment or if there is any change</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShadowPayroll" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 52. Shadow Payroll Indicator. Set to true for shadow payment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayFrequency" type="pp:payFrequency">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 18. Pay Frequency. Options allowed are Weekly, Fortnightly, Monthly, FourWeekly, TwiceMonthly, Quarterly, BiAnnual, WkBasedMonthly, Annual and Other.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumberOfPayPeriods" type="xs:short" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 53. Expected number of pay periods in a full year. Options allowed are 13, 14, 26, 27, 52, 53 and Other. Used to determine whether a week 1 or cumulative RPN should be provided when an employee moves jobs or pay frequencies. (Required for certain pay periods).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RPNNumber" type="pc:rpnNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 19. The number of the Revenue Payroll Notification (RPN) used to calculate deductions. This is mandatory when the RPN is used</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxCredits" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 21. Amount of tax credits available for use in the PAYE calculation. Where the employee is taxed on a cumulative basis, this will be the cumulative amount of tax credits for the pay period. This is mandatory when the RPN is not used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxRate" type="pp:TaxRate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Details of Rate Cut Offs. At least one TaxRate (with Index value of 1) is mandatory when the RPN is not used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncomeTaxCalculationBasis" type="pc:IncomeTaxCalculationBasis" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 22. PAYE calculation basis used in the submission. Options allowed are Cumulative, Week1 and Emergency. This is mandatory when the RPN is not used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExclusionOrder" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 23. This indicates that the Employer does not have to deduct Income Tax for the Employee.  This will be either ‘True’ or ‘False’. Set to “true” if an exclusion order is on file for the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 17. Date Employee is being paid (YYYY-MM-DD ).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrossPay" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 24. Employee Gross Pay. Gross pay is the employee’s pay of any kind, including notional pay and share based remuneration and, before any pension contributions or salary sacrifice deductions are made.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForIncomeTax" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 25. Pay for Income Tax. Gross pay reduced by allowable superannuation contributions, income continuance contributions, relevant reliefs such as SARP  and approved salary sacrifice.  Euro and Cent required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncomeTaxPaid" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 26. Employee Tax deducted or refunded in this employment. Negative if tax refunded. Euro and Cent required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForEmployeePRSI" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 27. Pay subject to employee PRSI. Euro and Cent required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForEmployerPRSI" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 28. Pay subject to employer PRSI. Euro and Cent required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSIExempt" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 29. This field allows for the filing of returns for employees who are exempt from paying PRSI in Ireland.  This will be either ‘true’ or ‘false’. 'True' if employee is exempt from paying PRSI in Ireland.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSIExemptionReason" type="pc:prsiExemptionReason" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 30. Reason for the PRSI Exemption in Ireland. This is Mandatory if PRSI exempt. Options include A1PortableDocument (A1 Portable Document from EU Member State), CertificateOfCoverage (Certificate of coverage under Social Security Bilateral Agreement), PostedWorkerOtherNotification (Other notification of exemption for posted workers),  FamilyMember (Employment of certain family members), Under16 (Under 16 years of age), SocialWelfareScheme (Employment on certain social welfare schemes), Other.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSIClassDetail" type="pp:PRSIClassDetail" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>PRSI Class, subclass and Insurable weeks detail.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeePRSIPaid" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 33. Employee PRSI deducted. This is Mandatory if not PRSI exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerPRSIPaid" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 34. Employer PRSI Paid. This is Mandatory if not PRSI exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayForUSC" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 35. Pay for USC. Includes notional pay and all Superannuation and Income Continuance Scheme Contributions. Excludes DSP payments, Illness Benefit and payments of a similar nature under certain approved schemes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCStatus" type="pc:uscStatus">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 36. USC Status. Allowed values are Ordinary and Exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USCPaid" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 37. USC deducted or refunded in this employment. Negative if USC refunded. Required if USC Status is Ordinary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPTDeducted" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 50. LPT Deducted. Local Property Tax amount paid. This is mandatory if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrossMedicalInsurance" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 38. Gross Medical Insurance paid by Employer for the Employee. This is mandatory if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShareBasedRemuneration" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 46. This is share-based remuneration consisting of shares in the employer company or a company that controls the employer company that is included in ‘Gross Pay’.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxableBenefits" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 47. Taxable value of benefits provided to the employee.   This is the amount of non-cash benefits (for example, private use of a company car, free or subsidised accommodation, preferential loans), other than company Share-based Remuneration (but including shares in companies that are not the employer company or a company that controls the employer company), that is included in ‘Gross Pay’. This is mandatory if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxableLumpSum" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 48. Amount of taxable lump sum payment included in ‘Pay for Income Tax’. This is mandatory if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NonTaxableLumpSum" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 49. Amount of lump sum payment not included in ‘Pay for Income Tax’, excluding statutory redundancy payments. This is mandatory if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PensionTracingNumber" type="pc:pensionTracingNumber" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 39. Pension Tracing Number. The format of the pension tracing number is “PBXXXXXX”, where XXXXXX is a number with up to 6 digits. E.g. PB123456. This is mandatory if applicable. Should only be provided when the Employee joins a pension or changes pension.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerRBS" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 40. Amount contributed by employer to Retirement Benefit Scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeRBS" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 41. Amount contributed by employee to Retirement Benefit Scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerPRSA" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 42. Amount contributed by employer to Personal Retirement Savings Accounts (PRSA) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeePRSA" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 43. Amount contributed by employee to Personal Retirement Savings Accounts (PRSA) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeRAC" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 44. Amount contributed by employee to Retirement Annuity Contracts (RAC) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeAVC" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 45. Amount contributed by employee to Additional Voluntary Contributions (AVC) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeASC" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 54. Amount contributed by employee to Additional Superannuation Contribution (ASC) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BatchReference">
+		<xs:annotation>
+			<xs:documentation>References used for batching of a submission into multiple submissions</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Unique number for a submission in a batch submission. Must be between 1 and the total count of batches that make up the full payroll submission. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Count" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Total number of submissions contained in a batch submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EmployeeID">
+		<xs:annotation>
+			<xs:documentation>Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployeePPSN" type="pc:EmployeePPSN">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 8. Employee's PPS Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentID" type="pc:employmentID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 14. Employment ID. Unique identifier for each distinct employment for an employee. To be set by the employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Name">
+		<xs:annotation>
+			<xs:documentation>Employee Name.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 9. The first name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FamilyName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 10. The surname/family name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Address">
+		<xs:annotation>
+			<xs:documentation>Employee Address. The address of the employee. This will be Mandatory if the PPSN isn’t available.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AddressLine" type="pc:defaultString" maxOccurs="3">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 11(a)-(c). The address will be Mandatory if the PPSN isn’t available. Line 1 of the employee's address is required. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="County" type="pc:county" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 11(d). County element of the employee's address.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Eircode" type="pc:eircode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 11(e). Employee's Eircode (if known). Used for Irish addresses only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="pc:countryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 11(f). Country code element. Codes used at the International Standard for country codes ISO 3166 Alpha-3.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxRate">
+		<xs:annotation>
+			<xs:documentation>Detail of Rate Cut Off.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Index of the tax rate. For example, Index of 1 would refer to tax rate 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RateCutOff" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 20. Amount of Cut Off Point available for use in the PAYE calculation for selected rate. Where the employee is taxed on a week 1 basis, this will be the cut off point for the pay period. If the employee is taxed on the cumulative basis, this will be the cumulative cut off point for the pay period. This is mandatory when the RPN is not used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PRSIClassDetail">
+		<xs:annotation>
+			<xs:documentation>PRSI Class, subclass and Insurable weeks detail.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PRSIClass" type="pc:prsiClass">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 31. PRSI Class and Subclass. Weeks required where class is provided. This is Mandatory if not PRSI exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InsurableWeeks" type="xs:short">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 32. Number of insurable weeks for each PRSI class accrued in this pay period. This is Mandatory if not PRSI exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BatchStatus">
+		<xs:annotation>
+			<xs:documentation>Status of each batch for a submission recieved in multiple batches.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index" type="xs:unsignedShort">
+				<xs:annotation>
+					<xs:documentation>Unique Index of the submission in the batch submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="pc:processingStatus">
+				<xs:annotation>
+					<xs:documentation>Current Status of the batch in the Payroll Submission. Possible values are Pending, Completed or NotAcknowledged.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvalidPayslip">
+		<xs:annotation>
+			<xs:documentation>Detail of Invalid Payslips. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:payrollRunLineItemID">
+				<xs:annotation>
+					<xs:documentation>LineItemID of the payslip containing validation errors.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Error" type="pp:Error" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of validation errors related to the payslip.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Error">
+		<xs:annotation>
+			<xs:documentation>Details of validation check failure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Technical description of error.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PayslipWarning">
+		<xs:annotation>
+			<xs:documentation>Validation error identifed at Payslip/Line Item Level.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:payrollRunLineItemID">
+				<xs:annotation>
+					<xs:documentation>LineItemID of the payslip containing validation warnings.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Warning" type="pp:Warning" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of validation warnings related to the payslip.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Warning">
+		<xs:annotation>
+			<xs:documentation>Details of validation check warning.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:warningCode">
+				<xs:annotation>
+					<xs:documentation>Technical Code for warning - to be used for mapping to warning messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:warningPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to warning in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:warningDescription">
+				<xs:annotation>
+					<xs:documentation>Technical description of warning.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubmissionStatus">
+		<xs:annotation>
+			<xs:documentation>High Level details of the Payroll Submissions that make up the Payroll Run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Unique ID of the Payroll Submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="pc:processingStatus">
+				<xs:annotation>
+					<xs:documentation>Current Status of Payroll Submission. Possible values are Pending or Completed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionSummary" type="pp:SubmissionSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Summary details of submission. Included when submission has completed processing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubmissionSummary">
+		<xs:annotation>
+			<xs:documentation>Summary totals and count accross valid line items for a Payroll Submission or Payroll Run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxOnIncome" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total Tax on Income amount across valid line items on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSI" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total PRSI amount across valid line items on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USC" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total USC amount across valid line items on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPT" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total LPT amount across valid line items on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayslipCount" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Total number of payslip line items included on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayslipToDeleteCount" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Total number of payslip line item IDs for deletion included on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PayslipSummary">
+		<xs:annotation>
+			<xs:documentation>Summary totals for an individual payslip in a Payroll Submission or Payroll Run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:payrollRunLineItemID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Used to uniquely identify individual line items.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pp:EmployeeID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 13. Employee's internal staff identifier/reference. This will be Mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxOnIncome" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total Tax on Income for this payslip on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRSI" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total PRSI amount for this payslip on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USC" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total USC amount for this payslip on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LPT" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Total LPT amount for this payslip on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="payFrequency">
+		<xs:annotation>
+			<xs:documentation>Indicates the frequency of the employees payments.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WEEKLY"/>
+			<xs:enumeration value="FORTNIGHTLY"/>
+			<xs:enumeration value="MONTHLY"/>
+			<xs:enumeration value="FOUR_WEEKLY"/>
+			<xs:enumeration value="TWICE_MONTHLY"/>
+			<xs:enumeration value="QUARTERLY"/>
+			<xs:enumeration value="BI_ANNUAL"/>
+			<xs:enumeration value="WK_BASED_MONTHLY"/>
+			<xs:enumeration value="ANNUAL"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="directorType">
+		<xs:annotation>
+			<xs:documentation>This should be included at the start of a director's employment or if there is any change</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PROPRIETARY"/>
+			<xs:enumeration value="NON_PROPRIETARY"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

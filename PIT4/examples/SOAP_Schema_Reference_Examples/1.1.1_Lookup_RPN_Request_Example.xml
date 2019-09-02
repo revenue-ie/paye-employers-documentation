@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "employeePPSN" to "EmployeePPSN"
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Dates re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 24/05/2018
+	 Updated ENUM Values to reflect schematic changes
+-->
+<rat:LookupRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema-pit3.xsd">
+	<rat:EmployerRegistrationNumber>3980609P</rat:EmployerRegistrationNumber>
+	<rat:SoftwareUsed>
+		<rat:Name>The Software</rat:Name>
+		<rat:Version>Version 10.0</rat:Version>
+	</rat:SoftwareUsed>
+	<rat:TaxYear>2019</rat:TaxYear>
+	<rat:DateLastUpdated>2019-01-10</rat:DateLastUpdated>
+	<rat:PPSN>00000008P</rat:PPSN>
+</rat:LookupRPNRequest>

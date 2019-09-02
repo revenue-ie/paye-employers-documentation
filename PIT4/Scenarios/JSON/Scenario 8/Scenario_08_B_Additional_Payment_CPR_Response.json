@@ -1,0 +1,57 @@
+{
+    "status": "PROCESSED",
+    "taxOnIncome": 2360,
+    "prsi": 960,
+    "usc": 240,
+    "lpt": 0,
+    "submissions": [
+        {
+            "submissionID": "Submission_00001",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 460,
+                "prsi": 160,
+                "usc": 40,
+                "lpt": 0,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        },
+        {
+            "submissionID": "Submission_00002",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 1900,
+                "prsi": 800,
+                "usc": 200,
+                "lpt": 0,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        }
+    ],
+    "payslipSummaries": [
+        {
+            "lineItemID": "LineItem-XYZ_Underpayment",
+            "employeeID": {
+                "employeePpsn": "01070390T",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 460,
+            "prsi": 160,
+            "usc": 40,
+            "lpt": 0
+        },
+        {
+            "lineItemID": "LineItem-XYZ_Additional",
+            "employeeID": {
+                "employeePpsn": "01070390T",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 1900,
+            "prsi": 800,
+            "usc": 200,
+            "lpt": 0
+        }
+    ]
+}

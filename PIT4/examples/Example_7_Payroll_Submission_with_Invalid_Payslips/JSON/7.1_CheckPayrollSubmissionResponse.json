@@ -1,0 +1,34 @@
+{
+  "submissionID": "03",
+  "status": "COMPLETED",
+  "submissionSummary": {
+    "taxOnIncome": 900,
+    "prsi": 1000,
+    "usc": 300,
+    "lpt": 80,
+    "payslipCount": 3,
+    "payslipToDeleteCount": 0
+  },
+  "invalidPayslips": [
+    {
+      "lineItemID": "E12-V1",
+      "errors": [
+        {
+          "code": "Technical_error_code",
+          "path": "Path to error in schema if available",
+          "description": "Technical description of the error."
+        }
+      ]
+    },
+    {
+      "lineItemID": "E22-V1",
+      "errors": [
+        {
+          "code": "Technical_error_code",
+          "path": "Path to error in schema if available.",
+          "description": "Technical description of the error."
+        }
+      ]
+    }
+  ]
+}

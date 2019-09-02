@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 1.0 Milestone 1 ====================================
+ii. Document updated on 07/09/2017: 
+		Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+iii. Document updated on 17/11/2017: 
+		Renamed the element: "PPSN" to "EmployeePPSN"
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 24/05/2018
+	 Updated ENUM Values to reflect schematic changes
+-->
+<rat:NewRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/">
+	<rat:RequestID>001</rat:RequestID>
+	<rat:EmployerRegistrationNumber>4587256A</rat:EmployerRegistrationNumber>
+	<rat:AgentTain>45879C</rat:AgentTain>
+	<rat:SoftwareUsed>
+		<rat:Name>The Software</rat:Name>
+		<rat:Version>Version 10.0</rat:Version>
+	</rat:SoftwareUsed>
+	<rat:TaxYear>2019</rat:TaxYear>
+	<rat:EmployeeDetail>
+		<rat:EmployeeID>
+			<rat:EmployeePPSN>1112215F</rat:EmployeePPSN>
+			<rat:EmploymentID>1</rat:EmploymentID>
+		</rat:EmployeeID>
+		<rat:Name>
+			<rat:FirstName>Jessica</rat:FirstName>
+			<rat:FamilyName>Doe</rat:FamilyName>
+		</rat:Name>
+	</rat:EmployeeDetail>
+</rat:NewRPNRequest>

@@ -1,0 +1,57 @@
+{
+    "status": "PROCESSED",
+    "taxOnIncome": 100,
+    "prsi": 80,
+    "usc": 40,
+    "lpt": 0,
+    "submissions": [
+        {
+            "submissionID": "S_00001",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 50,
+                "prsi": 40,
+                "usc": 20,
+                "lpt": 0,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        {
+            "submissionID": "S_00002",
+            "status": "COMPLETED",
+            "submissionSummary": {
+                "taxOnIncome": 50,
+                "prsi": 40,
+                "usc": 20,
+                "lpt": 0,
+                "payslipCount": 1,
+                "payslipToDeleteCount": 0
+            }
+        }
+    ],
+    "payslipSummaries": [
+        {
+            "lineItemID": "LineItem-XYZ-Bonus",
+            "employeeID": {
+                "employeePpsn": "01070390T",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 50,
+            "prsi": 40,
+            "usc": 20,
+            "lpt": 0
+        },
+        {
+        },
+            "lineItemID": "LineItem-XYZ-Bonus_2",
+            "employeeID": {
+                "employeePpsn": "01074431E",
+                "employmentID": "1"
+            },
+            "taxOnIncome": 50,
+            "prsi": 40,
+            "usc": 20,
+            "lpt": 0
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+<!--Document History:
+======== Version 1.0 Milestone 1 ====================================
+i. Document updated on 17/11/2017: 
+		Renamed the element: "RunReference" to "PayrollRunReference"
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+		Timestamp format updated to reflect changes in the schemas
+======== Version 1.0 Release Candidate 2 ====================================
+iv. Document updated on 17/05/2018
+-->
+
+<soap:Envelope xmlns:pay="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<soap:Header>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<wsse:BinarySecurityToken 	EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary"
+										ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"
+										wsu:Id="X509">				
+				MIICfzCCAeigAwIBAgIJAKsHVWot6OUhMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNVBAYTAklFMQ0w
+				CwYDVQQKDARURVNUMRAwDgYDVQQLDAdURVNUIENBMRUwEwYDVQQDDAxURVNUIENBIDIwMTkwHhcN
+				MTcwODI2MjMwMDAwWhcNMTgwMjIzMDAwMDAwWjA6MQswCQYDVQQGEwJJRTENMAsGA1UECgwEVEVT
+				VDENMAsGA1UECwwENjY2NjENMAsGA1UEAwwEVEVTVDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+				AQoCggEBAJNcKcKyVIGrTOzpb2H3bTAygIE1tX5IHP+t0xePlAbvcPd1dC+x39BlT8wN1mCXfo68
+				ioTPCxihVU0f6lF0kXXXID45XZshRmbfKuXhz06Cuge23kWA9NMfNxTQuguZMk4xFKUfrT7J3wDS
+				TLCoTnIh8pR4XXHfzQtV+9XZL7sKaz/yHty5l5+lSFXgYtE2yKgNmYTlzJSLGFNLfBAqY2qQJ0ew
+				RM5hES6NZpaGzZs0UE9MrJlH5jOrkwGgn5YJpVqi+72S6t/1xPdBghTtMUdj/ouMlJoP8TqykDPS
+				mlExDFbmxdHtQGVt+cK2Q4IzjVpx+IVSK267gELfUUkYxmUCAwEAATANBgkqhkiG9w0BAQUFAAOB
+				gQBlgOkGiLifucpfOYO8ILRsUClTzvJ5J5OAEe/gDTpqC96wALM0+UndwYi3FKFpbcPGCr+kfmcn
+				pu4Ti5kq2wvgSPl8Yc7MlrLtIKrvDwE6hAJgfTXejmUfMlZWGkkVZ2JO7w4AveGaq7Bs/hy623+5
+				rv1t7uoALx9ohmfprc/aeQ==
+			</wsse:BinarySecurityToken>
+			<ds:Signature Id="SIG-FF21E361E9F2B7679C1505465594501399" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:SignedInfo>
+					<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+						<ec:InclusiveNamespaces PrefixList="pay soap wsu" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+					</ds:CanonicalizationMethod>
+					<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+					<ds:Reference URI="#messageBody">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces PrefixList="pay" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+						<ds:DigestValue>NisHiyt9RWyTqtGHVKiCBD2WQZ2crZiHe+yohn/l0ApnhSi0ozoLOXltCra1hnYrL1yYVDgv86/PzAHM7vpKcA==</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference URI="#timeStamp">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces PrefixList="wsse pay soap" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+						<ds:DigestValue>VrefAezbUUwda4n/W31YcFHy9GekjHKxfqZPm0TPIrPwXQDQBXfAJSkGmZIYF8gg5ti+7QwgGf5v/M+tNIyLSg==</ds:DigestValue>
+					</ds:Reference>
+				</ds:SignedInfo>
+				<ds:SignatureValue>
+					h/PGfGocx1Dl54PTZ7W0/ZmPQdLNF3kb6+e/U6fxxS8eP8FU/1WLeiw6+qT09ZuJixW4PYU8TZCu
+					ojaYI7Hi1IemAULlwSHCBUiVkDsgq03ydPDdXlWgdXCW9EEjW5SgREo+RAxsagCDY1XAxj/CKLbq
+					vBQNT8wuym5liTZrn8m6iE6AXeMof2zw2tRQUu3DZUIkDim5vW7VFlC1p55tR8c0lJGOreHQ9NaX
+					xtXxbhhZpBu0oazV8Z4nS5BYF4XV8MYYdPy+eeR1hSxFN4+PshnQPBZ7dTHSyKWu52/nYNb2dIKp
+					AzMB9L69g0h6Ne4/AhlD1V3/uvuL4ZCo28Zpaw==
+				</ds:SignatureValue>
+				<ds:KeyInfo>
+					<wsse:SecurityTokenReference>
+						<wsse:Reference URI="#X509" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+			</ds:Signature>
+			<wsu:Timestamp wsu:Id="timeStamp">
+				<wsu:Created>2017-09-15T08:53:14.494+01:00</wsu:Created>
+				<wsu:Expires>2017-09-15T09:03:14.494+01:00</wsu:Expires>
+			</wsu:Timestamp>
+		</wsse:Security>
+	</soap:Header>
+	<soap:Body wsu:Id="messageBody">
+		<pay:PayrollSubmissionRequest>
+			<pay:SubmissionID>000000</pay:SubmissionID>
+			<pay:Header>
+				<pay:EmployerRegistrationNumber>00000000AA</pay:EmployerRegistrationNumber>
+				<pay:PayrollRunReference>W001Y2017</pay:PayrollRunReference>
+				<pay:TaxYear>2017</pay:TaxYear>
+				<pay:SoftwareUsed>
+					<pay:Name>Mock SOAP Client</pay:Name>
+					<pay:Version>1.0</pay:Version>
+				</pay:SoftwareUsed>
+			</pay:Header>
+		</pay:PayrollSubmissionRequest>
+	</soap:Body>
+</soap:Envelope>

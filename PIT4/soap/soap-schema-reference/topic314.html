@@ -1,0 +1,916 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%LocalItemTitle%%</title>" --><title>LookupRPNOperation (Method)</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content=""/><!--DXMETADATA end-->    
+    
+
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="template/packages/jquery/script/default/jquery-1.11.3.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="template/packages/jquery-ui/script/default/jquery-ui-1.11.4.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/jquery-ui/css/default/jquery-ui-1.11.4.css"></link><!--DXMETADATA end-->
+	
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/plugins-webservice/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv1.css"" data-responsive-mobile=""template/packages/core-webservice/dx.webservice.mobile.css"" data-responsive-tablet=""template/packages/core-webservice/dx.webservice.tablet.css"""--><link rel="stylesheet" type="text/css" href="template/packages/core-webservice/css/dx.webservice.css"  data-mshv2-stylesheet="/template/packages/core-webservice/dx.webservice.mshv2.css" data-mshv1-stylesheet="/template/packages/core-webservice/dx.webservice.mshv1.css" data-responsive-mobile="template/packages/core-webservice/dx.webservice.mobile.css" data-responsive-tablet="template/packages/core-webservice/dx.webservice.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="script"--><script src="template/packages/plugins-webservice/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="script"--><script src="template/packages/core-webservice/script/dx.webservice.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="RPN_ws~r-LookupRPNOperation~o-Method"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><script src="script/swfobject.js" type="text/javascript"></script><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+
+    <!--DXMETADATA start type="CustomHeadContent" --><!-- Google Analytics -->
+<script>
+if (location.protocol == "http:" || location.protocol == "https:") {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100491615-2', 'auto');
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+<!--DXMETADATA end-->
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+    <div id="i-header-content" class="i-header-content">
+        <!--DXMETADATA start type="LogoImage" --><img class="logoimage" src="RevenueLogo.jpg" border="0"></img><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->RPN Web Service<!--DXMETADATA end--></div>
+        <div class="i-page-title"><div class="i-page-title-text">
+			    <!--DXMETADATA start type="Scrap" name="_OPERATION_PAGE_TITLE" --><table class="i-operation-page-title"><tr><td class="i-operation-kind Method">Method</td><td class="i-operation-page-title-text">LookupRPNOperation</td></tr></table><!--DXMETADATA end-->
+			</div></div>
+    </div>
+    <div id="i-after-header-content" class="i-after-header-content">
+        <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="IsWebOutputRootPageLinkEnabled" format="<a href='#' class="i-page-link" class="i-view-in-frame-link" title='$$VIEW_WITH_NAVIGATION_TOOLS_TIP$$' style='display: none' data-root-page='%%WebOutputRootPage%%%%OutputFileExtension%%' target='_top'>$$VIEW_WITH_NAVIGATION_TOOLS_TEXT$$</a>" --><!--DXMETADATA end-->
+    </div>
+    <!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container"><table><tr><td>
+<a href="topic312.html">RPN Web Service</a>
+ > <a href="topic313.html">All Operations Resource Group</a>
+ : LookupRPNOperation (Method)</td></tr></table></div><!--DXMETADATA end -->
+    
+    
+    <div id="i-body-content" class="i-body-content">
+        <!--DXMETADATA start type="ResourcePath" condition="content:content=""%%ResourcePath%%"",operator=""<>"",value=""%%ItemName%%""" format="<p class=""resource-path-container""><strong>$$RESOURCE_PATH$$</strong> <span class=""i-resource-path"">%%ResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="FullyQualifiedResourcePath" condition="content:content=""%%IncludeFullResourceUriInOperationPages%%"",operator=""="",value=""True""" format="<p class=""resource-path-container""><strong>$$URI$$</strong> <span class=""i-resource-path"">%%FullyQualifiedResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="Description" source="Item" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=description,caption=$$Description$$%%<div class=""i-description-content"">%%description%%</div></div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="PARAMETER_LIST" namespace="parameter" source="Item" filter="type=!header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Parameters$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="HEADER_LIST" namespace="parameter" source="Item" filter="type=header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$REQUEST_HEADERS$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="REQUEST_LIST" namespace="request" source="Item" -->
+<div class="i-section-heading" id="i-request_LookupRPNRequest-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Request  (LookupRPNRequest)</span></div><div id="i-request_LookupRPNRequest-section-content" class="i-section-content"><p>The request body is of type <a href="topic2.html">LookupRPNRequest</a>.</p><img border="0" src="xsddiagramimages/topic2.png" usemap="#xsddiagrammap-RPN_xsd~e-LookupRPNRequest" /><map id="xsddiagrammap-RPN_xsd~e-LookupRPNRequest" name="xsddiagrammap-RPN_xsd~e-LookupRPNRequest">
+  <area shape="rect" coords="443, 424, 649, 458" href="topic21.html" alt="PPSN Element" title="PPSN Element"></area>
+  <area shape="rect" coords="920, 382, 1069, 416" href="topic56.html" alt="To Element" title="To Element"></area>
+  <area shape="rect" coords="920, 340, 1083, 374" href="topic55.html" alt="From Element" title="From Element"></area>
+  <area shape="rect" coords="778, 360, 879, 395" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="443, 361, 758, 395" href="topic20.html" alt="RangeParameters Element" title="RangeParameters Element"></area>
+  <area shape="rect" coords="837, 298, 1123, 332" href="topic8.html" alt="EmploymentID Element" title="EmploymentID Element"></area>
+  <area shape="rect" coords="837, 256, 1071, 290" href="topic7.html" alt="EmployeePPSN Element" title="EmployeePPSN Element"></area>
+  <area shape="rect" coords="695, 276, 796, 311" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="443, 277, 675, 311" href="topic19.html" alt="EmployeeID Element" title="EmployeeID Element"></area>
+  <area shape="rect" coords="443, 214, 685, 248" href="topic18.html" alt="DateLastUpdated Element" title="DateLastUpdated Element"></area>
+  <area shape="rect" coords="443, 172, 606, 206" href="topic17.html" alt="TaxYear Element" title="TaxYear Element"></area>
+  <area shape="rect" coords="822, 130, 1021, 164" href="topic82.html" alt="Version Element" title="Version Element"></area>
+  <area shape="rect" coords="822, 88, 1014, 122" href="topic81.html" alt="Name Element" title="Name Element"></area>
+  <area shape="rect" coords="680, 108, 781, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="443, 109, 660, 143" href="topic16.html" alt="SoftwareUsed Element" title="SoftwareUsed Element"></area>
+  <area shape="rect" coords="443, 46, 685, 80" href="topic15.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="443, 4, 742, 38" href="topic14.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="301, 214, 402, 249" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 214, 281, 248" href="topic2.html" alt="LookupRPNRequest Element" title="LookupRPNRequest Element"></area>
+</map><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic13.html">LookupRPNRequest</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Employer's Lookup RPN Request.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic14.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:employerReg</SPAN>
+<DIV class=i-child-tree-description>Employer's PAYE Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic15.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:agentTAIN</SPAN>
+<DIV class=i-child-tree-description>Tax Advisor Identification Number. Required if RPN is queried by agent on behalf of employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic16.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic80.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>References to third party software used to lookup RPN.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic81.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:NonEmptyString</SPAN>
+<DIV class=i-child-tree-description>Name of the software used.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic82.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:NonEmptyString</SPAN>
+<DIV class=i-child-tree-description>Version of the software used.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic17.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:dateYear</SPAN>
+<DIV class=i-child-tree-description>The tax year to which the RPN lookup relates (YYYY).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic18.html">DateLastUpdated</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Parameter to lookup for RPN updated on or since a given date.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic19.html">EmployeeID</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic6.html">EmployeeID Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Elements required to lookup RPN for an employee.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic7.html">EmployeePPSN</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:EmployeePPSN</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 108. Employee's PPS Number. Used to identify the employee to which the RPN relates.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic8.html">EmploymentID</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:employmentID</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 110. Employee's Employment ID. Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic20.html">RangeParameters</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic54.html">RangeParameters Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>The range of RPN to be retrieved.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic55.html">From</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Start index of range lookup.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic56.html">To</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>End index of range lookup.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic21.html">PPSN</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type>pc:defaultString</SPAN>
+<DIV class=i-child-tree-description>List of PPSNs for search </DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="SUCCESS_RESPONSE_LIST" namespace="response" source="Item" filter="type=success" -->
+<div class="i-section-heading" id="i-response_LookupRPNResponse-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Response  (LookupRPNResponse)</span></div><div id="i-response_LookupRPNResponse-section-content" class="i-section-content"><p>The response body is of type <a href="topic3.html">LookupRPNResponse</a>.</p><img border="0" src="xsddiagramimages/topic3.png" usemap="#xsddiagrammap-RPN_xsd~e-LookupRPNResponse" /><map id="xsddiagrammap-RPN_xsd~e-LookupRPNResponse" name="xsddiagrammap-RPN_xsd~e-LookupRPNResponse">
+  <area shape="rect" coords="829, 1600, 1046, 1634" href="topic12.html" alt="Description Element" title="Description Element"></area>
+  <area shape="rect" coords="829, 1558, 1032, 1592" href="topic11.html" alt="Path Element" title="Path Element"></area>
+  <area shape="rect" coords="829, 1516, 982, 1550" href="topic10.html" alt="Code Element" title="Code Element"></area>
+  <area shape="rect" coords="687, 1558, 788, 1593" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="458, 1558, 667, 1592" href="topic31.html" alt="ValidationError Element" title="ValidationError Element"></area>
+  <area shape="rect" coords="828, 1474, 1114, 1508" href="topic8.html" alt="EmploymentID Element" title="EmploymentID Element"></area>
+  <area shape="rect" coords="828, 1432, 1062, 1466" href="topic7.html" alt="EmployeePPSN Element" title="EmployeePPSN Element"></area>
+  <area shape="rect" coords="686, 1452, 787, 1487" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="458, 1453, 666, 1487" href="topic30.html" alt="NoRPN Element" title="NoRPN Element"></area>
+  <area shape="rect" coords="773, 1390, 1000, 1424" href="topic79.html" alt="PRSIClass Element" title="PRSIClass Element"></area>
+  <area shape="rect" coords="773, 1348, 1005, 1382" href="topic78.html" alt="PRSIExempt Element" title="PRSIExempt Element"></area>
+  <area shape="rect" coords="773, 1306, 1056, 1340" href="topic77.html" alt="LPTToDeduct Element" title="LPTToDeduct Element"></area>
+  <area shape="rect" coords="773, 1264, 1095, 1298" href="topic76.html" alt="USCDeductedToDate Element" title="USCDeductedToDate Element"></area>
+  <area shape="rect" coords="773, 1222, 1080, 1256" href="topic75.html" alt="PayForUSCToDate Element" title="PayForUSCToDate Element"></area>
+  <area shape="rect" coords="1133, 1180, 1457, 1214" href="topic90.html" alt="YearlyUSCRateCutOff Element" title="YearlyUSCRateCutOff Element"></area>
+  <area shape="rect" coords="1133, 1138, 1373, 1172" href="topic89.html" alt="USCRatePercent Element" title="USCRatePercent Element"></area>
+  <area shape="rect" coords="1133, 1096, 1309, 1130" href="topic88.html" alt="Index Element" title="Index Element"></area>
+  <area shape="rect" coords="991, 1138, 1092, 1173" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="773, 1138, 971, 1172" href="topic74.html" alt="USCRate Element" title="USCRate Element"></area>
+  <area shape="rect" coords="773, 1054, 951, 1088" href="topic73.html" alt="USCStatus Element" title="USCStatus Element"></area>
+  <area shape="rect" coords="773, 1012, 1075, 1046" href="topic72.html" alt="IncomeTaxDeductedToDate Element" title="IncomeTaxDeductedToDate Element"></area>
+  <area shape="rect" coords="773, 970, 1060, 1004" href="topic71.html" alt="PayForIncomeTaxToDate Element" title="PayForIncomeTaxToDate Element"></area>
+  <area shape="rect" coords="1125, 928, 1427, 962" href="topic86.html" alt="YearlyRateCutOff Element" title="YearlyRateCutOff Element"></area>
+  <area shape="rect" coords="1125, 886, 1361, 920" href="topic85.html" alt="TaxRatePercent Element" title="TaxRatePercent Element"></area>
+  <area shape="rect" coords="1125, 844, 1301, 878" href="topic84.html" alt="Index Element" title="Index Element"></area>
+  <area shape="rect" coords="983, 886, 1084, 921" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="773, 886, 963, 920" href="topic70.html" alt="TaxRate Element" title="TaxRate Element"></area>
+  <area shape="rect" coords="773, 802, 1015, 836" href="topic69.html" alt="YearlyTaxCredits Element" title="YearlyTaxCredits Element"></area>
+  <area shape="rect" coords="773, 760, 1022, 794" href="topic68.html" alt="ExclusionOrder Element" title="ExclusionOrder Element"></area>
+  <area shape="rect" coords="773, 718, 1133, 752" href="topic67.html" alt="IncomeTaxCalculationBasis Element" title="IncomeTaxCalculationBasis Element"></area>
+  <area shape="rect" coords="773, 676, 1068, 710" href="topic66.html" alt="EmploymentCessationDate Element" title="EmploymentCessationDate Element"></area>
+  <area shape="rect" coords="773, 634, 913, 668" href="topic65.html" alt="EndDate Element" title="EndDate Element"></area>
+  <area shape="rect" coords="773, 592, 938, 626" href="topic64.html" alt="EffectiveDate Element" title="EffectiveDate Element"></area>
+  <area shape="rect" coords="773, 550, 1108, 584" href="topic63.html" alt="PreviousEmployeePPSN Element" title="PreviousEmployeePPSN Element"></area>
+  <area shape="rect" coords="1072, 508, 1282, 542" href="topic34.html" alt="FamilyName Element" title="FamilyName Element"></area>
+  <area shape="rect" coords="1072, 466, 1269, 500" href="topic33.html" alt="FirstName Element" title="FirstName Element"></area>
+  <area shape="rect" coords="930, 486, 1031, 521" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="773, 487, 910, 521" href="topic62.html" alt="Name Element" title="Name Element"></area>
+  <area shape="rect" coords="773, 424, 1104, 458" href="topic61.html" alt="EmployerReference Element" title="EmployerReference Element"></area>
+  <area shape="rect" coords="773, 382, 942, 416" href="topic60.html" alt="RPNIssueDate Element" title="RPNIssueDate Element"></area>
+  <area shape="rect" coords="1133, 340, 1419, 374" href="topic8.html" alt="EmploymentID Element" title="EmploymentID Element"></area>
+  <area shape="rect" coords="1133, 298, 1367, 332" href="topic7.html" alt="EmployeePPSN Element" title="EmployeePPSN Element"></area>
+  <area shape="rect" coords="991, 318, 1092, 353" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="773, 319, 971, 353" href="topic59.html" alt="EmployeeID Element" title="EmployeeID Element"></area>
+  <area shape="rect" coords="773, 256, 975, 290" href="topic58.html" alt="RPNNumber Element" title="RPNNumber Element"></area>
+  <area shape="rect" coords="631, 822, 732, 857" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="458, 823, 611, 857" href="topic29.html" alt="RPN Element" title="RPN Element"></area>
+  <area shape="rect" coords="458, 214, 675, 248" href="topic28.html" alt="DateTimeEffective Element" title="DateTimeEffective Element"></area>
+  <area shape="rect" coords="458, 172, 676, 206" href="topic27.html" alt="TotalRPNCount Element" title="TotalRPNCount Element"></area>
+  <area shape="rect" coords="458, 130, 621, 164" href="topic26.html" alt="TaxYear Element" title="TaxYear Element"></area>
+  <area shape="rect" coords="458, 88, 700, 122" href="topic25.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="458, 46, 757, 80" href="topic24.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="458, 4, 683, 38" href="topic23.html" alt="EmployerName Element" title="EmployerName Element"></area>
+  <area shape="rect" coords="316, 802, 417, 837" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 802, 296, 836" href="topic3.html" alt="LookupRPNResponse Element" title="LookupRPNResponse Element"></area>
+</map><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic22.html">LookupRPNResponse</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Employer's Lookup RPN Response. Will either return RPN detail or details of validation errors.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic23.html">EmployerName</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultString</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The Official Name of the employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic24.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:employerReg</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Employer's PAYE Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic25.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:agentTAIN</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Tax Advisor Identification Number. Required if RPN queried by agent on behalf of employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic26.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:dateYear</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The tax year to which the RPN lookup relates (YYYY).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic27.html">TotalRPNCount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The total number of RPN that are associated with the RPN request submitted. </DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic28.html">DateTimeEffective</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:dateTime</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 105. The date and time at which the RPN returned is correct/was issued (YYYY-MM-DDThh:mm:ss.sss±hh:mm).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic29.html">RPN</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic57.html">RPN Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. List of RPN that make up a valid lookup RPN response.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic58.html">RPNNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:rpnNumber</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 104. Reference number of the RPN for this employment for the employee.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic59.html">EmployeeID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic6.html">EmployeeID Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Employee's PPS Number and Employment ID (if available).</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic7.html">EmployeePPSN</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:EmployeePPSN</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 108. Employee's PPS Number. Used to identify the employee to which the RPN relates.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic8.html">EmploymentID</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:employmentID</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 110. Employee's Employment ID. Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic60.html">RPNIssueDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 105. The date the RPN was issued (YYYY-MM-DD).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic61.html">EmployerReference</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:employerReference</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 111. Employee's internal staff identifier/reference.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic62.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic32.html">Name Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>The employee name.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic33.html">FirstName</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultString</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 106.The first name of the employee.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic34.html">FamilyName</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultString</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 107 The surname/family name of the employee.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic63.html">PreviousEmployeePPSN</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:EmployeePPSN</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 109. Conditionally Returned. Used to identify employee's previous PPS number if available e.g. PPS number with 'W' suffix.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic64.html">EffectiveDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 114. January 1st if cumulative basis applies. Date the RPN issued if Week 1 basis applies. The date can be in the future (YYYY-MM-DD).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic65.html">EndDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic66.html">EmploymentCessationDate</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 136. Conditionally returned if present for the employment. Employment Cessation Date</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic67.html">IncomeTaxCalculationBasis</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:IncomeTaxCalculationBasis</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are "CUMULATIVE", "WEEK_1" and "EMERGENCY".</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic68.html">ExclusionOrder</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:boolean</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 113. Indicates if there is an exclusion order on file for the employee. Set to “true” if an exclusion order is on file for the employee.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic69.html">YearlyTaxCredits</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 118. Net Tax Credits. Amount of tax credits available to the employee for the year the RPN relates to. Amount of tax credits available for use in the PAYE calculation.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic70.html">TaxRate</A> <SPAN class=i-multiplicity>1..∞</SPAN> <SPAN class=i-type><A href="topic83.html">TaxRate Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Details of Tax Rates and Rate Cut Offs</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic84.html">Index</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedShort</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Index of the tax rate. For example, Index of 1 would refer to tax rate 1.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic85.html">TaxRatePercent</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 119, 121. Tax rate percentage to be applied.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic86.html">YearlyRateCutOff</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 120. Total allocated to the specified Rate Cut Off. No cut off for highest band.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic71.html">PayForIncomeTaxToDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 116. Total Pay for Income Tax to Date. This will include total income liable to Income Tax to date – including previous employment income. In the case of recommencements, this includes previous pay from that employer in the same tax year.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic72.html">IncomeTaxDeductedToDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 117. Total Income Tax Deducted to Date. Total amount of employee’s Income Tax deducted to date. In the case of recommencements, this includes previous tax from that employer in the same tax year.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic73.html">USCStatus</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:uscStatus</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 124. USC Status. Allowed values are Ordinary and Exempt.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic74.html">USCRate</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic87.html">USCRate Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Details of USC Rates. </DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic88.html">Index</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedShort</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Index of the rate. For example, Index of 1 would refer to USC Tax Rate 1.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic89.html">USCRatePercent</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 125, 127, 129, 131. USC Rate percentage to be applied.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic90.html">YearlyUSCRateCutOff</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 126, 128, 130, 132. Total allocated to the specified USC Cut Off.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic75.html">PayForUSCToDate</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date – including previous employment income and any additional declared income liable to USC e.g. Rental Income.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic76.html">USCDeductedToDate</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 134. Total Previous USC Paid to Date. Taking into account any USC refunded through any unemployment repayment claim(s).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic77.html">LPTToDeduct</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:defaultDecimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 135. LPT to be Deducted. Amount of LPT to be deducted through payroll.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic78.html">PRSIExempt</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:boolean</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 122. True if employee is exempt from paying PRSI in Ireland. This field is only included if the employee is exempt from paying PRSI.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic79.html">PRSIClass</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:prsiClass</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 123. PRSI Class and Subclass that the employee should be updated to. This will appear only where DSP updates the class or where DSP knows the individual is on the wrong class. i.e. where a review has been carried out by DSP.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic30.html">NoRPN</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic6.html">EmployeeID Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. EmployeePPSNs and EmploymentIDs of employees who do not currently have an RPN associated with the employer. New RPN need to be requested for these employees using the NewRPNRequest service.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic7.html">EmployeePPSN</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:EmployeePPSN</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 108. Employee's PPS Number. Used to identify the employee to which the RPN relates.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic8.html">EmploymentID</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:employmentID</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 110. Employee's Employment ID. Unique identifier for each distinct employment for an employee. If the RPN is being triggered as a result of the employee setting up the employment via Jobs and Pension or contacting Revenue, this field will not be populated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic31.html">ValidationError</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic9.html">Error Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. List of Validation errors (if any) on the LookupRPNRequest.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic10.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:errorCode</SPAN>
+<DIV class=i-child-tree-description>Technical Error Code - to be used for mapping to error messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic11.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:errorPath</SPAN>
+<DIV class=i-child-tree-description>Path to error in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic12.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:errorDescription</SPAN>
+<DIV class=i-child-tree-description>Description of error - to be used for support.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##EXAMPLEINTRO" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=""$$Example$$%%designlist:tagidentifier=##EXAMPLECODE,itemtype=Example%%""%%%%comment%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="EXAMPLEGROUP_LIST" namespace="ExampleGroup" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""="",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><div class="i-section-heading" id="i-example-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Example</span></div><div id="i-example-section-content" class="i-section-content">
+<div class="i-tab-container">
+    <ul>
+        <li class="i-filtered-content-XML">
+			<a href="#i-tab-content-44e1767a-e18f-418c-b085-977048a92a90">XML</a>
+		</li>
+        <li class="i-filtered-content-XML">
+			<a href="#i-tab-content-80f9f9bb-a315-46ca-b9f4-3a653671113e">XML</a>
+		</li>
+
+    </ul>
+	<div id="i-tab-content-44e1767a-e18f-418c-b085-977048a92a90" class="i-filtered-content-XML">
+		<pre><span style="color: #0000FF; ">&lt;?</span><span style="color: #FF00FF; ">xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;</span><span style="color: #0000FF; ">?&gt;</span>
+<span style="color: #008000; ">&lt;!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+        Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+        Renamed the element: &quot;employeePPSN&quot; to &quot;EmployeePPSN&quot;
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+        Dates re-formatted
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 24/05/2018
+     Updated ENUM Values to reflect schematic changes
+--&gt;</span>
+<span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:LookupRPNRequest </span><span style="color: #FF0000; ">xmlns:rat</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/&quot;</span><span style="color: #FF0000; "> xmlns</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/&quot;</span><span style="color: #FF0000; "> xmlns:xsi</span><span style="color: #0000FF; ">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span style="color: #FF0000; "> xsi:schemaLocation</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema-pit3.xsd&quot;</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>3980609P<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:SoftwareUsed</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Name</span><span style="color: #0000FF; ">&gt;</span>The Software<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Name</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Version</span><span style="color: #0000FF; ">&gt;</span>Version 10.0<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Version</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:SoftwareUsed</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxYear</span><span style="color: #0000FF; ">&gt;</span>2019<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxYear</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:DateLastUpdated</span><span style="color: #0000FF; ">&gt;</span>2019-01-10<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:DateLastUpdated</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:PPSN</span><span style="color: #0000FF; ">&gt;</span>00000008P<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:PPSN</span><span style="color: #0000FF; ">&gt;</span>
+<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:LookupRPNRequest</span><span style="color: #0000FF; ">&gt;</span>
+</pre>
+	</div>
+	<div id="i-tab-content-80f9f9bb-a315-46ca-b9f4-3a653671113e" class="i-filtered-content-XML">
+		<pre><span style="color: #0000FF; ">&lt;?</span><span style="color: #FF00FF; ">xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;</span><span style="color: #0000FF; ">?&gt;</span>
+<span style="color: #008000; ">&lt;!--Document History:
+======== Version 0.9 ====================================
+i. Document Created 30/06/2017
+======== Version 0.10 ====================================
+ii. Document updated on 07/09/2017: 
+        Revenue Payroll Instruction changed to Revenue Payroll Notification and RPI changed to RPN
+======== Version 1.0 Milestone 1 ====================================
+iii. Document updated on 17/11/2017: 
+        Renamed the element: &quot;employeePPSN&quot; to &quot;EmployeePPSN&quot;
+        Renamed the element: &quot;calculationBasis&quot; to &quot;IncomeTaxCalculationBasis&quot;
+        Renamed the element: &quot;DateLastUpdated&quot; to &quot;RPNIssueDate&quot;    
+        Renamed the element: &quot;YearlyUSCCutOff&quot; to &quot;YearlyUSCRateCutOff&quot;    
+        Renamed the element: &quot;PayToDate&quot; to &quot;PayForIncomeTaxToDate&quot;    
+        Renamed the element: &quot;TaxToDate&quot; to &quot;IncomeTaxDeductedToDate&quot;
+        Renamed the element: &quot;USCPaidToDate&quot; to &quot;USCDeductedToDate&quot;    
+======== Version 1.0 Milestone 2 ====================================
+iv. Document updated on 09/02/2018:
+        Date/Time re-formatted
+
+======== Version 1.0 Release Candidate 2 ===========
+v. Document updated on 24/05/2018
+     Updated ENUM Values to reflect schematic changes
+--&gt;</span>
+<span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:LookupRPNResponse </span><span style="color: #FF0000; ">xmlns:rat</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/&quot;</span><span style="color: #FF0000; "> xmlns</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/&quot;</span><span style="color: #FF0000; "> xmlns:xsi</span><span style="color: #0000FF; ">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span style="color: #FF0000; "> xsi:schemaLocation</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema-pit3.xsd&quot;</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmployerName</span><span style="color: #0000FF; ">&gt;</span>Employer1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmployerName</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>3980609P<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxYear</span><span style="color: #0000FF; ">&gt;</span>2019<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxYear</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TotalRPNCount</span><span style="color: #0000FF; ">&gt;</span>1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TotalRPNCount</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:DateTimeEffective</span><span style="color: #0000FF; ">&gt;</span>2019-01-29T11:58:02.000+00:00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:DateTimeEffective</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:RPN</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:RPNNumber</span><span style="color: #0000FF; ">&gt;</span>5<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:RPNNumber</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmployeeID</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmployeePPSN</span><span style="color: #0000FF; ">&gt;</span>00000008P<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmployeePPSN</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmploymentID</span><span style="color: #0000FF; ">&gt;</span>1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmploymentID</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmployeeID</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:RPNIssueDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-10<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:RPNIssueDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Name</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:FirstName</span><span style="color: #0000FF; ">&gt;</span>Ann<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:FirstName</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:FamilyName</span><span style="color: #0000FF; ">&gt;</span>Doe<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:FamilyName</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Name</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EffectiveDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-01<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EffectiveDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EndDate</span><span style="color: #0000FF; ">&gt;</span>2019-12-31<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EndDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:EmploymentCessationDate</span><span style="color: #0000FF; ">&gt;</span>2020-07-31<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:EmploymentCessationDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:IncomeTaxCalculationBasis</span><span style="color: #0000FF; ">&gt;</span>CUMULATIVE<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:IncomeTaxCalculationBasis</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:YearlyTaxCredits</span><span style="color: #0000FF; ">&gt;</span>3300.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:YearlyTaxCredits</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxRatePercent</span><span style="color: #0000FF; ">&gt;</span>20<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:YearlyRateCutOff</span><span style="color: #0000FF; ">&gt;</span>33800.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:YearlyRateCutOff</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>2<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:TaxRatePercent</span><span style="color: #0000FF; ">&gt;</span>40<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:TaxRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:PayForIncomeTaxToDate</span><span style="color: #0000FF; ">&gt;</span>1230.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:PayForIncomeTaxToDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:IncomeTaxDeductedToDate</span><span style="color: #0000FF; ">&gt;</span>0.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:IncomeTaxDeductedToDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCStatus</span><span style="color: #0000FF; ">&gt;</span>ORDINARY<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCStatus</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>.5<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>12012.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>2<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>2.5<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>18772.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>3<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>5<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>70044.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:YearlyUSCRateCutOff</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>4<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:Index</span><span style="color: #0000FF; ">&gt;</span>
+            <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>8<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRatePercent</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCRate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:PayForUSCToDate</span><span style="color: #0000FF; ">&gt;</span>1230.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:PayForUSCToDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:USCDeductedToDate</span><span style="color: #0000FF; ">&gt;</span>12.28<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:USCDeductedToDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rat:LPTToDeduct</span><span style="color: #0000FF; ">&gt;</span>191.00<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:LPTToDeduct</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:RPN</span><span style="color: #0000FF; ">&gt;</span>
+<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rat:LookupRPNResponse</span><span style="color: #0000FF; ">&gt;</span>
+</pre>
+	</div>
+	
+</div>
+</div><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="INLINE_EXAMPLE" namespace="Example" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""<>"",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="MENU_LINK" namespace="example" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="FAULT_RESPONSE_LIST" namespace="response" source="Item" filter="type=fault" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Fault  Responses$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+            <!--DXMETADATA start type="TaggedComment" source="Item" id="##REMARKS" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=remarks,caption=$$Remarks$$%%%%comment%%</div>" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORIZED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""$$See_Also$$%%designlist:tagidentifier=##SEEALSO,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="i-section-heading" id="i-seealso-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">See Also</span></div><div id="i-seealso-section-content" class="i-section-content"><a href="topic313.html">All Operations Resource Group</a>
+|&nbsp;<a href="topic312.html">RPN Web Service</a>
+</p>
+</div><!--DXMETADATA end-->
+    </div>
+    <div id="i-footer-content" class="i-footer-content">
+        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" -->Please register for our <a href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">PIT Support Help Desk</a> for the following: <br/>
+<ul>
+  <li>Technical issues encountered using the PIT facility</li>
+  <li>Queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+</ul><!--DXMETADATA end-->
+    </div>
+    
+
+    <!--DXMETADATA start type="IsNew" format="<script type=""text/javascript"">setIsNew = true;</script>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<script type=""text/javascript"">setIsResponsiveEnabled = true;</script>" --><!--DXMETADATA end-->
+    <script type="text/javascript">
+        $(function() {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.isNew = !(typeof setIsNew === "undefined");
+            documentInstance.isResponsiveEnabled = !(typeof setIsResponsiveEnabled === "undefined");
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>

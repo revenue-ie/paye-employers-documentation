@@ -1,0 +1,10 @@
+{
+    "requestType": "lookupRPN",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2018,
+	"softwareUsed": "OPA",
+	"softwareVersion": "1.0",
+	"employeeIDs": [
+		"1234567T-1", "1234567V-5"
+	]
+}
