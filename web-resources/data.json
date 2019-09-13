@@ -144,14 +144,14 @@
 		"title": "PIT Self Service and ROS Payroll Reporting PIT Next Version",
 		"anchor": "Screens",
 		"cards": [{
-				"link": "",
+				"link": "https://softwaretestnextversion.ros.ie/paye-employers-self-service/intro",
 				"description": "Portal Login",
-				"explainer": "This portal page provides access to both the PIT Self Service and ROS Payroll Reporting applications for the PIT next version environment. The portal page will determine which application to direct a user to based on the provided digital certificate. The same TDM cert can be used for this environment as the one for the PIT current version, but employer certs differ between environments. NOTE: This link will be enabled when the environment is launched.",
+				"explainer": "This portal page provides access to both the PIT Self Service and ROS Payroll Reporting applications for the PIT next version environment. The portal page will determine which application to direct a user to based on the provided digital certificate. The same TDM cert can be used for this environment as the one for the PIT current version, but employer certs differ between environments.",
 				"explainerIndex": "1",
 				"anchor": "Portal_Link",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "13/09/2019",
 				"category": "LINK"
 			},
 			{
@@ -160,7 +160,7 @@
 				"anchor": "PITSelfServiceGuide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "13/09/2019",
 				"category": "download"
 			},
 			{
@@ -281,7 +281,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "13/09/2019",
 				"category": "download"
 			},
 			{
@@ -591,7 +591,7 @@
 			},
 			{
 				"link": "PIT3/rest/paye-employers-rest-api-pit3.html",
-				"description": "REST API Reference PIT",
+				"description": "REST API Reference",
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
@@ -642,7 +642,7 @@
 			},
 			{
 				"link": "PIT4/rest/paye-employers-rest-api-pit4.html",
-				"description": "REST API Reference PIT",
+				"description": "REST API Reference",
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
