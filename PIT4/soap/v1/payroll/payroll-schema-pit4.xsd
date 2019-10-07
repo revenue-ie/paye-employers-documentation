@@ -411,6 +411,11 @@ vii. Document updated on 19/11/2018
 					<xs:documentation>Data Item Ref: 18. Pay Frequency. Options allowed are Weekly, Fortnightly, Monthly, FourWeekly, TwiceMonthly, Quarterly, BiAnnual, WkBasedMonthly, Annual and Other.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="PayPeriod" type="xs:short" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 55. Pay Period suggest that it is dependent on the Pay Frequency, so for monthly pay it is the month number, for fortnightly pay it is the fortnight number etc</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="NumberOfPayPeriods" type="xs:short" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 53. Expected number of pay periods in a full year. Options allowed are 13, 14, 26, 27, 52, 53 and Other. Used to determine whether a week 1 or cumulative RPN should be provided when an employee moves jobs or pay frequencies. (Required for certain pay periods).</xs:documentation>

@@ -24,6 +24,7 @@
 			"director": "PROPRIETARY",
 			"shadowPayroll": false,
 			"payFrequency": "MONTHLY",
+			"payPeriod": 1,
 			"numberOfPayPeriods": 12,
 			"rpnNumber": "rpnNumber",
 			"taxCredits": 275.0,

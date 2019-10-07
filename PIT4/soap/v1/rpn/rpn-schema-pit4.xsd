@@ -376,12 +376,12 @@ vii. Document updated on 26/08/2019
 					<xs:documentation>Details of USC Rates. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PayForUSCToDate" type="pc:defaultDecimal" minOccurs="0">
+			<xs:element name="PayForUSCToDate" type="pc:defaultDecimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date – including previous employment income and any additional declared income liable to USC e.g. Rental Income.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="USCDeductedToDate" type="pc:defaultDecimal" minOccurs="0">
+			<xs:element name="USCDeductedToDate" type="pc:defaultDecimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 134. Total Previous USC Paid to Date. Taking into account any USC refunded through any unemployment repayment claim(s).</xs:documentation>
 				</xs:annotation>

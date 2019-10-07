@@ -41,6 +41,7 @@ v. Document updated on 24/05/2018
             <pay:FamilyName>Doe</pay:FamilyName>
         </pay:Name>
         <pay:PayFrequency>WEEKLY</pay:PayFrequency>
+        <pay:PayPeriod>5</pay:PayPeriod>
         <pay:RPNNumber>5</pay:RPNNumber>
         <pay:TaxCredits>63.46</pay:TaxCredits>
         <pay:TaxRate>

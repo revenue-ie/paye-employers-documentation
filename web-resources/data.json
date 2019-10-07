@@ -187,7 +187,7 @@
 				"anchor": "OPA_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -196,7 +196,7 @@
 				"anchor": "ROS_Payroll_Reporting_JSON_Envelope_schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -249,7 +249,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -281,7 +281,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "13/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -480,7 +480,7 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -489,7 +489,7 @@
 				"anchor": "RPN_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -525,7 +525,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "navigation"
 			},
 			{
@@ -604,7 +604,7 @@
 				"anchor": "REST_Integration_Guide",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "09/04/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -637,7 +637,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "02/09/2019",
+			"dateLastUpdated": "07/10/2019",
 			"category": "download"
 			},
 			{
@@ -646,7 +646,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "navigation"
 			},
 			{
@@ -792,7 +792,7 @@
 				"anchor": "Payroll_Submission_Data_Items",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "17/06/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{
@@ -819,7 +819,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "07/10/2019",
 				"category": "download"
 			},
 			{

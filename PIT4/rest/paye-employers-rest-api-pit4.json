@@ -1372,6 +1372,11 @@
             "ANNUAL",
             "OTHER"]
         },
+        "payPeriod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Data Item Ref: 55. Pay Period suggest that it is dependent on the Pay Frequency, so for monthly pay it is the month number, for fortnightly pay it is the fortnight number etc"
+        },
         "numberOfPayPeriods": {
           "type": "integer",
           "format": "int32",
@@ -1716,6 +1721,8 @@
         "rpnNumber",
         "taxRates",
         "uscStatus",
+        "payForUSCToDate",
+        "uscDeductedToDate",
         "yearlyTaxCredits"],
       "properties": {
         "rpnNumber": {

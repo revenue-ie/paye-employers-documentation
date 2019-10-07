@@ -46,6 +46,13 @@
 					"type": "string"
 				}
 		},
+		"ppsns": {
+			"description": "For Lookup RPN by Employee",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
 		"requestBody": {
 			"type": "object",
 			"description": "https://revenue-ie.github.io/paye-employers-documentation/rest/paye-employers-rest-api-pit4.html"
