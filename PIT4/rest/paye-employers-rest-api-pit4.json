@@ -11,7 +11,7 @@
       "email": ""
     }
   },
-  "host": "softwaretest.ros.ie",
+  "host": "softwaretestnextversion.ros.ie",
   "basePath": "/paye-employers/v1/rest",
   "tags": [{
     "name": "PAYE Employers Handshake (Connection Test) REST API"

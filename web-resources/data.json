@@ -281,7 +281,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "17/10/2019",
 				"category": "download"
 			},
 			{
@@ -637,7 +637,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "07/10/2019",
+			"dateLastUpdated": "17/10/2019",
 			"category": "download"
 			},
 			{
@@ -646,7 +646,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "17/10/2019",
 				"category": "navigation"
 			},
 			{
