@@ -281,7 +281,8 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "01/11/2019",
+				"dateLastUpdated": "29/11/2019",
+
 				"category": "download"
 			},
 			{
@@ -837,7 +838,7 @@
 				"anchor": "Error_Structure",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "28/05/2019",
+				"dateLastUpdated": "29/11/2019",
 				"category": "download"
 			},
 			{
