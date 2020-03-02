@@ -38,6 +38,9 @@ vi. Document updated on 19/06/2018:
 
 vii. Document updated on 19/11/2018
 		(required) removed from County field
+		
+viii. Document updated on 02/03/2020
+		"PayPeriod" property added to payslip
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
@@ -409,6 +412,11 @@ vii. Document updated on 19/11/2018
 			<xs:element name="PayFrequency" type="pp:payFrequency">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 18. Pay Frequency. Options allowed are Weekly, Fortnightly, Monthly, FourWeekly, TwiceMonthly, Quarterly, BiAnnual, WkBasedMonthly, Annual and Other.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PayPeriod" type="xs:short" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 55. Pay Period. Options allowed are 1-53 determined by the payment date and pay frequency. Input options allowed are 1-53 where payment frequency is weekly, 1-27 for fortnightly, 1-24 for twice monthly, 1-12 for monthly, 1-14 for week-based monthly, 1-14 for four-weekly, 1-4 for quarterly, 1-2 for bi-annual, 1 for annual and 1-52 when payment frequency is other. Where an employee is on a week 1 basis, the pay period that would be applied by software were it not for week 1 basis should be reported (required from 2020 onwards).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NumberOfPayPeriods" type="xs:short" minOccurs="0">

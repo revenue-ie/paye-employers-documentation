@@ -467,6 +467,17 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "ppsns",
+            "in": "query",
+            "description": "Look up RPN by PPSN. Optional parameter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }],
         "responses": {
           "200": {
@@ -1361,6 +1372,11 @@
             "ANNUAL",
             "OTHER"]
         },
+        "payPeriod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Data Item Ref: 55. Pay Period. Options allowed are 1-53 determined by the payment date and pay frequency. Input options allowed are 1-53 where payment frequency is weekly, 1-27 for fortnightly, 1-24 for twice monthly, 1-12 for monthly, 1-14 for week-based monthly, 1-14 for four-weekly, 1-4 for quarterly, 1-2 for bi-annual, 1 for annual and 1-52 when payment frequency is other. Where an employee is on a week 1 basis, the pay period that would be applied by software were it not for week 1 basis should be reported (required from 2020 onwards)."
+        },
         "numberOfPayPeriods": {
           "type": "integer",
           "format": "int32",
@@ -1705,6 +1721,8 @@
         "rpnNumber",
         "taxRates",
         "uscStatus",
+        "payForUSCToDate",
+        "uscDeductedToDate",
         "yearlyTaxCredits"],
       "properties": {
         "rpnNumber": {
@@ -1748,6 +1766,11 @@
           "type": "string",
           "format": "date",
           "description": "Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested."
+        },
+        "employmentCessationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Data Item Ref: 136. Conditionally returned if present for the employment. The date an employee left this employment (date contract terminated) – See Data items document for more details."
         },
         "incomeTaxCalculationBasis": {
           "type": "string",

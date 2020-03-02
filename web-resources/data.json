@@ -45,7 +45,7 @@
 				"anchor": "PIT_Next_Version_Features",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			}]
 	},
@@ -78,7 +78,7 @@
 				"anchor": "ROS_Payroll_Reporting_Application",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "29/04/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -96,7 +96,7 @@
 				"anchor": "OPA_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -105,7 +105,7 @@
 				"anchor": "ROS_Payroll_Reporting_JSON_Envelope_schema",
 				"type": "Schema",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -114,7 +114,7 @@
 				"anchor": "RPN_Request_CSV_File_Response",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -249,7 +249,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -281,8 +281,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "29/11/2019",
-
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -341,16 +340,16 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
 				"link": "PIT3/soap/v1/rpn/rpn-schema-pit3.xsd",
-				"description": "RPN Schema PIT",
+				"description": "RPN Schema",
 				"anchor": "RPN_Schema",
 				"type": "Schema",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -386,7 +385,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "08/01/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "navigation"
 			},
 			{
@@ -587,7 +586,7 @@
 				"anchor": "REST_API_Spec",
 				"type": "API File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "14/11/2018",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -596,7 +595,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "08/01/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "navigation"
 			},
 			{
@@ -698,7 +697,7 @@
 				"anchor": "Payroll_Submission_Data_Items",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "17/06/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -707,7 +706,7 @@
 				"anchor": "RPN_Data_Items",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "08/04/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -725,7 +724,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "18/06/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -743,7 +742,7 @@
 				"anchor": "Error_Structure",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "28/05/2019",
+				"dateLastUpdated": "02/03/2020",
 				"category": "download"
 			},
 			{
@@ -879,7 +878,7 @@
 			"anchor": "Overview_Of_Web_Service_Examples",
 			"type": "PDF",
 			"environment": "PIT Current Version",
-			"dateLastUpdated": "28/05/2019",
+			"dateLastUpdated": "02/03/2020",
 			"category": "download"
 		},
 			{
@@ -1034,7 +1033,7 @@
 			"anchor": "Overview_Of_Web_Service_Examples",
 			"type": "PDF",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "02/09/2019",
+			"dateLastUpdated": "02/03/2020",
 			"category": "download"
 		},
 			{

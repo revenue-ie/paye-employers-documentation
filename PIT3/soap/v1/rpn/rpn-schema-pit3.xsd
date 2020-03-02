@@ -28,6 +28,10 @@ v. Document updated on 26/02/2018:
 ======== Version 1.0 Release Candidate 2 ====================================
 vi.  Document updated on 12/11/2018:
 		Updated description of "PreviousEmployeePPSN" to show it's conditional
+vii. Document updated on 02/03/2020
+		Added PPSN query parameter for RPN lookup request
+		Added Employment Cessation field for RPN response
+		
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pr="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/rpn/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
@@ -91,6 +95,11 @@ vi.  Document updated on 12/11/2018:
 			<xs:element name="RangeParameters" type="pr:RangeParameters" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The range of RPN to be retrieved.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PPSN" type="pc:defaultString" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of PPSNs for search </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -322,6 +331,11 @@ vi.  Document updated on 12/11/2018:
 					<xs:documentation>Data Item Ref: 115. Last date on which the RPN specified will apply. After this date a new RPN should be requested.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="EmploymentCessationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 136. Conditionally returned if present for the employment. Employment Cessation Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="IncomeTaxCalculationBasis" type="pc:IncomeTaxCalculationBasis">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 112. PAYE calculation basis used in the submission. Options allowed are "CUMULATIVE", "WEEK_1" and "EMERGENCY".</xs:documentation>
@@ -362,12 +376,12 @@ vi.  Document updated on 12/11/2018:
 					<xs:documentation>Details of USC Rates. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PayForUSCToDate" type="pc:defaultDecimal" minOccurs="0">
+			<xs:element name="PayForUSCToDate" type="pc:defaultDecimal" >
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 133. Total Previous Pay subject to USC to Date. This will include total income liable to USC to date – including previous employment income and any additional declared income liable to USC e.g. Rental Income.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="USCDeductedToDate" type="pc:defaultDecimal" minOccurs="0">
+			<xs:element name="USCDeductedToDate" type="pc:defaultDecimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 134. Total Previous USC Paid to Date. Taking into account any USC refunded through any unemployment repayment claim(s).</xs:documentation>
 				</xs:annotation>
