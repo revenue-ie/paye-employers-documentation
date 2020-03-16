@@ -22,21 +22,21 @@
 				"category": "download"
 			},
 			{
-				"link": "https://revenuehelpdesk.supatools.com/portal/revenueie/register.html",
+				"link": "https://revenuehelpdesk.canfigure.net/portal/revenueie/register.html",
 				"description": "Help Desk Registration",
 				"anchor": "Help_Desk_Registration",
 				"type": "LINK",
 				"environment": "All Versions",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "16/03/2020",
 				"category": "LINK"
 			},
 			{
-				"link": "https://revenuehelpdesk.supatools.com/login.php",
+				"link": "https://revenuehelpdesk.canfigure.net/login.php",
 				"description": "Help Desk Login",
 				"anchor": "Help_Desk_Login",
 				"type": "LINK",
 				"environment": "All Versions",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "16/03/2020",
 				"category": "LINK"
 			},
 			{
@@ -45,7 +45,7 @@
 				"anchor": "PIT_Next_Version_Features",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "03/03/2020",
 				"category": "download"
 			}]
 	},
