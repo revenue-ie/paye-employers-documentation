@@ -38,6 +38,9 @@ vi. Document updated on 19/06/2018:
 
 vii. Document updated on 19/11/2018
 		(required) removed from County field
+
+vii. Document updated on 30/03/2020
+		"OtherPayments" property added to payslip
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
@@ -586,6 +589,11 @@ vii. Document updated on 19/11/2018
 					<xs:documentation>Data Item Ref: 54. Amount contributed by employee to Additional Superannuation Contribution (ASC) scheme.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="OtherPayments" type="pp:OtherPayments" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Other payments, payment code and payment value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BatchReference">
@@ -696,6 +704,23 @@ vii. Document updated on 19/11/2018
 			<xs:element name="InsurableWeeks" type="xs:short">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 32. Number of insurable weeks for each PRSI class accrued in this pay period. This is Mandatory if not PRSI exempt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherPayments">
+		<xs:annotation>
+			<xs:documentation>Other payments, payment code and payment value.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PaymentCode" type="pp:paymentCode">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 57. Description of other payment. Options allowed are COVID19.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PaymentValue" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>paymentValue: Data Item Ref: 58. Payment amount.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -920,6 +945,14 @@ vii. Document updated on 19/11/2018
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PROPRIETARY"/>
 			<xs:enumeration value="NON_PROPRIETARY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="paymentCode">
+		<xs:annotation>
+			<xs:documentation>Description of other payment.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COVID19"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
