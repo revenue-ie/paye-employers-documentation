@@ -1,0 +1,3 @@
+employerName,employerRegistrationNumber,agentTain,taxYear,dateTimeEffective,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+employeePPSN,employmentID,employerReference,eligibleEmployee,firstName,familyName,grossPay,incomeTaxPaid,USCPaid,EEPRSIpaid,Divisor,ARNWP ,Tier1,Tier1MWWS,Tier1MWEPBT,Tier2,Tier2MWWS,Tier2MWEPBT,Tier3,Tier3MWWS
