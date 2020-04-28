@@ -1,3 +1,15 @@
-employerName,employerRegistrationNumber,agentTain,taxYear,dateTimeEffective,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-employeePPSN,employmentID,employerReference,eligibleEmployee,firstName,familyName,grossPay,incomeTaxPaid,USCPaid,EEPRSIpaid,Divisor,ARNWP ,Tier1,Tier1MWWS,Tier1MWEPBT,Tier2,Tier2MWWS,Tier2MWEPBT,Tier3,Tier3MWWS
+﻿employerName,employerRegistrationNumber,agentTain,taxYear,dateTimeEffective,,,,,,,,,,,,,,,
+Nq Payroll Services,8002392EH,,2020,2020-04-27T11:02:23.479Z[UTC],,,,,,,,,,,,,,,
+employeePPSN,employmentID,employerReference,eligibleEmployee,firstName,familyName,grossPay,incomeTaxPaid,USCPaid,EEPRSIpaid,Divisor,ARNWP,Tier1,Tier1MWWS,Tier1MWEPBT,Tier2,Tier2MWWS,Tier2MWEPBT,Tier3,Tier3MWWS
+7041095PA,62977,62977,Y,Name 1,Name 1,516.04,103.21,25.68,0,7,55.31,33.48,24.5,31.3,44.64,14.35,41.45,44.65,0
+7041116UA,716235,716235,Y,Name 2,Name 2,1636.9,0,8.18,11.57,9,179.68,,152.73,197.27,,,,,
+7041119DA,74644,74644,Y,Name 3,Name 3,995.85,398.34,47.01,23.95,9,58.51,57.6,21,57.6,57.6,0,,,
+7041097TA,719549,719549,Y,Name 4,Name 4,7386.92,729.27,215.23,295.47,9,682.99,409.79,350,332.99,546.39,205,477.99,546.4,0
+7041096RA,69839,69839,Y,Name 5,Name 5,6912.5,963.55,193.88,276.5,9,608.73,365.24,350,258.73,486.98,205,403.73,486.99,0
+7041118BA,55780,55780,Y,Name 6,Name 6,1060.77,252.1,24.97,21.36,9,84.7,51.87,38.5,47.96,69.17,22.55,63.91,69.18,0
+7041121NA,56838,56838,Y,Name 7,Name 7,393.6,78.72,1.96,0,8,39.12,23.31,21,17.85,31.08,12.3,26.55,31.09,0
+7041099AA,40522,40522,Y,Name 8,Name 8,524.6,104.92,7.37,0,9,45.81,29.72,21,28.53,39.62,12.3,37.23,39.63,0
+7041100FA,8147,8147,Y,Name 9,Name 9,1109.08,443.63,56.06,0,9,67.71,48,17.5,48,48.01,0,,,
+7041102JA,10447,10447,Y,Name 10,Name 10,688.46,200.42,55.07,0,9,48.11,,35,14.72,,,,,
+7041123RA,719477,719477,Y,Name 11,Name 11,1039.5,280.35,83.16,0,8,84.5,,72.58,28.92,,,,,
+7041104NA,43256,,N,Name 12,Name 12,,,,,,,,,,,,,,

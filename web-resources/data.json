@@ -238,12 +238,21 @@
 				"category": "download"
 			},
 			{
+				"link": "PIT4/Screens/TWSS_CSV_Format.csv",
+				"description": "Temporary Wage Subsidy Scheme CSV Format",
+				"anchor": "TWSS_CSV_Format",
+				"type": "CSV",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "28/04/2020",
+				"category": "download"
+			},
+			{
 				"link": "PIT4/Screens/TWSS_CSV_Example.csv",
 				"description": "Temporary Wage Subsidy Scheme CSV Example",
 				"anchor": "TWSS_CSV_Example",
 				"type": "CSV",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "24/04/2020",
+				"dateLastUpdated": "28/04/2020",
 				"category": "download"
 			}
 		]
