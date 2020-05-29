@@ -343,7 +343,7 @@
           "description": "Employer's PAYE Registration Number.",
           "required": true,
           "type": "string"
-          },
+        },
           {
             "name": "periodStartDate",
             "in": "query",
@@ -1077,6 +1077,24 @@
       },
       "description": "Employer's New RPN Response. Will either return RPN detail or details of validation errors."
     },
+    "OtherPayments": {
+      "type": "object",
+      "required": ["paymentCode"],
+      "properties": {
+        "paymentCode": {
+          "type": "string",
+          "description": "Data Item Ref: 57. Description of other payment. Options allowed are COVID19.",
+          "enum": ["COVID19"]
+        },
+        "paymentValue": {
+          "type": "number",
+          "description": "Data Item Ref: 58. Payment amount.",
+          "minimum": -999999999,
+          "maximum": 999999999.99
+        }
+      },
+      "description": "Data Item Ref: 56. Other payments not included in gross pay, payment code and payment value."
+    },
     "PRSIClassDetail": {
       "type": "object",
       "required": ["prsiClass"],
@@ -1584,6 +1602,12 @@
           "description": "Data Item Ref: 46. Amount contributed by employee to Additional Superannuation Contribution (ASC) scheme.",
           "minimum": -999999999,
           "maximum": 999999999.99
+        },
+        "otherPayments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OtherPayments"
+          }
         }
       },
       "description": "List of payslips that make up the employer payroll submission. for Original submissions this should include at least one new payslip. For Correction submissions this should include any new or corrected payslips."
