@@ -1,0 +1,6 @@
+﻿employerName,employerRegistrationNumber,taxYear,softwareUsed,softwareVersion,,,
+ABC Ltd.,8002392EH,2020,Payroll Soft,1.2,,,
+payrollRunReference,lineItemID,employerReference,employeePPSN,employmentID,payDate,subsidyPaid,arnwp
+run_2020_12,1,62977,7041095PA,62977,20/04/2020,315.35,750.56
+run_2020_12,2,62977,9876543HH,94215,20/04/2020,410.56,825.12
+run_2020_13,1,62977,7041095PA,62977,27/04/2020,310.14,629.76
