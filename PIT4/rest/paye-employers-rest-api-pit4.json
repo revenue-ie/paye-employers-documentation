@@ -1083,8 +1083,8 @@
       "properties": {
         "paymentCode": {
           "type": "string",
-          "description": "Data Item Ref: 57. Description of other payment. Options allowed are COVID19.",
-          "enum": ["COVID19"]
+          "description": "Data Item Ref: 57. Description of other payment. Options allowed are COVID19 and EWSS.",
+          "enum": ["COVID19","EWSS"]
         },
         "paymentValue": {
           "type": "number",
@@ -1300,6 +1300,13 @@
           "description": "List of Submission Validation Errors (if any).",
           "items": {
             "$ref": "#/definitions/PayrollError"
+          }
+        },
+        "validationWarnings" : {
+          "type" : "array",
+          "description" : "List of Submission Validation Warnings (if any).",
+          "items" : {
+            "$ref" : "#/definitions/Warning"
           }
         }
       },

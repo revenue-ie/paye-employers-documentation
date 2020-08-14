@@ -84,6 +84,11 @@ ga('send', 'pageview');
             </TABLE>
             <!--DXMETADATA start type="ElementProperty" Name="Type" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=type,caption=$$type$$%%%%ElementProperty%%</div>" --><div class="i-section-heading" id="i-type-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Type</span></div><div id="i-type-section-content" class="i-section-content"><a href="topic163.html">PayrollSubmissionResponse Complex Type</a></div><!--DXMETADATA end -->
             <!--DXMETADATA start type="Diagram" source="element" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=diagram,caption=$$OBJECT_MODEL$$%%%%Diagram%%</div>" --><div class="i-section-heading" id="i-diagram-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Diagram</span></div><div id="i-diagram-section-content" class="i-section-content"><img border="0" src="xsddiagramimages/topic97.png" usemap="#xsddiagrammap-Payroll_xsd~e-PayrollSubmissionResponse" /><map id="xsddiagrammap-Payroll_xsd~e-PayrollSubmissionResponse" name="xsddiagrammap-Payroll_xsd~e-PayrollSubmissionResponse">
+  <area shape="rect" coords="944, 298, 1181, 332" href="topic257.html" alt="Description Element" title="Description Element"></area>
+  <area shape="rect" coords="944, 256, 1167, 290" href="topic256.html" alt="Path Element" title="Path Element"></area>
+  <area shape="rect" coords="944, 214, 1117, 248" href="topic255.html" alt="Code Element" title="Code Element"></area>
+  <area shape="rect" coords="802, 256, 903, 291" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="529, 256, 782, 290" href="topic167.html" alt="ValidationWarning Element" title="ValidationWarning Element"></area>
   <area shape="rect" coords="902, 172, 1119, 206" href="topic147.html" alt="Description Element" title="Description Element"></area>
   <area shape="rect" coords="902, 130, 1105, 164" href="topic146.html" alt="Path Element" title="Path Element"></area>
   <area shape="rect" coords="902, 88, 1055, 122" href="topic145.html" alt="Code Element" title="Code Element"></area>
@@ -91,8 +96,8 @@ ga('send', 'pageview');
   <area shape="rect" coords="529, 130, 740, 164" href="topic166.html" alt="ValidationError Element" title="ValidationError Element"></area>
   <area shape="rect" coords="529, 46, 878, 80" href="topic165.html" alt="AcknowledgementID Element" title="AcknowledgementID Element"></area>
   <area shape="rect" coords="529, 4, 864, 38" href="topic164.html" alt="AcknowledgementStatus Element" title="AcknowledgementStatus Element"></area>
-  <area shape="rect" coords="387, 88, 488, 123" alt="Sequence" title="Sequence"></area>
-  <area shape="rect" coords="0, 88, 367, 122" href="topic97.html" alt="PayrollSubmissionResponse Element" title="PayrollSubmissionResponse Element"></area>
+  <area shape="rect" coords="387, 150, 488, 185" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 151, 367, 185" href="topic97.html" alt="PayrollSubmissionResponse Element" title="PayrollSubmissionResponse Element"></area>
 </map></div><!--DXMETADATA end -->
             <!--DXMETADATA start type="ChildTree" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=source,caption=Overview%%%%ChildTree%%</div>" --><div class="i-section-heading" id="i-source-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Overview</span></div><div id="i-source-section-content" class="i-section-content"><TABLE class=i-child-tree-table>
 <TBODY>
@@ -163,6 +168,45 @@ ga('send', 'pageview');
 <TD>
 <DIV class=i-item-summary><A href="topic147.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:errorDescription</SPAN>
 <DIV class=i-child-tree-description>Technical description of error.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic167.html">ValidationWarning</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic254.html">Warning Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Submission Validation Warnings (if any).</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic255.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:warningCode</SPAN>
+<DIV class=i-child-tree-description>Technical Code for warning - to be used for mapping to warning messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic256.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>pc:warningPath</SPAN>
+<DIV class=i-child-tree-description>Path to warning in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic257.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>pc:warningDescription</SPAN>
+<DIV class=i-child-tree-description>Technical description of warning.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div><!--DXMETADATA end -->
             <!--DXMETADATA start type="FilteredItemList" scrap="ELEMENT_CHILD_LIST" namespace="used by" source="Item" filter="" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=usedby,caption=$$usedby$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
             <!--DXMETADATA start type="FilteredItemList" scrap="ATTRIBUTE_LIST" namespace="attribute" source="Item" filter="" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=attributes,caption=$$attributes$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
