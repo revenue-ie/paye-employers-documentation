@@ -1,0 +1,6 @@
+﻿employerName,employerRegistrationNumber,agentTain,taxYear,lastUpdated,,"Guidance on TWSS reconciliation, and this file, is available on the TWSS section of Employing People on the Revenue website",,,,,,,,
+Nq Payroll Services,8002392EH,,2020,01/02/2021 10:09,,,,,,,,,,
+employerRegistrationNumber,payrollRunReference,lineItemID,employeePPSN,employmentID,payDate,subsidyPaid,payslipStatus,refundAllowedIndicator,refundNotAllowedReason,subsidyPayable,subsidyResolved,reconciliationSubsidy,twssTotal,reconciledBalance
+8002392EH,TestRun1,1,7041095PA,1,24/04/2020,259,Active,Y,,259.05,,259,410,151
+8002392EH,TestRun1,2,7041116UA,1,24/04/2020,1086.07,Active,Y,,1028.65,,1028.65,1640,611.35
+8002392EH,TestRun2,1,7041119DA,1,01/05/2020,259,Active,Y,,259.05,,259,410,151

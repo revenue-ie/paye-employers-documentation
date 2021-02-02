@@ -290,9 +290,28 @@
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "18/09/2020",
 				"category": "download"
+			},
+			{
+				"link": "PIT4/Screens/TWSS_Reconciliation_Detail_Download_Example.csv",
+				"description": "Temporary Wage Subsidy Scheme Reconciliation Detail CSV Download Example",
+				"anchor": "TWSS_Reconciliation_Download_Example",
+				"type": "CSV",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "02/02/2021",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/Screens/TWSS_Reconciliation_Download_Example.csv",
+				"description": "Temporary Wage Subsidy Scheme Reconciliation CSV Download Example",
+				"anchor": "TWSS_Reviewed_Reconciliation_Download_Example",
+				"type": "CSV",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "02/02/2021",
+				"category": "download"
 			}
 		]
 	},
+
 
 	"guide-PIT3": {
 		"title": "Guide PIT Current Version",
