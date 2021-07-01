@@ -765,12 +765,12 @@
 		"title": "Supporting Documentation PIT Current Version",
 		"anchor": "support",
 		"cards": [{
-			"link": "https://www.revenue.ie/en/employing-people/index.aspx",
+			"link": "https://www.revenue.ie/en/employing-people/paye-modernisation/index.aspx#",
 			"description": "PAYE Modernisation Overview",
 			"anchor": "PAYE_Overview",
 			"type": "LINK",
 			"environment": "All Versions",
-			"dateLastUpdated": "25/05/2021",
+			"dateLastUpdated": "14/12/2018",
 			"category": "LINK"
 		},
 			{
@@ -824,7 +824,7 @@
 				"anchor": "Error_Structure",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "30/06/2021",
 				"category": "download"
 			},
 			{
@@ -860,12 +860,12 @@
 		"title": "Supporting Documentation PIT Next Version",
 		"anchor": "support",
 		"cards": [{
-			"link": "https://www.revenue.ie/en/employing-people/index.aspx",
+			"link": "https://www.revenue.ie/en/employing-people/paye-modernisation/index.aspx#",
 			"description": "PAYE Modernisation Overview",
 			"anchor": "PAYE_Overview",
 			"type": "LINK",
 			"environment": "All Versions",
-			"dateLastUpdated": "25/05/2021",
+			"dateLastUpdated": "14/12/2018",
 			"category": "LINK"
 		},
 			{
@@ -919,7 +919,7 @@
 				"anchor": "Error_Structure",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "29/11/2019",
+				"dateLastUpdated": "30/06/2021",
 				"category": "download"
 			},
 			{
