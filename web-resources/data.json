@@ -22,6 +22,15 @@
 				"category": "download"
 			},
 			{
+				"link": "PIT/TDM_Employer_Cert_FAQ.pdf",
+				"description": "TDM / Employers Certificates FAQ",
+				"anchor": "TDM_Employer_Cert_FAQ",
+				"type": "PDF",
+				"environment": "All Versions",
+				"dateLastUpdated": "05/07/2021",
+				"category": "download"
+			},
+			{
 				"link": "https://revenuehelpdesk.canfigure.net/portal/revenueie/register.html",
 				"description": "Help Desk Registration",
 				"anchor": "Help_Desk_Registration",
