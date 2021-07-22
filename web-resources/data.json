@@ -774,12 +774,12 @@
 		"title": "Supporting Documentation PIT Current Version",
 		"anchor": "support",
 		"cards": [{
-			"link": "https://www.revenue.ie/en/employing-people/paye-modernisation/index.aspx#",
+			"link": "https://www.revenue.ie/en/employing-people/index.aspx#",
 			"description": "PAYE Modernisation Overview",
 			"anchor": "PAYE_Overview",
 			"type": "LINK",
 			"environment": "All Versions",
-			"dateLastUpdated": "14/12/2018",
+			"dateLastUpdated": "22/07/2021",
 			"category": "LINK"
 		},
 			{
@@ -869,12 +869,12 @@
 		"title": "Supporting Documentation PIT Next Version",
 		"anchor": "support",
 		"cards": [{
-			"link": "https://www.revenue.ie/en/employing-people/paye-modernisation/index.aspx#",
+			"link": "https://www.revenue.ie/en/employing-people/index.aspx#",
 			"description": "PAYE Modernisation Overview",
 			"anchor": "PAYE_Overview",
 			"type": "LINK",
 			"environment": "All Versions",
-			"dateLastUpdated": "14/12/2018",
+			"dateLastUpdated": "22/07/2021",
 			"category": "LINK"
 		},
 			{
