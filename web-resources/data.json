@@ -815,7 +815,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "09/09/2021",
 				"category": "download"
 			},
 			{
@@ -910,7 +910,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/08/2020",
+				"dateLastUpdated": "09/09/2021",
 				"category": "download"
 			},
 			{
