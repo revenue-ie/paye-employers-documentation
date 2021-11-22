@@ -60,7 +60,7 @@ ul {
 <body data-ng-app="documentation" class="revenue">
     <cookie-law-banner message="By using this website, you consent to the use of cookies in accordance with our privacy policy." policy-url="https://www.revenue.ie/en/online-services/support/data-and-security/privacy/use-of-cookies.aspx" policy-button="true" policy-text="Find out more about cookies." accept-text="Close"></cookie-law-banner>
     <div class="revenue">
-        <div id="top-bar">
+        <header id="top-bar">
             <div class="row">
                 <div class="small-6 medium-5 large-7 columns logo">
                     <a class="revenueLogo float-left" title="Home" href="http://www.revenue.ie">
@@ -68,12 +68,12 @@ ul {
                     </a>    
                 </div>
             </div>
-        </div>
-        <div class="hub-destination-row">
+        </header>
+        <main class="hub-destination-row">
             <div class="content row">
                 <div class="col-lg-12 col-md-12" id="overview-page">
                     <div id="overview">
-                        <h2>PAYE Modernisation Web Services</h2>
+                        <h1>PAYE Modernisation Web Services</h1>
                         <div>
                             <p style="line-height: 180%">As part of PAYE Modernisation, a number of web services
                                 will be provided in the future to allow reporting to Revenue to
@@ -108,7 +108,7 @@ ul {
                                     <!-- Container  -->
                                     <div data-ng-repeat="(header, data) in vm.data">
                                         <div class="section-header" style= "margin-bottom: 1rem;">
-                                            <a name="{{data.anchor}}" style="text-decoration:none"><h3>{{data.title}}</h3></a>
+                                            <a name="{{data.anchor}}" style="text-decoration:none"><h2>{{data.title}}</h2></a>
                                         </div>
 											<i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i><br/><br/>
                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
@@ -176,7 +176,7 @@ ul {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>
