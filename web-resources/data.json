@@ -22,13 +22,13 @@
 				"category": "download"
 			},
 			{
-				"link": "PIT/TDM_Employer_Cert_FAQ.pdf",
-				"description": "TDM / Employers Certificates FAQ",
-				"anchor": "TDM_Employer_Cert_FAQ",
-				"type": "PDF",
+				"link": "https://revenuegithubadmin.github.io/paye-employers-pit-faq/",
+				"description": "PAYE Modernisation Web Services - FAQ",
+				"anchor": "PAYE Modernisation Web Services - FAQ",
+				"type": "LINK",
 				"environment": "All Versions",
-				"dateLastUpdated": "03/09/2021",
-				"category": "download"
+				"dateLastUpdated": "17/12/2021",
+				"category": "LINK"
 			},
 			{
 				"link": "https://revenuehelpdesk.canfigure.net/portal/revenueie/register.html",
