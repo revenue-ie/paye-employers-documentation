@@ -372,7 +372,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/08/2020",
+				"dateLastUpdated": "25/01/2022",
 				"category": "download"
 			},
 			{
@@ -571,7 +571,7 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/08/2020",
+				"dateLastUpdated": "25/01/2022",
 				"category": "download"
 			},
 			{
@@ -616,7 +616,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/08/2020",
+				"dateLastUpdated": "25/01/2022",
 				"category": "navigation"
 			},
 			{
@@ -728,7 +728,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "14/08/2020",
+			"dateLastUpdated": "25/01/2022",
 			"category": "download"
 			},
 			{
@@ -737,7 +737,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/08/2020",
+				"dateLastUpdated": "25/01/2022",
 				"category": "navigation"
 			},
 			{
