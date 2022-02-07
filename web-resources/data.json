@@ -431,7 +431,7 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "29/05/2020",
+				"dateLastUpdated": "04/02/2022",
 				"category": "download"
 			},
 			{
@@ -476,7 +476,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "29/05/2020",
+				"dateLastUpdated": "04/02/2022",
 				"category": "navigation"
 			},
 			{
@@ -677,7 +677,7 @@
 				"anchor": "REST_API_Spec",
 				"type": "API File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "29/05/2020",
+				"dateLastUpdated": "04/02/2022",
 				"category": "download"
 			},
 			{
@@ -686,7 +686,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "29/05/2020",
+				"dateLastUpdated": "04/02/2022",
 				"category": "navigation"
 			},
 			{

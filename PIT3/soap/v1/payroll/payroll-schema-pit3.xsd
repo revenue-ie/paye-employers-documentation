@@ -42,8 +42,11 @@ vii. Document updated on 19/11/2018
 viii. Document updated on 02/03/2020
 		"PayPeriod" property added to payslip
 
-viiii. Document updated on 30/03/2020
+ix. Document updated on 30/03/2020
 		"OtherPayments" property added to payslip
+
+X. Document updated on 25/01/2022
+		enums added to OtherPayments
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
@@ -131,6 +134,11 @@ viiii. Document updated on 30/03/2020
 			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>List of Submission Validation Errors (if any).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationWarning" type="pp:Warning" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Submission Validation Warnings (if any).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -718,7 +726,7 @@ viiii. Document updated on 30/03/2020
 		<xs:sequence>
 			<xs:element name="PaymentCode" type="pp:paymentCode">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 57. Description of other payment. Options allowed are COVID19.</xs:documentation>
+					<xs:documentation>Data Item Ref: 57. Description of other payment. Options allowed are COVID19, EWSS, EWSS_PHR, CODE_1, CODE_2, CODE_3, CODE_4 and CODE_5</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PaymentValue" type="pc:defaultDecimal">
@@ -956,6 +964,13 @@ viiii. Document updated on 30/03/2020
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="COVID19"/>
+			<xs:enumeration value="EWSS"/>
+			<xs:enumeration value="EWSS_PHR"/>
+			<xs:enumeration value="CODE_1"/>
+			<xs:enumeration value="CODE_2"/>
+			<xs:enumeration value="CODE_3"/>
+			<xs:enumeration value="CODE_4"/>
+			<xs:enumeration value="CODE_5"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
