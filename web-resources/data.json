@@ -485,7 +485,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "08/01/2019",
+				"dateLastUpdated": "18/02/2022",
 				"category": "download"
 			},
 			{
@@ -625,7 +625,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/01/2019",
+				"dateLastUpdated": "18/02/2022",
 				"category": "download"
 			},
 			{
@@ -677,7 +677,7 @@
 				"anchor": "REST_API_Spec",
 				"type": "API File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "04/02/2022",
+				"dateLastUpdated": "18/02/2022",
 				"category": "download"
 			},
 			{
@@ -695,7 +695,7 @@
 				"anchor": "REST_Integration_Guide",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "18/02/2022",
 				"category": "download"
 			},
 			{
@@ -728,7 +728,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "25/01/2022",
+			"dateLastUpdated": "18/02/2022",
 			"category": "download"
 			},
 			{

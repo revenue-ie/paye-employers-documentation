@@ -1000,7 +1000,7 @@
           "description": "The date the employee commences."
         }
       },
-      "description": "Details of employees who require a new RPN."
+      "description": "Details of employees who require a new RPN. Note there is an upper limit of 1,000 employees per request."
     },
     "NewRPN": {
       "type": "object",
