@@ -60,7 +60,7 @@ ul {
 <body data-ng-app="documentation" class="revenue">
     <cookie-law-banner message="By using this website, you consent to the use of cookies in accordance with our privacy policy." policy-url="https://www.revenue.ie/en/online-services/support/data-and-security/privacy/use-of-cookies.aspx" policy-button="true" policy-text="Find out more about cookies." accept-text="Close"></cookie-law-banner>
     <div class="revenue">
-        <header id="top-bar">
+        <div id="top-bar">
             <div class="row">
                 <div class="small-6 medium-5 large-7 columns logo">
                     <a class="revenueLogo float-left" title="Home" href="http://www.revenue.ie">
@@ -68,37 +68,38 @@ ul {
                     </a>    
                 </div>
             </div>
-        </header>
-        <main class="hub-destination-row">
+        </div>
+        <div class="hub-destination-row">
             <div class="content row">
                 <div class="col-lg-12 col-md-12" id="overview-page">
                     <div id="overview">
-                        <h1>PAYE Modernisation Web Services</h1>
+                        <h2>PAYE Modernisation Web Services</h2>
                         <div>
-                            <p style="line-height: 180%">As part of PAYE Modernisation, a number of web services
-                                will be provided in the future to allow reporting to Revenue to
-                                be integrated into an employers payroll run. An overview of the
-                                web services to be provided can be viewed on the PAYE
-                                Modernisation technical overview page. The technical
-                                documentation, specifications and web services examples below
-                                are provided as support for these future live web services. They
-                                will enable payroll software developers to update their software
-                                packages to be compatible with PAYE reporting obligations from
-                                2019 onwards. Prior to this (in 2018) a List of Employees can be
-                                submitted by each employer. The aim of this is to align Revenue
-                                employee records and Employers employee records in advance of
-                                the changes to reporting obligations. The technical
-                                documentation is detailed below.</p>
-
-                            <p>
-                                There are two PIT Environments available to software developers, the first PIT
-                                environment is a representation of the live environment with functionality kept
-                                up to date with the functionality currently available in the live environment.
-                                The second PIT environment is the PIT Next Version environment, which will contain
-                                upcoming functionality that is pertinent for developers to test their software
-                                ahead of the live release.
+                            <p style="line-height: 180%">As part of PAYE Modernisation,
+                                a number of web services are provided to allow employers to report to Revenue payroll,
+                                expense and benefit data.  Payroll web services are provided to allow reporting to Revenue to be integrated into an employer’s payroll run.
+                                Enhanced reporting requirement (ERR) web services are provided to allow reporting to Revenue to be integrated into an employer’s expense and benefit run.
+                                An overview of these web services can be viewed on this technical overview page. The technical documentation, specifications,
+                                and web services examples below are provided as support for these live web services. They will enable software developers to update their software packages to be compatible with the live web services, in order to facilitate employers’ reporting obligations.
+                                The technical documentation is detailed below.
                             </p>
 
+                            <p>
+                                There are two PIT Environments available to software developers. The first PIT environment is a representation of the live environment,
+                                with functionality kept up to date with the functionality currently available in the live environment. The second PIT environment is the PIT Next Version environment,
+                                which will contain upcoming functionality that is pertinent for developers to test their software ahead of the live release.
+                            </p>
+
+                        </div>
+                        <br>
+                        <h2>Enhanced Reporting Requirements Web Services</h2>
+                        <div>
+                            <p style="line-height: 180%">
+                                As part of Enhanced Reporting Requirements, a number of web services will be provided in the future to allow for reporting of this information to Revenue. An overview of the web services to be provided can be viewed in the ERR Technical Support Documentation section on this page. The technical documentation, specifications, and web services examples are provided to support integration of future live web services for ERR.
+
+                                This page is under construction, with more documents and further updates to come as the project progresses.
+
+                            </p>
                         </div>
                     </div>
                     <div data-ng-controller="DocumentationController as vm">
@@ -107,10 +108,10 @@ ul {
                                 <div id="show-data">
                                     <!-- Container  -->
                                     <div data-ng-repeat="(header, data) in vm.data">
-                                        <div class="section-header" style= "margin-bottom: 1rem;">
-                                            <a name="{{data.anchor}}" style="text-decoration:none"><h2>{{data.title}}</h2></a>
+                                        <div class="section-header">
+                                            <a name="{{data.anchor}}" style="text-decoration:none"><h3 class="{{data.class}}">{{data.title}}</h3></a>
                                         </div>
-											<i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i><br/><br/>
+											<i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i>
                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
                                             <div class="bold">
                                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
@@ -153,13 +154,13 @@ ul {
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row support">
                         <h2>Support Facilities</h2>
                         <p>
                             Revenue provides a <a
-                                href="https://revenuehelpdesk.canfigure.net/login.php">Help Desk</a> facility for software
+                                href="https://revenuehelpdesk.supatools.com/login.php">Help Desk</a> facility for software
                             developers. To register for this facility go <a
-                                href="https://revenuehelpdesk.canfigure.net/portal/revenueie/register.html">here</a>.
+                                href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">here</a>.
                             <br/><br/>
 							Once registered with the Help Desk you can:<br/>
                         <ul>
@@ -176,7 +177,7 @@ ul {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 </body>
 </html>

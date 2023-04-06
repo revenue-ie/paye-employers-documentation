@@ -3,6 +3,7 @@
 		"title": "Public Interface Testing – Guides and useful info",
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on:</p><ul><li>How to register for access to the Public Interface Testing (PIT) environment for the new PAYE Modernisation services</li><li>How to raise queries or issues arising from either PIT or in relation to our published technical documentation.</li><li>Supported conformance test scenarios which can be executed in the PIT environment.</li></ul>",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT/Conformance Test Scenarios - Connectivity Testing.pdf",
 			"description": "Conformance Test Scenarios - Connectivity Testing",
@@ -61,6 +62,7 @@
 	"Screens-PIT3": {
 		"title": "PIT Self Service and ROS Payroll Reporting PIT Current Version",
 		"anchor": "Screens",
+		"class": "section-title",
 		"cards": [{
 			"link": "https://softwaretest.ros.ie/paye-employers-self-service/intro",
 			"description": "Portal Login",
@@ -71,7 +73,7 @@
 			"environment": "PIT Current Version",
 			"dateLastUpdated": "24/05/2018",
 			"category": "LINK"
-			},
+		},
 			{
 				"link": "PIT3/Screens/PITSelfServiceGuide.pdf",
 				"description": "PIT Self Service Application Guide",
@@ -152,17 +154,18 @@
 	"Screens-PIT4": {
 		"title": "PIT Self Service and ROS Payroll Reporting PIT Next Version",
 		"anchor": "Screens",
+		"class": "section-title",
 		"cards": [{
-				"link": "https://softwaretestnextversion.ros.ie/paye-employers-self-service/intro",
-				"description": "Portal Login",
-				"explainer": "This portal page provides access to both the PIT Self Service and ROS Payroll Reporting applications for the PIT next version environment. The portal page will determine which application to direct a user to based on the provided digital certificate. The same TDM cert can be used for this environment as the one for the PIT current version, but employer certs differ between environments.",
-				"explainerIndex": "1",
-				"anchor": "Portal_Link",
-				"type": "LINK",
-				"environment": "PIT Next Version",
-				"dateLastUpdated": "13/09/2019",
-				"category": "LINK"
-			},
+			"link": "https://softwaretestnextversion.ros.ie/paye-employers-self-service/intro",
+			"description": "Portal Login",
+			"explainer": "This portal page provides access to both the PIT Self Service and ROS Payroll Reporting applications for the PIT next version environment. The portal page will determine which application to direct a user to based on the provided digital certificate. The same TDM cert can be used for this environment as the one for the PIT current version, but employer certs differ between environments.",
+			"explainerIndex": "1",
+			"anchor": "Portal_Link",
+			"type": "LINK",
+			"environment": "PIT Next Version",
+			"dateLastUpdated": "13/09/2019",
+			"category": "LINK"
+		},
 			{
 				"link": "PIT4/Screens/PITSelfServiceGuide.pdf",
 				"description": "PIT Self Service Application Guide",
@@ -325,6 +328,7 @@
 	"guide-PIT3": {
 		"title": "Guide PIT Current Version",
 		"anchor": "guide",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT3/guide/Documentation_Guide.pdf",
 			"description": "Documentation Guide",
@@ -357,6 +361,7 @@
 	"guide-PIT4": {
 		"title": "Guide PIT Next Version",
 		"anchor": "guide",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT4/guide/Documentation_Guide.pdf",
 			"description": "Documentation Guide",
@@ -389,6 +394,7 @@
 	"soap-pit3": {
 		"title": "PAYE Web Service Specifications PIT Current Version(SOAP/XML)",
 		"anchor": "soap",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT3/soap/v1/payroll_pit3.wsdl",
 			"description": "Payroll Web Service Definition",
@@ -529,6 +535,7 @@
 	"soap-pit4": {
 		"title": "PAYE Web Service Specifications PIT Next Version(SOAP/XML)",
 		"anchor": "soap",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT4/soap/v1/payroll_pit4.wsdl",
 			"description": "Payroll Web Service Definition",
@@ -661,7 +668,7 @@
 				"anchor": "SOAP_Handshake_Guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/01/2019",
+				"dateLastUpdated": "24/03/2023",
 				"category": "download"
 			}]
 	},
@@ -670,6 +677,7 @@
 	"rest-pit3": {
 		"title": "PAYE Web Service Specifications PIT Current Version (REST/JSON)",
 		"anchor": "rest",
+		"class": "section-title",
 		"cards": [
 			{
 				"link": "PIT3/rest/paye-employers-rest-api-pit3.json",
@@ -722,6 +730,7 @@
 
 		"title": "PAYE Web Service Specifications PIT Next Version (REST/JSON)",
 		"anchor": "rest",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT4/rest/paye-employers-rest-api-pit4.json",
 			"description": "REST Open API Specification",
@@ -730,7 +739,7 @@
 			"environment": "PIT Next Version",
 			"dateLastUpdated": "18/02/2022",
 			"category": "download"
-			},
+		},
 			{
 				"link": "PIT4/rest/paye-employers-rest-api-pit4.html",
 				"description": "REST API Reference",
@@ -773,6 +782,7 @@
 	"support-pit3": {
 		"title": "Supporting Documentation PIT Current Version",
 		"anchor": "support",
+		"class": "section-title",
 		"cards": [{
 			"link": "https://www.revenue.ie/en/employing-people/index.aspx#",
 			"description": "PAYE Modernisation Overview",
@@ -868,6 +878,7 @@
 	"support-pit4": {
 		"title": "Supporting Documentation PIT Next Version",
 		"anchor": "support",
+		"class": "section-title",
 		"cards": [{
 			"link": "https://www.revenue.ie/en/employing-people/index.aspx#",
 			"description": "PAYE Modernisation Overview",
@@ -963,6 +974,7 @@
 	"examples-pit3": {
 		"title": "PAYE Web Service Examples PIT Current Version",
 		"anchor": "examples",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT3/examples/PAYE Modernisation - Overview of Web Service Examples.pdf",
 			"description": "PAYE Modernisation Description Of Web Service Examples",
@@ -1118,6 +1130,7 @@
 	"examples-pit4": {
 		"title": "PAYE Web Service Examples PIT Next Version",
 		"anchor": "examples",
+		"class": "section-title",
 		"cards": [{
 			"link": "PIT4/examples/PAYE Modernisation - Overview of Web Service Examples.pdf",
 			"description": "PAYE Modernisation Description Of Web Service Examples",
@@ -1268,7 +1281,84 @@
 				"dateLastUpdated": "08/01/2019",
 				"category": "download"
 			}]
+	},
+	"ERR Technical Support Documentation": {
+		"title": "ERR Technical Support Documentation",
+		"anchor": "ERR Guide PIT Next Version",
+		"class": "section-title",
+		"cards": [
+			{
+				"link": "PIT4/soap/v1/handshake_pit4.wsdl",
+				"description": "Handshake Web Service Definition",
+				"anchor": "Handshake_WSDL",
+				"type": "WSDL File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "22/11/2018",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/soap/v1/handshake/handshake-schema-pit4.xsd",
+				"description": "Handshake Schema",
+				"anchor": "Handshake_Schema",
+				"type": "Schema",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "22/11/2018",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/soap/SOAP_Connectivity_Handshake_Guide.pdf",
+				"description": "SOAP Connectivity Handshake Guide",
+				"anchor": "ERR SOAP Connectivity Handshake Guide",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "02/03/2020",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/rest/REST_Connectivity_Handshake_Guide.pdf",
+				"description": "REST Connectivity Handshake Guide",
+				"anchor": "REST_Handshake_Guide",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "08/01/2019",
+				"category": "download"
+			},
+			{
+				"link":"PIT4/rest/REST_Web_Service_Integration_Guide.pdf",
+				"description":"REST Web Service Integration Guide",
+				"anchor":"REST Web Service Integration Guide",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "05/04/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/data-items/ERR - Enhanced Reporting Submission Request Data Items.pdf",
+				"description": "Enhanced Reporting Submission Request: Data Items",
+				"anchor": "ERR Enhanced Reporting Submission Request: Data Items",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "06/04/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/rest/paye-employers-rest-api-pit4.json",
+				"description": "REST Open API Specification",
+				"anchor": "ERR REST Open API Specification",
+				"type": "API File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "05/04/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/rest/paye-employers-rest-api-pit4.html",
+				"description": "REST API Reference",
+				"anchor": "REST_API_Ref",
+				"type": "LINK",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "05/04/2023",
+				"category": "LINK"
+			}
+		]
 	}
-
-
 }

@@ -992,3 +992,16 @@ a:hover{
     }
     /*  end custom breakpoints */
 }
+
+.section-title{
+    line-height: 8rem !important;
+    margin-bottom: -3rem !important;
+}
+
+.section-header h3{
+    padding-bottom: -3rem !important;
+}
+
+.support {
+    margin-top: 3rem;
+}
