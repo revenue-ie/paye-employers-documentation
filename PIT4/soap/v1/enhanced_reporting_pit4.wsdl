@@ -11,7 +11,7 @@ i. Document Created 22/02/2023
 
 	<wsdl:types>
 		<xs:schema>
-			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" schemaLocation="enhanced_reporting/v1/enhanced_reporting-schema.xsd" />
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/enhanced_reporting/" schemaLocation="enhanced_reporting/enhanced_reporting-schema-pit4.xsd" />
 		</xs:schema>
 	</wsdl:types>
 	

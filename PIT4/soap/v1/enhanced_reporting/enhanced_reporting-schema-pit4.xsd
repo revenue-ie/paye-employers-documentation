@@ -9,7 +9,7 @@ i. Document Created 22/02/2023
 		   xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
 		   targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" elementFormDefault="qualified"
 		   attributeFormDefault="unqualified" vc:minVersion="0.1">
-	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../../../../common/v1/paye-types.xsd"/>
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
 
 	<!--Enhanced Reporting Request and Response Schema Elements -->
 	<xs:element name="EnhancedReportingSubmissionRequest" type="pp:EnhancedReportingSubmissionRequest">

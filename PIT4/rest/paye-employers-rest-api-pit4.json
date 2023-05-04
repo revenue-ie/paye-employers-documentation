@@ -34,7 +34,168 @@
 "https"
 ],
 "paths": {
+"/enhanced_reporting/{employerRegistrationNumber}/{taxYear}/{enhancedReportingRunReference}":{
+"get" : {
+"tags" : [ 
+"PAYE Enhanced Reporting REST API" 
+],
+"summary": "Check ERR Run Request",
+"description": "Employer's PAYE Check ERR Run Request.",
+"operationId": "checkEnhancedReportingRequirementsRun",
+"parameters": [ 
+{
+"name": "employerRegistrationNumber",
+"in": "path",
+"description": "Data Item Ref: 1. Employer's PAYE Registration Number.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "taxYear",
+"in": "path",
+"description": "Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).",
+"required": true,
+"type": "integer",
+"format": "int32"
+}, 
+{
+"name": "enhancedReportingRunReference",
+"in": "path",
+"description": "Data Item Ref: 4. Used to identify the Enhanced Reporting event to which the submission refers.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "agentTain",
+"in": "query",
+"description": "Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by agent on behalf of employer.",
+"required": false,
+"type": "string"
+},
+{
+"name": "softwareUsed",
+"in": "query",
+"description": "Name of third party software product.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "softwareVersion",
+"in": "query",
+"description": "Version of third party software product.",
+"required": true,
+"type": "string"
+} 
+],
+"responses" : {
+"200" : {
+"description" : "successful operation",
+"schema" : {
+  "$ref" : "#/definitions/CheckErrRunResponse"
+}
+},
+"400" : {
+"description" : "Bad request. Invalid path, parameter or value supplied"
+},
+"401" : {
+"description" : "Authentication is required or has failed"
+},
+"403" : {
+"description" : "Insufficient permissions to process request"
+},
+"404" : {
+"description" : "Resource not found"
+},
+"405" : {
+"description" : "Request method is not supported for the requested resource"
+}
+}
+}
+},
 "/enhanced_reporting/{employerRegistrationNumber}/{taxYear}/{enhancedReportingRunReference}/{submissionID}": {
+"get" : {
+"tags" : [ 
+"PAYE Enhanced Reporting REST API" 
+],
+"summary": "Check ERR Submission Request",
+"description": "Employer's PAYE Check ERR Submission Request.",
+"operationId": "checkEnhancedReportingRequirementsSubmission",
+"parameters": [ 
+{
+"name": "employerRegistrationNumber",
+"in": "path",
+"description": "Data Item Ref: 1. Employer's PAYE Registration Number.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "taxYear",
+"in": "path",
+"description": "Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).",
+"required": true,
+"type": "integer",
+"format": "int32"
+}, 
+{
+"name": "enhancedReportingRunReference",
+"in": "path",
+"description": "Data Item Ref: 4. Used to identify the Enhanced Reporting event to which the submission refers.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "submissionID",
+"in": "path",
+"description": "Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "agentTain",
+"in": "query",
+"description": "Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by agent on behalf of employer.",
+"required": false,
+"type": "string"
+},
+{
+"name": "softwareUsed",
+"in": "query",
+"description": "Name of third party software product.",
+"required": true,
+"type": "string"
+}, 
+{
+"name": "softwareVersion",
+"in": "query",
+"description": "Version of third party software product.",
+"required": true,
+"type": "string"
+} 
+],
+"responses" : {
+"200" : {
+"description" : "successful operation",
+"schema" : {
+  "$ref" : "#/definitions/CheckErrSubmissionResponse"
+}
+},
+"400" : {
+"description" : "Bad request. Invalid path, parameter or value supplied"
+},
+"401" : {
+"description" : "Authentication is required or has failed"
+},
+"403" : {
+"description" : "Insufficient permissions to process request"
+},
+"404" : {
+"description" : "Resource not found"
+},
+"405" : {
+"description" : "Request method is not supported for the requested resource"
+}
+}
+},
 "post": {
 "tags": [
 "PAYE Enhanced Reporting REST API"
@@ -123,6 +284,79 @@
 },
 "405": {
 "description": "Request method is not supported for the requested resource"
+}
+}
+}
+},
+"/ern/{employerRegistrationNumber}/{taxYear}":{
+"get" : {
+"tags" : [ "PAYE Enhanced Reporting Notification REST API" ],
+"summary" : "Look Up ERN Request",
+"description" : "Request to get an ERN by PPSN.",
+"operationId" : "lookUpERN",
+"parameters" : [ {
+"name" : "employerRegistrationNumber",
+"in" : "path",
+"description" : "Employer's PAYE Registration Number.",
+"required" : true,
+"type" : "string"
+}, {
+"name" : "taxYear",
+"in" : "path",
+"description" : "The tax year to which the ERN lookup relates (YYYY).",
+"required" : true,
+"type" : "integer",
+"format" : "int32"
+}, {
+"name" : "agentTain",
+"in" : "query",
+"description" : "Tax Advisor Identification Number. Required if ERN is requested by an agent on behalf of the employer.",
+"required" : false,
+"type" : "string"
+}, {
+"name" : "softwareUsed",
+"in" : "query",
+"description" : "Name of third party software product.",
+"required" : true,
+"type" : "string"
+}, {
+"name" : "softwareVersion",
+"in" : "query",
+"description" : "Version of third party software product.",
+"required" : true,
+"type" : "string"
+}, {
+"name" : "ppsns",
+"in" : "query",
+"description" : "Look up ERN by PPSN. Required parameter",
+"required" : true,
+"type" : "array",
+"items" : {
+"type" : "string"
+},
+"collectionFormat" : "multi"
+} ],
+"responses" : {
+"200" : {
+"description" : "successful operation",
+"schema" : {
+  "$ref" : "#/definitions/LookUpErnResponse."
+}
+},
+"400" : {
+"description" : "Bad request. Invalid path, parameter or value supplied"
+},
+"401" : {
+"description" : "Authentication is required or has failed"
+},
+"403" : {
+"description" : "Insufficient permissions to process request"
+},
+"404" : {
+"description" : "Resource not found"
+},
+"405" : {
+"description" : "Request method is not supported for the requested resource"
 }
 }
 }
@@ -870,6 +1104,86 @@
 },
 "description": "Status of each batch for a submission recieved in multiple batches."
 },
+"CheckErrRunResponse" : {
+      "type" : "object",
+      "required" : [ "status" ],
+      "properties" : {
+        "status" : {
+          "type" : "string",
+          "description" : "Current Status of Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the Run are at a status of Pending.",
+          "enum" : [ "PENDING", "PROCESSED", "COMPLETED", "DELETED", "INTERNALLY_DELETED" ]
+        },
+        "amount" : {
+          "type" : "number",
+          "description" : "Total amount across valid line items for the run. Included when all submissions received for the run have been processed."
+        },
+        "expenseBenefitSubmissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ExpenseBenefitSubmissionStatus"
+          }
+        },
+        "expenseBenefitSummaries" : {
+          "type" : "array",
+          "description" : "Summary details of individual items that make up the Run.",
+          "items" : {
+            "$ref" : "#/definitions/ExpenseBenefitSummary"
+          }
+        },
+        "validationErrors" : {
+          "type" : "array",
+          "description" : "List of Errors (if any) on the Check ERR Run Request.",
+          "items" : {
+            "$ref" : "#/definitions/EnhancedReportingError"
+          }
+        }
+      },
+      "description" : "Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions."
+    },
+"CheckErrSubmissionResponse" : {
+      "type" : "object",
+      "required" : [ "submissionID" ],
+      "properties" : {
+        "submissionID" : {
+          "type" : "string",
+          "description" : "Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.",
+          "minLength" : 0,
+          "maxLength" : 50,
+          "pattern" : "[A-Za-z0-9_\\-]*"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.",
+          "enum" : [ "PENDING", "PROCESSED", "COMPLETED", "DELETED", "INTERNALLY_DELETED" ]
+        },
+        "expenseBenefitSubmissionSummary" : {
+          "description" : "Summary totals for Expense Benefit Submission. Included when submission has completed processing.",
+          "$ref" : "#/definitions/ExpenseBenefitSubmissionSummary"
+        },
+        "invalidExpensesBenefits" : {
+          "type" : "array",
+          "description" : "List of Invalid Expenses Benefits (if any). Any in this list will not have been saved.",
+          "items" : {
+            "$ref" : "#/definitions/InvalidExpenseBenefit"
+          }
+        },
+        "expenseBenefitWarnings" : {
+          "type" : "array",
+          "description" : "List of Expense Benefit warnings (if any) associated with valid item. Any in this list will have been saved.",
+          "items" : {
+            "$ref" : "#/definitions/WarningExpenseBenefit"
+          }
+        },
+        "validationErrors" : {
+          "type" : "array",
+          "description" : "List of Errors (if any) on the CheckErrSubmissionRequest.",
+          "items" : {
+            "$ref" : "#/definitions/EnhancedReportingError"
+          }
+        }
+      },
+      "description" : "Return the current status of an Employer's PAYE Enhanced Reporting Submission. If processed, includes summary totals of valid items and validation errors for invalid items."
+    },
 "CheckPayrollRunResponse": {
 "type": "object",
 "required": [
@@ -975,6 +1289,17 @@
 }
 },
 "description": "Return the current status of an Employer's PAYE Payroll Submission. If processed, includes summary totals of valid payslips and validation errors for invalid payslips."
+},
+"ERN" : {
+"type" : "object",
+"properties" : {
+"employeeID" : {
+"$ref" : "#/definitions/EnhancedReportingEmployeeID"
+},
+"name" : {
+"$ref" : "#/definitions/EnhancedReportingName"
+}
+}
 },
 "EnhancedReportingAddress": {
 "type": "object",
@@ -1413,6 +1738,70 @@
 "pattern": "[A-Za-z0-9_\\-]*"
 }
 }
+},
+"LookUpErnResponse." : {
+"type" : "object",
+"required" : [ "dateTimeEffective", "employerName", "employerRegistrationNumber", "taxYear", "totalERNCount" ],
+"properties" : {
+"employerName" : {
+"type" : "string",
+"description" : "Data Item Ref: N/A. The official Name of the employer.",
+"minLength" : 0,
+"maxLength" : 100,
+"pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+},
+"employerRegistrationNumber" : {
+"type" : "string",
+"description" : "Data Item Ref: N/A. Employer's PAYE Registration Number.",
+"minLength" : 0,
+"maxLength" : 100,
+"pattern" : "[0-9]{7,8}[A-Wa-w][A-ITWXZa-itwxz ]?"
+},
+"taxYear" : {
+"type" : "integer",
+"format" : "int32",
+"description" : "The tax year to which the request relates (YYYY).",
+"minimum" : 2000.0,
+"maximum" : 2100.0
+},
+"agentTain" : {
+"type" : "string",
+"description" : "Data Item Ref: N/A. Tax Advisor Identification Number. Required if ERN queried by agent on behalf of employer.",
+"pattern" : "[0-9]{5}[A-Wa-w]"
+},
+"totalERNCount" : {
+"type" : "integer",
+"format" : "int32",
+"description" : "Data Item Ref: N/A. The total number of ERNs that are associated with the Look Up ERN request submitted."
+},
+"dateTimeEffective" : {
+"type" : "string",
+"format" : "date-time",
+"description" : "Data Item Ref: N/A. The date and time the ERN was requested."
+},
+"erns" : {
+"type" : "array",
+"description" : "Data Item Ref: N/A. List of valid ERNs.",
+"items" : {
+"$ref" : "#/definitions/ERN"
+}
+},
+"noERNs" : {
+"type" : "array",
+"description" : "Data Item Ref: N/A. EmployeePPSNs of employees who do not currently have an employment associated with the employer.",
+"items" : {
+"type" : "string"
+}
+},
+"validationErrors" : {
+"type" : "array",
+"description" : "Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request.",
+"items" : {
+"$ref" : "#/definitions/EnhancedReportingError"
+}
+}
+},
+"description" : "Enhanced Reporting Notification Request Response."
 },
 "LookupPayrollDetailsByReturnPeriodResponse": {
 "type": "object",

@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "25/01/2022",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
@@ -632,7 +632,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
@@ -737,7 +737,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "06/04/2023",
+			"dateLastUpdated": "04/05/2023",
 			"category": "download"
 		},
 			{
@@ -746,7 +746,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "navigation"
 			},
 			{
@@ -755,7 +755,7 @@
 				"anchor": "REST_Integration_Guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
@@ -764,7 +764,7 @@
 				"anchor": "REST_Integration_Guide_Sample_Messages",
 				"type": "ZIP",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "14/12/2018",
+				"dateLastUpdated": "04/05/2018",
 				"category": "download"
 			},
 			{
@@ -1333,15 +1333,6 @@
 				"category": "download"
 			},
 			{
-				"link":"PIT4/rest/REST_Web_Service_Integration_Guide.pdf",
-				"description":"REST Web Service Integration Guide",
-				"anchor":"REST Web Service Integration Guide",
-				"type": "PDF",
-				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/04/2023",
-				"category": "download"
-			},
-			{
 				"link": "PIT4/data-items/ERR - Enhanced Reporting Submission Request Data Items.pdf",
 				"description": "Enhanced Reporting Submission Request: Data Items",
 				"anchor": "ERR Enhanced Reporting Submission Request: Data Items",
@@ -1351,12 +1342,30 @@
 				"category": "download"
 			},
 			{
+				"link": "PIT4/data-items/Enhanced Reporting Validation Rules.xlsx",
+				"description": "Enhanced Reporting Validation Rules",
+				"anchor": "PAYE_Types_Schema",
+				"type": "Excel File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "04/05/2023",
+				"category": "download"
+			},
+			{
+				"link":"PIT4/rest/REST_Web_Service_Integration_Guide.pdf",
+				"description":"REST Web Service Integration Guide",
+				"anchor":"REST Web Service Integration Guide",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "04/05/2023",
+				"category": "download"
+			},
+			{
 				"link": "PIT4/rest/paye-employers-rest-api-pit4.json",
 				"description": "REST Open API Specification",
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1374,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "LINK"
 			},
 			{
@@ -1374,12 +1383,12 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
 				"link": "PIT4/soap/v1/enhanced_reporting_pit4.wsdl",
-				"description": "ERR Web Service Definition",
+				"description": "Enhanced Reporting Web Service Definition",
 				"anchor": "ERR_Web_Service_Definition",
 				"type": "WSDL File",
 				"environment": "PIT Next Version",
@@ -1393,6 +1402,24 @@
 				"type": "Schema",
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "20/04/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/soap/v1/ern_pit4.wsdl",
+				"description": "ERN Web Service Definition",
+				"anchor": "ERN_Web_Service_Definition",
+				"type": "WSDL File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "04/05/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/soap/v1/ern/ern-schema-pit4.xsd",
+				"description": "ERN Schema",
+				"anchor": "ERN_Schema",
+				"type": "Schema",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "04/05/2023",
 				"category": "download"
 			},
 			{
