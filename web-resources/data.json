@@ -1342,9 +1342,9 @@
 				"category": "download"
 			},
 			{
-				"link": "PIT4/data-items/Enhanced Reporting Validation Rules.xlsx",
+				"link": "PIT4/validation-rules/Enhanced Reporting Validation Rules.xlsx",
 				"description": "Enhanced Reporting Validation Rules",
-				"anchor": "PAYE_Types_Schema",
+				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "04/05/2023",
