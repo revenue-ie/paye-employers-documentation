@@ -1,615 +1,166 @@
 /*!
- * jQuery Cookie Plugin
- * https://github.com/carhartl/jquery-cookie
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
  *
- * Copyright 2011, Klaus Hartl
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.opensource.org/licenses/GPL-2.0
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
  */
-(function($) {
-    $.cookie = function(key, value, options) {
-
-        // key and at least value given, set cookie...
-        if (arguments.length > 1 && (!/Object/.test(Object.prototype.toString.call(value)) || value === null || value === undefined)) {
-            options = $.extend({}, options);
-
-            if (value === null || value === undefined) {
-                options.expires = -1;
-            }
-
-            if (typeof options.expires === 'number') {
-                var days = options.expires, t = options.expires = new Date();
-                t.setDate(t.getDate() + days);
-            }
-
-            value = String(value);
-
-            return (document.cookie = [
-                encodeURIComponent(key), '=', options.raw ? value : encodeURIComponent(value),
-                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-                options.path    ? '; path=' + options.path : '',
-                options.domain  ? '; domain=' + options.domain : '',
-                options.secure  ? '; secure' : ''
-            ].join(''));
-        }
-
-        // key and possibly options given, get cookie...
-        options = value || {};
-        var decode = options.raw ? function(s) { return s; } : decodeURIComponent;
-
-        var pairs = document.cookie.split('; ');
-        for (var i = 0, pair; pair = pairs[i] && pairs[i].split('='); i++) {
-            if (decode(pair[0]) === key) return decode(pair[1] || ''); // IE saves cookies with empty string as "c; ", e.g. without "=" as opposed to EOMB, thus pair[1] may be undefined
-        }
-        return null;
-    };
-})(jQuery);
-/*
-    json2.js
-    2011-10-19
-
-    Public Domain.
-
-    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-
-    See http://www.JSON.org/js.html
-
-
-    This code should be minified before deployment.
-    See http://javascript.crockford.com/jsmin.html
-
-    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
-    NOT CONTROL.
-
-
-    This file creates a global JSON object containing two methods: stringify
-    and parse.
-
-        JSON.stringify(value, replacer, space)
-            value       any JavaScript value, usually an object or array.
-
-            replacer    an optional parameter that determines how object
-                        values are stringified for objects. It can be a
-                        function or an array of strings.
-
-            space       an optional parameter that specifies the indentation
-                        of nested structures. If it is omitted, the text will
-                        be packed without extra whitespace. If it is a number,
-                        it will specify the number of spaces to indent at each
-                        level. If it is a string (such as '\t' or '&nbsp;'),
-                        it contains the characters used to indent at each level.
-
-            This method produces a JSON text from a JavaScript value.
-
-            When an object value is found, if the object contains a toJSON
-            method, its toJSON method will be called and the result will be
-            stringified. A toJSON method does not serialize: it returns the
-            value represented by the name/value pair that should be serialized,
-            or undefined if nothing should be serialized. The toJSON method
-            will be passed the key associated with the value, and this will be
-            bound to the value
-
-            For example, this would serialize Dates as ISO strings.
-
-                Date.prototype.toJSON = function (key) {
-                    function f(n) {
-                        // Format integers to have at least two digits.
-                        return n < 10 ? '0' + n : n;
-                    }
-
-                    return this.getUTCFullYear()   + '-' +
-                         f(this.getUTCMonth() + 1) + '-' +
-                         f(this.getUTCDate())      + 'T' +
-                         f(this.getUTCHours())     + ':' +
-                         f(this.getUTCMinutes())   + ':' +
-                         f(this.getUTCSeconds())   + 'Z';
-                };
-
-            You can provide an optional replacer method. It will be passed the
-            key and value of each member, with this bound to the containing
-            object. The value that is returned from your method will be
-            serialized. If your method returns undefined, then the member will
-            be excluded from the serialization.
-
-            If the replacer parameter is an array of strings, then it will be
-            used to select the members to be serialized. It filters the results
-            such that only members with keys listed in the replacer array are
-            stringified.
-
-            Values that do not have JSON representations, such as undefined or
-            functions, will not be serialized. Such values in objects will be
-            dropped; in arrays they will be replaced with null. You can use
-            a replacer function to replace those with JSON values.
-            JSON.stringify(undefined) returns undefined.
-
-            The optional space parameter produces a stringification of the
-            value that is filled with line breaks and indentation to make it
-            easier to read.
-
-            If the space parameter is a non-empty string, then that string will
-            be used for indentation. If the space parameter is a number, then
-            the indentation will be that many spaces.
-
-            Example:
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}]);
-            // text is '["e",{"pluribus":"unum"}]'
-
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
-            // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
-
-            text = JSON.stringify([new Date()], function (key, value) {
-                return this[key] instanceof Date ?
-                    'Date(' + this[key] + ')' : value;
-            });
-            // text is '["Date(---current time---)"]'
-
-
-        JSON.parse(text, reviver)
-            This method parses a JSON text to produce an object or array.
-            It can throw a SyntaxError exception.
-
-            The optional reviver parameter is a function that can filter and
-            transform the results. It receives each of the keys and values,
-            and its return value is used instead of the original value.
-            If it returns what it received, then the structure is not modified.
-            If it returns undefined then the member is deleted.
-
-            Example:
-
-            // Parse the text. Values that look like ISO date strings will
-            // be converted to Date objects.
-
-            myData = JSON.parse(text, function (key, value) {
-                var a;
-                if (typeof value === 'string') {
-                    a =
-/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-                    if (a) {
-                        return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
-                            +a[5], +a[6]));
-                    }
-                }
-                return value;
-            });
-
-            myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
-                var d;
-                if (typeof value === 'string' &&
-                        value.slice(0, 5) === 'Date(' &&
-                        value.slice(-1) === ')') {
-                    d = new Date(value.slice(5, -1));
-                    if (d) {
-                        return d;
-                    }
-                }
-                return value;
-            });
-
-
-    This is a reference implementation. You are free to copy, modify, or
-    redistribute.
-*/
-
-/*jslint evil: true, regexp: true */
-
-/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
-    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
-    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
-    lastIndex, length, parse, prototype, push, replace, slice, stringify,
-    test, toJSON, toString, valueOf
-*/
-
-
-// Create a JSON object only if one does not already exist. We create the
-// methods in a closure to avoid creating global variables.
-
-var JSON;
-if (!JSON) {
-    JSON = {};
-}
-
-(function () {
-    'use strict';
-
-    function f(n) {
-        // Format integers to have at least two digits.
-        return n < 10 ? '0' + n : n;
-    }
-
-    if (typeof Date.prototype.toJSON !== 'function') {
-
-        Date.prototype.toJSON = function (key) {
-
-            return isFinite(this.valueOf())
-                ? this.getUTCFullYear()     + '-' +
-                    f(this.getUTCMonth() + 1) + '-' +
-                    f(this.getUTCDate())      + 'T' +
-                    f(this.getUTCHours())     + ':' +
-                    f(this.getUTCMinutes())   + ':' +
-                    f(this.getUTCSeconds())   + 'Z'
-                : null;
-        };
-
-        String.prototype.toJSON      =
-            Number.prototype.toJSON  =
-            Boolean.prototype.toJSON = function (key) {
-                return this.valueOf();
-            };
-    }
-
-    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        gap,
-        indent,
-        meta = {    // table of character substitutions
-            '\b': '\\b',
-            '\t': '\\t',
-            '\n': '\\n',
-            '\f': '\\f',
-            '\r': '\\r',
-            '"' : '\\"',
-            '\\': '\\\\'
-        },
-        rep;
-
-
-    function quote(string) {
-
-// If the string contains no control characters, no quote characters, and no
-// backslash characters, then we can safely slap some quotes around it.
-// Otherwise we must also replace the offending characters with safe escape
-// sequences.
-
-        escapable.lastIndex = 0;
-        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
-            var c = meta[a];
-            return typeof c === 'string'
-                ? c
-                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + '"' : '"' + string + '"';
-    }
-
-
-    function str(key, holder) {
-
-// Produce a string from holder[key].
-
-        var i,          // The loop counter.
-            k,          // The member key.
-            v,          // The member value.
-            length,
-            mind = gap,
-            partial,
-            value = holder[key];
-
-// If the value has a toJSON method, call it to obtain a replacement value.
-
-        if (value && typeof value === 'object' &&
-                typeof value.toJSON === 'function') {
-            value = value.toJSON(key);
-        }
-
-// If we were called with a replacer function, then call the replacer to
-// obtain a replacement value.
-
-        if (typeof rep === 'function') {
-            value = rep.call(holder, key, value);
-        }
-
-// What happens next depends on the value's type.
-
-        switch (typeof value) {
-        case 'string':
-            return quote(value);
-
-        case 'number':
-
-// JSON numbers must be finite. Encode non-finite numbers as null.
-
-            return isFinite(value) ? String(value) : 'null';
-
-        case 'boolean':
-        case 'null':
-
-// If the value is a boolean or null, convert it to a string. Note:
-// typeof null does not produce 'null'. The case is included here in
-// the remote chance that this gets fixed someday.
-
-            return String(value);
-
-// If the type is 'object', we might be dealing with an object or an array or
-// null.
-
-        case 'object':
-
-// Due to a specification blunder in ECMAScript, typeof null is 'object',
-// so watch out for that case.
-
-            if (!value) {
-                return 'null';
-            }
-
-// Make an array to hold the partial results of stringifying this object value.
-
-            gap += indent;
-            partial = [];
-
-// Is the value an array?
-
-            if (Object.prototype.toString.apply(value) === '[object Array]') {
-
-// The value is an array. Stringify every element. Use null as a placeholder
-// for non-JSON values.
-
-                length = value.length;
-                for (i = 0; i < length; i += 1) {
-                    partial[i] = str(i, value) || 'null';
-                }
-
-// Join all of the elements together, separated with commas, and wrap them in
-// brackets.
-
-                v = partial.length === 0
-                    ? '[]'
-                    : gap
-                    ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
-                    : '[' + partial.join(',') + ']';
-                gap = mind;
-                return v;
-            }
-
-// If the replacer is an array, use it to select the members to be stringified.
-
-            if (rep && typeof rep === 'object') {
-                length = rep.length;
-                for (i = 0; i < length; i += 1) {
-                    if (typeof rep[i] === 'string') {
-                        k = rep[i];
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            } else {
-
-// Otherwise, iterate through all of the keys in the object.
-
-                for (k in value) {
-                    if (Object.prototype.hasOwnProperty.call(value, k)) {
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            }
-
-// Join all of the member texts together, separated with commas,
-// and wrap them in braces.
-
-            v = partial.length === 0
-                ? '{}'
-                : gap
-                ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
-                : '{' + partial.join(',') + '}';
-            gap = mind;
-            return v;
-        }
-    }
-
-// If the JSON object does not yet have a stringify method, give it one.
-
-    if (typeof JSON.stringify !== 'function') {
-        JSON.stringify = function (value, replacer, space) {
-
-// The stringify method takes a value and an optional replacer, and an optional
-// space parameter, and returns a JSON text. The replacer can be a function
-// that can replace values, or an array of strings that will select the keys.
-// A default replacer method can be provided. Use of the space parameter can
-// produce text that is more easily readable.
-
-            var i;
-            gap = '';
-            indent = '';
-
-// If the space parameter is a number, make an indent string containing that
-// many spaces.
-
-            if (typeof space === 'number') {
-                for (i = 0; i < space; i += 1) {
-                    indent += ' ';
-                }
-
-// If the space parameter is a string, it will be used as the indent string.
-
-            } else if (typeof space === 'string') {
-                indent = space;
-            }
-
-// If there is a replacer, it must be a function or an array.
-// Otherwise, throw an error.
-
-            rep = replacer;
-            if (replacer && typeof replacer !== 'function' &&
-                    (typeof replacer !== 'object' ||
-                    typeof replacer.length !== 'number')) {
-                throw new Error('JSON.stringify');
-            }
-
-// Make a fake root object containing our value under the key of ''.
-// Return the result of stringifying the value.
-
-            return str('', {'': value});
-        };
-    }
-
-
-// If the JSON object does not yet have a parse method, give it one.
-
-    if (typeof JSON.parse !== 'function') {
-        JSON.parse = function (text, reviver) {
-
-// The parse method takes a text and an optional reviver function, and returns
-// a JavaScript value if the text is a valid JSON text.
-
-            var j;
-
-            function walk(holder, key) {
-
-// The walk method is used to recursively walk the resulting structure so
-// that modifications can be made.
-
-                var k, v, value = holder[key];
-                if (value && typeof value === 'object') {
-                    for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
-                            v = walk(value, k);
-                            if (v !== undefined) {
-                                value[k] = v;
-                            } else {
-                                delete value[k];
-                            }
-                        }
-                    }
-                }
-                return reviver.call(holder, key, value);
-            }
-
-
-// Parsing happens in four stages. In the first stage, we replace certain
-// Unicode characters with escape sequences. JavaScript handles many characters
-// incorrectly, either silently deleting them, or treating them as line endings.
-
-            text = String(text);
-            cx.lastIndex = 0;
-            if (cx.test(text)) {
-                text = text.replace(cx, function (a) {
-                    return '\\u' +
-                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-                });
-            }
-
-// In the second stage, we run the text against regular expressions that look
-// for non-JSON patterns. We are especially concerned with '()' and 'new'
-// because they can cause invocation, and '=' because it can cause mutation.
-// But just to be safe, we want to reject all unexpected forms.
-
-// We split the second stage into 4 regexp operations in order to work around
-// crippling inefficiencies in IE's and Safari's regexp engines. First we
-// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
-// replace all simple value tokens with ']' characters. Third, we delete all
-// open brackets that follow a colon or comma or that begin the text. Finally,
-// we look to see that the remaining characters are only whitespace or ']' or
-// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
-
-            if (/^[\],:{}\s]*$/
-                    .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-                        .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-                        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-
-// In the third stage we use the eval function to compile the text into a
-// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
-// in JavaScript: it can begin a block or an object literal. We wrap the text
-// in parens to eliminate the ambiguity.
-
-                j = eval('(' + text + ')');
-
-// In the optional fourth stage, we recursively walk the new structure, passing
-// each name/value pair to a reviver function for possible transformation.
-
-                return typeof reviver === 'function'
-                    ? walk({'': j}, '')
-                    : j;
-            }
-
-// If the text is not JSON parseable, then a SyntaxError is thrown.
-
-            throw new SyntaxError('JSON.parse');
-        };
-    }
-}());
-
-/*!
- * JSizes - JQuery plugin v0.33
- *
- * Licensed under the revised BSD License.
- * Copyright 2008-2010 Bram Stein
- * All rights reserved.
- */
-/*global jQuery*/
-(function ($) {
-	var num = function (value) {
-			return parseInt(value, 10) || 0;
+;(function (factory) {
+	var registeredInModuleLoader;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function decode (s) {
+		return s.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent);
+	}
+
+	function init (converter) {
+		function api() {}
+
+		function set (key, value, attributes) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			attributes = extend({
+				path: '/'
+			}, api.defaults, attributes);
+
+			if (typeof attributes.expires === 'number') {
+				attributes.expires = new Date(new Date() * 1 + attributes.expires * 864e+5);
+			}
+
+			// We're using "expires" because "max-age" is not supported by IE
+			attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+			try {
+				var result = JSON.stringify(value);
+				if (/^[\{\[]/.test(result)) {
+					value = result;
+				}
+			} catch (e) {}
+
+			value = converter.write ?
+				converter.write(value, key) :
+				encodeURIComponent(String(value))
+					.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+
+			key = encodeURIComponent(String(key))
+				.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent)
+				.replace(/[\(\)]/g, escape);
+
+			var stringifiedAttributes = '';
+			for (var attributeName in attributes) {
+				if (!attributes[attributeName]) {
+					continue;
+				}
+				stringifiedAttributes += '; ' + attributeName;
+				if (attributes[attributeName] === true) {
+					continue;
+				}
+
+				// Considers RFC 6265 section 5.2:
+				// ...
+				// 3.  If the remaining unparsed-attributes contains a %x3B (";")
+				//     character:
+				// Consume the characters of the unparsed-attributes up to,
+				// not including, the first %x3B (";") character.
+				// ...
+				stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+			}
+
+			return (document.cookie = key + '=' + value + stringifiedAttributes);
+		}
+
+		function get (key, json) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			var jar = {};
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all.
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = decode(parts[0]);
+					cookie = (converter.read || converter)(cookie, name) ||
+						decode(cookie);
+
+					if (json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					jar[name] = cookie;
+
+					if (key === name) {
+						break;
+					}
+				} catch (e) {}
+			}
+
+			return key ? jar[key] : jar;
+		}
+
+		api.set = set;
+		api.get = function (key) {
+			return get(key, false /* read as raw */);
+		};
+		api.getJSON = function (key) {
+			return get(key, true /* read as json */);
+		};
+		api.remove = function (key, attributes) {
+			set(key, '', extend(attributes, {
+				expires: -1
+			}));
 		};
 
-	/**
-	 * Sets or gets the values for min-width, min-height, max-width
-	 * and max-height.
-	 */
-	$.each(['min', 'max'], function (i, name) {
-		$.fn[name + 'Size'] = function (value) {
-			var width, height;
-			if (value) {
-				if (value.width !== undefined) {
-					this.css(name + '-width', value.width);
-				}
-				if (value.height !== undefined) {
-					this.css(name + '-height', value.height);
-				}
-				return this;
-			}
-			else {
-				width = this.css(name + '-width');
-				height = this.css(name + '-height');
-				// Apparently:
-				//  * Opera returns -1px instead of none
-				//  * IE6 returns undefined instead of none
-				return {'width': (name === 'max' && (width === undefined || width === 'none' || num(width) === -1) && Number.MAX_VALUE) || num(width), 
-						'height': (name === 'max' && (height === undefined || height === 'none' || num(height) === -1) && Number.MAX_VALUE) || num(height)};
-			}
-		};
-	});
+		api.defaults = {};
 
-	/**
-	 * Returns whether or not an element is visible.
-	 */
-	$.fn.isVisible = function () {
-		return this.is(':visible');
-	};
+		api.withConverter = init;
 
-	/**
-	 * Sets or gets the values for border, margin and padding.
-	 */
-	$.each(['border', 'margin', 'padding'], function (i, name) {
-		$.fn[name] = function (value) {
-			if (value) {
-				if (value.top !== undefined) {
-					this.css(name + '-top' + (name === 'border' ? '-width' : ''), value.top);
-				}
-				if (value.bottom !== undefined) {
-					this.css(name + '-bottom' + (name === 'border' ? '-width' : ''), value.bottom);
-				}
-				if (value.left !== undefined) {
-					this.css(name + '-left' + (name === 'border' ? '-width' : ''), value.left);
-				}
-				if (value.right !== undefined) {
-					this.css(name + '-right' + (name === 'border' ? '-width' : ''), value.right);
-				}
-				return this;
-			}
-			else {
-				return {top: num(this.css(name + '-top' + (name === 'border' ? '-width' : ''))),
-						bottom: num(this.css(name + '-bottom' + (name === 'border' ? '-width' : ''))),
-						left: num(this.css(name + '-left' + (name === 'border' ? '-width' : ''))),
-						right: num(this.css(name + '-right' + (name === 'border' ? '-width' : '')))};
-			}
-		};
-	});
-})(jQuery);
+		return api;
+	}
+
+	return init(function () {});
+}));
 
 /**
  * @preserve
@@ -2441,7 +1992,6 @@ $.fn.layout = function (opts) {
 		,	$parent, n
 		;
 		// sC = state.container
-		sC.selector = $N.selector.split(".slice")[0];
 		sC.ref		= (o.name ? o.name +' layout / ' : '') + tag + (id ? "#"+id : cls ? '.['+cls+']' : ''); // used in messages
 		sC.isBody	= (tag === "BODY");
 
@@ -6687,422 +6237,9 @@ if ($.effects) {
 
 })( jQuery );
 
-/**
- * @license Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-touch-shiv-mq-teststyles-prefixes-load
-*/
-window.Modernizr = (function (window, document, undefined) {
-
-    var version = '2.6.2',
-
-    Modernizr = {},
-
-
-    docElement = document.documentElement,
-
-    mod = 'modernizr',
-    modElem = document.createElement(mod),
-    mStyle = modElem.style,
-
-    inputElem,
-
-
-    toString = {}.toString,
-
-    prefixes = ' -webkit- -moz- -o- -ms- '.split(' '),
-
-
-
-    tests = {},
-    inputs = {},
-    attrs = {},
-
-    classes = [],
-
-    slice = classes.slice,
-
-    featureName,
-
-
-    injectElementWithStyles = function (rule, callback, nodes, testnames) {
-
-        var style, ret, node, docOverflow,
-            div = document.createElement('div'),
-                  body = document.body,
-                  fakeBody = body || document.createElement('body');
-
-        if (parseInt(nodes, 10)) {
-            while (nodes--) {
-                node = document.createElement('div');
-                node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
-                div.appendChild(node);
-            }
-        }
-
-        style = ['&#173;', '<style id="s', mod, '">', rule, '</style>'].join('');
-        div.id = mod;
-        (body ? div : fakeBody).innerHTML += style;
-        fakeBody.appendChild(div);
-        if (!body) {
-            fakeBody.style.background = '';
-            fakeBody.style.overflow = 'hidden';
-            docOverflow = docElement.style.overflow;
-            docElement.style.overflow = 'hidden';
-            docElement.appendChild(fakeBody);
-        }
-
-        ret = callback(div, rule);
-        if (!body) {
-            fakeBody.parentNode.removeChild(fakeBody);
-            docElement.style.overflow = docOverflow;
-        } else {
-            div.parentNode.removeChild(div);
-        }
-
-        return !!ret;
-
-    },
-
-    testMediaQuery = function (mq) {
-
-        var matchMedia = window.matchMedia || window.msMatchMedia;
-        if (matchMedia) {
-            return matchMedia(mq).matches;
-        }
-
-        var bool;
-
-        injectElementWithStyles('@media ' + mq + ' { #' + mod + ' { position: absolute; } }', function (node) {
-            bool = (window.getComputedStyle ?
-                      getComputedStyle(node, null) :
-                      node.currentStyle)['position'] == 'absolute';
-        });
-
-        return bool;
-
-    },
-    _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
-
-    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
-        hasOwnProp = function (object, property) {
-            return _hasOwnProperty.call(object, property);
-        };
-    }
-    else {
-        hasOwnProp = function (object, property) {
-            return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
-        };
-    }
-
-
-    if (!Function.prototype.bind) {
-        Function.prototype.bind = function bind(that) {
-
-            var target = this;
-
-            if (typeof target != "function") {
-                throw new TypeError();
-            }
-
-            var args = slice.call(arguments, 1),
-                bound = function () {
-
-                    if (this instanceof bound) {
-
-                        var F = function () { };
-                        F.prototype = target.prototype;
-                        var self = new F();
-
-                        var result = target.apply(
-                            self,
-                            args.concat(slice.call(arguments))
-                        );
-                        if (Object(result) === result) {
-                            return result;
-                        }
-                        return self;
-
-                    } else {
-
-                        return target.apply(
-                            that,
-                            args.concat(slice.call(arguments))
-                        );
-
-                    }
-
-                };
-
-            return bound;
-        };
-    }
-
-    function setCss(str) {
-        mStyle.cssText = str;
-    }
-
-    function setCssAll(str1, str2) {
-        return setCss(prefixes.join(str1 + ';') + (str2 || ''));
-    }
-
-    function is(obj, type) {
-        return typeof obj === type;
-    }
-
-    function contains(str, substr) {
-        return !!~('' + str).indexOf(substr);
-    }
-
-
-    function testDOMProps(props, obj, elem) {
-        for (var i in props) {
-            var item = obj[props[i]];
-            if (item !== undefined) {
-
-                if (elem === false) return props[i];
-
-                if (is(item, 'function')) {
-                    return item.bind(elem || obj);
-                }
-
-                return item;
-            }
-        }
-        return false;
-    }
-    tests['touch'] = function () {
-        var bool;
-
-        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-            bool = true;
-        } else {
-            injectElementWithStyles(['@media (', prefixes.join('touch-enabled),('), mod, ')', '{#modernizr{top:9px;position:absolute}}'].join(''), function (node) {
-                bool = node.offsetTop === 9;
-            });
-        }
-
-        return bool;
-    };
-    for (var feature in tests) {
-        if (hasOwnProp(tests, feature)) {
-            featureName = feature.toLowerCase();
-            Modernizr[featureName] = tests[feature]();
-
-            classes.push((Modernizr[featureName] ? '' : 'no-') + featureName);
-        }
-    }
-
-
-
-    Modernizr.addTest = function (feature, test) {
-        if (typeof feature == 'object') {
-            for (var key in feature) {
-                if (hasOwnProp(feature, key)) {
-                    Modernizr.addTest(key, feature[key]);
-                }
-            }
-        } else {
-
-            feature = feature.toLowerCase();
-
-            if (Modernizr[feature] !== undefined) {
-                return Modernizr;
-            }
-
-            test = typeof test == 'function' ? test() : test;
-
-            if (typeof enableClasses !== "undefined" && enableClasses) {
-                docElement.className += ' ' + (test ? '' : 'no-') + feature;
-            }
-            Modernizr[feature] = test;
-
-        }
-
-        return Modernizr;
-    };
-
-
-    setCss('');
-    modElem = inputElem = null;
-
-    ; (function (window, document) {
-        var options = window.html5 || {};
-
-        var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-        var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-        var supportsHtml5Styles;
-
-        var expando = '_html5shiv';
-
-        var expanID = 0;
-
-        var expandoData = {};
-
-        var supportsUnknownElements;
-
-        (function () {
-            try {
-                var a = document.createElement('a');
-                a.innerHTML = '<xyz></xyz>';
-                supportsHtml5Styles = ('hidden' in a);
-
-                supportsUnknownElements = a.childNodes.length == 1 || (function () {
-                    (document.createElement)('a');
-                    var frag = document.createDocumentFragment();
-                    return (
-                      typeof frag.cloneNode == 'undefined' ||
-                      typeof frag.createDocumentFragment == 'undefined' ||
-                      typeof frag.createElement == 'undefined'
-                    );
-                }());
-            } catch (e) {
-                supportsHtml5Styles = true;
-                supportsUnknownElements = true;
-            }
-
-        }()); function addStyleSheet(ownerDocument, cssText) {
-            var p = ownerDocument.createElement('p'),
-                parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-            p.innerHTML = 'x<style>' + cssText + '</style>';
-            return parent.insertBefore(p.lastChild, parent.firstChild);
-        }
-
-        function getElements() {
-            var elements = html5.elements;
-            return typeof elements == 'string' ? elements.split(' ') : elements;
-        }
-
-        function getExpandoData(ownerDocument) {
-            var data = expandoData[ownerDocument[expando]];
-            if (!data) {
-                data = {};
-                expanID++;
-                ownerDocument[expando] = expanID;
-                expandoData[expanID] = data;
-            }
-            return data;
-        }
-
-        function createElement(nodeName, ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createElement(nodeName);
-            }
-            if (!data) {
-                data = getExpandoData(ownerDocument);
-            }
-            var node;
-
-            if (data.cache[nodeName]) {
-                node = data.cache[nodeName].cloneNode();
-            } else if (saveClones.test(nodeName)) {
-                node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-            } else {
-                node = data.createElem(nodeName);
-            }
-
-            return node.canHaveChildren && !reSkip.test(nodeName) ? data.frag.appendChild(node) : node;
-        }
-
-        function createDocumentFragment(ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createDocumentFragment();
-            }
-            data = data || getExpandoData(ownerDocument);
-            var clone = data.frag.cloneNode(),
-                i = 0,
-                elems = getElements(),
-                l = elems.length;
-            for (; i < l; i++) {
-                clone.createElement(elems[i]);
-            }
-            return clone;
-        }
-
-        function shivMethods(ownerDocument, data) {
-            if (!data.cache) {
-                data.cache = {};
-                data.createElem = ownerDocument.createElement;
-                data.createFrag = ownerDocument.createDocumentFragment;
-                data.frag = data.createFrag();
-            }
-
-
-            ownerDocument.createElement = function (nodeName) {
-                if (!html5.shivMethods) {
-                    return data.createElem(nodeName);
-                }
-                return createElement(nodeName, ownerDocument, data);
-            };
-
-            ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-              'var n=f.cloneNode(),c=n.createElement;' +
-              'h.shivMethods&&(' +
-                        getElements().join().replace(/\w+/g, function (nodeName) {
-                            data.createElem(nodeName);
-                            data.frag.createElement(nodeName);
-                            return 'c("' + nodeName + '")';
-                        }) +
-              ');return n}'
-            )(html5, data.frag);
-        } function shivDocument(ownerDocument) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            var data = getExpandoData(ownerDocument);
-
-            if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-                data.hasCSS = !!addStyleSheet(ownerDocument,
-                          'article,aside,figcaption,figure,footer,header,hgroup,nav,section{display:block}' +
-                          'mark{background:#FF0;color:#000}'
-                );
-            }
-            if (!supportsUnknownElements) {
-                shivMethods(ownerDocument, data);
-            }
-            return ownerDocument;
-        } var html5 = {
-
-            'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video',
-
-            'shivCSS': (options.shivCSS !== false),
-
-            'supportsUnknownElements': supportsUnknownElements,
-
-            'shivMethods': (options.shivMethods !== false),
-
-            'type': 'default',
-
-            'shivDocument': shivDocument,
-
-            createElement: createElement,
-
-            createDocumentFragment: createDocumentFragment
-        }; window.html5 = html5;
-
-        shivDocument(document);
-
-    }(this, document));
-
-    Modernizr._version = version;
-
-    Modernizr._prefixes = prefixes;
-
-    Modernizr.mq = testMediaQuery;
-    Modernizr.testStyles = injectElementWithStyles;
-    return Modernizr;
-
-})(this, this.document);
-
-;
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-mq-prefixes-setclasses-shiv-teststyles !*/
+!function (e, t, n) { function a(e, t) { return typeof e === t } function r() { var e, t, n, r, o, i, s; for (var l in d) if (d.hasOwnProperty(l)) { if (e = [], t = d[l], t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)) for (n = 0; n < t.options.aliases.length; n++)e.push(t.options.aliases[n].toLowerCase()); for (r = a(t.fn, "function") ? t.fn() : t.fn, o = 0; o < e.length; o++)i = e[o], s = i.split("."), 1 === s.length ? Modernizr[s[0]] = r : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = r), c.push((r ? "" : "no-") + s.join("-")) } } function o(e) { var t = m.className, n = Modernizr._config.classPrefix || ""; if (p && (t = t.baseVal), Modernizr._config.enableJSClass) { var a = new RegExp("(^|\\s)" + n + "no-js(\\s|$)"); t = t.replace(a, "$1" + n + "js$2") } Modernizr._config.enableClasses && (t += " " + n + e.join(" " + n), p ? m.className.baseVal = t : m.className = t) } function i() { return "function" != typeof t.createElement ? t.createElement(arguments[0]) : p ? t.createElementNS.call(t, "http://www.w3.org/2000/svg", arguments[0]) : t.createElement.apply(t, arguments) } function s() { var e = t.body; return e || (e = i(p ? "svg" : "body"), e.fake = !0), e } function l(e, n, a, r) { var o, l, c, d, u = "modernizr", f = i("div"), p = s(); if (parseInt(a, 10)) for (; a--;)c = i("div"), c.id = r ? r[a] : u + (a + 1), f.appendChild(c); return o = i("style"), o.type = "text/css", o.id = "s" + u, (p.fake ? p : f).appendChild(o), p.appendChild(f), o.styleSheet ? o.styleSheet.cssText = e : o.appendChild(t.createTextNode(e)), f.id = u, p.fake && (p.style.background = "", p.style.overflow = "hidden", d = m.style.overflow, m.style.overflow = "hidden", m.appendChild(p)), l = n(f, e), p.fake ? (p.parentNode.removeChild(p), m.style.overflow = d, m.offsetHeight) : f.parentNode.removeChild(f), !!l } var c = [], d = [], u = { _version: "3.6.0", _config: { classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0 }, _q: [], on: function (e, t) { var n = this; setTimeout(function () { t(n[e]) }, 0) }, addTest: function (e, t, n) { d.push({ name: e, fn: t, options: n }) }, addAsyncTest: function (e) { d.push({ name: null, fn: e }) } }, Modernizr = function () { }; Modernizr.prototype = u, Modernizr = new Modernizr; var f = u._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""]; u._prefixes = f; var m = t.documentElement, p = "svg" === m.nodeName.toLowerCase(); p || !function (e, t) { function n(e, t) { var n = e.createElement("p"), a = e.getElementsByTagName("head")[0] || e.documentElement; return n.innerHTML = "x<style>" + t + "</style>", a.insertBefore(n.lastChild, a.firstChild) } function a() { var e = E.elements; return "string" == typeof e ? e.split(" ") : e } function r(e, t) { var n = E.elements; "string" != typeof n && (n = n.join(" ")), "string" != typeof e && (e = e.join(" ")), E.elements = n + " " + e, c(t) } function o(e) { var t = y[e[g]]; return t || (t = {}, v++, e[g] = v, y[v] = t), t } function i(e, n, a) { if (n || (n = t), u) return n.createElement(e); a || (a = o(n)); var r; return r = a.cache[e] ? a.cache[e].cloneNode() : h.test(e) ? (a.cache[e] = a.createElem(e)).cloneNode() : a.createElem(e), !r.canHaveChildren || p.test(e) || r.tagUrn ? r : a.frag.appendChild(r) } function s(e, n) { if (e || (e = t), u) return e.createDocumentFragment(); n = n || o(e); for (var r = n.frag.cloneNode(), i = 0, s = a(), l = s.length; l > i; i++)r.createElement(s[i]); return r } function l(e, t) { t.cache || (t.cache = {}, t.createElem = e.createElement, t.createFrag = e.createDocumentFragment, t.frag = t.createFrag()), e.createElement = function (n) { return E.shivMethods ? i(n, e, t) : t.createElem(n) }, e.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + a().join().replace(/[\w\-:]+/g, function (e) { return t.createElem(e), t.frag.createElement(e), 'c("' + e + '")' }) + ");return n}")(E, t.frag) } function c(e) { e || (e = t); var a = o(e); return !E.shivCSS || d || a.hasCSS || (a.hasCSS = !!n(e, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), u || l(e, a), e } var d, u, f = "3.7.3", m = e.html5 || {}, p = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, h = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, g = "_html5shiv", v = 0, y = {}; !function () { try { var e = t.createElement("a"); e.innerHTML = "<xyz></xyz>", d = "hidden" in e, u = 1 == e.childNodes.length || function () { t.createElement("a"); var e = t.createDocumentFragment(); return "undefined" == typeof e.cloneNode || "undefined" == typeof e.createDocumentFragment || "undefined" == typeof e.createElement }() } catch (n) { d = !0, u = !0 } }(); var E = { elements: m.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video", version: f, shivCSS: m.shivCSS !== !1, supportsUnknownElements: u, shivMethods: m.shivMethods !== !1, type: "default", shivDocument: c, createElement: i, createDocumentFragment: s, addElements: r }; e.html5 = E, c(t), "object" == typeof module && module.exports && (module.exports = E) }("undefined" != typeof e ? e : this, t); var h = function () { var t = e.matchMedia || e.msMatchMedia; return t ? function (e) { var n = t(e); return n && n.matches || !1 } : function (t) { var n = !1; return l("@media " + t + " { #modernizr { position: absolute; } }", function (t) { n = "absolute" == (e.getComputedStyle ? e.getComputedStyle(t, null) : t.currentStyle).position }), n } }(); u.mq = h; u.testStyles = l; r(), o(c), delete u.addTest, delete u.addAsyncTest; for (var g = 0; g < Modernizr._q.length; g++)Modernizr._q[g](); e.Modernizr = Modernizr }(window, document);
 // yepnope.js
 // v2.0.0
 //

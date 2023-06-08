@@ -11,7 +11,7 @@ i. Document Created 22/03/2023
 
 	<wsdl:types>
 		<xs:schema>
-			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/ern/" schemaLocation="ern/ern-schema-pit4.xsd" />
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" schemaLocation="ern/ern-schema-pit4.xsd" />
 		</xs:schema>
 	</wsdl:types>
 	

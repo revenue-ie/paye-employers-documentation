@@ -356,10 +356,40 @@ a.i-glossary-link:hover {
     background-repeat: no-repeat;
 }
 
+/* Versions Styling */
+.i-version-popup-link {
+    margin-right: 3px;
+}
+
+.i-version-selector ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.i-version-selector .i-current-version {
+    font-weight: bold;
+}
+
+.i-version-selector .i-version-link {
+    opacity: 0.5;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+    .i-version-selector .i-version-link.i-discovered {
+        opacity: 1;
+    }
+
+    .i-version-selector .i-version-link.i-unavailable {
+        text-decoration: line-through;
+    }
+
 /* jQuery overrides */
 .i-tab-container {
     background: transparent;
-    border: none;
+    border: 1px solid #c5c5c5;
     padding: 0;
 }
 
@@ -649,6 +679,27 @@ hr {
     text-indent: -10px;
     padding-left: 10px;
 }
+
+.i-key-sequence {
+    margin-top: 8px;
+}
+
+.i-key-sequence span.i-key {
+    padding: 3px 3px 4px 4px;
+    white-space: nowrap;
+    color: #000;
+    background-color: #EEE;
+    border-top: solid 2px #CCC;
+    border-right: solid 4px #AAA;
+    border-bottom: solid 5px #888;
+    border-left: solid 3px #BBB;
+    margin-right: 1px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+*+html .i-key-sequence span.i-key { display: table-cell; vertical-align: middle }
+
 /* End Widget Overrides */
 
 /* Design Time */
@@ -669,6 +720,14 @@ hr {
 
 .i-hidden {
     display: none;
+}
+
+.WidgetProperty {
+    box-sizing: border-box;
+}
+
+.InnovaContentWidget .i-box {
+    padding-right: 4px;
 }
 
 /* jQuery UI Overrides */

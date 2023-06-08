@@ -1,551 +1,186 @@
 /*!
- * jQuery Cookie Plugin
- * https://github.com/carhartl/jquery-cookie
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
  *
- * Copyright 2011, Klaus Hartl
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.opensource.org/licenses/GPL-2.0
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
  */
-(function($) {
-    $.cookie = function(key, value, options) {
-
-        // key and at least value given, set cookie...
-        if (arguments.length > 1 && (!/Object/.test(Object.prototype.toString.call(value)) || value === null || value === undefined)) {
-            options = $.extend({}, options);
-
-            if (value === null || value === undefined) {
-                options.expires = -1;
-            }
-
-            if (typeof options.expires === 'number') {
-                var days = options.expires, t = options.expires = new Date();
-                t.setDate(t.getDate() + days);
-            }
-
-            value = String(value);
-
-            return (document.cookie = [
-                encodeURIComponent(key), '=', options.raw ? value : encodeURIComponent(value),
-                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-                options.path    ? '; path=' + options.path : '',
-                options.domain  ? '; domain=' + options.domain : '',
-                options.secure  ? '; secure' : ''
-            ].join(''));
-        }
-
-        // key and possibly options given, get cookie...
-        options = value || {};
-        var decode = options.raw ? function(s) { return s; } : decodeURIComponent;
-
-        var pairs = document.cookie.split('; ');
-        for (var i = 0, pair; pair = pairs[i] && pairs[i].split('='); i++) {
-            if (decode(pair[0]) === key) return decode(pair[1] || ''); // IE saves cookies with empty string as "c; ", e.g. without "=" as opposed to EOMB, thus pair[1] may be undefined
-        }
-        return null;
-    };
-})(jQuery);
-/*
-    json2.js
-    2011-10-19
-
-    Public Domain.
-
-    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-
-    See http://www.JSON.org/js.html
-
-
-    This code should be minified before deployment.
-    See http://javascript.crockford.com/jsmin.html
-
-    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
-    NOT CONTROL.
-
-
-    This file creates a global JSON object containing two methods: stringify
-    and parse.
-
-        JSON.stringify(value, replacer, space)
-            value       any JavaScript value, usually an object or array.
-
-            replacer    an optional parameter that determines how object
-                        values are stringified for objects. It can be a
-                        function or an array of strings.
-
-            space       an optional parameter that specifies the indentation
-                        of nested structures. If it is omitted, the text will
-                        be packed without extra whitespace. If it is a number,
-                        it will specify the number of spaces to indent at each
-                        level. If it is a string (such as '\t' or '&nbsp;'),
-                        it contains the characters used to indent at each level.
-
-            This method produces a JSON text from a JavaScript value.
-
-            When an object value is found, if the object contains a toJSON
-            method, its toJSON method will be called and the result will be
-            stringified. A toJSON method does not serialize: it returns the
-            value represented by the name/value pair that should be serialized,
-            or undefined if nothing should be serialized. The toJSON method
-            will be passed the key associated with the value, and this will be
-            bound to the value
-
-            For example, this would serialize Dates as ISO strings.
-
-                Date.prototype.toJSON = function (key) {
-                    function f(n) {
-                        // Format integers to have at least two digits.
-                        return n < 10 ? '0' + n : n;
-                    }
-
-                    return this.getUTCFullYear()   + '-' +
-                         f(this.getUTCMonth() + 1) + '-' +
-                         f(this.getUTCDate())      + 'T' +
-                         f(this.getUTCHours())     + ':' +
-                         f(this.getUTCMinutes())   + ':' +
-                         f(this.getUTCSeconds())   + 'Z';
-                };
-
-            You can provide an optional replacer method. It will be passed the
-            key and value of each member, with this bound to the containing
-            object. The value that is returned from your method will be
-            serialized. If your method returns undefined, then the member will
-            be excluded from the serialization.
-
-            If the replacer parameter is an array of strings, then it will be
-            used to select the members to be serialized. It filters the results
-            such that only members with keys listed in the replacer array are
-            stringified.
-
-            Values that do not have JSON representations, such as undefined or
-            functions, will not be serialized. Such values in objects will be
-            dropped; in arrays they will be replaced with null. You can use
-            a replacer function to replace those with JSON values.
-            JSON.stringify(undefined) returns undefined.
-
-            The optional space parameter produces a stringification of the
-            value that is filled with line breaks and indentation to make it
-            easier to read.
-
-            If the space parameter is a non-empty string, then that string will
-            be used for indentation. If the space parameter is a number, then
-            the indentation will be that many spaces.
-
-            Example:
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}]);
-            // text is '["e",{"pluribus":"unum"}]'
-
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
-            // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
-
-            text = JSON.stringify([new Date()], function (key, value) {
-                return this[key] instanceof Date ?
-                    'Date(' + this[key] + ')' : value;
-            });
-            // text is '["Date(---current time---)"]'
-
-
-        JSON.parse(text, reviver)
-            This method parses a JSON text to produce an object or array.
-            It can throw a SyntaxError exception.
-
-            The optional reviver parameter is a function that can filter and
-            transform the results. It receives each of the keys and values,
-            and its return value is used instead of the original value.
-            If it returns what it received, then the structure is not modified.
-            If it returns undefined then the member is deleted.
-
-            Example:
-
-            // Parse the text. Values that look like ISO date strings will
-            // be converted to Date objects.
-
-            myData = JSON.parse(text, function (key, value) {
-                var a;
-                if (typeof value === 'string') {
-                    a =
-/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-                    if (a) {
-                        return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
-                            +a[5], +a[6]));
-                    }
-                }
-                return value;
-            });
-
-            myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
-                var d;
-                if (typeof value === 'string' &&
-                        value.slice(0, 5) === 'Date(' &&
-                        value.slice(-1) === ')') {
-                    d = new Date(value.slice(5, -1));
-                    if (d) {
-                        return d;
-                    }
-                }
-                return value;
-            });
-
-
-    This is a reference implementation. You are free to copy, modify, or
-    redistribute.
-*/
-
-/*jslint evil: true, regexp: true */
-
-/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
-    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
-    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
-    lastIndex, length, parse, prototype, push, replace, slice, stringify,
-    test, toJSON, toString, valueOf
-*/
-
-
-// Create a JSON object only if one does not already exist. We create the
-// methods in a closure to avoid creating global variables.
-
-var JSON;
-if (!JSON) {
-    JSON = {};
-}
-
-(function () {
-    'use strict';
-
-    function f(n) {
-        // Format integers to have at least two digits.
-        return n < 10 ? '0' + n : n;
-    }
-
-    if (typeof Date.prototype.toJSON !== 'function') {
-
-        Date.prototype.toJSON = function (key) {
-
-            return isFinite(this.valueOf())
-                ? this.getUTCFullYear()     + '-' +
-                    f(this.getUTCMonth() + 1) + '-' +
-                    f(this.getUTCDate())      + 'T' +
-                    f(this.getUTCHours())     + ':' +
-                    f(this.getUTCMinutes())   + ':' +
-                    f(this.getUTCSeconds())   + 'Z'
-                : null;
-        };
-
-        String.prototype.toJSON      =
-            Number.prototype.toJSON  =
-            Boolean.prototype.toJSON = function (key) {
-                return this.valueOf();
-            };
-    }
-
-    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        gap,
-        indent,
-        meta = {    // table of character substitutions
-            '\b': '\\b',
-            '\t': '\\t',
-            '\n': '\\n',
-            '\f': '\\f',
-            '\r': '\\r',
-            '"' : '\\"',
-            '\\': '\\\\'
-        },
-        rep;
-
-
-    function quote(string) {
-
-// If the string contains no control characters, no quote characters, and no
-// backslash characters, then we can safely slap some quotes around it.
-// Otherwise we must also replace the offending characters with safe escape
-// sequences.
-
-        escapable.lastIndex = 0;
-        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
-            var c = meta[a];
-            return typeof c === 'string'
-                ? c
-                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + '"' : '"' + string + '"';
-    }
-
-
-    function str(key, holder) {
-
-// Produce a string from holder[key].
-
-        var i,          // The loop counter.
-            k,          // The member key.
-            v,          // The member value.
-            length,
-            mind = gap,
-            partial,
-            value = holder[key];
-
-// If the value has a toJSON method, call it to obtain a replacement value.
-
-        if (value && typeof value === 'object' &&
-                typeof value.toJSON === 'function') {
-            value = value.toJSON(key);
-        }
-
-// If we were called with a replacer function, then call the replacer to
-// obtain a replacement value.
-
-        if (typeof rep === 'function') {
-            value = rep.call(holder, key, value);
-        }
-
-// What happens next depends on the value's type.
-
-        switch (typeof value) {
-        case 'string':
-            return quote(value);
-
-        case 'number':
-
-// JSON numbers must be finite. Encode non-finite numbers as null.
-
-            return isFinite(value) ? String(value) : 'null';
-
-        case 'boolean':
-        case 'null':
-
-// If the value is a boolean or null, convert it to a string. Note:
-// typeof null does not produce 'null'. The case is included here in
-// the remote chance that this gets fixed someday.
-
-            return String(value);
-
-// If the type is 'object', we might be dealing with an object or an array or
-// null.
-
-        case 'object':
-
-// Due to a specification blunder in ECMAScript, typeof null is 'object',
-// so watch out for that case.
-
-            if (!value) {
-                return 'null';
-            }
-
-// Make an array to hold the partial results of stringifying this object value.
-
-            gap += indent;
-            partial = [];
-
-// Is the value an array?
-
-            if (Object.prototype.toString.apply(value) === '[object Array]') {
-
-// The value is an array. Stringify every element. Use null as a placeholder
-// for non-JSON values.
-
-                length = value.length;
-                for (i = 0; i < length; i += 1) {
-                    partial[i] = str(i, value) || 'null';
-                }
-
-// Join all of the elements together, separated with commas, and wrap them in
-// brackets.
-
-                v = partial.length === 0
-                    ? '[]'
-                    : gap
-                    ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
-                    : '[' + partial.join(',') + ']';
-                gap = mind;
-                return v;
-            }
-
-// If the replacer is an array, use it to select the members to be stringified.
-
-            if (rep && typeof rep === 'object') {
-                length = rep.length;
-                for (i = 0; i < length; i += 1) {
-                    if (typeof rep[i] === 'string') {
-                        k = rep[i];
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            } else {
-
-// Otherwise, iterate through all of the keys in the object.
-
-                for (k in value) {
-                    if (Object.prototype.hasOwnProperty.call(value, k)) {
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            }
-
-// Join all of the member texts together, separated with commas,
-// and wrap them in braces.
-
-            v = partial.length === 0
-                ? '{}'
-                : gap
-                ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
-                : '{' + partial.join(',') + '}';
-            gap = mind;
-            return v;
-        }
-    }
-
-// If the JSON object does not yet have a stringify method, give it one.
-
-    if (typeof JSON.stringify !== 'function') {
-        JSON.stringify = function (value, replacer, space) {
-
-// The stringify method takes a value and an optional replacer, and an optional
-// space parameter, and returns a JSON text. The replacer can be a function
-// that can replace values, or an array of strings that will select the keys.
-// A default replacer method can be provided. Use of the space parameter can
-// produce text that is more easily readable.
-
-            var i;
-            gap = '';
-            indent = '';
-
-// If the space parameter is a number, make an indent string containing that
-// many spaces.
-
-            if (typeof space === 'number') {
-                for (i = 0; i < space; i += 1) {
-                    indent += ' ';
-                }
-
-// If the space parameter is a string, it will be used as the indent string.
-
-            } else if (typeof space === 'string') {
-                indent = space;
-            }
-
-// If there is a replacer, it must be a function or an array.
-// Otherwise, throw an error.
-
-            rep = replacer;
-            if (replacer && typeof replacer !== 'function' &&
-                    (typeof replacer !== 'object' ||
-                    typeof replacer.length !== 'number')) {
-                throw new Error('JSON.stringify');
-            }
-
-// Make a fake root object containing our value under the key of ''.
-// Return the result of stringifying the value.
-
-            return str('', {'': value});
-        };
-    }
-
-
-// If the JSON object does not yet have a parse method, give it one.
-
-    if (typeof JSON.parse !== 'function') {
-        JSON.parse = function (text, reviver) {
-
-// The parse method takes a text and an optional reviver function, and returns
-// a JavaScript value if the text is a valid JSON text.
-
-            var j;
-
-            function walk(holder, key) {
-
-// The walk method is used to recursively walk the resulting structure so
-// that modifications can be made.
-
-                var k, v, value = holder[key];
-                if (value && typeof value === 'object') {
-                    for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
-                            v = walk(value, k);
-                            if (v !== undefined) {
-                                value[k] = v;
-                            } else {
-                                delete value[k];
-                            }
-                        }
-                    }
-                }
-                return reviver.call(holder, key, value);
-            }
-
-
-// Parsing happens in four stages. In the first stage, we replace certain
-// Unicode characters with escape sequences. JavaScript handles many characters
-// incorrectly, either silently deleting them, or treating them as line endings.
-
-            text = String(text);
-            cx.lastIndex = 0;
-            if (cx.test(text)) {
-                text = text.replace(cx, function (a) {
-                    return '\\u' +
-                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-                });
-            }
-
-// In the second stage, we run the text against regular expressions that look
-// for non-JSON patterns. We are especially concerned with '()' and 'new'
-// because they can cause invocation, and '=' because it can cause mutation.
-// But just to be safe, we want to reject all unexpected forms.
-
-// We split the second stage into 4 regexp operations in order to work around
-// crippling inefficiencies in IE's and Safari's regexp engines. First we
-// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
-// replace all simple value tokens with ']' characters. Third, we delete all
-// open brackets that follow a colon or comma or that begin the text. Finally,
-// we look to see that the remaining characters are only whitespace or ']' or
-// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
-
-            if (/^[\],:{}\s]*$/
-                    .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-                        .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-                        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-
-// In the third stage we use the eval function to compile the text into a
-// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
-// in JavaScript: it can begin a block or an object literal. We wrap the text
-// in parens to eliminate the ambiguity.
-
-                j = eval('(' + text + ')');
-
-// In the optional fourth stage, we recursively walk the new structure, passing
-// each name/value pair to a reviver function for possible transformation.
-
-                return typeof reviver === 'function'
-                    ? walk({'': j}, '')
-                    : j;
-            }
-
-// If the text is not JSON parseable, then a SyntaxError is thrown.
-
-            throw new SyntaxError('JSON.parse');
-        };
-    }
-}());
+;(function (factory) {
+	var registeredInModuleLoader;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function decode (s) {
+		return s.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent);
+	}
+
+	function init (converter) {
+		function api() {}
+
+		function set (key, value, attributes) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			attributes = extend({
+				path: '/'
+			}, api.defaults, attributes);
+
+			if (typeof attributes.expires === 'number') {
+				attributes.expires = new Date(new Date() * 1 + attributes.expires * 864e+5);
+			}
+
+			// We're using "expires" because "max-age" is not supported by IE
+			attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+			try {
+				var result = JSON.stringify(value);
+				if (/^[\{\[]/.test(result)) {
+					value = result;
+				}
+			} catch (e) {}
+
+			value = converter.write ?
+				converter.write(value, key) :
+				encodeURIComponent(String(value))
+					.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+
+			key = encodeURIComponent(String(key))
+				.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent)
+				.replace(/[\(\)]/g, escape);
+
+			var stringifiedAttributes = '';
+			for (var attributeName in attributes) {
+				if (!attributes[attributeName]) {
+					continue;
+				}
+				stringifiedAttributes += '; ' + attributeName;
+				if (attributes[attributeName] === true) {
+					continue;
+				}
+
+				// Considers RFC 6265 section 5.2:
+				// ...
+				// 3.  If the remaining unparsed-attributes contains a %x3B (";")
+				//     character:
+				// Consume the characters of the unparsed-attributes up to,
+				// not including, the first %x3B (";") character.
+				// ...
+				stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+			}
+
+			return (document.cookie = key + '=' + value + stringifiedAttributes);
+		}
+
+		function get (key, json) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			var jar = {};
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all.
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = decode(parts[0]);
+					cookie = (converter.read || converter)(cookie, name) ||
+						decode(cookie);
+
+					if (json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					jar[name] = cookie;
+
+					if (key === name) {
+						break;
+					}
+				} catch (e) {}
+			}
+
+			return key ? jar[key] : jar;
+		}
+
+		api.set = set;
+		api.get = function (key) {
+			return get(key, false /* read as raw */);
+		};
+		api.getJSON = function (key) {
+			return get(key, true /* read as json */);
+		};
+		api.remove = function (key, attributes) {
+			set(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.defaults = {};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
 
 /*
- * qTip2 - Pretty powerful tooltips - v2.2.1
+ * qTip2 - Pretty powerful tooltips - v3.0.3
  * http://qtip2.com
  *
- * Copyright (c) 2014 
+ * Copyright (c) 2016 
  * Released under the MIT licenses
  * http://jquery.org/license
  *
- * Date: Sat Sep 6 2014 11:12 GMT+0100+0100
+ * Date: Wed May 11 2016 10:31 GMT+0100+0100
  * Plugins: tips modal viewport svg imagemap ie6
  * Styles: core basic css3
  */
 /*global window: false, jQuery: false, console: false, define: false */
+
+/*! Innovasys Modifications
+*
+*  Applied jQuery 3 fix from https://github.com/qTip2/qTip2/pull/818
+*
+*/
 
 /* Cache window, document, undefined */
 (function( window, document, undefined ) {
@@ -612,14 +247,17 @@ BROWSER = {
 	 * Adapted from: http://ajaxian.com/archives/attack-of-the-ie-conditional-comment
 	 * Credit to James Padolsey for the original implemntation!
 	 */
-	ie: (function(){
+	ie: (function() {
+		/* eslint-disable no-empty */
+		var v, i;
 		for (
-			var v = 4, i = document.createElement("div");
-			(i.innerHTML = "<!--[if gt IE " + v + "]><i></i><![endif]-->") && i.getElementsByTagName("i")[0];
+			v = 4, i = document.createElement('div');
+			(i.innerHTML = '<!--[if gt IE ' + v + ']><i></i><![endif]-->') && i.getElementsByTagName('i')[0];
 			v+=1
 		) {}
 		return v > 4 ? v : NaN;
-	}()),
+		/* eslint-enable no-empty */
+	})(),
 
 	/*
 	 * iOS version detection
@@ -673,9 +311,7 @@ PROTOTYPE.render = function(show) {
 		title = options.content.title,
 		button = options.content.button,
 		posOptions = options.position,
-		namespace = '.'+this._id+' ',
-		deferreds = [],
-		tooltip;
+		deferreds = [];
 
 	// Add ARIA attributes to target
 	$.attr(this.target[0], 'aria-describedby', this._id);
@@ -686,7 +322,7 @@ PROTOTYPE.render = function(show) {
 	);
 
 	// Create tooltip element
-	this.tooltip = elements.tooltip = tooltip = $('<div/>', {
+	this.tooltip = elements.tooltip = $('<div/>', {
 		'id': this._id,
 		'class': [ NAMESPACE, CLASS_DEFAULT, options.style.classes, cache.posClass ].join(' '),
 		'width': options.style.width || '',
@@ -791,13 +427,15 @@ PROTOTYPE.destroy = function(immediate) {
 		}
 
 		// Destroy all plugins
-		$.each(this.plugins, function(name) {
+		$.each(this.plugins, function() {
 			this.destroy && this.destroy();
 		});
 
 		// Clear timers
-		for(timer in this.timers) {
-			clearTimeout(this.timers[timer]);
+		for (timer in this.timers) {
+			if (this.timers.hasOwnProperty(timer)) {
+				clearTimeout(this.timers[timer]);
+			}
 		}
 
 		// Remove api object and ARIA attributes
@@ -823,7 +461,7 @@ PROTOTYPE.destroy = function(immediate) {
 		delete QTIP.api[this.id];
 	}
 
-	// If an immediate destory is needed
+	// If an immediate destroy is needed
 	if((immediate !== TRUE || this.triggering === 'hide') && this.rendered) {
 		this.tooltip.one('tooltiphidden', $.proxy(process, this));
 		!this.triggering && this.hide();
@@ -839,7 +477,10 @@ PROTOTYPE.destroy = function(immediate) {
 }
 
 function invalidContent(c) {
-	return !( $.isFunction(c) || (c && c.attr) || c.length || ($.type(c) === 'object' && (c.jquery || c.then) ));
+	return !($.isFunction(c) || 
+            c && c.attr || 
+            c.length || 
+            $.type(c) === 'object' && (c.jquery || c.then));
 }
 
 // Option object sanitizer
@@ -856,8 +497,9 @@ function sanitizeOptions(opts) {
 		content = opts.content;
 
 		if(invalidOpt(content) || content.jquery || content.done) {
+			text = invalidContent(content) ? FALSE : content;
 			content = opts.content = {
-				text: (text = invalidContent(content) ? FALSE : content)
+				text: text
 			};
 		}
 		else { text = content.text; }
@@ -876,9 +518,9 @@ function sanitizeOptions(opts) {
 					$.extend({}, ajax, { context: api })
 				)
 				.then(ajax.success, NULL, ajax.error)
-				.then(function(content) {
-					if(content && once) { api.set('content.text', content); }
-					return content;
+				.then(function(newContent) {
+					if(newContent && once) { api.set('content.text', newContent); }
+					return newContent;
 				},
 				function(xhr, status, error) {
 					if(api.destroyed || xhr.status === 0) { return; }
@@ -932,10 +574,10 @@ CHECKS = PROTOTYPE.checks = {
 		// Core checks
 		'^id$': function(obj, o, v, prev) {
 			var id = v === TRUE ? QTIP.nextid : v,
-				new_id = NAMESPACE + '-' + id;
+				newId = NAMESPACE + '-' + id;
 
-			if(id !== FALSE && id.length > 0 && !$('#'+new_id).length) {
-				this._id = new_id;
+			if(id !== FALSE && id.length > 0 && !$('#'+newId).length) {
+				this._id = newId;
 
 				if(this.rendered) {
 					this.tooltip[0].id = this._id;
@@ -975,7 +617,9 @@ CHECKS = PROTOTYPE.checks = {
 
 		// Position checks
 		'^position.(my|at)$': function(obj, o, v){
-			'string' === typeof v && (this.position[o] = obj[o] = new CORNER(v, o === 'at'));
+			if('string' === typeof v) {
+				this.position[o] = obj[o] = new CORNER(v, o === 'at');
+			}
 		},
 		'^position.container$': function(obj, o, v){
 			this.rendered && this.tooltip.appendTo(v);
@@ -1028,7 +672,7 @@ function convertNotation(options, notation) {
 	levels = notation.split('.');
 
 	// Loop through
-	while( option = option[ levels[i++] ] ) {
+	while(option = option[ levels[i++] ]) {
 		if(i < levels.length) { obj = option; }
 	}
 
@@ -1048,7 +692,11 @@ function setCallback(notation, args) {
 	var category, rule, match;
 
 	for(category in this.checks) {
+		if (!this.checks.hasOwnProperty(category)) { continue; }
+
 		for(rule in this.checks[category]) {
+			if (!this.checks[category].hasOwnProperty(rule)) { continue; }
+
 			if(match = (new RegExp(rule, 'i')).exec(notation)) {
 				args.push(match);
 
@@ -1071,7 +719,6 @@ PROTOTYPE.set = function(option, value) {
 	var rendered = this.rendered,
 		reposition = FALSE,
 		options = this.options,
-		checks = this.checks,
 		name;
 
 	// Convert singular option/value pair into object form
@@ -1081,7 +728,7 @@ PROTOTYPE.set = function(option, value) {
 	else { option = $.extend({}, option); }
 
 	// Set all of the defined options to their new values
-	$.each(option, function(notation, value) {
+	$.each(option, function(notation, val) {
 		if(rendered && rrender.test(notation)) {
 			delete option[notation]; return;
 		}
@@ -1089,13 +736,13 @@ PROTOTYPE.set = function(option, value) {
 		// Set new obj value
 		var obj = convertNotation(options, notation.toLowerCase()), previous;
 		previous = obj[0][ obj[1] ];
-		obj[0][ obj[1] ] = value && value.nodeType ? $(value) : value;
+		obj[0][ obj[1] ] = val && val.nodeType ? $(val) : val;
 
 		// Also check if we need to reposition
 		reposition = rmove.test(notation) || reposition;
 
 		// Set the new params for the callback
-		option[notation] = [obj[0], obj[1], value, previous];
+		option[notation] = [obj[0], obj[1], val, previous];
 	});
 
 	// Re-sanitize options
@@ -1116,7 +763,7 @@ PROTOTYPE.set = function(option, value) {
 
 	return this;
 };
-;PROTOTYPE._update = function(content, element, reposition) {
+;PROTOTYPE._update = function(content, element) {
 	var self = this,
 		cache = this.cache;
 
@@ -1140,7 +787,7 @@ PROTOTYPE.set = function(option, value) {
 	}
 
 	// If content is null... return false
-	if(content === FALSE || (!content && content !== '')) { return FALSE; }
+	if(content === FALSE || !content && content !== '') { return FALSE; }
 
 	// Append new content if its a DOM array and show it if hidden
 	if(content.jquery && content.length > 0) {
@@ -1167,7 +814,7 @@ PROTOTYPE._waitForContent = function(element) {
 	cache.waiting = TRUE;
 
 	// If imagesLoaded is included, ensure images have loaded and return promise
-	return ( $.fn.imagesLoaded ? element.imagesLoaded() : $.Deferred().resolve([]) )
+	return ( $.fn.imagesLoaded ? element.imagesLoaded() : new $.Deferred().resolve([]) )
 		.done(function() { cache.waiting = FALSE; })
 		.promise();
 };
@@ -1278,7 +925,7 @@ PROTOTYPE.reposition = function(event, effect) {
 		}
 
 		// Use cached event for resize/scroll events
-		else if(!event || (event && (event.type === 'resize' || event.type === 'scroll'))) {
+		else if(!event || event && (event.type === 'resize' || event.type === 'scroll')) {
 			event = cache.event;
 		}
 
@@ -1368,16 +1015,16 @@ PROTOTYPE.reposition = function(event, effect) {
 		position = this.reposition.offset(target, position, container);
 
 		// Adjust for position.fixed tooltips (and also iOS scroll bug in v3.2-4.0 & v4.3-4.3.2)
-		if((BROWSER.iOS > 3.1 && BROWSER.iOS < 4.1) ||
-			(BROWSER.iOS >= 4.3 && BROWSER.iOS < 4.33) ||
-			(!BROWSER.iOS && type === 'fixed')
+		if(BROWSER.iOS > 3.1 && BROWSER.iOS < 4.1 ||
+			BROWSER.iOS >= 4.3 && BROWSER.iOS < 4.33 ||
+			!BROWSER.iOS && type === 'fixed'
 		){
 			position.left -= win.scrollLeft();
 			position.top -= win.scrollTop();
 		}
 
 		// Adjust position relative to target
-		if(!pluginCalculations || (pluginCalculations && pluginCalculations.adjustable !== FALSE)) {
+		if(!pluginCalculations || pluginCalculations && pluginCalculations.adjustable !== FALSE) {
 			position.left += at.x === RIGHT ? targetWidth : at.x === CENTER ? targetWidth / 2 : 0;
 			position.top += at.y === BOTTOM ? targetHeight : at.y === CENTER ? targetHeight / 2 : 0;
 		}
@@ -1406,7 +1053,8 @@ PROTOTYPE.reposition = function(event, effect) {
 
 	// Set tooltip position class if it's changed
 	if(cache.posClass !== (newClass = this._createPosClass(this.position.my))) {
-		tooltip.removeClass(cache.posClass).addClass( (cache.posClass = newClass) );
+		cache.posClass = newClass;
+		tooltip.removeClass(cache.posClass).addClass(newClass);
 	}
 
 	// tooltipmove event
@@ -1459,8 +1107,8 @@ PROTOTYPE.reposition.offset = function(elem, pos, container) {
 			}
 			else {
 				parentOffset = $(parent).position();
-				parentOffset.left += (parseFloat($.css(parent, 'borderLeftWidth')) || 0);
-				parentOffset.top += (parseFloat($.css(parent, 'borderTopWidth')) || 0);
+				parentOffset.left += parseFloat($.css(parent, 'borderLeftWidth')) || 0;
+				parentOffset.top += parseFloat($.css(parent, 'borderTopWidth')) || 0;
 			}
 
 			pos.left -= parentOffset.left + (parseFloat($.css(parent, 'marginLeft')) || 0);
@@ -1470,7 +1118,7 @@ PROTOTYPE.reposition.offset = function(elem, pos, container) {
 			if(!scrolled && (overflow = $.css(parent, 'overflow')) !== 'hidden' && overflow !== 'visible') { scrolled = $(parent); }
 		}
 	}
-	while((parent = parent.offsetParent));
+	while(parent = parent.offsetParent);
 
 	// Compensate for containers scroll if it also has an offsetParent (or in IE quirks mode)
 	if(scrolled && (scrolled[0] !== ownerDocument[0] || quirks)) {
@@ -1488,7 +1136,7 @@ var C = (CORNER = PROTOTYPE.reposition.Corner = function(corner, forceY) {
 	this.forceY = !!forceY;
 
 	var f = corner.charAt(0);
-	this.precedance = (f === 't' || f === 'b' ? Y : X);
+	this.precedance = f === 't' || f === 'b' ? Y : X;
 }).prototype;
 
 C.invert = function(z, center) {
@@ -1499,10 +1147,10 @@ C.string = function(join) {
 	var x = this.x, y = this.y;
 
 	var result = x !== y ?
-		(x === 'center' || y !== 'center' && (this.precedance === Y || this.forceY) ? 
-			[y,x] : [x,y]
-		) :
-	[x];
+		x === 'center' || y !== 'center' && (this.precedance === Y || this.forceY) ? 
+			[y,x] : 
+			[x,y] :
+		[x];
 
 	return join !== false ? result.join(' ') : result;
 };
@@ -1543,14 +1191,13 @@ PROTOTYPE.toggle = function(state, event) {
 
 	var type = state ? 'show' : 'hide',
 		opts = this.options[type],
-		otherOpts = this.options[ !state ? 'show' : 'hide' ],
 		posOptions = this.options.position,
 		contentOptions = this.options.content,
 		width = this.tooltip.css('width'),
 		visible = this.tooltip.is(':visible'),
 		animate = state || opts.target.length === 1,
 		sameTarget = !event || opts.target.length < 2 || cache.target[0] === event.target,
-		identicalState, allow, showEvent, delay, after;
+		identicalState, allow, after;
 
 	// Detect state if valid one isn't provided
 	if((typeof state).search('boolean|number')) { state = !visible; }
@@ -1596,7 +1243,7 @@ PROTOTYPE.toggle = function(state, event) {
 		// Hide other tooltips if tooltip is solo
 		if(!!opts.solo) {
 			(typeof opts.solo === 'string' ? $(opts.solo) : $(SELECTOR, opts.solo))
-				.not(tooltip).not(opts.target).qtip('hide', $.Event('tooltipsolo'));
+				.not(tooltip).not(opts.target).qtip('hide', new $.Event('tooltipsolo'));
 		}
 	}
 	else {
@@ -1681,8 +1328,7 @@ PROTOTYPE.hide = function(event) { return this.toggle(FALSE, event); };
 	var qtips = $(SELECTOR),
 		tooltip = this.tooltip,
 		curIndex = parseInt(tooltip[0].style.zIndex, 10),
-		newIndex = QTIP.zindex + qtips.length,
-		focusedElem;
+		newIndex = QTIP.zindex + qtips.length;
 
 	// Only update the z-index if it has changed and tooltip is not already focused
 	if(!tooltip.hasClass(CLASS_FOCUS)) {
@@ -1860,14 +1506,16 @@ function hideMethod(event) {
 	// Or if mouse positioning is enabled and cursor momentarily overlaps
 	if(this !== relatedTarget[0] &&
 		(this.options.position.target === 'mouse' && ontoTooltip) ||
-		(this.options.hide.fixed && (
+		this.options.hide.fixed && (
 			(/mouse(out|leave|move)/).test(event.type) && (ontoTooltip || ontoTarget))
-		))
+		)
 	{
+		/* eslint-disable no-empty */
 		try {
 			event.preventDefault();
 			event.stopImmediatePropagation();
 		} catch(e) {}
+		/* eslint-enable no-empty */
 
 		return;
 	}
@@ -1929,8 +1577,8 @@ function delegate(selector, events, method) {
 }
 // Event trigger
 PROTOTYPE._trigger = function(type, args, event) {
-	var callback = $.Event('tooltip'+type);
-	callback.originalEvent = (event && $.extend({}, event)) || this.cache.event || NULL;
+	var callback = new $.Event('tooltip'+type);
+	callback.originalEvent = event && $.extend({}, event) || this.cache.event || NULL;
 
 	this.triggering = type;
 	this.tooltip.trigger(callback, [this].concat(args || []));
@@ -1939,7 +1587,7 @@ PROTOTYPE._trigger = function(type, args, event) {
 	return !callback.isDefaultPrevented();
 };
 
-PROTOTYPE._bindEvents = function(showEvents, hideEvents, showTargets, hideTargets, showMethod, hideMethod) {
+PROTOTYPE._bindEvents = function(showEvents, hideEvents, showTargets, hideTargets, showCallback, hideCallback) {
 	// Get tasrgets that lye within both
 	var similarTargets = showTargets.filter( hideTargets ).add( hideTargets.filter(showTargets) ),
 		toggleEvents = [];
@@ -1961,7 +1609,7 @@ PROTOTYPE._bindEvents = function(showEvents, hideEvents, showTargets, hideTarget
 			// Bind toggle events to the similar targets
 			this._bind(similarTargets, toggleEvents, function(event) {
 				var state = this.rendered ? this.tooltip[0].offsetWidth > 0 : false;
-				(state ? hideMethod : showMethod).call(this, event);
+				(state ? hideCallback : showCallback).call(this, event);
 			});
 
 			// Remove the similar targets from the regular show/hide bindings
@@ -1971,8 +1619,8 @@ PROTOTYPE._bindEvents = function(showEvents, hideEvents, showTargets, hideTarget
 	}
 
 	// Apply show/hide/toggle events
-	this._bind(showTargets, showEvents, showMethod);
-	this._bind(hideTargets, hideEvents, hideMethod);
+	this._bind(showTargets, showEvents, showCallback);
+	this._bind(hideTargets, hideEvents, hideCallback);
 };
 
 PROTOTYPE._assignInitialEvents = function(event) {
@@ -1983,7 +1631,7 @@ PROTOTYPE._assignInitialEvents = function(event) {
 		hideEvents = options.hide.event ? $.trim('' + options.hide.event).split(' ') : [];
 
 	// Catch remove/removeqtip events on target element to destroy redundant tooltips
-	this._bind(this.elements.target, ['remove', 'removeqtip'], function(event) {
+	this._bind(this.elements.target, ['remove', 'removeqtip'], function() {
 		this.destroy(true);
 	}, 'destroy');
 
@@ -2000,24 +1648,24 @@ PROTOTYPE._assignInitialEvents = function(event) {
 	 * on show targets before the tooltip has rendered. Also set onTarget when triggered to
 	 * keep mouse tracking working.
 	 */
-	this._bind(showTarget, 'mousemove', function(event) {
-		this._storeMouse(event);
+	this._bind(showTarget, 'mousemove', function(moveEvent) {
+		this._storeMouse(moveEvent);
 		this.cache.onTarget = TRUE;
 	});
 
 	// Define hoverIntent function
-	function hoverIntent(event) {
+	function hoverIntent(hoverEvent) {
 		// Only continue if tooltip isn't disabled
 		if(this.disabled || this.destroyed) { return FALSE; }
 
 		// Cache the event data
-		this.cache.event = event && $.event.fix(event);
-		this.cache.target = event && $(event.target);
+		this.cache.event = hoverEvent && $.event.fix(hoverEvent);
+		this.cache.target = hoverEvent && $(hoverEvent.target);
 
 		// Start the event sequence
 		clearTimeout(this.timers.show);
 		this.timers.show = delay.call(this,
-			function() { this.render(typeof event === 'object' || options.show.ready); },
+			function() { this.render(typeof hoverEvent === 'object' || options.show.ready); },
 			options.prerender ? 0 : options.show.delay
 		);
 	}
@@ -2044,7 +1692,6 @@ PROTOTYPE._assignEvents = function() {
 		containerTarget = posOptions.container,
 		viewportTarget = posOptions.viewport,
 		documentTarget = $(document),
-		bodyTarget = $(document.body),
 		windowTarget = $(window),
 
 		showEvents = options.show.event ? $.trim('' + options.show.event).split(' ') : [],
@@ -2234,7 +1881,7 @@ function init(elem, id, opts) {
 	newTarget = elem[0] === document ? docBody : elem,
 
 	// Grab metadata from element if plugin is present
-	metadata = (elem.metadata) ? elem.metadata(opts.metadata) : NULL,
+	metadata = elem.metadata ? elem.metadata(opts.metadata) : NULL,
 
 	// If metadata type if HTML5, grab 'name' from the object instead, or use the regular data object otherwise
 	metadata5 = opts.metadata.type === 'html5' && metadata ? metadata[opts.metadata.name] : NULL,
@@ -2243,7 +1890,10 @@ function init(elem, id, opts) {
 	html5 = elem.data(opts.metadata.name || 'qtipopts');
 
 	// If we don't get an object returned attempt to parse it manualyl without parseJSON
-	try { html5 = typeof html5 === 'string' ? $.parseJSON(html5) : html5; } catch(e) {}
+	/* eslint-disable no-empty */
+	try { html5 = typeof html5 === 'string' ? $.parseJSON(html5) : html5; }
+	catch(e) {}
+	/* eslint-enable no-empty */
 
 	// Merge in and sanitize metadata
 	config = $.extend(TRUE, {}, QTIP.defaults, opts,
@@ -2316,7 +1966,7 @@ QTIP = $.fn.qtip = function(options, notation, newValue)
 		opts = this[0] ? $.data(this[0], NAMESPACE) : NULL;
 
 	// Check for API request
-	if((!arguments.length && opts) || command === 'api') {
+	if(!arguments.length && opts || command === 'api') {
 		return opts;
 	}
 
@@ -2390,7 +2040,7 @@ QTIP.api = {};
 				title = 'title',
 				api = $.data(self, 'qtip');
 
-			if(attr === title && api && 'object' === typeof api && api.options.suppress) {
+			if(attr === title && api && api.options && 'object' === typeof api && 'object' === typeof api.options && api.options.suppress) {
 				if(arguments.length < 2) {
 					return $.attr(self, oldtitle);
 				}
@@ -2410,10 +2060,8 @@ QTIP.api = {};
 
 	/* Allow clone to correctly retrieve cached title attributes */
 	clone: function(keepData) {
-		var titles = $([]), title = 'title',
-
 		// Clone our element using the real clone method
-		elems = $.fn['clone'+replaceSuffix].apply(this, arguments);
+		var elems = $.fn['clone'+replaceSuffix].apply(this, arguments);
 
 		// Grab all elements with an oldtitle set, and change it to regular title attribute, if keepData is false
 		if(!keepData) {
@@ -2443,15 +2091,17 @@ if(!$.ui) {
 	$.cleanData = function( elems ) {
 		for(var i = 0, elem; (elem = $( elems[i] )).length; i++) {
 			if(elem.attr(ATTR_HAS)) {
+				/* eslint-disable no-empty */
 				try { elem.triggerHandler('removeqtip'); }
 				catch( e ) {}
+				/* eslint-enable no-empty */
 			}
 		}
 		$['cleanData'+replaceSuffix].apply(this, arguments);
 	};
 }
 ;// qTip version
-QTIP.version = '2.2.1';
+QTIP.version = '3.0.3';
 
 // Base ID for all qTips
 QTIP.nextid = 0;
@@ -2487,7 +2137,7 @@ QTIP.defaults = {
 			resize: TRUE,
 			method: 'flipinvert flipinvert'
 		},
-		effect: function(api, pos, viewport) {
+		effect: function(api, pos) {
 			$(this).animate(pos, {
 				duration: 200,
 				queue: FALSE
@@ -2533,9 +2183,10 @@ QTIP.defaults = {
 	}
 };
 ;var TIP,
-
-// .bind()/.on() namespace
-TIPNS = '.qtip-tip',
+createVML,
+SCALE,
+PIXEL_RATIO,
+BACKING_STORE_RATIO,
 
 // Common CSS strings
 MARGIN = 'margin',
@@ -2559,7 +2210,7 @@ function camel(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
  * Modified from Modernizr's testPropsAll()
  * http://modernizr.com/downloads/modernizr-latest.js
  */
-var cssProps = {}, cssPrefixes = ["Webkit", "O", "Moz", "ms"];
+var cssProps = {}, cssPrefixes = ['Webkit', 'O', 'Moz', 'ms'];
 function vendorCss(elem, prop) {
 	var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
 		props = (prop + ' ' + cssPrefixes.join(ucProp + ' ') + ucProp).split(' '),
@@ -2568,9 +2219,10 @@ function vendorCss(elem, prop) {
 	// If the property has already been mapped...
 	if(cssProps[prop]) { return elem.css(cssProps[prop]); }
 
-	while((cur = props[i++])) {
+	while(cur = props[i++]) {
 		if((val = elem.css(cur)) !== undefined) {
-			return cssProps[prop] = cur, val;
+			cssProps[prop] = cur;
+			return val;
 		}
 	}
 }
@@ -2583,7 +2235,7 @@ function intCss(elem, prop) {
 
 // VML creation (for IE only)
 if(!HASCANVAS) {
-	var createVML = function(tag, props, style) {
+	createVML = function(tag, props, style) {
 		return '<qtipvml:'+tag+' xmlns="urn:schemas-microsoft.com:vml" class="qtip-vml" '+(props||'')+
 			' style="behavior: url(#default#VML); '+(style||'')+ '" />';
 	};
@@ -2591,13 +2243,13 @@ if(!HASCANVAS) {
 
 // Canvas only definitions
 else {
-	var PIXEL_RATIO = window.devicePixelRatio || 1,
-		BACKING_STORE_RATIO = (function() {
-			var context = document.createElement('canvas').getContext('2d');
-			return context.backingStorePixelRatio || context.webkitBackingStorePixelRatio || context.mozBackingStorePixelRatio ||
-					context.msBackingStorePixelRatio || context.oBackingStorePixelRatio || 1;
-		}()),
-		SCALE = PIXEL_RATIO / BACKING_STORE_RATIO;
+	PIXEL_RATIO = window.devicePixelRatio || 1;
+	BACKING_STORE_RATIO = (function() {
+		var context = document.createElement('canvas').getContext('2d');
+		return context.backingStorePixelRatio || context.webkitBackingStorePixelRatio || context.mozBackingStorePixelRatio ||
+				context.msBackingStorePixelRatio || context.oBackingStorePixelRatio || 1;
+	})();
+	SCALE = PIXEL_RATIO / BACKING_STORE_RATIO;
 }
 
 
@@ -2608,7 +2260,8 @@ function Tip(qtip, options) {
 	this.size = [ options.width, options.height ];
 
 	// Initialize
-	this.init( (this.qtip = qtip) );
+	this.qtip = qtip;
+	this.init(qtip);
 }
 
 $.extend(Tip.prototype, {
@@ -2655,7 +2308,7 @@ $.extend(Tip.prototype, {
 	_useTitle: function(corner) {
 		var titlebar = this.qtip.elements.titlebar;
 		return titlebar && (
-			corner.y === TOP || (corner.y === CENTER && this.element.position().top + (this.size[1] / 2) + this.options.offset < titlebar.outerHeight(TRUE))
+			corner.y === TOP || corner.y === CENTER && this.element.position().top + this.size[1] / 2 + this.options.offset < titlebar.outerHeight(TRUE)
 		);
 	},
 
@@ -2681,11 +2334,11 @@ $.extend(Tip.prototype, {
 		var elements = this.qtip.elements,
 			prop = BORDER + camel(side) + 'Width';
 
-		return (use ? intCss(use, prop) : (
+		return (use ? intCss(use, prop) : 
 			intCss(elements.content, prop) ||
 			intCss(this._useTitle(corner) && elements.titlebar || elements.content, prop) ||
 			intCss(elements.tooltip, prop)
-		)) || 0;
+		) || 0;
 	},
 
 	_parseRadius: function(corner) {
@@ -2699,7 +2352,7 @@ $.extend(Tip.prototype, {
 
 	_invalidColour: function(elem, prop, compare) {
 		var val = elem.css(prop);
-		return !val || (compare && val === elem.css(compare)) || INVALID.test(val) ? FALSE : val;
+		return !val || compare && val === elem.css(compare) || INVALID.test(val) ? FALSE : val;
 	},
 
 	_parseColours: function(corner) {
@@ -2725,8 +2378,8 @@ $.extend(Tip.prototype, {
 
 	_calculateSize: function(corner) {
 		var y = corner.precedance === Y,
-			width = this.options['width'],
-			height = this.options['height'],
+			width = this.options.width,
+			height = this.options.height,
 			isCenter = corner.abbrev() === 'c',
 			base = (y ? width: height) * (isCenter ? 0.5 : 1),
 			pow = Math.pow,
@@ -2734,7 +2387,10 @@ $.extend(Tip.prototype, {
 			bigHyp, ratio, result,
 
 		smallHyp = Math.sqrt( pow(base, 2) + pow(height, 2) ),
-		hyp = [ (this.border / base) * smallHyp, (this.border / height) * smallHyp ];
+		hyp = [
+			this.border / base * smallHyp,
+			this.border / height * smallHyp
+		];
 
 		hyp[2] = Math.sqrt( pow(hyp[0], 2) - pow(this.border, 2) );
 		hyp[3] = Math.sqrt( pow(hyp[1], 2) - pow(this.border, 2) );
@@ -2788,7 +2444,8 @@ $.extend(Tip.prototype, {
 		var c = this.corner = (HASCANVAS || BROWSER.ie) && this._parseCorner(this.options.corner);
 
 		// If we have a tip corner...
-		if( (this.enabled = !!this.corner && this.corner.abbrev() !== 'c') ) {
+		this.enabled = !!this.corner && this.corner.abbrev() !== 'c';
+		if(this.enabled) {
 			// Cache it
 			this.qtip.cache.corner = c.clone();
 
@@ -2813,7 +2470,7 @@ $.extend(Tip.prototype, {
 			mimic = options.mimic,
 			round = Math.round,
 			color, precedance, context,
-			coords, bigCoords, translate, newSize, border, BACKING_STORE_RATIO;
+			coords, bigCoords, translate, newSize, border;
 
 		// Re-determine tip if not already set
 		if(!corner) { corner = this.qtip.cache.corner || this.corner; }
@@ -2920,10 +2577,10 @@ $.extend(Tip.prototype, {
 
 			// Set initial CSS
 			inner.css({
-				coordsize: (newSize[0]+border) + ' ' + (newSize[1]+border),
+				coordsize: newSize[0]+border + ' ' + newSize[1]+border,
 				antialias: ''+(mimic.string().indexOf(CENTER) > -1),
-				left: translate[0] - (translate[2] * Number(precedance === X)),
-				top: translate[1] - (translate[2] * Number(precedance === Y)),
+				left: translate[0] - translate[2] * Number(precedance === X),
+				top: translate[1] - translate[2] * Number(precedance === Y),
 				width: newSize[0] + border,
 				height: newSize[1] + border
 			})
@@ -2932,7 +2589,7 @@ $.extend(Tip.prototype, {
 
 				// Set shape specific attributes
 				$this[ $this.prop ? 'prop' : 'attr' ]({
-					coordsize: (newSize[0]+border) + ' ' + (newSize[1]+border),
+					coordsize: newSize[0]+border + ' ' + newSize[1]+border,
 					path: coords,
 					fillcolor: color[0],
 					filled: !!i,
@@ -2942,7 +2599,7 @@ $.extend(Tip.prototype, {
 
 				// Check if border is enabled and add stroke element
 				!i && $this.html( createVML(
-					'stroke', 'weight="'+(border*2)+'px" color="'+color[1]+'" miterlimit="1000" joinstyle="miter"'
+					'stroke', 'weight="'+border*2+'px" color="'+color[1]+'" miterlimit="1000" joinstyle="miter"'
 				) );
 			});
 		}
@@ -2967,8 +2624,7 @@ $.extend(Tip.prototype, {
 			elements = this.qtip.elements,
 			tip = this.element,
 			userOffset = this.options.offset,
-			isWidget = elements.tooltip.hasClass('ui-widget'),
-			position = {  },
+			position = {},
 			precedance, corners;
 
 		// Inherit corner if not provided
@@ -2996,7 +2652,7 @@ $.extend(Tip.prototype, {
 				bc = self._parseWidth(corner, side, elements.content);
 				br = self._parseRadius(corner);
 
-				position[ side ] = Math.max(-self.border, i ? bc : (userOffset + (br > b ? br : -b)));
+				position[ side ] = Math.max(-self.border, i ? bc : userOffset + (br > b ? br : -b));
 			}
 		});
 
@@ -3008,7 +2664,7 @@ $.extend(Tip.prototype, {
 		return position;
 	},
 
-	reposition: function(event, api, pos, viewport) {
+	reposition: function(event, api, pos) {
 		if(!this.enabled) { return; }
 
 		var cache = api.cache,
@@ -3027,7 +2683,8 @@ $.extend(Tip.prototype, {
 			}
 			else if(direction !== SHIFT && adjust[side]){
 				newCorner[precedance] = newCorner[precedance] === CENTER ?
-					(adjust[side] > 0 ? side : opposite) : (newCorner[precedance] === side ? opposite : side);
+					adjust[side] > 0 ? side : opposite :
+					newCorner[precedance] === side ? opposite : side;
 			}
 		}
 
@@ -3069,8 +2726,14 @@ $.extend(Tip.prototype, {
 		offset.user = this.offset;
 
 		// Perform shift adjustments
-		if(shift.left = (horizontal === SHIFT && !!adjust.left)) { shiftonly(X, LEFT, RIGHT); }
-		if(shift.top = (vertical === SHIFT && !!adjust.top)) { shiftonly(Y, TOP, BOTTOM); }
+		shift.left = horizontal === SHIFT && !!adjust.left;
+		if(shift.left) {
+			shiftonly(X, LEFT, RIGHT);
+		}
+		shift.top = vertical === SHIFT && !!adjust.top;
+		if(shift.top) {
+			shiftonly(Y, TOP, BOTTOM);
+		}
 
 		/*
 		* If the tip is adjusted in both dimensions, or in a
@@ -3078,7 +2741,7 @@ $.extend(Tip.prototype, {
 		* outer border, hide it!
 		*/
 		this.element.css(css).toggle(
-			!((shift.x && shift.y) || (newCorner.x === CENTER && shift.y) || (newCorner.y === CENTER && shift.x))
+			!(shift.x && shift.y || newCorner.x === CENTER && shift.y || newCorner.y === CENTER && shift.x)
 		);
 
 		// Adjust position to accomodate tip dimensions
@@ -3163,8 +2826,9 @@ OVERLAY = function()
 {
 	var self = this,
 		focusableElems = {},
-		current, onLast,
-		prevState, elem;
+		current,
+		prevState,
+		elem;
 
 	// Modified code from jQuery UI 1.10.0 source
 	// http://code.jquery.com/ui/1.10.0/jquery-ui.js
@@ -3185,12 +2849,13 @@ OVERLAY = function()
 			img = $('img[usemap=#' + mapName + ']')[0];
 			return !!img && img.is(':visible');
 		}
-		return (/input|select|textarea|button|object/.test( nodeName ) ?
-				!element.disabled :
-				'a' === nodeName ?
-					element.href || isTabIndexNotNaN :
-					isTabIndexNotNaN
-			);
+
+		return /input|select|textarea|button|object/.test( nodeName ) ?
+			!element.disabled :
+			'a' === nodeName ?
+				element.href || isTabIndexNotNaN :
+				isTabIndexNotNaN
+		;
 	}
 
 	// Focus inputs using cached focusable elements (see update())
@@ -3213,7 +2878,7 @@ OVERLAY = function()
 
 		// Determine if input container target is above this
 		targetOnTop = container.length < 1 ? FALSE :
-			(parseInt(container[0].style.zIndex, 10) > parseInt(tooltip[0].style.zIndex, 10));
+			parseInt(container[0].style.zIndex, 10) > parseInt(tooltip[0].style.zIndex, 10);
 
 		// If we're showing a modal, but focus has landed on an input below
 		// this modal, divert focus to the first visible input in this modal
@@ -3221,9 +2886,6 @@ OVERLAY = function()
 		if(!targetOnTop && target.closest(SELECTOR)[0] !== tooltip[0]) {
 			focusInputs(target);
 		}
-
-		// Detect when we leave the last focusable element...
-		onLast = event.target === focusableElems[focusableElems.length - 1];
 	}
 
 	$.extend(self, {
@@ -3270,14 +2932,12 @@ OVERLAY = function()
 		},
 
 		toggle: function(api, state, duration) {
-			var docBody = $(document.body),
-				tooltip = api.tooltip,
+			var tooltip = api.tooltip,
 				options = api.options.show.modal,
 				effect = options.effect,
 				type = state ? 'show': 'hide',
 				visible = elem.is(':visible'),
-				visibleModals = $(MODALSELECTOR).filter(':visible:not(:animated)').not(tooltip),
-				zindex;
+				visibleModals = $(MODALSELECTOR).filter(':visible:not(:animated)').not(tooltip);
 
 			// Set active tooltip API reference
 			self.update(api);
@@ -3297,7 +2957,7 @@ OVERLAY = function()
 			}
 
 			// Prevent modal from conflicting with show.solo, and don't hide backdrop is other modals are visible
-			if((elem.is(':animated') && visible === state && prevState !== FALSE) || (!state && visibleModals.length)) {
+			if(elem.is(':animated') && visible === state && prevState !== FALSE || !state && visibleModals.length) {
 				return self;
 			}
 
@@ -3348,7 +3008,8 @@ function Modal(api, options) {
 	this.options = options;
 	this._ns = '-modal';
 
-	this.init( (this.qtip = api) );
+	this.qtip = api;
+	this.init(api);
 }
 
 $.extend(Modal.prototype, {
@@ -3371,9 +3032,12 @@ $.extend(Modal.prototype, {
 			// Make sure mouseout doesn't trigger a hide when showing the modal and mousing onto backdrop
 			if(event.target === tooltip[0]) {
 				if(oEvent && event.type === 'tooltiphide' && /mouse(leave|enter)/.test(oEvent.type) && $(oEvent.relatedTarget).closest(OVERLAY.elem[0]).length) {
-					try { event.preventDefault(); } catch(e) {}
+					/* eslint-disable no-empty */
+					try { event.preventDefault(); }
+					catch(e) {}
+					/* eslint-enable no-empty */
 				}
-				else if(!oEvent || (oEvent && oEvent.type !== 'tooltipsolo')) {
+				else if(!oEvent || oEvent && oEvent.type !== 'tooltipsolo') {
 					this.toggle(event, event.type === 'tooltipshow', duration);
 				}
 			}
@@ -3410,7 +3074,10 @@ $.extend(Modal.prototype, {
 			OVERLAY.update(api);
 
 			// Prevent default handling
-			try { event.preventDefault(); } catch(e) {}
+			/* eslint-disable no-empty */
+			try { event.preventDefault(); }
+			catch(e) {}
+			/* eslint-enable no-empty */
 		}, this._ns, this);
 
 		// Focus any other visible modals when this one hides
@@ -3456,7 +3123,9 @@ MODAL.sanitize = function(opts) {
 };
 
 // Base z-index for all modal tooltips (use qTip core z-index as a base)
+/* eslint-disable camelcase */
 QTIP.modal_zindex = QTIP.zindex - 200;
+/* eslint-enable camelcase */
 
 // Plugin needs to be initialized on render
 MODAL.initialize = 'render';
@@ -3499,7 +3168,6 @@ $.extend(TRUE, QTIP.defaults, {
 		methodY = method[1] || method[0],
 		viewport = posOptions.viewport,
 		container = posOptions.container,
-		cache = api.cache,
 		adjusted = { left: 0, top: 0 },
 		fixed, newMy, containerOffset, containerStatic,
 		viewportWidth, viewportHeight, viewportScroll, viewportOffset;
@@ -3518,10 +3186,10 @@ $.extend(TRUE, QTIP.defaults, {
 	viewportWidth = viewport[0] === window ? viewport.width() : viewport.outerWidth(FALSE);
 	viewportHeight = viewport[0] === window ? viewport.height() : viewport.outerHeight(FALSE);
 	viewportScroll = { left: fixed ? 0 : viewport.scrollLeft(), top: fixed ? 0 : viewport.scrollTop() };
-	viewportOffset = viewport.offset() || adjusted;
+	viewportOffset = viewport[0] !== window && viewport.offset() || adjusted;
 
 	// Generic calculation method
-	function calculate(side, otherSide, type, adjust, side1, side2, lengthName, targetLength, elemLength) {
+	function calculate(side, otherSide, type, adjustment, side1, side2, lengthName, targetLength, elemLength) {
 		var initialPos = position[side1],
 			mySide = my[side],
 			atSide = at[side],
@@ -3559,22 +3227,22 @@ $.extend(TRUE, QTIP.defaults, {
 		// flip/flipinvert
 		else {
 			// Update adjustment amount depending on if using flipinvert or flip
-			adjust *= (type === FLIPINVERT ? 2 : 0);
+			adjustment *= type === FLIPINVERT ? 2 : 0;
 
 			// Check for overflow on the left/top
 			if(overflow1 > 0 && (mySide !== side1 || overflow2 > 0)) {
-				position[side1] -= offset + adjust;
+				position[side1] -= offset + adjustment;
 				newMy.invert(side, side1);
 			}
 
 			// Check for overflow on the bottom/right
 			else if(overflow2 > 0 && (mySide !== side2 || overflow1 > 0)  ) {
-				position[side1] -= (mySide === CENTER ? -offset : offset) + adjust;
+				position[side1] -= (mySide === CENTER ? -offset : offset) + adjustment;
 				newMy.invert(side, side2);
 			}
 
 			// Make sure we haven't made things worse with the adjustment and reset if so
-			if(position[side1] < viewportScroll && -position[side1] > overflow2) {
+			if(position[side1] < viewportScroll[side1] && -position[side1] > overflow2) {
 				position[side1] = initialPos; newMy = my.clone();
 			}
 		}
@@ -3614,7 +3282,8 @@ $.extend(TRUE, QTIP.defaults, {
 		newWidth, newHeight;
 
 		// First pass, sanitize coords and determine outer edges
-		i = baseCoords.length; while(i--) {
+		i = baseCoords.length; 
+		while(i--) {
 			next = [ parseInt(baseCoords[--i], 10), parseInt(baseCoords[i+1], 10) ];
 
 			if(next[0] > result.position.right){ result.position.right = next[0]; }
@@ -3632,8 +3301,8 @@ $.extend(TRUE, QTIP.defaults, {
 		// If it's the center corner...
 		if(corner.abbrev() === 'c') {
 			result.position = {
-				left: result.position.left + (result.width / 2),
-				top: result.position.top + (result.height / 2)
+				left: result.position.left + result.width / 2,
+				top: result.position.top + result.height / 2
 			};
 		}
 		else {
@@ -3651,19 +3320,21 @@ $.extend(TRUE, QTIP.defaults, {
 				else if(corner.y === BOTTOM){ compareY = result.height - newHeight; }
 				else{ compareY += Math.floor(newHeight / 2); }
 
-				i = coords.length; while(i--)
+				i = coords.length;
+				while(i--)
 				{
 					if(coords.length < 2){ break; }
 
 					realX = coords[i][0] - result.position.left;
 					realY = coords[i][1] - result.position.top;
 
-					if((corner.x === LEFT && realX >= compareX) ||
-					(corner.x === RIGHT && realX <= compareX) ||
-					(corner.x === CENTER && (realX < compareX || realX > (result.width - compareX))) ||
-					(corner.y === TOP && realY >= compareY) ||
-					(corner.y === BOTTOM && realY <= compareY) ||
-					(corner.y === CENTER && (realY < compareY || realY > (result.height - compareY)))) {
+					if(
+						corner.x === LEFT && realX >= compareX ||
+						corner.x === RIGHT && realX <= compareX ||
+						corner.x === CENTER && (realX < compareX || realX > result.width - compareX) ||
+						corner.y === TOP && realY >= compareY ||
+						corner.y === BOTTOM && realY <= compareY ||
+						corner.y === CENTER && (realY < compareY || realY > result.height - compareY)) {
 						coords.splice(i, 1);
 					}
 				}
@@ -3696,8 +3367,8 @@ $.extend(TRUE, QTIP.defaults, {
 			rys = ry * Math.sin( c * Math.PI );
 
 		return {
-			width: (rx * 2) - Math.abs(rxc),
-			height: (ry * 2) - Math.abs(rys),
+			width: rx * 2 - Math.abs(rxc),
+			height: ry * 2 - Math.abs(rys),
 			position: {
 				left: cx + rxc,
 				top: cy + rys
@@ -3711,14 +3382,13 @@ $.extend(TRUE, QTIP.defaults, {
 };
 ;PLUGINS.svg = function(api, svg, corner)
 {
-	var doc = $(document),
-		elem = svg[0],
+	var elem = svg[0],
 		root = $(elem.ownerSVGElement),
 		ownerDocument = elem.ownerDocument,
 		strokeWidth2 = (parseInt(svg.css('stroke-width'), 10) || 0) / 2,
-		frameOffset, mtx, transformed, viewBox,
+		frameOffset, mtx, transformed,
 		len, next, i, points,
-		result, position, dimensions;
+		result, position;
 
 	// Ascend the parentNode chain until we find an element with getBBox()
 	while(!elem.getBBox) { elem = elem.parentNode; }
@@ -3800,7 +3470,7 @@ $.extend(TRUE, QTIP.defaults, {
 
 	return result;
 };
-;PLUGINS.imagemap = function(api, area, corner, adjustMethod)
+;PLUGINS.imagemap = function(api, area, corner)
 {
 	if(!area.jquery) { area = $(area); }
 
@@ -3808,7 +3478,7 @@ $.extend(TRUE, QTIP.defaults, {
 		image = $('img[usemap="#'+area.parent('map').attr('name')+'"]'),
 		coordsString = $.trim(area.attr('coords')),
 		coordsArray = coordsString.replace(/,$/, '').split(','),
-		imageOffset, coords, i, next, result, len;
+		imageOffset, coords, i, result, len;
 
 	// If we can't find the image using the map...
 	if(!image.length) { return FALSE; }
@@ -3853,9 +3523,11 @@ BGIFRAME = '<iframe class="qtip-bgiframe" frameborder="0" tabindex="-1" src="jav
 	' style="display:block; position:absolute; z-index:-1; filter:alpha(opacity=0); ' +
 		'-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";"></iframe>';
 
-function Ie6(api, qtip) {
+function Ie6(api) {
 	this._ns = 'ie6';
-	this.init( (this.qtip = api) );
+
+	this.qtip = api;
+	this.init(api);
 }
 
 $.extend(Ie6.prototype, {
@@ -3865,8 +3537,7 @@ $.extend(Ie6.prototype, {
 	},
 
 	init: function(qtip) {
-		var tooltip = qtip.tooltip,
-			scroll;
+		var tooltip = qtip.tooltip;
 
 		// Create the BGIFrame element if needed
 		if($('select, object').length < 1) {
@@ -3906,7 +3577,7 @@ $.extend(Ie6.prototype, {
 
 		// Adjust for tips plugin
 		if(plugin && tip) {
-			tipAdjust = (plugin.corner.precedance === 'x') ? [WIDTH, LEFT] : [HEIGHT, TOP];
+			tipAdjust = plugin.corner.precedance === 'x' ? [WIDTH, LEFT] : [HEIGHT, TOP];
 			offset[ tipAdjust[1] ] -= tip[ tipAdjust[0] ]();
 		}
 
@@ -3945,8 +3616,8 @@ $.extend(Ie6.prototype, {
 
 			// Parse into proper pixel values
 			perc = (max + min).indexOf('%') > -1 ? container.width() / 100 : 0;
-		max = ((max.indexOf('%') > -1 ? perc : 1) * parseInt(max, 10)) || width;
-			min = ((min.indexOf('%') > -1 ? perc : 1) * parseInt(min, 10)) || 0;
+			max = (max.indexOf('%') > -1 ? perc : 1 * parseInt(max, 10)) || width;
+			min = (min.indexOf('%') > -1 ? perc : 1 * parseInt(min, 10)) || 0;
 
 			// Determine new dimension size based on max/min/current values
 			width = max + min ? Math.min(Math.max(width, min), max) : width;
@@ -3986,1114 +3657,959 @@ CHECKS.ie6 = {
 }( window, document ));
 
 /*!
-* ZeroClipboard
-* The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.
-* Copyright (c) 2014 Jon Rohan, James M. Greene
-* Licensed MIT
-* http://zeroclipboard.org/
-* v1.3.5
-*/
-(function (window) {
-    "use strict";
-    var currentElement;
-    var flashState = {
-        bridge: null,
-        version: "0.0.0",
-        disabled: null,
-        outdated: null,
-        ready: null
-    };
-    var _clipData = {};
-    var clientIdCounter = 0;
-    var _clientMeta = {};
-    var elementIdCounter = 0;
-    var _elementMeta = {};
-    var _amdModuleId = null;
-    var _cjsModuleId = null;
-    var _swfPath = function () {
-        var i, jsDir, tmpJsPath, jsPath, swfPath = "../ZeroClipboard.swf";
-        if (document.currentScript && (jsPath = document.currentScript.src)) { } else {
-            var scripts = document.getElementsByTagName("script");
-            if ("readyState" in scripts[0]) {
-                for (i = scripts.length; i--;) {
-                    if (scripts[i].readyState === "interactive" && (jsPath = scripts[i].src)) {
-                        break;
-                    }
-                }
-            } else if (document.readyState === "loading") {
-                jsPath = scripts[scripts.length - 1].src;
-            } else {
-                for (i = scripts.length; i--;) {
-                    tmpJsPath = scripts[i].src;
-                    if (!tmpJsPath) {
-                        jsDir = null;
-                        break;
-                    }
-                    tmpJsPath = tmpJsPath.split("#")[0].split("?")[0];
-                    tmpJsPath = tmpJsPath.slice(0, tmpJsPath.lastIndexOf("/") + 1);
-                    if (jsDir == null) {
-                        jsDir = tmpJsPath;
-                    } else if (jsDir !== tmpJsPath) {
-                        jsDir = null;
-                        break;
-                    }
-                }
-                if (jsDir !== null) {
-                    jsPath = jsDir;
-                }
-            }
-        }
-        if (jsPath) {
-            jsPath = jsPath.split("#")[0].split("?")[0];
-            swfPath = jsPath.slice(0, jsPath.lastIndexOf("/") + 1) + swfPath;
-        }
-        return swfPath;
-    }();
-    var _camelizeCssPropName = function () {
-        var matcherRegex = /\-([a-z])/g, replacerFn = function (match, group) {
-            return group.toUpperCase();
-        };
-        return function (prop) {
-            return prop.replace(matcherRegex, replacerFn);
-        };
-    }();
-    var _getStyle = function (el, prop) {
-        var value, camelProp, tagName, possiblePointers, i, len;
-        if (window.getComputedStyle) {
-            value = window.getComputedStyle(el, null).getPropertyValue(prop);
-        } else {
-            camelProp = _camelizeCssPropName(prop);
-            if (el.currentStyle) {
-                value = el.currentStyle[camelProp];
-            } else {
-                value = el.style[camelProp];
-            }
-        }
-        if (prop === "cursor") {
-            if (!value || value === "auto") {
-                tagName = el.tagName.toLowerCase();
-                if (tagName === "a") {
-                    return "pointer";
-                }
-            }
-        }
-        return value;
-    };
-    var _elementMouseOver = function (event) {
-        if (!event) {
-            event = window.event;
-        }
-        var target;
-        if (this !== window) {
-            target = this;
-        } else if (event.target) {
-            target = event.target;
-        } else if (event.srcElement) {
-            target = event.srcElement;
-        }
-        ZeroClipboard.activate(target);
-    };
-    var _addEventHandler = function (element, method, func) {
-        if (!element || element.nodeType !== 1) {
-            return;
-        }
-        if (element.addEventListener) {
-            element.addEventListener(method, func, false);
-        } else if (element.attachEvent) {
-            element.attachEvent("on" + method, func);
-        }
-    };
-    var _removeEventHandler = function (element, method, func) {
-        if (!element || element.nodeType !== 1) {
-            return;
-        }
-        if (element.removeEventListener) {
-            element.removeEventListener(method, func, false);
-        } else if (element.detachEvent) {
-            element.detachEvent("on" + method, func);
-        }
-    };
-    var _addClass = function (element, value) {
-        if (!element || element.nodeType !== 1) {
-            return element;
-        }
-        if (element.classList) {
-            if (!element.classList.contains(value)) {
-                element.classList.add(value);
-            }
-            return element;
-        }
-        if (value && typeof value === "string") {
-            var classNames = (value || "").split(/\s+/);
-            if (element.nodeType === 1) {
-                if (!element.className) {
-                    element.className = value;
-                } else {
-                    var className = " " + element.className + " ", setClass = element.className;
-                    for (var c = 0, cl = classNames.length; c < cl; c++) {
-                        if (className.indexOf(" " + classNames[c] + " ") < 0) {
-                            setClass += " " + classNames[c];
-                        }
-                    }
-                    element.className = setClass.replace(/^\s+|\s+$/g, "");
-                }
-            }
-        }
-        return element;
-    };
-    var _removeClass = function (element, value) {
-        if (!element || element.nodeType !== 1) {
-            return element;
-        }
-        if (element.classList) {
-            if (element.classList.contains(value)) {
-                element.classList.remove(value);
-            }
-            return element;
-        }
-        if (value && typeof value === "string" || value === undefined) {
-            var classNames = (value || "").split(/\s+/);
-            if (element.nodeType === 1 && element.className) {
-                if (value) {
-                    var className = (" " + element.className + " ").replace(/[\n\t]/g, " ");
-                    for (var c = 0, cl = classNames.length; c < cl; c++) {
-                        className = className.replace(" " + classNames[c] + " ", " ");
-                    }
-                    element.className = className.replace(/^\s+|\s+$/g, "");
-                } else {
-                    element.className = "";
-                }
-            }
-        }
-        return element;
-    };
-    var _getZoomFactor = function () {
-        var rect, physicalWidth, logicalWidth, zoomFactor = 1;
-        if (typeof document.body.getBoundingClientRect === "function") {
-            rect = document.body.getBoundingClientRect();
-            physicalWidth = rect.right - rect.left;
-            logicalWidth = document.body.offsetWidth;
-            zoomFactor = Math.round(physicalWidth / logicalWidth * 100) / 100;
-        }
-        return zoomFactor;
-    };
-    var _getDOMObjectPosition = function (obj, defaultZIndex) {
-        var info = {
-            left: 0,
-            top: 0,
-            width: 0,
-            height: 0,
-            zIndex: _getSafeZIndex(defaultZIndex) - 1
-        };
-        if (obj.getBoundingClientRect) {
-            var rect = obj.getBoundingClientRect();
-            var pageXOffset, pageYOffset, zoomFactor;
-            if ("pageXOffset" in window && "pageYOffset" in window) {
-                pageXOffset = window.pageXOffset;
-                pageYOffset = window.pageYOffset;
-            } else {
-                zoomFactor = _getZoomFactor();
-                pageXOffset = Math.round(document.documentElement.scrollLeft / zoomFactor);
-                pageYOffset = Math.round(document.documentElement.scrollTop / zoomFactor);
-            }
-            var leftBorderWidth = document.documentElement.clientLeft || 0;
-            var topBorderWidth = document.documentElement.clientTop || 0;
-            info.left = rect.left + pageXOffset - leftBorderWidth;
-            info.top = rect.top + pageYOffset - topBorderWidth;
-            info.width = "width" in rect ? rect.width : rect.right - rect.left;
-            info.height = "height" in rect ? rect.height : rect.bottom - rect.top;
-        }
-        return info;
-    };
-    var _cacheBust = function (path, options) {
-        var cacheBust = options == null || options && options.cacheBust === true && options.useNoCache === true;
-        if (cacheBust) {
-            return (path.indexOf("?") === -1 ? "?" : "&") + "noCache=" + new Date().getTime();
-        } else {
-            return "";
-        }
-    };
-    var _vars = function (options) {
-        var i, len, domain, str = [], domains = [], trustedOriginsExpanded = [];
-        if (options.trustedOrigins) {
-            if (typeof options.trustedOrigins === "string") {
-                domains.push(options.trustedOrigins);
-            } else if (typeof options.trustedOrigins === "object" && "length" in options.trustedOrigins) {
-                domains = domains.concat(options.trustedOrigins);
-            }
-        }
-        if (options.trustedDomains) {
-            if (typeof options.trustedDomains === "string") {
-                domains.push(options.trustedDomains);
-            } else if (typeof options.trustedDomains === "object" && "length" in options.trustedDomains) {
-                domains = domains.concat(options.trustedDomains);
-            }
-        }
-        if (domains.length) {
-            for (i = 0, len = domains.length; i < len; i++) {
-                if (domains.hasOwnProperty(i) && domains[i] && typeof domains[i] === "string") {
-                    domain = _extractDomain(domains[i]);
-                    if (!domain) {
-                        continue;
-                    }
-                    if (domain === "*") {
-                        trustedOriginsExpanded = [domain];
-                        break;
-                    }
-                    trustedOriginsExpanded.push.apply(trustedOriginsExpanded, [domain, "//" + domain, window.location.protocol + "//" + domain]);
-                }
-            }
-        }
-        if (trustedOriginsExpanded.length) {
-            str.push("trustedOrigins=" + encodeURIComponent(trustedOriginsExpanded.join(",")));
-        }
-        if (typeof options.jsModuleId === "string" && options.jsModuleId) {
-            str.push("jsModuleId=" + encodeURIComponent(options.jsModuleId));
-        }
-        return str.join("&");
-    };
-    var _inArray = function (elem, array, fromIndex) {
-        if (typeof array.indexOf === "function") {
-            return array.indexOf(elem, fromIndex);
-        }
-        var i, len = array.length;
-        if (typeof fromIndex === "undefined") {
-            fromIndex = 0;
-        } else if (fromIndex < 0) {
-            fromIndex = len + fromIndex;
-        }
-        for (i = fromIndex; i < len; i++) {
-            if (array.hasOwnProperty(i) && array[i] === elem) {
-                return i;
-            }
-        }
-        return -1;
-    };
-    var _prepClip = function (elements) {
-        if (typeof elements === "string") throw new TypeError("ZeroClipboard doesn't accept query strings.");
-        if (!elements.length) return [elements];
-        return elements;
-    };
-    var _dispatchCallback = function (func, context, args, async) {
-        if (async) {
-            window.setTimeout(function () {
-                func.apply(context, args);
-            }, 0);
-        } else {
-            func.apply(context, args);
-        }
-    };
-    var _getSafeZIndex = function (val) {
-        var zIndex, tmp;
-        if (val) {
-            if (typeof val === "number" && val > 0) {
-                zIndex = val;
-            } else if (typeof val === "string" && (tmp = parseInt(val, 10)) && !isNaN(tmp) && tmp > 0) {
-                zIndex = tmp;
-            }
-        }
-        if (!zIndex) {
-            if (typeof _globalConfig.zIndex === "number" && _globalConfig.zIndex > 0) {
-                zIndex = _globalConfig.zIndex;
-            } else if (typeof _globalConfig.zIndex === "string" && (tmp = parseInt(_globalConfig.zIndex, 10)) && !isNaN(tmp) && tmp > 0) {
-                zIndex = tmp;
-            }
-        }
-        return zIndex || 0;
-    };
-    var _deprecationWarning = function (deprecatedApiName, debugEnabled) {
-        if (deprecatedApiName && debugEnabled !== false && typeof console !== "undefined" && console && (console.warn || console.log)) {
-            var deprecationWarning = "`" + deprecatedApiName + "` is deprecated. See docs for more info:\n" + "    https://github.com/zeroclipboard/zeroclipboard/blob/master/docs/instructions.md#deprecations";
-            if (console.warn) {
-                console.warn(deprecationWarning);
-            } else {
-                console.log(deprecationWarning);
-            }
-        }
-    };
-    var _extend = function () {
-        var i, len, arg, prop, src, copy, target = arguments[0] || {};
-        for (i = 1, len = arguments.length; i < len; i++) {
-            if ((arg = arguments[i]) != null) {
-                for (prop in arg) {
-                    if (arg.hasOwnProperty(prop)) {
-                        src = target[prop];
-                        copy = arg[prop];
-                        if (target === copy) {
-                            continue;
-                        }
-                        if (copy !== undefined) {
-                            target[prop] = copy;
-                        }
-                    }
-                }
-            }
-        }
-        return target;
-    };
-    var _extractDomain = function (originOrUrl) {
-        if (originOrUrl == null || originOrUrl === "") {
-            return null;
-        }
-        originOrUrl = originOrUrl.replace(/^\s+|\s+$/g, "");
-        if (originOrUrl === "") {
-            return null;
-        }
-        var protocolIndex = originOrUrl.indexOf("//");
-        originOrUrl = protocolIndex === -1 ? originOrUrl : originOrUrl.slice(protocolIndex + 2);
-        var pathIndex = originOrUrl.indexOf("/");
-        originOrUrl = pathIndex === -1 ? originOrUrl : protocolIndex === -1 || pathIndex === 0 ? null : originOrUrl.slice(0, pathIndex);
-        if (originOrUrl && originOrUrl.slice(-4).toLowerCase() === ".swf") {
-            return null;
-        }
-        return originOrUrl || null;
-    };
-    var _determineScriptAccess = function () {
-        var _extractAllDomains = function (origins, resultsArray) {
-            var i, len, tmp;
-            if (origins != null && resultsArray[0] !== "*") {
-                if (typeof origins === "string") {
-                    origins = [origins];
-                }
-                if (typeof origins === "object" && "length" in origins) {
-                    for (i = 0, len = origins.length; i < len; i++) {
-                        if (origins.hasOwnProperty(i)) {
-                            tmp = _extractDomain(origins[i]);
-                            if (tmp) {
-                                if (tmp === "*") {
-                                    resultsArray.length = 0;
-                                    resultsArray.push("*");
-                                    break;
-                                }
-                                if (_inArray(tmp, resultsArray) === -1) {
-                                    resultsArray.push(tmp);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        };
-        var _accessLevelLookup = {
-            always: "always",
-            samedomain: "sameDomain",
-            never: "never"
-        };
-        return function (currentDomain, configOptions) {
-            var asaLower, allowScriptAccess = configOptions.allowScriptAccess;
-            if (typeof allowScriptAccess === "string" && (asaLower = allowScriptAccess.toLowerCase()) && /^always|samedomain|never$/.test(asaLower)) {
-                return _accessLevelLookup[asaLower];
-            }
-            var swfDomain = _extractDomain(configOptions.moviePath);
-            if (swfDomain === null) {
-                swfDomain = currentDomain;
-            }
-            var trustedDomains = [];
-            _extractAllDomains(configOptions.trustedOrigins, trustedDomains);
-            _extractAllDomains(configOptions.trustedDomains, trustedDomains);
-            var len = trustedDomains.length;
-            if (len > 0) {
-                if (len === 1 && trustedDomains[0] === "*") {
-                    return "always";
-                }
-                if (_inArray(currentDomain, trustedDomains) !== -1) {
-                    if (len === 1 && currentDomain === swfDomain) {
-                        return "sameDomain";
-                    }
-                    return "always";
-                }
-            }
-            return "never";
-        };
-    }();
-    var _objectKeys = function (obj) {
-        if (obj == null) {
-            return [];
-        }
-        if (Object.keys) {
-            return Object.keys(obj);
-        }
-        var keys = [];
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                keys.push(prop);
-            }
-        }
-        return keys;
-    };
-    var _deleteOwnProperties = function (obj) {
-        if (obj) {
-            for (var prop in obj) {
-                if (obj.hasOwnProperty(prop)) {
-                    delete obj[prop];
-                }
-            }
-        }
-        return obj;
-    };
-    var _safeActiveElement = function () {
-        try {
-            return document.activeElement;
-        } catch (err) { }
-        return null;
-    };
-    var _detectFlashSupport = function () {
-        var hasFlash = false;
-        if (typeof flashState.disabled === "boolean") {
-            hasFlash = flashState.disabled === false;
-        } else {
-            if (typeof ActiveXObject === "function") {
-                try {
-                    if (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) {
-                        hasFlash = true;
-                    }
-                } catch (error) { }
-            }
-            if (!hasFlash && navigator.mimeTypes["application/x-shockwave-flash"]) {
-                hasFlash = true;
-            }
-        }
-        return hasFlash;
-    };
-    function _parseFlashVersion(flashVersion) {
-        return flashVersion.replace(/,/g, ".").replace(/[^0-9\.]/g, "");
-    }
-    function _isFlashVersionSupported(flashVersion) {
-        return parseFloat(_parseFlashVersion(flashVersion)) >= 10;
-    }
-    var ZeroClipboard = function (elements, options) {
-        if (!(this instanceof ZeroClipboard)) {
-            return new ZeroClipboard(elements, options);
-        }
-        this.id = "" + clientIdCounter++;
-        _clientMeta[this.id] = {
-            instance: this,
-            elements: [],
-            handlers: {}
-        };
-        if (elements) {
-            this.clip(elements);
-        }
-        if (typeof options !== "undefined") {
-            _deprecationWarning("new ZeroClipboard(elements, options)", _globalConfig.debug);
-            ZeroClipboard.config(options);
-        }
-        this.options = ZeroClipboard.config();
-        if (typeof flashState.disabled !== "boolean") {
-            flashState.disabled = !_detectFlashSupport();
-        }
-        if (flashState.disabled === false && flashState.outdated !== true) {
-            if (flashState.bridge === null) {
-                flashState.outdated = false;
-                flashState.ready = false;
-                _bridge();
-            }
-        }
-    };
-    ZeroClipboard.prototype.setText = function (newText) {
-        if (newText && newText !== "") {
-            _clipData["text/plain"] = newText;
-            if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setText === "function") {
-                flashState.bridge.setText(newText);
-            } else {
-                flashState.ready = false;
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.setSize = function (width, height) {
-        if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setSize === "function") {
-            flashState.bridge.setSize(width, height);
-        } else {
-            flashState.ready = false;
-        }
-        return this;
-    };
-    var _setHandCursor = function (enabled) {
-        if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setHandCursor === "function") {
-            flashState.bridge.setHandCursor(enabled);
-        } else {
-            flashState.ready = false;
-        }
-    };
-    ZeroClipboard.prototype.destroy = function () {
-        this.unclip();
-        this.off();
-        delete _clientMeta[this.id];
-    };
-    var _getAllClients = function () {
-        var i, len, client, clients = [], clientIds = _objectKeys(_clientMeta);
-        for (i = 0, len = clientIds.length; i < len; i++) {
-            client = _clientMeta[clientIds[i]].instance;
-            if (client && client instanceof ZeroClipboard) {
-                clients.push(client);
-            }
-        }
-        return clients;
-    };
-    ZeroClipboard.version = "1.3.5";
-    var _globalConfig = {
-        swfPath: _swfPath,
-        trustedDomains: window.location.host ? [window.location.host] : [],
-        cacheBust: true,
-        forceHandCursor: false,
-        zIndex: 999999999,
-        debug: true,
-        title: null,
-        autoActivate: true
-    };
-    ZeroClipboard.config = function (options) {
-        if (typeof options === "object" && options !== null) {
-            _extend(_globalConfig, options);
-        }
-        if (typeof options === "string" && options) {
-            if (_globalConfig.hasOwnProperty(options)) {
-                return _globalConfig[options];
-            }
-            return;
-        }
-        var copy = {};
-        for (var prop in _globalConfig) {
-            if (_globalConfig.hasOwnProperty(prop)) {
-                if (typeof _globalConfig[prop] === "object" && _globalConfig[prop] !== null) {
-                    if ("length" in _globalConfig[prop]) {
-                        copy[prop] = _globalConfig[prop].slice(0);
-                    } else {
-                        copy[prop] = _extend({}, _globalConfig[prop]);
-                    }
-                } else {
-                    copy[prop] = _globalConfig[prop];
-                }
-            }
-        }
-        return copy;
-    };
-    ZeroClipboard.destroy = function () {
-        ZeroClipboard.deactivate();
-        for (var clientId in _clientMeta) {
-            if (_clientMeta.hasOwnProperty(clientId) && _clientMeta[clientId]) {
-                var client = _clientMeta[clientId].instance;
-                if (client && typeof client.destroy === "function") {
-                    client.destroy();
-                }
-            }
-        }
-        var htmlBridge = _getHtmlBridge(flashState.bridge);
-        if (htmlBridge && htmlBridge.parentNode) {
-            htmlBridge.parentNode.removeChild(htmlBridge);
-            flashState.ready = null;
-            flashState.bridge = null;
-        }
-    };
-    ZeroClipboard.activate = function (element) {
-        if (currentElement) {
-            _removeClass(currentElement, _globalConfig.hoverClass);
-            _removeClass(currentElement, _globalConfig.activeClass);
-        }
-        currentElement = element;
-        _addClass(element, _globalConfig.hoverClass);
-        _reposition();
-        var newTitle = _globalConfig.title || element.getAttribute("title");
-        if (newTitle) {
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.setAttribute("title", newTitle);
-            }
-        }
-        var useHandCursor = _globalConfig.forceHandCursor === true || _getStyle(element, "cursor") === "pointer";
-        _setHandCursor(useHandCursor);
-    };
-    ZeroClipboard.deactivate = function () {
-        var htmlBridge = _getHtmlBridge(flashState.bridge);
-        if (htmlBridge) {
-            htmlBridge.style.left = "0px";
-            htmlBridge.style.top = "-9999px";
-            htmlBridge.removeAttribute("title");
-        }
-        if (currentElement) {
-            _removeClass(currentElement, _globalConfig.hoverClass);
-            _removeClass(currentElement, _globalConfig.activeClass);
-            currentElement = null;
-        }
-    };
-    var _bridge = function () {
-        var flashBridge, len;
-        var container = document.getElementById("global-zeroclipboard-html-bridge");
-        if (!container) {
-            var opts = ZeroClipboard.config();
-            opts.jsModuleId = typeof _amdModuleId === "string" && _amdModuleId || typeof _cjsModuleId === "string" && _cjsModuleId || null;
-            var allowScriptAccess = _determineScriptAccess(window.location.host, _globalConfig);
-            var flashvars = _vars(opts);
-            var swfUrl = _globalConfig.moviePath + _cacheBust(_globalConfig.moviePath, _globalConfig);
-            var html = '      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="' + swfUrl + '"/>         <param name="allowScriptAccess" value="' + allowScriptAccess + '"/>         <param name="scale" value="exactfit"/>         <param name="loop" value="false"/>         <param name="menu" value="false"/>         <param name="quality" value="best" />         <param name="bgcolor" value="#ffffff"/>         <param name="wmode" value="transparent"/>         <param name="flashvars" value="' + flashvars + '"/>         <embed src="' + swfUrl + '"           loop="false" menu="false"           quality="best" bgcolor="#ffffff"           width="100%" height="100%"           name="global-zeroclipboard-flash-bridge"           allowScriptAccess="' + allowScriptAccess + '"           allowFullScreen="false"           type="application/x-shockwave-flash"           wmode="transparent"           pluginspage="http://www.macromedia.com/go/getflashplayer"           flashvars="' + flashvars + '"           scale="exactfit">         </embed>       </object>';
-            container = document.createElement("div");
-            container.id = "global-zeroclipboard-html-bridge";
-            container.setAttribute("class", "global-zeroclipboard-container");
-            container.style.position = "absolute";
-            container.style.left = "0px";
-            container.style.top = "-9999px";
-            container.style.width = "15px";
-            container.style.height = "15px";
-            container.style.zIndex = "" + _getSafeZIndex(_globalConfig.zIndex);
-            document.body.appendChild(container);
-            container.innerHTML = html;
-        }
-        flashBridge = document["global-zeroclipboard-flash-bridge"];
-        if (flashBridge && (len = flashBridge.length)) {
-            flashBridge = flashBridge[len - 1];
-        }
-        flashState.bridge = flashBridge || container.children[0].lastElementChild;
-    };
-    var _getHtmlBridge = function (flashBridge) {
-        var isFlashElement = /^OBJECT|EMBED$/;
-        var htmlBridge = flashBridge && flashBridge.parentNode;
-        while (htmlBridge && isFlashElement.test(htmlBridge.nodeName) && htmlBridge.parentNode) {
-            htmlBridge = htmlBridge.parentNode;
-        }
-        return htmlBridge || null;
-    };
-    var _reposition = function () {
-        if (currentElement) {
-            var pos = _getDOMObjectPosition(currentElement, _globalConfig.zIndex);
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.style.top = pos.top + "px";
-                htmlBridge.style.left = pos.left + "px";
-                htmlBridge.style.width = pos.width + "px";
-                htmlBridge.style.height = pos.height + "px";
-                htmlBridge.style.zIndex = pos.zIndex + 1;
-            }
-            if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setSize === "function") {
-                flashState.bridge.setSize(pos.width, pos.height);
-            } else {
-                flashState.ready = false;
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.on = function (eventName, func) {
-        var i, len, events, added = {}, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (typeof eventName === "string" && eventName) {
-            events = eventName.toLowerCase().split(/\s+/);
-        } else if (typeof eventName === "object" && eventName && typeof func === "undefined") {
-            for (i in eventName) {
-                if (eventName.hasOwnProperty(i) && typeof i === "string" && i && typeof eventName[i] === "function") {
-                    this.on(i, eventName[i]);
-                }
-            }
-        }
-        if (events && events.length) {
-            for (i = 0, len = events.length; i < len; i++) {
-                eventName = events[i].replace(/^on/, "");
-                added[eventName] = true;
-                if (!handlers[eventName]) {
-                    handlers[eventName] = [];
-                }
-                handlers[eventName].push(func);
-            }
-            if (added.noflash && flashState.disabled) {
-                _receiveEvent.call(this, "noflash", {});
-            }
-            if (added.wrongflash && flashState.outdated) {
-                _receiveEvent.call(this, "wrongflash", {
-                    flashVersion: flashState.version
-                });
-            }
-            if (added.load && flashState.ready) {
-                _receiveEvent.call(this, "load", {
-                    flashVersion: flashState.version
-                });
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.off = function (eventName, func) {
-        var i, len, foundIndex, events, perEventHandlers, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (arguments.length === 0) {
-            events = _objectKeys(handlers);
-        } else if (typeof eventName === "string" && eventName) {
-            events = eventName.split(/\s+/);
-        } else if (typeof eventName === "object" && eventName && typeof func === "undefined") {
-            for (i in eventName) {
-                if (eventName.hasOwnProperty(i) && typeof i === "string" && i && typeof eventName[i] === "function") {
-                    this.off(i, eventName[i]);
-                }
-            }
-        }
-        if (events && events.length) {
-            for (i = 0, len = events.length; i < len; i++) {
-                eventName = events[i].toLowerCase().replace(/^on/, "");
-                perEventHandlers = handlers[eventName];
-                if (perEventHandlers && perEventHandlers.length) {
-                    if (func) {
-                        foundIndex = _inArray(func, perEventHandlers);
-                        while (foundIndex !== -1) {
-                            perEventHandlers.splice(foundIndex, 1);
-                            foundIndex = _inArray(func, perEventHandlers, foundIndex);
-                        }
-                    } else {
-                        handlers[eventName].length = 0;
-                    }
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.handlers = function (eventName) {
-        var prop, copy = null, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (handlers) {
-            if (typeof eventName === "string" && eventName) {
-                return handlers[eventName] ? handlers[eventName].slice(0) : null;
-            }
-            copy = {};
-            for (prop in handlers) {
-                if (handlers.hasOwnProperty(prop) && handlers[prop]) {
-                    copy[prop] = handlers[prop].slice(0);
-                }
-            }
-        }
-        return copy;
-    };
-    var _dispatchClientCallbacks = function (eventName, context, args, async) {
-        var handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers[eventName];
-        if (handlers && handlers.length) {
-            var i, len, func, originalContext = context || this;
-            for (i = 0, len = handlers.length; i < len; i++) {
-                func = handlers[i];
-                context = originalContext;
-                if (typeof func === "string" && typeof window[func] === "function") {
-                    func = window[func];
-                }
-                if (typeof func === "object" && func && typeof func.handleEvent === "function") {
-                    context = func;
-                    func = func.handleEvent;
-                }
-                if (typeof func === "function") {
-                    _dispatchCallback(func, context, args, async);
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.clip = function (elements) {
-        elements = _prepClip(elements);
-        for (var i = 0; i < elements.length; i++) {
-            if (elements.hasOwnProperty(i) && elements[i] && elements[i].nodeType === 1) {
-                if (!elements[i].zcClippingId) {
-                    elements[i].zcClippingId = "zcClippingId_" + elementIdCounter++;
-                    _elementMeta[elements[i].zcClippingId] = [this.id];
-                    if (_globalConfig.autoActivate === true) {
-                        _addEventHandler(elements[i], "mouseover", _elementMouseOver);
-                    }
-                } else if (_inArray(this.id, _elementMeta[elements[i].zcClippingId]) === -1) {
-                    _elementMeta[elements[i].zcClippingId].push(this.id);
-                }
-                var clippedElements = _clientMeta[this.id].elements;
-                if (_inArray(elements[i], clippedElements) === -1) {
-                    clippedElements.push(elements[i]);
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.unclip = function (elements) {
-        var meta = _clientMeta[this.id];
-        if (meta) {
-            var clippedElements = meta.elements;
-            var arrayIndex;
-            if (typeof elements === "undefined") {
-                elements = clippedElements.slice(0);
-            } else {
-                elements = _prepClip(elements);
-            }
-            for (var i = elements.length; i--;) {
-                if (elements.hasOwnProperty(i) && elements[i] && elements[i].nodeType === 1) {
-                    arrayIndex = 0;
-                    while ((arrayIndex = _inArray(elements[i], clippedElements, arrayIndex)) !== -1) {
-                        clippedElements.splice(arrayIndex, 1);
-                    }
-                    var clientIds = _elementMeta[elements[i].zcClippingId];
-                    if (clientIds) {
-                        arrayIndex = 0;
-                        while ((arrayIndex = _inArray(this.id, clientIds, arrayIndex)) !== -1) {
-                            clientIds.splice(arrayIndex, 1);
-                        }
-                        if (clientIds.length === 0) {
-                            if (_globalConfig.autoActivate === true) {
-                                _removeEventHandler(elements[i], "mouseover", _elementMouseOver);
-                            }
-                            delete elements[i].zcClippingId;
-                        }
-                    }
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.elements = function () {
-        var meta = _clientMeta[this.id];
-        return meta && meta.elements ? meta.elements.slice(0) : [];
-    };
-    var _getAllClientsClippedToElement = function (element) {
-        var elementMetaId, clientIds, i, len, client, clients = [];
-        if (element && element.nodeType === 1 && (elementMetaId = element.zcClippingId) && _elementMeta.hasOwnProperty(elementMetaId)) {
-            clientIds = _elementMeta[elementMetaId];
-            if (clientIds && clientIds.length) {
-                for (i = 0, len = clientIds.length; i < len; i++) {
-                    client = _clientMeta[clientIds[i]].instance;
-                    if (client && client instanceof ZeroClipboard) {
-                        clients.push(client);
-                    }
-                }
-            }
-        }
-        return clients;
-    };
-    _globalConfig.hoverClass = "zeroclipboard-is-hover";
-    _globalConfig.activeClass = "zeroclipboard-is-active";
-    _globalConfig.trustedOrigins = null;
-    _globalConfig.allowScriptAccess = null;
-    _globalConfig.useNoCache = true;
-    _globalConfig.moviePath = "../ZeroClipboard.swf";
-    ZeroClipboard.detectFlashSupport = function () {
-        _deprecationWarning("ZeroClipboard.detectFlashSupport", _globalConfig.debug);
-        return _detectFlashSupport();
-    };
-    ZeroClipboard.dispatch = function (eventName, args) {
-        if (typeof eventName === "string" && eventName) {
-            var cleanEventName = eventName.toLowerCase().replace(/^on/, "");
-            if (cleanEventName) {
-                var clients = currentElement && _globalConfig.autoActivate === true ? _getAllClientsClippedToElement(currentElement) : _getAllClients();
-                for (var i = 0, len = clients.length; i < len; i++) {
-                    _receiveEvent.call(clients[i], cleanEventName, args);
-                }
-            }
-        }
-    };
-    ZeroClipboard.prototype.setHandCursor = function (enabled) {
-        _deprecationWarning("ZeroClipboard.prototype.setHandCursor", _globalConfig.debug);
-        enabled = typeof enabled === "boolean" ? enabled : !!enabled;
-        _setHandCursor(enabled);
-        _globalConfig.forceHandCursor = enabled;
-        return this;
-    };
-    ZeroClipboard.prototype.reposition = function () {
-        _deprecationWarning("ZeroClipboard.prototype.reposition", _globalConfig.debug);
-        return _reposition();
-    };
-    ZeroClipboard.prototype.receiveEvent = function (eventName, args) {
-        _deprecationWarning("ZeroClipboard.prototype.receiveEvent", _globalConfig.debug);
-        if (typeof eventName === "string" && eventName) {
-            var cleanEventName = eventName.toLowerCase().replace(/^on/, "");
-            if (cleanEventName) {
-                _receiveEvent.call(this, cleanEventName, args);
-            }
-        }
-    };
-    ZeroClipboard.prototype.setCurrent = function (element) {
-        _deprecationWarning("ZeroClipboard.prototype.setCurrent", _globalConfig.debug);
-        ZeroClipboard.activate(element);
-        return this;
-    };
-    ZeroClipboard.prototype.resetBridge = function () {
-        _deprecationWarning("ZeroClipboard.prototype.resetBridge", _globalConfig.debug);
-        ZeroClipboard.deactivate();
-        return this;
-    };
-    ZeroClipboard.prototype.setTitle = function (newTitle) {
-        _deprecationWarning("ZeroClipboard.prototype.setTitle", _globalConfig.debug);
-        newTitle = newTitle || _globalConfig.title || currentElement && currentElement.getAttribute("title");
-        if (newTitle) {
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.setAttribute("title", newTitle);
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.setDefaults = function (options) {
-        _deprecationWarning("ZeroClipboard.setDefaults", _globalConfig.debug);
-        ZeroClipboard.config(options);
-    };
-    ZeroClipboard.prototype.addEventListener = function (eventName, func) {
-        _deprecationWarning("ZeroClipboard.prototype.addEventListener", _globalConfig.debug);
-        return this.on(eventName, func);
-    };
-    ZeroClipboard.prototype.removeEventListener = function (eventName, func) {
-        _deprecationWarning("ZeroClipboard.prototype.removeEventListener", _globalConfig.debug);
-        return this.off(eventName, func);
-    };
-    ZeroClipboard.prototype.ready = function () {
-        _deprecationWarning("ZeroClipboard.prototype.ready", _globalConfig.debug);
-        return flashState.ready === true;
-    };
-    var _receiveEvent = function (eventName, args) {
-        eventName = eventName.toLowerCase().replace(/^on/, "");
-        var cleanVersion = args && args.flashVersion && _parseFlashVersion(args.flashVersion) || null;
-        var element = currentElement;
-        var performCallbackAsync = true;
-        switch (eventName) {
-            case "load":
-                if (cleanVersion) {
-                    if (!_isFlashVersionSupported(cleanVersion)) {
-                        _receiveEvent.call(this, "onWrongFlash", {
-                            flashVersion: cleanVersion
-                        });
-                        return;
-                    }
-                    flashState.outdated = false;
-                    flashState.ready = true;
-                    flashState.version = cleanVersion;
-                }
-                break;
-
-            case "wrongflash":
-                if (cleanVersion && !_isFlashVersionSupported(cleanVersion)) {
-                    flashState.outdated = true;
-                    flashState.ready = false;
-                    flashState.version = cleanVersion;
-                }
-                break;
-
-            case "mouseover":
-                _addClass(element, _globalConfig.hoverClass);
-                break;
-
-            case "mouseout":
-                if (_globalConfig.autoActivate === true) {
-                    ZeroClipboard.deactivate();
-                }
-                break;
-
-            case "mousedown":
-                _addClass(element, _globalConfig.activeClass);
-                break;
-
-            case "mouseup":
-                _removeClass(element, _globalConfig.activeClass);
-                break;
-
-            case "datarequested":
-                if (element) {
-                    var targetId = element.getAttribute("data-clipboard-target"), targetEl = !targetId ? null : document.getElementById(targetId);
-                    if (targetEl) {
-                        var textContent = targetEl.value || targetEl.textContent || targetEl.innerText;
-                        if (textContent) {
-                            this.setText(textContent);
-                        }
-                    } else {
-                        var defaultText = element.getAttribute("data-clipboard-text");
-                        if (defaultText) {
-                            this.setText(defaultText);
-                        }
-                    }
-                }
-                performCallbackAsync = false;
-                break;
-
-            case "complete":
-                _deleteOwnProperties(_clipData);
-                if (element && element !== _safeActiveElement() && element.focus) {
-                    element.focus();
-                }
-                break;
-        }
-        var context = element;
-        var eventArgs = [this, args];
-        return _dispatchClientCallbacks.call(this, eventName, context, eventArgs, performCallbackAsync);
-    };
-    if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "module"], function (require, exports, module) {
-            _amdModuleId = module && module.id || null;
-            return ZeroClipboard;
-        });
-    } else if (typeof module === "object" && module && typeof module.exports === "object" && module.exports && typeof window.require === "function") {
-        _cjsModuleId = module.id || null;
-        module.exports = ZeroClipboard;
-    } else {
-        window.ZeroClipboard = ZeroClipboard;
-    }
-})(function () {
-    return this;
-}());
-/*!
- * JSizes - JQuery plugin v0.33
+ * clipboard.js v2.0.8
+ * https://clipboardjs.com/
  *
- * Licensed under the revised BSD License.
- * Copyright 2008-2010 Bram Stein
- * All rights reserved.
+ * Licensed MIT © Zeno Rocha
  */
-/*global jQuery*/
-(function ($) {
-	var num = function (value) {
-			return parseInt(value, 10) || 0;
-		};
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["ClipboardJS"] = factory();
+	else
+		root["ClipboardJS"] = factory();
+})(this, function() {
+return /******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-	/**
-	 * Sets or gets the values for min-width, min-height, max-width
-	 * and max-height.
-	 */
-	$.each(['min', 'max'], function (i, name) {
-		$.fn[name + 'Size'] = function (value) {
-			var width, height;
-			if (value) {
-				if (value.width !== undefined) {
-					this.css(name + '-width', value.width);
-				}
-				if (value.height !== undefined) {
-					this.css(name + '-height', value.height);
-				}
-				return this;
-			}
-			else {
-				width = this.css(name + '-width');
-				height = this.css(name + '-height');
-				// Apparently:
-				//  * Opera returns -1px instead of none
-				//  * IE6 returns undefined instead of none
-				return {'width': (name === 'max' && (width === undefined || width === 'none' || num(width) === -1) && Number.MAX_VALUE) || num(width), 
-						'height': (name === 'max' && (height === undefined || height === 'none' || num(height) === -1) && Number.MAX_VALUE) || num(height)};
-			}
-		};
-	});
+/***/ 134:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-	/**
-	 * Returns whether or not an element is visible.
-	 */
-	$.fn.isVisible = function () {
-		return this.is(':visible');
-	};
+"use strict";
 
-	/**
-	 * Sets or gets the values for border, margin and padding.
-	 */
-	$.each(['border', 'margin', 'padding'], function (i, name) {
-		$.fn[name] = function (value) {
-			if (value) {
-				if (value.top !== undefined) {
-					this.css(name + '-top' + (name === 'border' ? '-width' : ''), value.top);
-				}
-				if (value.bottom !== undefined) {
-					this.css(name + '-bottom' + (name === 'border' ? '-width' : ''), value.bottom);
-				}
-				if (value.left !== undefined) {
-					this.css(name + '-left' + (name === 'border' ? '-width' : ''), value.left);
-				}
-				if (value.right !== undefined) {
-					this.css(name + '-right' + (name === 'border' ? '-width' : ''), value.right);
-				}
-				return this;
-			}
-			else {
-				return {top: num(this.css(name + '-top' + (name === 'border' ? '-width' : ''))),
-						bottom: num(this.css(name + '-bottom' + (name === 'border' ? '-width' : ''))),
-						left: num(this.css(name + '-left' + (name === 'border' ? '-width' : ''))),
-						right: num(this.css(name + '-right' + (name === 'border' ? '-width' : '')))};
-			}
-		};
-	});
-})(jQuery);
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ clipboard; }
+});
 
+// EXTERNAL MODULE: ./node_modules/tiny-emitter/index.js
+var tiny_emitter = __webpack_require__(279);
+var tiny_emitter_default = /*#__PURE__*/__webpack_require__.n(tiny_emitter);
+// EXTERNAL MODULE: ./node_modules/good-listener/src/listen.js
+var listen = __webpack_require__(370);
+var listen_default = /*#__PURE__*/__webpack_require__.n(listen);
+// EXTERNAL MODULE: ./node_modules/select/src/select.js
+var src_select = __webpack_require__(817);
+var select_default = /*#__PURE__*/__webpack_require__.n(src_select);
+;// CONCATENATED MODULE: ./src/clipboard-action.js
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+/**
+ * Inner class which performs selection from either `text` or `target`
+ * properties and then executes copy or cut operations.
+ */
+
+var ClipboardAction = /*#__PURE__*/function () {
+  /**
+   * @param {Object} options
+   */
+  function ClipboardAction(options) {
+    _classCallCheck(this, ClipboardAction);
+
+    this.resolveOptions(options);
+    this.initSelection();
+  }
+  /**
+   * Defines base properties passed from constructor.
+   * @param {Object} options
+   */
+
+
+  _createClass(ClipboardAction, [{
+    key: "resolveOptions",
+    value: function resolveOptions() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      this.action = options.action;
+      this.container = options.container;
+      this.emitter = options.emitter;
+      this.target = options.target;
+      this.text = options.text;
+      this.trigger = options.trigger;
+      this.selectedText = '';
+    }
+    /**
+     * Decides which selection strategy is going to be applied based
+     * on the existence of `text` and `target` properties.
+     */
+
+  }, {
+    key: "initSelection",
+    value: function initSelection() {
+      if (this.text) {
+        this.selectFake();
+      } else if (this.target) {
+        this.selectTarget();
+      }
+    }
+    /**
+     * Creates a fake textarea element, sets its value from `text` property,
+     */
+
+  }, {
+    key: "createFakeElement",
+    value: function createFakeElement() {
+      var isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      this.fakeElem = document.createElement('textarea'); // Prevent zooming on iOS
+
+      this.fakeElem.style.fontSize = '12pt'; // Reset box model
+
+      this.fakeElem.style.border = '0';
+      this.fakeElem.style.padding = '0';
+      this.fakeElem.style.margin = '0'; // Move element out of screen horizontally
+
+      this.fakeElem.style.position = 'absolute';
+      this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px'; // Move element to the same position vertically
+
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      this.fakeElem.style.top = "".concat(yPosition, "px");
+      this.fakeElem.setAttribute('readonly', '');
+      this.fakeElem.value = this.text;
+      return this.fakeElem;
+    }
+    /**
+     * Get's the value of fakeElem,
+     * and makes a selection on it.
+     */
+
+  }, {
+    key: "selectFake",
+    value: function selectFake() {
+      var _this = this;
+
+      var fakeElem = this.createFakeElement();
+
+      this.fakeHandlerCallback = function () {
+        return _this.removeFake();
+      };
+
+      this.fakeHandler = this.container.addEventListener('click', this.fakeHandlerCallback) || true;
+      this.container.appendChild(fakeElem);
+      this.selectedText = select_default()(fakeElem);
+      this.copyText();
+      this.removeFake();
+    }
+    /**
+     * Only removes the fake element after another click event, that way
+     * a user can hit `Ctrl+C` to copy because selection still exists.
+     */
+
+  }, {
+    key: "removeFake",
+    value: function removeFake() {
+      if (this.fakeHandler) {
+        this.container.removeEventListener('click', this.fakeHandlerCallback);
+        this.fakeHandler = null;
+        this.fakeHandlerCallback = null;
+      }
+
+      if (this.fakeElem) {
+        this.container.removeChild(this.fakeElem);
+        this.fakeElem = null;
+      }
+    }
+    /**
+     * Selects the content from element passed on `target` property.
+     */
+
+  }, {
+    key: "selectTarget",
+    value: function selectTarget() {
+      this.selectedText = select_default()(this.target);
+      this.copyText();
+    }
+    /**
+     * Executes the copy operation based on the current selection.
+     */
+
+  }, {
+    key: "copyText",
+    value: function copyText() {
+      var succeeded;
+
+      try {
+        succeeded = document.execCommand(this.action);
+      } catch (err) {
+        succeeded = false;
+      }
+
+      this.handleResult(succeeded);
+    }
+    /**
+     * Fires an event based on the copy operation result.
+     * @param {Boolean} succeeded
+     */
+
+  }, {
+    key: "handleResult",
+    value: function handleResult(succeeded) {
+      this.emitter.emit(succeeded ? 'success' : 'error', {
+        action: this.action,
+        text: this.selectedText,
+        trigger: this.trigger,
+        clearSelection: this.clearSelection.bind(this)
+      });
+    }
+    /**
+     * Moves focus away from `target` and back to the trigger, removes current selection.
+     */
+
+  }, {
+    key: "clearSelection",
+    value: function clearSelection() {
+      if (this.trigger) {
+        this.trigger.focus();
+      }
+
+      document.activeElement.blur();
+      window.getSelection().removeAllRanges();
+    }
+    /**
+     * Sets the `action` to be performed which can be either 'copy' or 'cut'.
+     * @param {String} action
+     */
+
+  }, {
+    key: "destroy",
+
+    /**
+     * Destroy lifecycle.
+     */
+    value: function destroy() {
+      this.removeFake();
+    }
+  }, {
+    key: "action",
+    set: function set() {
+      var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'copy';
+      this._action = action;
+
+      if (this._action !== 'copy' && this._action !== 'cut') {
+        throw new Error('Invalid "action" value, use either "copy" or "cut"');
+      }
+    }
+    /**
+     * Gets the `action` property.
+     * @return {String}
+     */
+    ,
+    get: function get() {
+      return this._action;
+    }
+    /**
+     * Sets the `target` property using an element
+     * that will be have its content copied.
+     * @param {Element} target
+     */
+
+  }, {
+    key: "target",
+    set: function set(target) {
+      if (target !== undefined) {
+        if (target && _typeof(target) === 'object' && target.nodeType === 1) {
+          if (this.action === 'copy' && target.hasAttribute('disabled')) {
+            throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+          }
+
+          if (this.action === 'cut' && (target.hasAttribute('readonly') || target.hasAttribute('disabled'))) {
+            throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+          }
+
+          this._target = target;
+        } else {
+          throw new Error('Invalid "target" value, use a valid Element');
+        }
+      }
+    }
+    /**
+     * Gets the `target` property.
+     * @return {String|HTMLElement}
+     */
+    ,
+    get: function get() {
+      return this._target;
+    }
+  }]);
+
+  return ClipboardAction;
+}();
+
+/* harmony default export */ var clipboard_action = (ClipboardAction);
+;// CONCATENATED MODULE: ./src/clipboard.js
+function clipboard_typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { clipboard_typeof = function _typeof(obj) { return typeof obj; }; } else { clipboard_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return clipboard_typeof(obj); }
+
+function clipboard_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function clipboard_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function clipboard_createClass(Constructor, protoProps, staticProps) { if (protoProps) clipboard_defineProperties(Constructor.prototype, protoProps); if (staticProps) clipboard_defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (clipboard_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+/**
+ * Helper function to retrieve attribute value.
+ * @param {String} suffix
+ * @param {Element} element
+ */
+
+function getAttributeValue(suffix, element) {
+  var attribute = "data-clipboard-".concat(suffix);
+
+  if (!element.hasAttribute(attribute)) {
+    return;
+  }
+
+  return element.getAttribute(attribute);
+}
+/**
+ * Base class which takes one or more elements, adds event listeners to them,
+ * and instantiates a new `ClipboardAction` on each click.
+ */
+
+
+var Clipboard = /*#__PURE__*/function (_Emitter) {
+  _inherits(Clipboard, _Emitter);
+
+  var _super = _createSuper(Clipboard);
+
+  /**
+   * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
+   * @param {Object} options
+   */
+  function Clipboard(trigger, options) {
+    var _this;
+
+    clipboard_classCallCheck(this, Clipboard);
+
+    _this = _super.call(this);
+
+    _this.resolveOptions(options);
+
+    _this.listenClick(trigger);
+
+    return _this;
+  }
+  /**
+   * Defines if attributes would be resolved using internal setter functions
+   * or custom functions that were passed in the constructor.
+   * @param {Object} options
+   */
+
+
+  clipboard_createClass(Clipboard, [{
+    key: "resolveOptions",
+    value: function resolveOptions() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
+      this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
+      this.text = typeof options.text === 'function' ? options.text : this.defaultText;
+      this.container = clipboard_typeof(options.container) === 'object' ? options.container : document.body;
+    }
+    /**
+     * Adds a click event listener to the passed trigger.
+     * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
+     */
+
+  }, {
+    key: "listenClick",
+    value: function listenClick(trigger) {
+      var _this2 = this;
+
+      this.listener = listen_default()(trigger, 'click', function (e) {
+        return _this2.onClick(e);
+      });
+    }
+    /**
+     * Defines a new `ClipboardAction` on each click event.
+     * @param {Event} e
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(e) {
+      var trigger = e.delegateTarget || e.currentTarget;
+
+      if (this.clipboardAction) {
+        this.clipboardAction = null;
+      }
+
+      this.clipboardAction = new clipboard_action({
+        action: this.action(trigger),
+        target: this.target(trigger),
+        text: this.text(trigger),
+        container: this.container,
+        trigger: trigger,
+        emitter: this
+      });
+    }
+    /**
+     * Default `action` lookup function.
+     * @param {Element} trigger
+     */
+
+  }, {
+    key: "defaultAction",
+    value: function defaultAction(trigger) {
+      return getAttributeValue('action', trigger);
+    }
+    /**
+     * Default `target` lookup function.
+     * @param {Element} trigger
+     */
+
+  }, {
+    key: "defaultTarget",
+    value: function defaultTarget(trigger) {
+      var selector = getAttributeValue('target', trigger);
+
+      if (selector) {
+        return document.querySelector(selector);
+      }
+    }
+    /**
+     * Returns the support of the given action, or all actions if no action is
+     * given.
+     * @param {String} [action]
+     */
+
+  }, {
+    key: "defaultText",
+
+    /**
+     * Default `text` lookup function.
+     * @param {Element} trigger
+     */
+    value: function defaultText(trigger) {
+      return getAttributeValue('text', trigger);
+    }
+    /**
+     * Destroy lifecycle.
+     */
+
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.listener.destroy();
+
+      if (this.clipboardAction) {
+        this.clipboardAction.destroy();
+        this.clipboardAction = null;
+      }
+    }
+  }], [{
+    key: "isSupported",
+    value: function isSupported() {
+      var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['copy', 'cut'];
+      var actions = typeof action === 'string' ? [action] : action;
+      var support = !!document.queryCommandSupported;
+      actions.forEach(function (action) {
+        support = support && !!document.queryCommandSupported(action);
+      });
+      return support;
+    }
+  }]);
+
+  return Clipboard;
+}((tiny_emitter_default()));
+
+/* harmony default export */ var clipboard = (Clipboard);
+
+/***/ }),
+
+/***/ 828:
+/***/ (function(module) {
+
+var DOCUMENT_NODE_TYPE = 9;
+
+/**
+ * A polyfill for Element.matches()
+ */
+if (typeof Element !== 'undefined' && !Element.prototype.matches) {
+    var proto = Element.prototype;
+
+    proto.matches = proto.matchesSelector ||
+                    proto.mozMatchesSelector ||
+                    proto.msMatchesSelector ||
+                    proto.oMatchesSelector ||
+                    proto.webkitMatchesSelector;
+}
+
+/**
+ * Finds the closest parent that matches a selector.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @return {Function}
+ */
+function closest (element, selector) {
+    while (element && element.nodeType !== DOCUMENT_NODE_TYPE) {
+        if (typeof element.matches === 'function' &&
+            element.matches(selector)) {
+          return element;
+        }
+        element = element.parentNode;
+    }
+}
+
+module.exports = closest;
+
+
+/***/ }),
+
+/***/ 438:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var closest = __webpack_require__(828);
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function _delegate(element, selector, type, callback, useCapture) {
+    var listenerFn = listener.apply(this, arguments);
+
+    element.addEventListener(type, listenerFn, useCapture);
+
+    return {
+        destroy: function() {
+            element.removeEventListener(type, listenerFn, useCapture);
+        }
+    }
+}
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element|String|Array} [elements]
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function delegate(elements, selector, type, callback, useCapture) {
+    // Handle the regular Element usage
+    if (typeof elements.addEventListener === 'function') {
+        return _delegate.apply(null, arguments);
+    }
+
+    // Handle Element-less usage, it defaults to global delegation
+    if (typeof type === 'function') {
+        // Use `document` as the first parameter, then apply arguments
+        // This is a short way to .unshift `arguments` without running into deoptimizations
+        return _delegate.bind(null, document).apply(null, arguments);
+    }
+
+    // Handle Selector-based usage
+    if (typeof elements === 'string') {
+        elements = document.querySelectorAll(elements);
+    }
+
+    // Handle Array-like based usage
+    return Array.prototype.map.call(elements, function (element) {
+        return _delegate(element, selector, type, callback, useCapture);
+    });
+}
+
+/**
+ * Finds closest match and invokes callback.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Function}
+ */
+function listener(element, selector, type, callback) {
+    return function(e) {
+        e.delegateTarget = closest(e.target, selector);
+
+        if (e.delegateTarget) {
+            callback.call(element, e);
+        }
+    }
+}
+
+module.exports = delegate;
+
+
+/***/ }),
+
+/***/ 879:
+/***/ (function(__unused_webpack_module, exports) {
+
+/**
+ * Check if argument is a HTML element.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.node = function(value) {
+    return value !== undefined
+        && value instanceof HTMLElement
+        && value.nodeType === 1;
+};
+
+/**
+ * Check if argument is a list of HTML elements.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.nodeList = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return value !== undefined
+        && (type === '[object NodeList]' || type === '[object HTMLCollection]')
+        && ('length' in value)
+        && (value.length === 0 || exports.node(value[0]));
+};
+
+/**
+ * Check if argument is a string.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.string = function(value) {
+    return typeof value === 'string'
+        || value instanceof String;
+};
+
+/**
+ * Check if argument is a function.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.fn = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return type === '[object Function]';
+};
+
+
+/***/ }),
+
+/***/ 370:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var is = __webpack_require__(879);
+var delegate = __webpack_require__(438);
+
+/**
+ * Validates all params and calls the right
+ * listener function based on its target type.
+ *
+ * @param {String|HTMLElement|HTMLCollection|NodeList} target
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listen(target, type, callback) {
+    if (!target && !type && !callback) {
+        throw new Error('Missing required arguments');
+    }
+
+    if (!is.string(type)) {
+        throw new TypeError('Second argument must be a String');
+    }
+
+    if (!is.fn(callback)) {
+        throw new TypeError('Third argument must be a Function');
+    }
+
+    if (is.node(target)) {
+        return listenNode(target, type, callback);
+    }
+    else if (is.nodeList(target)) {
+        return listenNodeList(target, type, callback);
+    }
+    else if (is.string(target)) {
+        return listenSelector(target, type, callback);
+    }
+    else {
+        throw new TypeError('First argument must be a String, HTMLElement, HTMLCollection, or NodeList');
+    }
+}
+
+/**
+ * Adds an event listener to a HTML element
+ * and returns a remove listener function.
+ *
+ * @param {HTMLElement} node
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNode(node, type, callback) {
+    node.addEventListener(type, callback);
+
+    return {
+        destroy: function() {
+            node.removeEventListener(type, callback);
+        }
+    }
+}
+
+/**
+ * Add an event listener to a list of HTML elements
+ * and returns a remove listener function.
+ *
+ * @param {NodeList|HTMLCollection} nodeList
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNodeList(nodeList, type, callback) {
+    Array.prototype.forEach.call(nodeList, function(node) {
+        node.addEventListener(type, callback);
+    });
+
+    return {
+        destroy: function() {
+            Array.prototype.forEach.call(nodeList, function(node) {
+                node.removeEventListener(type, callback);
+            });
+        }
+    }
+}
+
+/**
+ * Add an event listener to a selector
+ * and returns a remove listener function.
+ *
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenSelector(selector, type, callback) {
+    return delegate(document.body, selector, type, callback);
+}
+
+module.exports = listen;
+
+
+/***/ }),
+
+/***/ 817:
+/***/ (function(module) {
+
+function select(element) {
+    var selectedText;
+
+    if (element.nodeName === 'SELECT') {
+        element.focus();
+
+        selectedText = element.value;
+    }
+    else if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+        var isReadOnly = element.hasAttribute('readonly');
+
+        if (!isReadOnly) {
+            element.setAttribute('readonly', '');
+        }
+
+        element.select();
+        element.setSelectionRange(0, element.value.length);
+
+        if (!isReadOnly) {
+            element.removeAttribute('readonly');
+        }
+
+        selectedText = element.value;
+    }
+    else {
+        if (element.hasAttribute('contenteditable')) {
+            element.focus();
+        }
+
+        var selection = window.getSelection();
+        var range = document.createRange();
+
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        selectedText = selection.toString();
+    }
+
+    return selectedText;
+}
+
+module.exports = select;
+
+
+/***/ }),
+
+/***/ 279:
+/***/ (function(module) {
+
+function E () {
+  // Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+}
+
+E.prototype = {
+  on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
+
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
+
+    return this;
+  },
+
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    };
+
+    listener._ = callback
+    return this.on(name, listener, ctx);
+  },
+
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
+
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
+
+    return this;
+  },
+
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
+
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
+
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
+
+    return this;
+  }
+};
+
+module.exports = E;
+module.exports.TinyEmitter = E;
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	// module exports must be returned from runtime so entry inlining is disabled
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(134);
+/******/ })()
+.default;
+});
 /*!
 Slimbox v2.04 - The ultimate lightweight Lightbox clone for jQuery
 (c) 2007-2010 Christophe Beyls <http://www.digitalia.be>
@@ -5308,18 +4824,18 @@ MIT-style license.
             /* make sure the image won't be bigger than the window */
             var windowWidth = $(window).width() - 20;
             var windowHeight = $(window).height() - 40;
-            var maximumSize = (windowWidth > windowHeight) ? windowHeight : windowWidth; /* the smaller dimension determines max size */
 
             /* determine proper w and h for img, based on original image's dimensions and maximumSize */
             var maximumWidth = preload.width;
             var maximumHeight = preload.height;
-            if (maximumWidth > maximumHeight) {
-                maximumHeight = maximumSize * maximumHeight / maximumWidth;
-                maximumWidth = maximumSize;
-            }
-            else {
-                maximumWidth = maximumSize * maximumWidth / maximumHeight;
-                maximumHeight = maximumSize;
+
+            if ((preload.width - windowWidth) > (preload.height - windowHeight)) {
+                // Less space horizontally, determine max size from width
+                maximumWidth = windowWidth - 100;
+                maximumHeight = preload.height * (maximumWidth / preload.width);
+            } else {
+                maximumHeight = windowHeight - 200;
+                maximumWidth = preload.width * (maximumHeight / preload.height);
             }
 
             if (preload.width > maximumWidth || preload.height > maximumHeight) {
@@ -5475,422 +4991,9 @@ MIT-style license.
 
     // Works with either jQuery or Zepto
 })(window.jQuery || window.Zepto);
-/**
- * @license Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-touch-shiv-mq-teststyles-prefixes-load
-*/
-window.Modernizr = (function (window, document, undefined) {
-
-    var version = '2.6.2',
-
-    Modernizr = {},
-
-
-    docElement = document.documentElement,
-
-    mod = 'modernizr',
-    modElem = document.createElement(mod),
-    mStyle = modElem.style,
-
-    inputElem,
-
-
-    toString = {}.toString,
-
-    prefixes = ' -webkit- -moz- -o- -ms- '.split(' '),
-
-
-
-    tests = {},
-    inputs = {},
-    attrs = {},
-
-    classes = [],
-
-    slice = classes.slice,
-
-    featureName,
-
-
-    injectElementWithStyles = function (rule, callback, nodes, testnames) {
-
-        var style, ret, node, docOverflow,
-            div = document.createElement('div'),
-                  body = document.body,
-                  fakeBody = body || document.createElement('body');
-
-        if (parseInt(nodes, 10)) {
-            while (nodes--) {
-                node = document.createElement('div');
-                node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
-                div.appendChild(node);
-            }
-        }
-
-        style = ['&#173;', '<style id="s', mod, '">', rule, '</style>'].join('');
-        div.id = mod;
-        (body ? div : fakeBody).innerHTML += style;
-        fakeBody.appendChild(div);
-        if (!body) {
-            fakeBody.style.background = '';
-            fakeBody.style.overflow = 'hidden';
-            docOverflow = docElement.style.overflow;
-            docElement.style.overflow = 'hidden';
-            docElement.appendChild(fakeBody);
-        }
-
-        ret = callback(div, rule);
-        if (!body) {
-            fakeBody.parentNode.removeChild(fakeBody);
-            docElement.style.overflow = docOverflow;
-        } else {
-            div.parentNode.removeChild(div);
-        }
-
-        return !!ret;
-
-    },
-
-    testMediaQuery = function (mq) {
-
-        var matchMedia = window.matchMedia || window.msMatchMedia;
-        if (matchMedia) {
-            return matchMedia(mq).matches;
-        }
-
-        var bool;
-
-        injectElementWithStyles('@media ' + mq + ' { #' + mod + ' { position: absolute; } }', function (node) {
-            bool = (window.getComputedStyle ?
-                      getComputedStyle(node, null) :
-                      node.currentStyle)['position'] == 'absolute';
-        });
-
-        return bool;
-
-    },
-    _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
-
-    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
-        hasOwnProp = function (object, property) {
-            return _hasOwnProperty.call(object, property);
-        };
-    }
-    else {
-        hasOwnProp = function (object, property) {
-            return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
-        };
-    }
-
-
-    if (!Function.prototype.bind) {
-        Function.prototype.bind = function bind(that) {
-
-            var target = this;
-
-            if (typeof target != "function") {
-                throw new TypeError();
-            }
-
-            var args = slice.call(arguments, 1),
-                bound = function () {
-
-                    if (this instanceof bound) {
-
-                        var F = function () { };
-                        F.prototype = target.prototype;
-                        var self = new F();
-
-                        var result = target.apply(
-                            self,
-                            args.concat(slice.call(arguments))
-                        );
-                        if (Object(result) === result) {
-                            return result;
-                        }
-                        return self;
-
-                    } else {
-
-                        return target.apply(
-                            that,
-                            args.concat(slice.call(arguments))
-                        );
-
-                    }
-
-                };
-
-            return bound;
-        };
-    }
-
-    function setCss(str) {
-        mStyle.cssText = str;
-    }
-
-    function setCssAll(str1, str2) {
-        return setCss(prefixes.join(str1 + ';') + (str2 || ''));
-    }
-
-    function is(obj, type) {
-        return typeof obj === type;
-    }
-
-    function contains(str, substr) {
-        return !!~('' + str).indexOf(substr);
-    }
-
-
-    function testDOMProps(props, obj, elem) {
-        for (var i in props) {
-            var item = obj[props[i]];
-            if (item !== undefined) {
-
-                if (elem === false) return props[i];
-
-                if (is(item, 'function')) {
-                    return item.bind(elem || obj);
-                }
-
-                return item;
-            }
-        }
-        return false;
-    }
-    tests['touch'] = function () {
-        var bool;
-
-        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-            bool = true;
-        } else {
-            injectElementWithStyles(['@media (', prefixes.join('touch-enabled),('), mod, ')', '{#modernizr{top:9px;position:absolute}}'].join(''), function (node) {
-                bool = node.offsetTop === 9;
-            });
-        }
-
-        return bool;
-    };
-    for (var feature in tests) {
-        if (hasOwnProp(tests, feature)) {
-            featureName = feature.toLowerCase();
-            Modernizr[featureName] = tests[feature]();
-
-            classes.push((Modernizr[featureName] ? '' : 'no-') + featureName);
-        }
-    }
-
-
-
-    Modernizr.addTest = function (feature, test) {
-        if (typeof feature == 'object') {
-            for (var key in feature) {
-                if (hasOwnProp(feature, key)) {
-                    Modernizr.addTest(key, feature[key]);
-                }
-            }
-        } else {
-
-            feature = feature.toLowerCase();
-
-            if (Modernizr[feature] !== undefined) {
-                return Modernizr;
-            }
-
-            test = typeof test == 'function' ? test() : test;
-
-            if (typeof enableClasses !== "undefined" && enableClasses) {
-                docElement.className += ' ' + (test ? '' : 'no-') + feature;
-            }
-            Modernizr[feature] = test;
-
-        }
-
-        return Modernizr;
-    };
-
-
-    setCss('');
-    modElem = inputElem = null;
-
-    ; (function (window, document) {
-        var options = window.html5 || {};
-
-        var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-        var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-        var supportsHtml5Styles;
-
-        var expando = '_html5shiv';
-
-        var expanID = 0;
-
-        var expandoData = {};
-
-        var supportsUnknownElements;
-
-        (function () {
-            try {
-                var a = document.createElement('a');
-                a.innerHTML = '<xyz></xyz>';
-                supportsHtml5Styles = ('hidden' in a);
-
-                supportsUnknownElements = a.childNodes.length == 1 || (function () {
-                    (document.createElement)('a');
-                    var frag = document.createDocumentFragment();
-                    return (
-                      typeof frag.cloneNode == 'undefined' ||
-                      typeof frag.createDocumentFragment == 'undefined' ||
-                      typeof frag.createElement == 'undefined'
-                    );
-                }());
-            } catch (e) {
-                supportsHtml5Styles = true;
-                supportsUnknownElements = true;
-            }
-
-        }()); function addStyleSheet(ownerDocument, cssText) {
-            var p = ownerDocument.createElement('p'),
-                parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-            p.innerHTML = 'x<style>' + cssText + '</style>';
-            return parent.insertBefore(p.lastChild, parent.firstChild);
-        }
-
-        function getElements() {
-            var elements = html5.elements;
-            return typeof elements == 'string' ? elements.split(' ') : elements;
-        }
-
-        function getExpandoData(ownerDocument) {
-            var data = expandoData[ownerDocument[expando]];
-            if (!data) {
-                data = {};
-                expanID++;
-                ownerDocument[expando] = expanID;
-                expandoData[expanID] = data;
-            }
-            return data;
-        }
-
-        function createElement(nodeName, ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createElement(nodeName);
-            }
-            if (!data) {
-                data = getExpandoData(ownerDocument);
-            }
-            var node;
-
-            if (data.cache[nodeName]) {
-                node = data.cache[nodeName].cloneNode();
-            } else if (saveClones.test(nodeName)) {
-                node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-            } else {
-                node = data.createElem(nodeName);
-            }
-
-            return node.canHaveChildren && !reSkip.test(nodeName) ? data.frag.appendChild(node) : node;
-        }
-
-        function createDocumentFragment(ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createDocumentFragment();
-            }
-            data = data || getExpandoData(ownerDocument);
-            var clone = data.frag.cloneNode(),
-                i = 0,
-                elems = getElements(),
-                l = elems.length;
-            for (; i < l; i++) {
-                clone.createElement(elems[i]);
-            }
-            return clone;
-        }
-
-        function shivMethods(ownerDocument, data) {
-            if (!data.cache) {
-                data.cache = {};
-                data.createElem = ownerDocument.createElement;
-                data.createFrag = ownerDocument.createDocumentFragment;
-                data.frag = data.createFrag();
-            }
-
-
-            ownerDocument.createElement = function (nodeName) {
-                if (!html5.shivMethods) {
-                    return data.createElem(nodeName);
-                }
-                return createElement(nodeName, ownerDocument, data);
-            };
-
-            ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-              'var n=f.cloneNode(),c=n.createElement;' +
-              'h.shivMethods&&(' +
-                        getElements().join().replace(/\w+/g, function (nodeName) {
-                            data.createElem(nodeName);
-                            data.frag.createElement(nodeName);
-                            return 'c("' + nodeName + '")';
-                        }) +
-              ');return n}'
-            )(html5, data.frag);
-        } function shivDocument(ownerDocument) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            var data = getExpandoData(ownerDocument);
-
-            if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-                data.hasCSS = !!addStyleSheet(ownerDocument,
-                          'article,aside,figcaption,figure,footer,header,hgroup,nav,section{display:block}' +
-                          'mark{background:#FF0;color:#000}'
-                );
-            }
-            if (!supportsUnknownElements) {
-                shivMethods(ownerDocument, data);
-            }
-            return ownerDocument;
-        } var html5 = {
-
-            'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video',
-
-            'shivCSS': (options.shivCSS !== false),
-
-            'supportsUnknownElements': supportsUnknownElements,
-
-            'shivMethods': (options.shivMethods !== false),
-
-            'type': 'default',
-
-            'shivDocument': shivDocument,
-
-            createElement: createElement,
-
-            createDocumentFragment: createDocumentFragment
-        }; window.html5 = html5;
-
-        shivDocument(document);
-
-    }(this, document));
-
-    Modernizr._version = version;
-
-    Modernizr._prefixes = prefixes;
-
-    Modernizr.mq = testMediaQuery;
-    Modernizr.testStyles = injectElementWithStyles;
-    return Modernizr;
-
-})(this, this.document);
-
-;
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-mq-prefixes-setclasses-shiv-teststyles !*/
+!function (e, t, n) { function a(e, t) { return typeof e === t } function r() { var e, t, n, r, o, i, s; for (var l in d) if (d.hasOwnProperty(l)) { if (e = [], t = d[l], t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)) for (n = 0; n < t.options.aliases.length; n++)e.push(t.options.aliases[n].toLowerCase()); for (r = a(t.fn, "function") ? t.fn() : t.fn, o = 0; o < e.length; o++)i = e[o], s = i.split("."), 1 === s.length ? Modernizr[s[0]] = r : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = r), c.push((r ? "" : "no-") + s.join("-")) } } function o(e) { var t = m.className, n = Modernizr._config.classPrefix || ""; if (p && (t = t.baseVal), Modernizr._config.enableJSClass) { var a = new RegExp("(^|\\s)" + n + "no-js(\\s|$)"); t = t.replace(a, "$1" + n + "js$2") } Modernizr._config.enableClasses && (t += " " + n + e.join(" " + n), p ? m.className.baseVal = t : m.className = t) } function i() { return "function" != typeof t.createElement ? t.createElement(arguments[0]) : p ? t.createElementNS.call(t, "http://www.w3.org/2000/svg", arguments[0]) : t.createElement.apply(t, arguments) } function s() { var e = t.body; return e || (e = i(p ? "svg" : "body"), e.fake = !0), e } function l(e, n, a, r) { var o, l, c, d, u = "modernizr", f = i("div"), p = s(); if (parseInt(a, 10)) for (; a--;)c = i("div"), c.id = r ? r[a] : u + (a + 1), f.appendChild(c); return o = i("style"), o.type = "text/css", o.id = "s" + u, (p.fake ? p : f).appendChild(o), p.appendChild(f), o.styleSheet ? o.styleSheet.cssText = e : o.appendChild(t.createTextNode(e)), f.id = u, p.fake && (p.style.background = "", p.style.overflow = "hidden", d = m.style.overflow, m.style.overflow = "hidden", m.appendChild(p)), l = n(f, e), p.fake ? (p.parentNode.removeChild(p), m.style.overflow = d, m.offsetHeight) : f.parentNode.removeChild(f), !!l } var c = [], d = [], u = { _version: "3.6.0", _config: { classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0 }, _q: [], on: function (e, t) { var n = this; setTimeout(function () { t(n[e]) }, 0) }, addTest: function (e, t, n) { d.push({ name: e, fn: t, options: n }) }, addAsyncTest: function (e) { d.push({ name: null, fn: e }) } }, Modernizr = function () { }; Modernizr.prototype = u, Modernizr = new Modernizr; var f = u._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""]; u._prefixes = f; var m = t.documentElement, p = "svg" === m.nodeName.toLowerCase(); p || !function (e, t) { function n(e, t) { var n = e.createElement("p"), a = e.getElementsByTagName("head")[0] || e.documentElement; return n.innerHTML = "x<style>" + t + "</style>", a.insertBefore(n.lastChild, a.firstChild) } function a() { var e = E.elements; return "string" == typeof e ? e.split(" ") : e } function r(e, t) { var n = E.elements; "string" != typeof n && (n = n.join(" ")), "string" != typeof e && (e = e.join(" ")), E.elements = n + " " + e, c(t) } function o(e) { var t = y[e[g]]; return t || (t = {}, v++, e[g] = v, y[v] = t), t } function i(e, n, a) { if (n || (n = t), u) return n.createElement(e); a || (a = o(n)); var r; return r = a.cache[e] ? a.cache[e].cloneNode() : h.test(e) ? (a.cache[e] = a.createElem(e)).cloneNode() : a.createElem(e), !r.canHaveChildren || p.test(e) || r.tagUrn ? r : a.frag.appendChild(r) } function s(e, n) { if (e || (e = t), u) return e.createDocumentFragment(); n = n || o(e); for (var r = n.frag.cloneNode(), i = 0, s = a(), l = s.length; l > i; i++)r.createElement(s[i]); return r } function l(e, t) { t.cache || (t.cache = {}, t.createElem = e.createElement, t.createFrag = e.createDocumentFragment, t.frag = t.createFrag()), e.createElement = function (n) { return E.shivMethods ? i(n, e, t) : t.createElem(n) }, e.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + a().join().replace(/[\w\-:]+/g, function (e) { return t.createElem(e), t.frag.createElement(e), 'c("' + e + '")' }) + ");return n}")(E, t.frag) } function c(e) { e || (e = t); var a = o(e); return !E.shivCSS || d || a.hasCSS || (a.hasCSS = !!n(e, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), u || l(e, a), e } var d, u, f = "3.7.3", m = e.html5 || {}, p = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, h = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, g = "_html5shiv", v = 0, y = {}; !function () { try { var e = t.createElement("a"); e.innerHTML = "<xyz></xyz>", d = "hidden" in e, u = 1 == e.childNodes.length || function () { t.createElement("a"); var e = t.createDocumentFragment(); return "undefined" == typeof e.cloneNode || "undefined" == typeof e.createDocumentFragment || "undefined" == typeof e.createElement }() } catch (n) { d = !0, u = !0 } }(); var E = { elements: m.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video", version: f, shivCSS: m.shivCSS !== !1, supportsUnknownElements: u, shivMethods: m.shivMethods !== !1, type: "default", shivDocument: c, createElement: i, createDocumentFragment: s, addElements: r }; e.html5 = E, c(t), "object" == typeof module && module.exports && (module.exports = E) }("undefined" != typeof e ? e : this, t); var h = function () { var t = e.matchMedia || e.msMatchMedia; return t ? function (e) { var n = t(e); return n && n.matches || !1 } : function (t) { var n = !1; return l("@media " + t + " { #modernizr { position: absolute; } }", function (t) { n = "absolute" == (e.getComputedStyle ? e.getComputedStyle(t, null) : t.currentStyle).position }), n } }(); u.mq = h; u.testStyles = l; r(), o(c), delete u.addTest, delete u.addAsyncTest; for (var g = 0; g < Modernizr._q.length; g++)Modernizr._q[g](); e.Modernizr = Modernizr }(window, document);
 // yepnope.js
 // v2.0.0
 //

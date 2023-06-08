@@ -1,50 +1,167 @@
 /*!
- * jQuery Cookie Plugin
- * https://github.com/carhartl/jquery-cookie
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
  *
- * Copyright 2011, Klaus Hartl
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.opensource.org/licenses/GPL-2.0
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
  */
-(function($) {
-    $.cookie = function(key, value, options) {
+;(function (factory) {
+	var registeredInModuleLoader;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
 
-        // key and at least value given, set cookie...
-        if (arguments.length > 1 && (!/Object/.test(Object.prototype.toString.call(value)) || value === null || value === undefined)) {
-            options = $.extend({}, options);
+	function decode (s) {
+		return s.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent);
+	}
 
-            if (value === null || value === undefined) {
-                options.expires = -1;
-            }
+	function init (converter) {
+		function api() {}
 
-            if (typeof options.expires === 'number') {
-                var days = options.expires, t = options.expires = new Date();
-                t.setDate(t.getDate() + days);
-            }
+		function set (key, value, attributes) {
+			if (typeof document === 'undefined') {
+				return;
+			}
 
-            value = String(value);
+			attributes = extend({
+				path: '/'
+			}, api.defaults, attributes);
 
-            return (document.cookie = [
-                encodeURIComponent(key), '=', options.raw ? value : encodeURIComponent(value),
-                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-                options.path    ? '; path=' + options.path : '',
-                options.domain  ? '; domain=' + options.domain : '',
-                options.secure  ? '; secure' : ''
-            ].join(''));
-        }
+			if (typeof attributes.expires === 'number') {
+				attributes.expires = new Date(new Date() * 1 + attributes.expires * 864e+5);
+			}
 
-        // key and possibly options given, get cookie...
-        options = value || {};
-        var decode = options.raw ? function(s) { return s; } : decodeURIComponent;
+			// We're using "expires" because "max-age" is not supported by IE
+			attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
 
-        var pairs = document.cookie.split('; ');
-        for (var i = 0, pair; pair = pairs[i] && pairs[i].split('='); i++) {
-            if (decode(pair[0]) === key) return decode(pair[1] || ''); // IE saves cookies with empty string as "c; ", e.g. without "=" as opposed to EOMB, thus pair[1] may be undefined
-        }
-        return null;
-    };
-})(jQuery);
+			try {
+				var result = JSON.stringify(value);
+				if (/^[\{\[]/.test(result)) {
+					value = result;
+				}
+			} catch (e) {}
+
+			value = converter.write ?
+				converter.write(value, key) :
+				encodeURIComponent(String(value))
+					.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+
+			key = encodeURIComponent(String(key))
+				.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent)
+				.replace(/[\(\)]/g, escape);
+
+			var stringifiedAttributes = '';
+			for (var attributeName in attributes) {
+				if (!attributes[attributeName]) {
+					continue;
+				}
+				stringifiedAttributes += '; ' + attributeName;
+				if (attributes[attributeName] === true) {
+					continue;
+				}
+
+				// Considers RFC 6265 section 5.2:
+				// ...
+				// 3.  If the remaining unparsed-attributes contains a %x3B (";")
+				//     character:
+				// Consume the characters of the unparsed-attributes up to,
+				// not including, the first %x3B (";") character.
+				// ...
+				stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+			}
+
+			return (document.cookie = key + '=' + value + stringifiedAttributes);
+		}
+
+		function get (key, json) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			var jar = {};
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all.
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = decode(parts[0]);
+					cookie = (converter.read || converter)(cookie, name) ||
+						decode(cookie);
+
+					if (json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					jar[name] = cookie;
+
+					if (key === name) {
+						break;
+					}
+				} catch (e) {}
+			}
+
+			return key ? jar[key] : jar;
+		}
+
+		api.set = set;
+		api.get = function (key) {
+			return get(key, false /* read as raw */);
+		};
+		api.getJSON = function (key) {
+			return get(key, true /* read as json */);
+		};
+		api.remove = function (key, attributes) {
+			set(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.defaults = {};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
+
 /*
     json2.js
     2011-10-19
@@ -3113,1115 +3230,6 @@ $.extend(TRUE, QTIP.defaults, {
 
 }));
 /*!
-* ZeroClipboard
-* The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.
-* Copyright (c) 2014 Jon Rohan, James M. Greene
-* Licensed MIT
-* http://zeroclipboard.org/
-* v1.3.5
-*/
-(function (window) {
-    "use strict";
-    var currentElement;
-    var flashState = {
-        bridge: null,
-        version: "0.0.0",
-        disabled: null,
-        outdated: null,
-        ready: null
-    };
-    var _clipData = {};
-    var clientIdCounter = 0;
-    var _clientMeta = {};
-    var elementIdCounter = 0;
-    var _elementMeta = {};
-    var _amdModuleId = null;
-    var _cjsModuleId = null;
-    var _swfPath = function () {
-        var i, jsDir, tmpJsPath, jsPath, swfPath = "../ZeroClipboard.swf";
-        if (document.currentScript && (jsPath = document.currentScript.src)) { } else {
-            var scripts = document.getElementsByTagName("script");
-            if ("readyState" in scripts[0]) {
-                for (i = scripts.length; i--;) {
-                    if (scripts[i].readyState === "interactive" && (jsPath = scripts[i].src)) {
-                        break;
-                    }
-                }
-            } else if (document.readyState === "loading") {
-                jsPath = scripts[scripts.length - 1].src;
-            } else {
-                for (i = scripts.length; i--;) {
-                    tmpJsPath = scripts[i].src;
-                    if (!tmpJsPath) {
-                        jsDir = null;
-                        break;
-                    }
-                    tmpJsPath = tmpJsPath.split("#")[0].split("?")[0];
-                    tmpJsPath = tmpJsPath.slice(0, tmpJsPath.lastIndexOf("/") + 1);
-                    if (jsDir == null) {
-                        jsDir = tmpJsPath;
-                    } else if (jsDir !== tmpJsPath) {
-                        jsDir = null;
-                        break;
-                    }
-                }
-                if (jsDir !== null) {
-                    jsPath = jsDir;
-                }
-            }
-        }
-        if (jsPath) {
-            jsPath = jsPath.split("#")[0].split("?")[0];
-            swfPath = jsPath.slice(0, jsPath.lastIndexOf("/") + 1) + swfPath;
-        }
-        return swfPath;
-    }();
-    var _camelizeCssPropName = function () {
-        var matcherRegex = /\-([a-z])/g, replacerFn = function (match, group) {
-            return group.toUpperCase();
-        };
-        return function (prop) {
-            return prop.replace(matcherRegex, replacerFn);
-        };
-    }();
-    var _getStyle = function (el, prop) {
-        var value, camelProp, tagName, possiblePointers, i, len;
-        if (window.getComputedStyle) {
-            value = window.getComputedStyle(el, null).getPropertyValue(prop);
-        } else {
-            camelProp = _camelizeCssPropName(prop);
-            if (el.currentStyle) {
-                value = el.currentStyle[camelProp];
-            } else {
-                value = el.style[camelProp];
-            }
-        }
-        if (prop === "cursor") {
-            if (!value || value === "auto") {
-                tagName = el.tagName.toLowerCase();
-                if (tagName === "a") {
-                    return "pointer";
-                }
-            }
-        }
-        return value;
-    };
-    var _elementMouseOver = function (event) {
-        if (!event) {
-            event = window.event;
-        }
-        var target;
-        if (this !== window) {
-            target = this;
-        } else if (event.target) {
-            target = event.target;
-        } else if (event.srcElement) {
-            target = event.srcElement;
-        }
-        ZeroClipboard.activate(target);
-    };
-    var _addEventHandler = function (element, method, func) {
-        if (!element || element.nodeType !== 1) {
-            return;
-        }
-        if (element.addEventListener) {
-            element.addEventListener(method, func, false);
-        } else if (element.attachEvent) {
-            element.attachEvent("on" + method, func);
-        }
-    };
-    var _removeEventHandler = function (element, method, func) {
-        if (!element || element.nodeType !== 1) {
-            return;
-        }
-        if (element.removeEventListener) {
-            element.removeEventListener(method, func, false);
-        } else if (element.detachEvent) {
-            element.detachEvent("on" + method, func);
-        }
-    };
-    var _addClass = function (element, value) {
-        if (!element || element.nodeType !== 1) {
-            return element;
-        }
-        if (element.classList) {
-            if (!element.classList.contains(value)) {
-                element.classList.add(value);
-            }
-            return element;
-        }
-        if (value && typeof value === "string") {
-            var classNames = (value || "").split(/\s+/);
-            if (element.nodeType === 1) {
-                if (!element.className) {
-                    element.className = value;
-                } else {
-                    var className = " " + element.className + " ", setClass = element.className;
-                    for (var c = 0, cl = classNames.length; c < cl; c++) {
-                        if (className.indexOf(" " + classNames[c] + " ") < 0) {
-                            setClass += " " + classNames[c];
-                        }
-                    }
-                    element.className = setClass.replace(/^\s+|\s+$/g, "");
-                }
-            }
-        }
-        return element;
-    };
-    var _removeClass = function (element, value) {
-        if (!element || element.nodeType !== 1) {
-            return element;
-        }
-        if (element.classList) {
-            if (element.classList.contains(value)) {
-                element.classList.remove(value);
-            }
-            return element;
-        }
-        if (value && typeof value === "string" || value === undefined) {
-            var classNames = (value || "").split(/\s+/);
-            if (element.nodeType === 1 && element.className) {
-                if (value) {
-                    var className = (" " + element.className + " ").replace(/[\n\t]/g, " ");
-                    for (var c = 0, cl = classNames.length; c < cl; c++) {
-                        className = className.replace(" " + classNames[c] + " ", " ");
-                    }
-                    element.className = className.replace(/^\s+|\s+$/g, "");
-                } else {
-                    element.className = "";
-                }
-            }
-        }
-        return element;
-    };
-    var _getZoomFactor = function () {
-        var rect, physicalWidth, logicalWidth, zoomFactor = 1;
-        if (typeof document.body.getBoundingClientRect === "function") {
-            rect = document.body.getBoundingClientRect();
-            physicalWidth = rect.right - rect.left;
-            logicalWidth = document.body.offsetWidth;
-            zoomFactor = Math.round(physicalWidth / logicalWidth * 100) / 100;
-        }
-        return zoomFactor;
-    };
-    var _getDOMObjectPosition = function (obj, defaultZIndex) {
-        var info = {
-            left: 0,
-            top: 0,
-            width: 0,
-            height: 0,
-            zIndex: _getSafeZIndex(defaultZIndex) - 1
-        };
-        if (obj.getBoundingClientRect) {
-            var rect = obj.getBoundingClientRect();
-            var pageXOffset, pageYOffset, zoomFactor;
-            if ("pageXOffset" in window && "pageYOffset" in window) {
-                pageXOffset = window.pageXOffset;
-                pageYOffset = window.pageYOffset;
-            } else {
-                zoomFactor = _getZoomFactor();
-                pageXOffset = Math.round(document.documentElement.scrollLeft / zoomFactor);
-                pageYOffset = Math.round(document.documentElement.scrollTop / zoomFactor);
-            }
-            var leftBorderWidth = document.documentElement.clientLeft || 0;
-            var topBorderWidth = document.documentElement.clientTop || 0;
-            info.left = rect.left + pageXOffset - leftBorderWidth;
-            info.top = rect.top + pageYOffset - topBorderWidth;
-            info.width = "width" in rect ? rect.width : rect.right - rect.left;
-            info.height = "height" in rect ? rect.height : rect.bottom - rect.top;
-        }
-        return info;
-    };
-    var _cacheBust = function (path, options) {
-        var cacheBust = options == null || options && options.cacheBust === true && options.useNoCache === true;
-        if (cacheBust) {
-            return (path.indexOf("?") === -1 ? "?" : "&") + "noCache=" + new Date().getTime();
-        } else {
-            return "";
-        }
-    };
-    var _vars = function (options) {
-        var i, len, domain, str = [], domains = [], trustedOriginsExpanded = [];
-        if (options.trustedOrigins) {
-            if (typeof options.trustedOrigins === "string") {
-                domains.push(options.trustedOrigins);
-            } else if (typeof options.trustedOrigins === "object" && "length" in options.trustedOrigins) {
-                domains = domains.concat(options.trustedOrigins);
-            }
-        }
-        if (options.trustedDomains) {
-            if (typeof options.trustedDomains === "string") {
-                domains.push(options.trustedDomains);
-            } else if (typeof options.trustedDomains === "object" && "length" in options.trustedDomains) {
-                domains = domains.concat(options.trustedDomains);
-            }
-        }
-        if (domains.length) {
-            for (i = 0, len = domains.length; i < len; i++) {
-                if (domains.hasOwnProperty(i) && domains[i] && typeof domains[i] === "string") {
-                    domain = _extractDomain(domains[i]);
-                    if (!domain) {
-                        continue;
-                    }
-                    if (domain === "*") {
-                        trustedOriginsExpanded = [domain];
-                        break;
-                    }
-                    trustedOriginsExpanded.push.apply(trustedOriginsExpanded, [domain, "//" + domain, window.location.protocol + "//" + domain]);
-                }
-            }
-        }
-        if (trustedOriginsExpanded.length) {
-            str.push("trustedOrigins=" + encodeURIComponent(trustedOriginsExpanded.join(",")));
-        }
-        if (typeof options.jsModuleId === "string" && options.jsModuleId) {
-            str.push("jsModuleId=" + encodeURIComponent(options.jsModuleId));
-        }
-        return str.join("&");
-    };
-    var _inArray = function (elem, array, fromIndex) {
-        if (typeof array.indexOf === "function") {
-            return array.indexOf(elem, fromIndex);
-        }
-        var i, len = array.length;
-        if (typeof fromIndex === "undefined") {
-            fromIndex = 0;
-        } else if (fromIndex < 0) {
-            fromIndex = len + fromIndex;
-        }
-        for (i = fromIndex; i < len; i++) {
-            if (array.hasOwnProperty(i) && array[i] === elem) {
-                return i;
-            }
-        }
-        return -1;
-    };
-    var _prepClip = function (elements) {
-        if (typeof elements === "string") throw new TypeError("ZeroClipboard doesn't accept query strings.");
-        if (!elements.length) return [elements];
-        return elements;
-    };
-    var _dispatchCallback = function (func, context, args, async) {
-        if (async) {
-            window.setTimeout(function () {
-                func.apply(context, args);
-            }, 0);
-        } else {
-            func.apply(context, args);
-        }
-    };
-    var _getSafeZIndex = function (val) {
-        var zIndex, tmp;
-        if (val) {
-            if (typeof val === "number" && val > 0) {
-                zIndex = val;
-            } else if (typeof val === "string" && (tmp = parseInt(val, 10)) && !isNaN(tmp) && tmp > 0) {
-                zIndex = tmp;
-            }
-        }
-        if (!zIndex) {
-            if (typeof _globalConfig.zIndex === "number" && _globalConfig.zIndex > 0) {
-                zIndex = _globalConfig.zIndex;
-            } else if (typeof _globalConfig.zIndex === "string" && (tmp = parseInt(_globalConfig.zIndex, 10)) && !isNaN(tmp) && tmp > 0) {
-                zIndex = tmp;
-            }
-        }
-        return zIndex || 0;
-    };
-    var _deprecationWarning = function (deprecatedApiName, debugEnabled) {
-        if (deprecatedApiName && debugEnabled !== false && typeof console !== "undefined" && console && (console.warn || console.log)) {
-            var deprecationWarning = "`" + deprecatedApiName + "` is deprecated. See docs for more info:\n" + "    https://github.com/zeroclipboard/zeroclipboard/blob/master/docs/instructions.md#deprecations";
-            if (console.warn) {
-                console.warn(deprecationWarning);
-            } else {
-                console.log(deprecationWarning);
-            }
-        }
-    };
-    var _extend = function () {
-        var i, len, arg, prop, src, copy, target = arguments[0] || {};
-        for (i = 1, len = arguments.length; i < len; i++) {
-            if ((arg = arguments[i]) != null) {
-                for (prop in arg) {
-                    if (arg.hasOwnProperty(prop)) {
-                        src = target[prop];
-                        copy = arg[prop];
-                        if (target === copy) {
-                            continue;
-                        }
-                        if (copy !== undefined) {
-                            target[prop] = copy;
-                        }
-                    }
-                }
-            }
-        }
-        return target;
-    };
-    var _extractDomain = function (originOrUrl) {
-        if (originOrUrl == null || originOrUrl === "") {
-            return null;
-        }
-        originOrUrl = originOrUrl.replace(/^\s+|\s+$/g, "");
-        if (originOrUrl === "") {
-            return null;
-        }
-        var protocolIndex = originOrUrl.indexOf("//");
-        originOrUrl = protocolIndex === -1 ? originOrUrl : originOrUrl.slice(protocolIndex + 2);
-        var pathIndex = originOrUrl.indexOf("/");
-        originOrUrl = pathIndex === -1 ? originOrUrl : protocolIndex === -1 || pathIndex === 0 ? null : originOrUrl.slice(0, pathIndex);
-        if (originOrUrl && originOrUrl.slice(-4).toLowerCase() === ".swf") {
-            return null;
-        }
-        return originOrUrl || null;
-    };
-    var _determineScriptAccess = function () {
-        var _extractAllDomains = function (origins, resultsArray) {
-            var i, len, tmp;
-            if (origins != null && resultsArray[0] !== "*") {
-                if (typeof origins === "string") {
-                    origins = [origins];
-                }
-                if (typeof origins === "object" && "length" in origins) {
-                    for (i = 0, len = origins.length; i < len; i++) {
-                        if (origins.hasOwnProperty(i)) {
-                            tmp = _extractDomain(origins[i]);
-                            if (tmp) {
-                                if (tmp === "*") {
-                                    resultsArray.length = 0;
-                                    resultsArray.push("*");
-                                    break;
-                                }
-                                if (_inArray(tmp, resultsArray) === -1) {
-                                    resultsArray.push(tmp);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        };
-        var _accessLevelLookup = {
-            always: "always",
-            samedomain: "sameDomain",
-            never: "never"
-        };
-        return function (currentDomain, configOptions) {
-            var asaLower, allowScriptAccess = configOptions.allowScriptAccess;
-            if (typeof allowScriptAccess === "string" && (asaLower = allowScriptAccess.toLowerCase()) && /^always|samedomain|never$/.test(asaLower)) {
-                return _accessLevelLookup[asaLower];
-            }
-            var swfDomain = _extractDomain(configOptions.moviePath);
-            if (swfDomain === null) {
-                swfDomain = currentDomain;
-            }
-            var trustedDomains = [];
-            _extractAllDomains(configOptions.trustedOrigins, trustedDomains);
-            _extractAllDomains(configOptions.trustedDomains, trustedDomains);
-            var len = trustedDomains.length;
-            if (len > 0) {
-                if (len === 1 && trustedDomains[0] === "*") {
-                    return "always";
-                }
-                if (_inArray(currentDomain, trustedDomains) !== -1) {
-                    if (len === 1 && currentDomain === swfDomain) {
-                        return "sameDomain";
-                    }
-                    return "always";
-                }
-            }
-            return "never";
-        };
-    }();
-    var _objectKeys = function (obj) {
-        if (obj == null) {
-            return [];
-        }
-        if (Object.keys) {
-            return Object.keys(obj);
-        }
-        var keys = [];
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                keys.push(prop);
-            }
-        }
-        return keys;
-    };
-    var _deleteOwnProperties = function (obj) {
-        if (obj) {
-            for (var prop in obj) {
-                if (obj.hasOwnProperty(prop)) {
-                    delete obj[prop];
-                }
-            }
-        }
-        return obj;
-    };
-    var _safeActiveElement = function () {
-        try {
-            return document.activeElement;
-        } catch (err) { }
-        return null;
-    };
-    var _detectFlashSupport = function () {
-        var hasFlash = false;
-        if (typeof flashState.disabled === "boolean") {
-            hasFlash = flashState.disabled === false;
-        } else {
-            if (typeof ActiveXObject === "function") {
-                try {
-                    if (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) {
-                        hasFlash = true;
-                    }
-                } catch (error) { }
-            }
-            if (!hasFlash && navigator.mimeTypes["application/x-shockwave-flash"]) {
-                hasFlash = true;
-            }
-        }
-        return hasFlash;
-    };
-    function _parseFlashVersion(flashVersion) {
-        return flashVersion.replace(/,/g, ".").replace(/[^0-9\.]/g, "");
-    }
-    function _isFlashVersionSupported(flashVersion) {
-        return parseFloat(_parseFlashVersion(flashVersion)) >= 10;
-    }
-    var ZeroClipboard = function (elements, options) {
-        if (!(this instanceof ZeroClipboard)) {
-            return new ZeroClipboard(elements, options);
-        }
-        this.id = "" + clientIdCounter++;
-        _clientMeta[this.id] = {
-            instance: this,
-            elements: [],
-            handlers: {}
-        };
-        if (elements) {
-            this.clip(elements);
-        }
-        if (typeof options !== "undefined") {
-            _deprecationWarning("new ZeroClipboard(elements, options)", _globalConfig.debug);
-            ZeroClipboard.config(options);
-        }
-        this.options = ZeroClipboard.config();
-        if (typeof flashState.disabled !== "boolean") {
-            flashState.disabled = !_detectFlashSupport();
-        }
-        if (flashState.disabled === false && flashState.outdated !== true) {
-            if (flashState.bridge === null) {
-                flashState.outdated = false;
-                flashState.ready = false;
-                _bridge();
-            }
-        }
-    };
-    ZeroClipboard.prototype.setText = function (newText) {
-        if (newText && newText !== "") {
-            _clipData["text/plain"] = newText;
-            if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setText === "function") {
-                flashState.bridge.setText(newText);
-            } else {
-                flashState.ready = false;
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.setSize = function (width, height) {
-        if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setSize === "function") {
-            flashState.bridge.setSize(width, height);
-        } else {
-            flashState.ready = false;
-        }
-        return this;
-    };
-    var _setHandCursor = function (enabled) {
-        if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setHandCursor === "function") {
-            flashState.bridge.setHandCursor(enabled);
-        } else {
-            flashState.ready = false;
-        }
-    };
-    ZeroClipboard.prototype.destroy = function () {
-        this.unclip();
-        this.off();
-        delete _clientMeta[this.id];
-    };
-    var _getAllClients = function () {
-        var i, len, client, clients = [], clientIds = _objectKeys(_clientMeta);
-        for (i = 0, len = clientIds.length; i < len; i++) {
-            client = _clientMeta[clientIds[i]].instance;
-            if (client && client instanceof ZeroClipboard) {
-                clients.push(client);
-            }
-        }
-        return clients;
-    };
-    ZeroClipboard.version = "1.3.5";
-    var _globalConfig = {
-        swfPath: _swfPath,
-        trustedDomains: window.location.host ? [window.location.host] : [],
-        cacheBust: true,
-        forceHandCursor: false,
-        zIndex: 999999999,
-        debug: true,
-        title: null,
-        autoActivate: true
-    };
-    ZeroClipboard.config = function (options) {
-        if (typeof options === "object" && options !== null) {
-            _extend(_globalConfig, options);
-        }
-        if (typeof options === "string" && options) {
-            if (_globalConfig.hasOwnProperty(options)) {
-                return _globalConfig[options];
-            }
-            return;
-        }
-        var copy = {};
-        for (var prop in _globalConfig) {
-            if (_globalConfig.hasOwnProperty(prop)) {
-                if (typeof _globalConfig[prop] === "object" && _globalConfig[prop] !== null) {
-                    if ("length" in _globalConfig[prop]) {
-                        copy[prop] = _globalConfig[prop].slice(0);
-                    } else {
-                        copy[prop] = _extend({}, _globalConfig[prop]);
-                    }
-                } else {
-                    copy[prop] = _globalConfig[prop];
-                }
-            }
-        }
-        return copy;
-    };
-    ZeroClipboard.destroy = function () {
-        ZeroClipboard.deactivate();
-        for (var clientId in _clientMeta) {
-            if (_clientMeta.hasOwnProperty(clientId) && _clientMeta[clientId]) {
-                var client = _clientMeta[clientId].instance;
-                if (client && typeof client.destroy === "function") {
-                    client.destroy();
-                }
-            }
-        }
-        var htmlBridge = _getHtmlBridge(flashState.bridge);
-        if (htmlBridge && htmlBridge.parentNode) {
-            htmlBridge.parentNode.removeChild(htmlBridge);
-            flashState.ready = null;
-            flashState.bridge = null;
-        }
-    };
-    ZeroClipboard.activate = function (element) {
-        if (currentElement) {
-            _removeClass(currentElement, _globalConfig.hoverClass);
-            _removeClass(currentElement, _globalConfig.activeClass);
-        }
-        currentElement = element;
-        _addClass(element, _globalConfig.hoverClass);
-        _reposition();
-        var newTitle = _globalConfig.title || element.getAttribute("title");
-        if (newTitle) {
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.setAttribute("title", newTitle);
-            }
-        }
-        var useHandCursor = _globalConfig.forceHandCursor === true || _getStyle(element, "cursor") === "pointer";
-        _setHandCursor(useHandCursor);
-    };
-    ZeroClipboard.deactivate = function () {
-        var htmlBridge = _getHtmlBridge(flashState.bridge);
-        if (htmlBridge) {
-            htmlBridge.style.left = "0px";
-            htmlBridge.style.top = "-9999px";
-            htmlBridge.removeAttribute("title");
-        }
-        if (currentElement) {
-            _removeClass(currentElement, _globalConfig.hoverClass);
-            _removeClass(currentElement, _globalConfig.activeClass);
-            currentElement = null;
-        }
-    };
-    var _bridge = function () {
-        var flashBridge, len;
-        var container = document.getElementById("global-zeroclipboard-html-bridge");
-        if (!container) {
-            var opts = ZeroClipboard.config();
-            opts.jsModuleId = typeof _amdModuleId === "string" && _amdModuleId || typeof _cjsModuleId === "string" && _cjsModuleId || null;
-            var allowScriptAccess = _determineScriptAccess(window.location.host, _globalConfig);
-            var flashvars = _vars(opts);
-            var swfUrl = _globalConfig.moviePath + _cacheBust(_globalConfig.moviePath, _globalConfig);
-            var html = '      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="' + swfUrl + '"/>         <param name="allowScriptAccess" value="' + allowScriptAccess + '"/>         <param name="scale" value="exactfit"/>         <param name="loop" value="false"/>         <param name="menu" value="false"/>         <param name="quality" value="best" />         <param name="bgcolor" value="#ffffff"/>         <param name="wmode" value="transparent"/>         <param name="flashvars" value="' + flashvars + '"/>         <embed src="' + swfUrl + '"           loop="false" menu="false"           quality="best" bgcolor="#ffffff"           width="100%" height="100%"           name="global-zeroclipboard-flash-bridge"           allowScriptAccess="' + allowScriptAccess + '"           allowFullScreen="false"           type="application/x-shockwave-flash"           wmode="transparent"           pluginspage="http://www.macromedia.com/go/getflashplayer"           flashvars="' + flashvars + '"           scale="exactfit">         </embed>       </object>';
-            container = document.createElement("div");
-            container.id = "global-zeroclipboard-html-bridge";
-            container.setAttribute("class", "global-zeroclipboard-container");
-            container.style.position = "absolute";
-            container.style.left = "0px";
-            container.style.top = "-9999px";
-            container.style.width = "15px";
-            container.style.height = "15px";
-            container.style.zIndex = "" + _getSafeZIndex(_globalConfig.zIndex);
-            document.body.appendChild(container);
-            container.innerHTML = html;
-        }
-        flashBridge = document["global-zeroclipboard-flash-bridge"];
-        if (flashBridge && (len = flashBridge.length)) {
-            flashBridge = flashBridge[len - 1];
-        }
-        flashState.bridge = flashBridge || container.children[0].lastElementChild;
-    };
-    var _getHtmlBridge = function (flashBridge) {
-        var isFlashElement = /^OBJECT|EMBED$/;
-        var htmlBridge = flashBridge && flashBridge.parentNode;
-        while (htmlBridge && isFlashElement.test(htmlBridge.nodeName) && htmlBridge.parentNode) {
-            htmlBridge = htmlBridge.parentNode;
-        }
-        return htmlBridge || null;
-    };
-    var _reposition = function () {
-        if (currentElement) {
-            var pos = _getDOMObjectPosition(currentElement, _globalConfig.zIndex);
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.style.top = pos.top + "px";
-                htmlBridge.style.left = pos.left + "px";
-                htmlBridge.style.width = pos.width + "px";
-                htmlBridge.style.height = pos.height + "px";
-                htmlBridge.style.zIndex = pos.zIndex + 1;
-            }
-            if (flashState.ready === true && flashState.bridge && typeof flashState.bridge.setSize === "function") {
-                flashState.bridge.setSize(pos.width, pos.height);
-            } else {
-                flashState.ready = false;
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.on = function (eventName, func) {
-        var i, len, events, added = {}, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (typeof eventName === "string" && eventName) {
-            events = eventName.toLowerCase().split(/\s+/);
-        } else if (typeof eventName === "object" && eventName && typeof func === "undefined") {
-            for (i in eventName) {
-                if (eventName.hasOwnProperty(i) && typeof i === "string" && i && typeof eventName[i] === "function") {
-                    this.on(i, eventName[i]);
-                }
-            }
-        }
-        if (events && events.length) {
-            for (i = 0, len = events.length; i < len; i++) {
-                eventName = events[i].replace(/^on/, "");
-                added[eventName] = true;
-                if (!handlers[eventName]) {
-                    handlers[eventName] = [];
-                }
-                handlers[eventName].push(func);
-            }
-            if (added.noflash && flashState.disabled) {
-                _receiveEvent.call(this, "noflash", {});
-            }
-            if (added.wrongflash && flashState.outdated) {
-                _receiveEvent.call(this, "wrongflash", {
-                    flashVersion: flashState.version
-                });
-            }
-            if (added.load && flashState.ready) {
-                _receiveEvent.call(this, "load", {
-                    flashVersion: flashState.version
-                });
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.off = function (eventName, func) {
-        var i, len, foundIndex, events, perEventHandlers, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (arguments.length === 0) {
-            events = _objectKeys(handlers);
-        } else if (typeof eventName === "string" && eventName) {
-            events = eventName.split(/\s+/);
-        } else if (typeof eventName === "object" && eventName && typeof func === "undefined") {
-            for (i in eventName) {
-                if (eventName.hasOwnProperty(i) && typeof i === "string" && i && typeof eventName[i] === "function") {
-                    this.off(i, eventName[i]);
-                }
-            }
-        }
-        if (events && events.length) {
-            for (i = 0, len = events.length; i < len; i++) {
-                eventName = events[i].toLowerCase().replace(/^on/, "");
-                perEventHandlers = handlers[eventName];
-                if (perEventHandlers && perEventHandlers.length) {
-                    if (func) {
-                        foundIndex = _inArray(func, perEventHandlers);
-                        while (foundIndex !== -1) {
-                            perEventHandlers.splice(foundIndex, 1);
-                            foundIndex = _inArray(func, perEventHandlers, foundIndex);
-                        }
-                    } else {
-                        handlers[eventName].length = 0;
-                    }
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.handlers = function (eventName) {
-        var prop, copy = null, handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers;
-        if (handlers) {
-            if (typeof eventName === "string" && eventName) {
-                return handlers[eventName] ? handlers[eventName].slice(0) : null;
-            }
-            copy = {};
-            for (prop in handlers) {
-                if (handlers.hasOwnProperty(prop) && handlers[prop]) {
-                    copy[prop] = handlers[prop].slice(0);
-                }
-            }
-        }
-        return copy;
-    };
-    var _dispatchClientCallbacks = function (eventName, context, args, async) {
-        var handlers = _clientMeta[this.id] && _clientMeta[this.id].handlers[eventName];
-        if (handlers && handlers.length) {
-            var i, len, func, originalContext = context || this;
-            for (i = 0, len = handlers.length; i < len; i++) {
-                func = handlers[i];
-                context = originalContext;
-                if (typeof func === "string" && typeof window[func] === "function") {
-                    func = window[func];
-                }
-                if (typeof func === "object" && func && typeof func.handleEvent === "function") {
-                    context = func;
-                    func = func.handleEvent;
-                }
-                if (typeof func === "function") {
-                    _dispatchCallback(func, context, args, async);
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.clip = function (elements) {
-        elements = _prepClip(elements);
-        for (var i = 0; i < elements.length; i++) {
-            if (elements.hasOwnProperty(i) && elements[i] && elements[i].nodeType === 1) {
-                if (!elements[i].zcClippingId) {
-                    elements[i].zcClippingId = "zcClippingId_" + elementIdCounter++;
-                    _elementMeta[elements[i].zcClippingId] = [this.id];
-                    if (_globalConfig.autoActivate === true) {
-                        _addEventHandler(elements[i], "mouseover", _elementMouseOver);
-                    }
-                } else if (_inArray(this.id, _elementMeta[elements[i].zcClippingId]) === -1) {
-                    _elementMeta[elements[i].zcClippingId].push(this.id);
-                }
-                var clippedElements = _clientMeta[this.id].elements;
-                if (_inArray(elements[i], clippedElements) === -1) {
-                    clippedElements.push(elements[i]);
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.unclip = function (elements) {
-        var meta = _clientMeta[this.id];
-        if (meta) {
-            var clippedElements = meta.elements;
-            var arrayIndex;
-            if (typeof elements === "undefined") {
-                elements = clippedElements.slice(0);
-            } else {
-                elements = _prepClip(elements);
-            }
-            for (var i = elements.length; i--;) {
-                if (elements.hasOwnProperty(i) && elements[i] && elements[i].nodeType === 1) {
-                    arrayIndex = 0;
-                    while ((arrayIndex = _inArray(elements[i], clippedElements, arrayIndex)) !== -1) {
-                        clippedElements.splice(arrayIndex, 1);
-                    }
-                    var clientIds = _elementMeta[elements[i].zcClippingId];
-                    if (clientIds) {
-                        arrayIndex = 0;
-                        while ((arrayIndex = _inArray(this.id, clientIds, arrayIndex)) !== -1) {
-                            clientIds.splice(arrayIndex, 1);
-                        }
-                        if (clientIds.length === 0) {
-                            if (_globalConfig.autoActivate === true) {
-                                _removeEventHandler(elements[i], "mouseover", _elementMouseOver);
-                            }
-                            delete elements[i].zcClippingId;
-                        }
-                    }
-                }
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.prototype.elements = function () {
-        var meta = _clientMeta[this.id];
-        return meta && meta.elements ? meta.elements.slice(0) : [];
-    };
-    var _getAllClientsClippedToElement = function (element) {
-        var elementMetaId, clientIds, i, len, client, clients = [];
-        if (element && element.nodeType === 1 && (elementMetaId = element.zcClippingId) && _elementMeta.hasOwnProperty(elementMetaId)) {
-            clientIds = _elementMeta[elementMetaId];
-            if (clientIds && clientIds.length) {
-                for (i = 0, len = clientIds.length; i < len; i++) {
-                    client = _clientMeta[clientIds[i]].instance;
-                    if (client && client instanceof ZeroClipboard) {
-                        clients.push(client);
-                    }
-                }
-            }
-        }
-        return clients;
-    };
-    _globalConfig.hoverClass = "zeroclipboard-is-hover";
-    _globalConfig.activeClass = "zeroclipboard-is-active";
-    _globalConfig.trustedOrigins = null;
-    _globalConfig.allowScriptAccess = null;
-    _globalConfig.useNoCache = true;
-    _globalConfig.moviePath = "../ZeroClipboard.swf";
-    ZeroClipboard.detectFlashSupport = function () {
-        _deprecationWarning("ZeroClipboard.detectFlashSupport", _globalConfig.debug);
-        return _detectFlashSupport();
-    };
-    ZeroClipboard.dispatch = function (eventName, args) {
-        if (typeof eventName === "string" && eventName) {
-            var cleanEventName = eventName.toLowerCase().replace(/^on/, "");
-            if (cleanEventName) {
-                var clients = currentElement && _globalConfig.autoActivate === true ? _getAllClientsClippedToElement(currentElement) : _getAllClients();
-                for (var i = 0, len = clients.length; i < len; i++) {
-                    _receiveEvent.call(clients[i], cleanEventName, args);
-                }
-            }
-        }
-    };
-    ZeroClipboard.prototype.setHandCursor = function (enabled) {
-        _deprecationWarning("ZeroClipboard.prototype.setHandCursor", _globalConfig.debug);
-        enabled = typeof enabled === "boolean" ? enabled : !!enabled;
-        _setHandCursor(enabled);
-        _globalConfig.forceHandCursor = enabled;
-        return this;
-    };
-    ZeroClipboard.prototype.reposition = function () {
-        _deprecationWarning("ZeroClipboard.prototype.reposition", _globalConfig.debug);
-        return _reposition();
-    };
-    ZeroClipboard.prototype.receiveEvent = function (eventName, args) {
-        _deprecationWarning("ZeroClipboard.prototype.receiveEvent", _globalConfig.debug);
-        if (typeof eventName === "string" && eventName) {
-            var cleanEventName = eventName.toLowerCase().replace(/^on/, "");
-            if (cleanEventName) {
-                _receiveEvent.call(this, cleanEventName, args);
-            }
-        }
-    };
-    ZeroClipboard.prototype.setCurrent = function (element) {
-        _deprecationWarning("ZeroClipboard.prototype.setCurrent", _globalConfig.debug);
-        ZeroClipboard.activate(element);
-        return this;
-    };
-    ZeroClipboard.prototype.resetBridge = function () {
-        _deprecationWarning("ZeroClipboard.prototype.resetBridge", _globalConfig.debug);
-        ZeroClipboard.deactivate();
-        return this;
-    };
-    ZeroClipboard.prototype.setTitle = function (newTitle) {
-        _deprecationWarning("ZeroClipboard.prototype.setTitle", _globalConfig.debug);
-        newTitle = newTitle || _globalConfig.title || currentElement && currentElement.getAttribute("title");
-        if (newTitle) {
-            var htmlBridge = _getHtmlBridge(flashState.bridge);
-            if (htmlBridge) {
-                htmlBridge.setAttribute("title", newTitle);
-            }
-        }
-        return this;
-    };
-    ZeroClipboard.setDefaults = function (options) {
-        _deprecationWarning("ZeroClipboard.setDefaults", _globalConfig.debug);
-        ZeroClipboard.config(options);
-    };
-    ZeroClipboard.prototype.addEventListener = function (eventName, func) {
-        _deprecationWarning("ZeroClipboard.prototype.addEventListener", _globalConfig.debug);
-        return this.on(eventName, func);
-    };
-    ZeroClipboard.prototype.removeEventListener = function (eventName, func) {
-        _deprecationWarning("ZeroClipboard.prototype.removeEventListener", _globalConfig.debug);
-        return this.off(eventName, func);
-    };
-    ZeroClipboard.prototype.ready = function () {
-        _deprecationWarning("ZeroClipboard.prototype.ready", _globalConfig.debug);
-        return flashState.ready === true;
-    };
-    var _receiveEvent = function (eventName, args) {
-        eventName = eventName.toLowerCase().replace(/^on/, "");
-        var cleanVersion = args && args.flashVersion && _parseFlashVersion(args.flashVersion) || null;
-        var element = currentElement;
-        var performCallbackAsync = true;
-        switch (eventName) {
-            case "load":
-                if (cleanVersion) {
-                    if (!_isFlashVersionSupported(cleanVersion)) {
-                        _receiveEvent.call(this, "onWrongFlash", {
-                            flashVersion: cleanVersion
-                        });
-                        return;
-                    }
-                    flashState.outdated = false;
-                    flashState.ready = true;
-                    flashState.version = cleanVersion;
-                }
-                break;
-
-            case "wrongflash":
-                if (cleanVersion && !_isFlashVersionSupported(cleanVersion)) {
-                    flashState.outdated = true;
-                    flashState.ready = false;
-                    flashState.version = cleanVersion;
-                }
-                break;
-
-            case "mouseover":
-                _addClass(element, _globalConfig.hoverClass);
-                break;
-
-            case "mouseout":
-                if (_globalConfig.autoActivate === true) {
-                    ZeroClipboard.deactivate();
-                }
-                break;
-
-            case "mousedown":
-                _addClass(element, _globalConfig.activeClass);
-                break;
-
-            case "mouseup":
-                _removeClass(element, _globalConfig.activeClass);
-                break;
-
-            case "datarequested":
-                if (element) {
-                    var targetId = element.getAttribute("data-clipboard-target"), targetEl = !targetId ? null : document.getElementById(targetId);
-                    if (targetEl) {
-                        var textContent = targetEl.value || targetEl.textContent || targetEl.innerText;
-                        if (textContent) {
-                            this.setText(textContent);
-                        }
-                    } else {
-                        var defaultText = element.getAttribute("data-clipboard-text");
-                        if (defaultText) {
-                            this.setText(defaultText);
-                        }
-                    }
-                }
-                performCallbackAsync = false;
-                break;
-
-            case "complete":
-                _deleteOwnProperties(_clipData);
-                if (element && element !== _safeActiveElement() && element.focus) {
-                    element.focus();
-                }
-                break;
-        }
-        var context = element;
-        var eventArgs = [this, args];
-        return _dispatchClientCallbacks.call(this, eventName, context, eventArgs, performCallbackAsync);
-    };
-    if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "module"], function (require, exports, module) {
-            _amdModuleId = module && module.id || null;
-            return ZeroClipboard;
-        });
-    } else if (typeof module === "object" && module && typeof module.exports === "object" && module.exports && typeof window.require === "function") {
-        _cjsModuleId = module.id || null;
-        module.exports = ZeroClipboard;
-    } else {
-        window.ZeroClipboard = ZeroClipboard;
-    }
-})(function () {
-    return this;
-}());
-/*!
- * JSizes - JQuery plugin v0.33
- *
- * Licensed under the revised BSD License.
- * Copyright 2008-2010 Bram Stein
- * All rights reserved.
- */
-/*global jQuery*/
-(function ($) {
-	var num = function (value) {
-			return parseInt(value, 10) || 0;
-		};
-
-	/**
-	 * Sets or gets the values for min-width, min-height, max-width
-	 * and max-height.
-	 */
-	$.each(['min', 'max'], function (i, name) {
-		$.fn[name + 'Size'] = function (value) {
-			var width, height;
-			if (value) {
-				if (value.width !== undefined) {
-					this.css(name + '-width', value.width);
-				}
-				if (value.height !== undefined) {
-					this.css(name + '-height', value.height);
-				}
-				return this;
-			}
-			else {
-				width = this.css(name + '-width');
-				height = this.css(name + '-height');
-				// Apparently:
-				//  * Opera returns -1px instead of none
-				//  * IE6 returns undefined instead of none
-				return {'width': (name === 'max' && (width === undefined || width === 'none' || num(width) === -1) && Number.MAX_VALUE) || num(width), 
-						'height': (name === 'max' && (height === undefined || height === 'none' || num(height) === -1) && Number.MAX_VALUE) || num(height)};
-			}
-		};
-	});
-
-	/**
-	 * Returns whether or not an element is visible.
-	 */
-	$.fn.isVisible = function () {
-		return this.is(':visible');
-	};
-
-	/**
-	 * Sets or gets the values for border, margin and padding.
-	 */
-	$.each(['border', 'margin', 'padding'], function (i, name) {
-		$.fn[name] = function (value) {
-			if (value) {
-				if (value.top !== undefined) {
-					this.css(name + '-top' + (name === 'border' ? '-width' : ''), value.top);
-				}
-				if (value.bottom !== undefined) {
-					this.css(name + '-bottom' + (name === 'border' ? '-width' : ''), value.bottom);
-				}
-				if (value.left !== undefined) {
-					this.css(name + '-left' + (name === 'border' ? '-width' : ''), value.left);
-				}
-				if (value.right !== undefined) {
-					this.css(name + '-right' + (name === 'border' ? '-width' : ''), value.right);
-				}
-				return this;
-			}
-			else {
-				return {top: num(this.css(name + '-top' + (name === 'border' ? '-width' : ''))),
-						bottom: num(this.css(name + '-bottom' + (name === 'border' ? '-width' : ''))),
-						left: num(this.css(name + '-left' + (name === 'border' ? '-width' : ''))),
-						right: num(this.css(name + '-right' + (name === 'border' ? '-width' : '')))};
-			}
-		};
-	});
-})(jQuery);
-
-/*!
 Slimbox v2.04 - The ultimate lightweight Lightbox clone for jQuery
 (c) 2007-2010 Christophe Beyls <http://www.digitalia.be>
 MIT-style license.
@@ -4435,18 +3443,18 @@ MIT-style license.
             /* make sure the image won't be bigger than the window */
             var windowWidth = $(window).width() - 20;
             var windowHeight = $(window).height() - 40;
-            var maximumSize = (windowWidth > windowHeight) ? windowHeight : windowWidth; /* the smaller dimension determines max size */
 
             /* determine proper w and h for img, based on original image's dimensions and maximumSize */
             var maximumWidth = preload.width;
             var maximumHeight = preload.height;
-            if (maximumWidth > maximumHeight) {
-                maximumHeight = maximumSize * maximumHeight / maximumWidth;
-                maximumWidth = maximumSize;
-            }
-            else {
-                maximumWidth = maximumSize * maximumWidth / maximumHeight;
-                maximumHeight = maximumSize;
+
+            if ((preload.width - windowWidth) > (preload.height - windowHeight)) {
+                // Less space horizontally, determine max size from width
+                maximumWidth = windowWidth - 100;
+                maximumHeight = preload.height * (maximumWidth / preload.width);
+            } else {
+                maximumHeight = windowHeight - 200;
+                maximumWidth = preload.width * (maximumHeight / preload.height);
             }
 
             if (preload.width > maximumWidth || preload.height > maximumHeight) {
@@ -4602,422 +3610,9 @@ MIT-style license.
 
     // Works with either jQuery or Zepto
 })(window.jQuery || window.Zepto);
-/**
- * @license Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-touch-shiv-mq-teststyles-prefixes-load
-*/
-window.Modernizr = (function (window, document, undefined) {
-
-    var version = '2.6.2',
-
-    Modernizr = {},
-
-
-    docElement = document.documentElement,
-
-    mod = 'modernizr',
-    modElem = document.createElement(mod),
-    mStyle = modElem.style,
-
-    inputElem,
-
-
-    toString = {}.toString,
-
-    prefixes = ' -webkit- -moz- -o- -ms- '.split(' '),
-
-
-
-    tests = {},
-    inputs = {},
-    attrs = {},
-
-    classes = [],
-
-    slice = classes.slice,
-
-    featureName,
-
-
-    injectElementWithStyles = function (rule, callback, nodes, testnames) {
-
-        var style, ret, node, docOverflow,
-            div = document.createElement('div'),
-                  body = document.body,
-                  fakeBody = body || document.createElement('body');
-
-        if (parseInt(nodes, 10)) {
-            while (nodes--) {
-                node = document.createElement('div');
-                node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
-                div.appendChild(node);
-            }
-        }
-
-        style = ['&#173;', '<style id="s', mod, '">', rule, '</style>'].join('');
-        div.id = mod;
-        (body ? div : fakeBody).innerHTML += style;
-        fakeBody.appendChild(div);
-        if (!body) {
-            fakeBody.style.background = '';
-            fakeBody.style.overflow = 'hidden';
-            docOverflow = docElement.style.overflow;
-            docElement.style.overflow = 'hidden';
-            docElement.appendChild(fakeBody);
-        }
-
-        ret = callback(div, rule);
-        if (!body) {
-            fakeBody.parentNode.removeChild(fakeBody);
-            docElement.style.overflow = docOverflow;
-        } else {
-            div.parentNode.removeChild(div);
-        }
-
-        return !!ret;
-
-    },
-
-    testMediaQuery = function (mq) {
-
-        var matchMedia = window.matchMedia || window.msMatchMedia;
-        if (matchMedia) {
-            return matchMedia(mq).matches;
-        }
-
-        var bool;
-
-        injectElementWithStyles('@media ' + mq + ' { #' + mod + ' { position: absolute; } }', function (node) {
-            bool = (window.getComputedStyle ?
-                      getComputedStyle(node, null) :
-                      node.currentStyle)['position'] == 'absolute';
-        });
-
-        return bool;
-
-    },
-    _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
-
-    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
-        hasOwnProp = function (object, property) {
-            return _hasOwnProperty.call(object, property);
-        };
-    }
-    else {
-        hasOwnProp = function (object, property) {
-            return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
-        };
-    }
-
-
-    if (!Function.prototype.bind) {
-        Function.prototype.bind = function bind(that) {
-
-            var target = this;
-
-            if (typeof target != "function") {
-                throw new TypeError();
-            }
-
-            var args = slice.call(arguments, 1),
-                bound = function () {
-
-                    if (this instanceof bound) {
-
-                        var F = function () { };
-                        F.prototype = target.prototype;
-                        var self = new F();
-
-                        var result = target.apply(
-                            self,
-                            args.concat(slice.call(arguments))
-                        );
-                        if (Object(result) === result) {
-                            return result;
-                        }
-                        return self;
-
-                    } else {
-
-                        return target.apply(
-                            that,
-                            args.concat(slice.call(arguments))
-                        );
-
-                    }
-
-                };
-
-            return bound;
-        };
-    }
-
-    function setCss(str) {
-        mStyle.cssText = str;
-    }
-
-    function setCssAll(str1, str2) {
-        return setCss(prefixes.join(str1 + ';') + (str2 || ''));
-    }
-
-    function is(obj, type) {
-        return typeof obj === type;
-    }
-
-    function contains(str, substr) {
-        return !!~('' + str).indexOf(substr);
-    }
-
-
-    function testDOMProps(props, obj, elem) {
-        for (var i in props) {
-            var item = obj[props[i]];
-            if (item !== undefined) {
-
-                if (elem === false) return props[i];
-
-                if (is(item, 'function')) {
-                    return item.bind(elem || obj);
-                }
-
-                return item;
-            }
-        }
-        return false;
-    }
-    tests['touch'] = function () {
-        var bool;
-
-        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-            bool = true;
-        } else {
-            injectElementWithStyles(['@media (', prefixes.join('touch-enabled),('), mod, ')', '{#modernizr{top:9px;position:absolute}}'].join(''), function (node) {
-                bool = node.offsetTop === 9;
-            });
-        }
-
-        return bool;
-    };
-    for (var feature in tests) {
-        if (hasOwnProp(tests, feature)) {
-            featureName = feature.toLowerCase();
-            Modernizr[featureName] = tests[feature]();
-
-            classes.push((Modernizr[featureName] ? '' : 'no-') + featureName);
-        }
-    }
-
-
-
-    Modernizr.addTest = function (feature, test) {
-        if (typeof feature == 'object') {
-            for (var key in feature) {
-                if (hasOwnProp(feature, key)) {
-                    Modernizr.addTest(key, feature[key]);
-                }
-            }
-        } else {
-
-            feature = feature.toLowerCase();
-
-            if (Modernizr[feature] !== undefined) {
-                return Modernizr;
-            }
-
-            test = typeof test == 'function' ? test() : test;
-
-            if (typeof enableClasses !== "undefined" && enableClasses) {
-                docElement.className += ' ' + (test ? '' : 'no-') + feature;
-            }
-            Modernizr[feature] = test;
-
-        }
-
-        return Modernizr;
-    };
-
-
-    setCss('');
-    modElem = inputElem = null;
-
-    ; (function (window, document) {
-        var options = window.html5 || {};
-
-        var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-        var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-        var supportsHtml5Styles;
-
-        var expando = '_html5shiv';
-
-        var expanID = 0;
-
-        var expandoData = {};
-
-        var supportsUnknownElements;
-
-        (function () {
-            try {
-                var a = document.createElement('a');
-                a.innerHTML = '<xyz></xyz>';
-                supportsHtml5Styles = ('hidden' in a);
-
-                supportsUnknownElements = a.childNodes.length == 1 || (function () {
-                    (document.createElement)('a');
-                    var frag = document.createDocumentFragment();
-                    return (
-                      typeof frag.cloneNode == 'undefined' ||
-                      typeof frag.createDocumentFragment == 'undefined' ||
-                      typeof frag.createElement == 'undefined'
-                    );
-                }());
-            } catch (e) {
-                supportsHtml5Styles = true;
-                supportsUnknownElements = true;
-            }
-
-        }()); function addStyleSheet(ownerDocument, cssText) {
-            var p = ownerDocument.createElement('p'),
-                parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-            p.innerHTML = 'x<style>' + cssText + '</style>';
-            return parent.insertBefore(p.lastChild, parent.firstChild);
-        }
-
-        function getElements() {
-            var elements = html5.elements;
-            return typeof elements == 'string' ? elements.split(' ') : elements;
-        }
-
-        function getExpandoData(ownerDocument) {
-            var data = expandoData[ownerDocument[expando]];
-            if (!data) {
-                data = {};
-                expanID++;
-                ownerDocument[expando] = expanID;
-                expandoData[expanID] = data;
-            }
-            return data;
-        }
-
-        function createElement(nodeName, ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createElement(nodeName);
-            }
-            if (!data) {
-                data = getExpandoData(ownerDocument);
-            }
-            var node;
-
-            if (data.cache[nodeName]) {
-                node = data.cache[nodeName].cloneNode();
-            } else if (saveClones.test(nodeName)) {
-                node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-            } else {
-                node = data.createElem(nodeName);
-            }
-
-            return node.canHaveChildren && !reSkip.test(nodeName) ? data.frag.appendChild(node) : node;
-        }
-
-        function createDocumentFragment(ownerDocument, data) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            if (supportsUnknownElements) {
-                return ownerDocument.createDocumentFragment();
-            }
-            data = data || getExpandoData(ownerDocument);
-            var clone = data.frag.cloneNode(),
-                i = 0,
-                elems = getElements(),
-                l = elems.length;
-            for (; i < l; i++) {
-                clone.createElement(elems[i]);
-            }
-            return clone;
-        }
-
-        function shivMethods(ownerDocument, data) {
-            if (!data.cache) {
-                data.cache = {};
-                data.createElem = ownerDocument.createElement;
-                data.createFrag = ownerDocument.createDocumentFragment;
-                data.frag = data.createFrag();
-            }
-
-
-            ownerDocument.createElement = function (nodeName) {
-                if (!html5.shivMethods) {
-                    return data.createElem(nodeName);
-                }
-                return createElement(nodeName, ownerDocument, data);
-            };
-
-            ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-              'var n=f.cloneNode(),c=n.createElement;' +
-              'h.shivMethods&&(' +
-                        getElements().join().replace(/\w+/g, function (nodeName) {
-                            data.createElem(nodeName);
-                            data.frag.createElement(nodeName);
-                            return 'c("' + nodeName + '")';
-                        }) +
-              ');return n}'
-            )(html5, data.frag);
-        } function shivDocument(ownerDocument) {
-            if (!ownerDocument) {
-                ownerDocument = document;
-            }
-            var data = getExpandoData(ownerDocument);
-
-            if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-                data.hasCSS = !!addStyleSheet(ownerDocument,
-                          'article,aside,figcaption,figure,footer,header,hgroup,nav,section{display:block}' +
-                          'mark{background:#FF0;color:#000}'
-                );
-            }
-            if (!supportsUnknownElements) {
-                shivMethods(ownerDocument, data);
-            }
-            return ownerDocument;
-        } var html5 = {
-
-            'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video',
-
-            'shivCSS': (options.shivCSS !== false),
-
-            'supportsUnknownElements': supportsUnknownElements,
-
-            'shivMethods': (options.shivMethods !== false),
-
-            'type': 'default',
-
-            'shivDocument': shivDocument,
-
-            createElement: createElement,
-
-            createDocumentFragment: createDocumentFragment
-        }; window.html5 = html5;
-
-        shivDocument(document);
-
-    }(this, document));
-
-    Modernizr._version = version;
-
-    Modernizr._prefixes = prefixes;
-
-    Modernizr.mq = testMediaQuery;
-    Modernizr.testStyles = injectElementWithStyles;
-    return Modernizr;
-
-})(this, this.document);
-
-;
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-mq-prefixes-setclasses-shiv-teststyles !*/
+!function (e, t, n) { function a(e, t) { return typeof e === t } function r() { var e, t, n, r, o, i, s; for (var l in d) if (d.hasOwnProperty(l)) { if (e = [], t = d[l], t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)) for (n = 0; n < t.options.aliases.length; n++)e.push(t.options.aliases[n].toLowerCase()); for (r = a(t.fn, "function") ? t.fn() : t.fn, o = 0; o < e.length; o++)i = e[o], s = i.split("."), 1 === s.length ? Modernizr[s[0]] = r : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = r), c.push((r ? "" : "no-") + s.join("-")) } } function o(e) { var t = m.className, n = Modernizr._config.classPrefix || ""; if (p && (t = t.baseVal), Modernizr._config.enableJSClass) { var a = new RegExp("(^|\\s)" + n + "no-js(\\s|$)"); t = t.replace(a, "$1" + n + "js$2") } Modernizr._config.enableClasses && (t += " " + n + e.join(" " + n), p ? m.className.baseVal = t : m.className = t) } function i() { return "function" != typeof t.createElement ? t.createElement(arguments[0]) : p ? t.createElementNS.call(t, "http://www.w3.org/2000/svg", arguments[0]) : t.createElement.apply(t, arguments) } function s() { var e = t.body; return e || (e = i(p ? "svg" : "body"), e.fake = !0), e } function l(e, n, a, r) { var o, l, c, d, u = "modernizr", f = i("div"), p = s(); if (parseInt(a, 10)) for (; a--;)c = i("div"), c.id = r ? r[a] : u + (a + 1), f.appendChild(c); return o = i("style"), o.type = "text/css", o.id = "s" + u, (p.fake ? p : f).appendChild(o), p.appendChild(f), o.styleSheet ? o.styleSheet.cssText = e : o.appendChild(t.createTextNode(e)), f.id = u, p.fake && (p.style.background = "", p.style.overflow = "hidden", d = m.style.overflow, m.style.overflow = "hidden", m.appendChild(p)), l = n(f, e), p.fake ? (p.parentNode.removeChild(p), m.style.overflow = d, m.offsetHeight) : f.parentNode.removeChild(f), !!l } var c = [], d = [], u = { _version: "3.6.0", _config: { classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0 }, _q: [], on: function (e, t) { var n = this; setTimeout(function () { t(n[e]) }, 0) }, addTest: function (e, t, n) { d.push({ name: e, fn: t, options: n }) }, addAsyncTest: function (e) { d.push({ name: null, fn: e }) } }, Modernizr = function () { }; Modernizr.prototype = u, Modernizr = new Modernizr; var f = u._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""]; u._prefixes = f; var m = t.documentElement, p = "svg" === m.nodeName.toLowerCase(); p || !function (e, t) { function n(e, t) { var n = e.createElement("p"), a = e.getElementsByTagName("head")[0] || e.documentElement; return n.innerHTML = "x<style>" + t + "</style>", a.insertBefore(n.lastChild, a.firstChild) } function a() { var e = E.elements; return "string" == typeof e ? e.split(" ") : e } function r(e, t) { var n = E.elements; "string" != typeof n && (n = n.join(" ")), "string" != typeof e && (e = e.join(" ")), E.elements = n + " " + e, c(t) } function o(e) { var t = y[e[g]]; return t || (t = {}, v++, e[g] = v, y[v] = t), t } function i(e, n, a) { if (n || (n = t), u) return n.createElement(e); a || (a = o(n)); var r; return r = a.cache[e] ? a.cache[e].cloneNode() : h.test(e) ? (a.cache[e] = a.createElem(e)).cloneNode() : a.createElem(e), !r.canHaveChildren || p.test(e) || r.tagUrn ? r : a.frag.appendChild(r) } function s(e, n) { if (e || (e = t), u) return e.createDocumentFragment(); n = n || o(e); for (var r = n.frag.cloneNode(), i = 0, s = a(), l = s.length; l > i; i++)r.createElement(s[i]); return r } function l(e, t) { t.cache || (t.cache = {}, t.createElem = e.createElement, t.createFrag = e.createDocumentFragment, t.frag = t.createFrag()), e.createElement = function (n) { return E.shivMethods ? i(n, e, t) : t.createElem(n) }, e.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + a().join().replace(/[\w\-:]+/g, function (e) { return t.createElem(e), t.frag.createElement(e), 'c("' + e + '")' }) + ");return n}")(E, t.frag) } function c(e) { e || (e = t); var a = o(e); return !E.shivCSS || d || a.hasCSS || (a.hasCSS = !!n(e, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), u || l(e, a), e } var d, u, f = "3.7.3", m = e.html5 || {}, p = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, h = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, g = "_html5shiv", v = 0, y = {}; !function () { try { var e = t.createElement("a"); e.innerHTML = "<xyz></xyz>", d = "hidden" in e, u = 1 == e.childNodes.length || function () { t.createElement("a"); var e = t.createDocumentFragment(); return "undefined" == typeof e.cloneNode || "undefined" == typeof e.createDocumentFragment || "undefined" == typeof e.createElement }() } catch (n) { d = !0, u = !0 } }(); var E = { elements: m.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video", version: f, shivCSS: m.shivCSS !== !1, supportsUnknownElements: u, shivMethods: m.shivMethods !== !1, type: "default", shivDocument: c, createElement: i, createDocumentFragment: s, addElements: r }; e.html5 = E, c(t), "object" == typeof module && module.exports && (module.exports = E) }("undefined" != typeof e ? e : this, t); var h = function () { var t = e.matchMedia || e.msMatchMedia; return t ? function (e) { var n = t(e); return n && n.matches || !1 } : function (t) { var n = !1; return l("@media " + t + " { #modernizr { position: absolute; } }", function (t) { n = "absolute" == (e.getComputedStyle ? e.getComputedStyle(t, null) : t.currentStyle).position }), n } }(); u.mq = h; u.testStyles = l; r(), o(c), delete u.addTest, delete u.addAsyncTest; for (var g = 0; g < Modernizr._q.length; g++)Modernizr._q[g](); e.Modernizr = Modernizr }(window, document);
 // yepnope.js
 // v2.0.0
 //
@@ -5044,10 +3639,6 @@ window.yepnope = (function (window, document, undef) {
     var scriptsQueue = [];
     var count = 0;
     var toString = {}.toString;
-
-    // This is just used for a race condition,
-    // so even if it fails it's not a huge risk
-    var isOldIE = !!document.attachEvent && !(window.opera && toString.call(window.opera) == '[object Opera]');
 
     function noop() { }
 
@@ -5107,13 +3698,6 @@ window.yepnope = (function (window, document, undef) {
 
         script.src = src;
 
-        // IE Race condition
-        // http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
-        if (isOldIE) {
-            script.event = 'onclick';
-            script.id = script.htmlFor = attrs.id || uniq();
-        }
-
         // Add our extra attributes to the script element
         for (i in attrs) {
             script.setAttribute(i, attrs[i]);
@@ -5125,17 +3709,6 @@ window.yepnope = (function (window, document, undef) {
             if (!done && isFileReady(script.readyState)) {
                 // Set done to prevent this function from being called twice.
                 done = 1;
-
-                // Second half of IE race condition hack
-                if (isOldIE) {
-                    try {
-                        // By calling this here, we create a synchronous
-                        // execution of the contents of the script
-                        // and the execution of the callback below.
-                        script.onclick();
-                    }
-                    catch (e) { }
-                }
 
                 // Just run the callback
                 runWhenReady(src, cb);

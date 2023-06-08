@@ -623,7 +623,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "08/06/2023",
 				"category": "navigation"
 			},
 			{
@@ -1385,6 +1385,15 @@
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "04/05/2023",
 				"category": "download"
+			},
+			{
+				"link": "PIT4/soap/soap-schema-reference/webframe.html",
+				"description": "SOAP Schema Reference",
+				"anchor": "SOAP_Schema_Reference",
+				"type": "Link",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "08/06/2023",
+				"category": "navigation"
 			},
 			{
 				"link": "PIT4/soap/v1/enhanced_reporting_pit4.wsdl",

@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%LocalItemTitle%%</title>" --><title>CheckErrRunOperation (Method)</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content=""/><!--DXMETADATA end-->    
+    
+
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:{"dynamictoc":{"initialNodeId":"n0","initialNodeContainer":"c0"},"currentLocale":"-","isFrameless":false,"navigationKind":"frames","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/plugins-webservice/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv1.css"" data-responsive-mobile=""template/packages/core-webservice/dx.webservice.mobile.css"" data-responsive-tablet=""template/packages/core-webservice/dx.webservice.tablet.css"""--><link rel="stylesheet" type="text/css" href="template/packages/core-webservice/css/dx.webservice.css"  data-mshv2-stylesheet="/template/packages/core-webservice/dx.webservice.mshv2.css" data-mshv1-stylesheet="/template/packages/core-webservice/dx.webservice.mshv1.css" data-responsive-mobile="template/packages/core-webservice/dx.webservice.mobile.css" data-responsive-tablet="template/packages/core-webservice/dx.webservice.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="script"--><script src="template/packages/plugins-webservice/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="script"--><script src="template/packages/core-webservice/script/dx.webservice.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="Enhanced Reporting_ws~r-CheckErrRunOperation~o-Method"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+    <div id="i-header-content" class="i-header-content">
+        <!--DXMETADATA start type="LogoImage" --><img class="logoimage" src="RevenueLogo.jpg" border="0"></img><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Enhanced Reporting Web Service<!--DXMETADATA end--></div>
+        <div class="i-page-title"><div class="i-page-title-text">
+			    <!--DXMETADATA start type="Scrap" name="_OPERATION_PAGE_TITLE" --><table class="i-operation-page-title"><tr><td class="i-operation-kind Method">Method</td><td class="i-operation-page-title-text">CheckErrRunOperation</td></tr></table><!--DXMETADATA end-->
+			</div></div>
+    </div>
+    <div id="i-after-header-content" class="i-after-header-content">
+        <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="IsWebOutputRootPageLinkEnabled" format="<a href='#' class='i-page-link i-view-in-frame-link' title='$$VIEW_WITH_NAVIGATION_TOOLS_TIP$$' style='display: none' data-root-page='%%WebOutputRootPage%%%%OutputFileExtension%%' target='_top'>$$VIEW_WITH_NAVIGATION_TOOLS_TEXT$$</a>" --><!--DXMETADATA end-->
+    </div>
+    <!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container"><table><tr><td>
+<a href="topic520.html">Enhanced Reporting Web Service</a>
+ > <a href="topic521.html">All Operations Resource Group</a>
+ : CheckErrRunOperation (Method)</td></tr></table></div><!--DXMETADATA end -->
+    
+    
+    <div id="i-body-content" class="i-body-content">
+        <!--DXMETADATA start type="ResourcePath" condition="content:content=""%%ResourcePath%%"",operator=""<>"",value=""%%ItemName%%""" format="<p class=""resource-path-container""><strong>$$RESOURCE_PATH$$</strong> <span class=""i-resource-path"">%%ResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="FullyQualifiedResourcePath" condition="content:content=""%%IncludeFullResourceUriInOperationPages%%"",operator=""="",value=""True""" format="<p class=""resource-path-container""><strong>$$URI$$</strong> <span class=""i-resource-path"">%%FullyQualifiedResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="Description" source="Item" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=description,caption=$$Description$$%%<div class=""i-description-content"">%%description%%</div></div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="PARAMETER_LIST" namespace="parameter" source="Item" filter="type=!header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Parameters$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="HEADER_LIST" namespace="parameter" source="Item" filter="type=header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$REQUEST_HEADERS$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="REQUEST_LIST" namespace="request" source="Item" -->
+<div class="i-section-heading" id="i-request_CheckErrRunRequest-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Request  (CheckErrRunRequest)</span></div><div id="i-request_CheckErrRunRequest-section-content" class="i-section-content"><p>The request body is of type <a href="topic355.html">CheckErrRunRequest</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic355.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunRequest" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunRequest" name="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunRequest">
+  <area shape="rect" coords="457, 214, 954, 248" href="topic371.html" alt="EnhancedReportingRunReference Element" title="EnhancedReportingRunReference Element"></area>
+  <area shape="rect" coords="839, 172, 1108, 206" href="topic446.html" alt="Version Element" title="Version Element"></area>
+  <area shape="rect" coords="839, 130, 1102, 164" href="topic445.html" alt="Name Element" title="Name Element"></area>
+  <area shape="rect" coords="697, 150, 798, 185" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="457, 151, 677, 185" href="topic370.html" alt="SoftwareUsed Element" title="SoftwareUsed Element"></area>
+  <area shape="rect" coords="457, 88, 681, 122" href="topic369.html" alt="TaxYear Element" title="TaxYear Element"></area>
+  <area shape="rect" coords="457, 46, 768, 80" href="topic368.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="457, 4, 827, 38" href="topic367.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="315, 108, 416, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 109, 295, 143" href="topic355.html" alt="CheckErrRunRequest Element" title="CheckErrRunRequest Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic366.html">CheckErrRunRequest</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Request to check the current status of an Employer's PAYE Enhanced Reporting Run, based on the RunReference.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic367.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic474.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 1. Employer's PAYE Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic368.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic463.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by an agent on behalf of employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic369.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic497.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic370.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic444.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Refs: 7 and 8. Third party software product identifier.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic445.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic484.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 7. Name of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic446.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic484.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 8. Version of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic371.html">EnhancedReportingRunReference</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic476.html">enhancedReportingRunReference Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 4. Used to identify the Enhanced Reporting event for which the submission refers.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="SUCCESS_RESPONSE_LIST" namespace="response" source="Item" filter="type=success" -->
+<div class="i-section-heading" id="i-response_CheckErrRunResponse-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">200 Response  (CheckErrRunResponse)</span></div><div id="i-response_CheckErrRunResponse-section-content" class="i-section-content"><p>The response body is of type <a href="topic356.html">CheckErrRunResponse</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic356.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunResponse" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunResponse" name="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrRunResponse">
+  <area shape="rect" coords="845, 676, 1133, 710" href="topic409.html" alt="Description Element" title="Description Element"></area>
+  <area shape="rect" coords="845, 634, 1119, 668" href="topic408.html" alt="Path Element" title="Path Element"></area>
+  <area shape="rect" coords="845, 592, 1069, 626" href="topic407.html" alt="Code Element" title="Code Element"></area>
+  <area shape="rect" coords="703, 634, 804, 669" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="472, 634, 683, 668" href="topic377.html" alt="ValidationError Element" title="ValidationError Element"></area>
+  <area shape="rect" coords="1004, 550, 1161, 584" href="topic437.html" alt="Amount Element" title="Amount Element"></area>
+  <area shape="rect" coords="1004, 508, 1337, 542" href="topic436.html" alt="SubCategory Element" title="SubCategory Element"></area>
+  <area shape="rect" coords="1004, 466, 1242, 500" href="topic435.html" alt="Category Element" title="Category Element"></area>
+  <area shape="rect" coords="1004, 424, 1406, 458" href="topic434.html" alt="EmployerReference Element" title="EmployerReference Element"></area>
+  <area shape="rect" coords="1423, 382, 1724, 416" href="topic395.html" alt="EmploymentID Element" title="EmploymentID Element"></area>
+  <area shape="rect" coords="1423, 340, 1728, 374" href="topic394.html" alt="EmployeePPSN Element" title="EmployeePPSN Element"></area>
+  <area shape="rect" coords="1281, 360, 1382, 395" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="1004, 361, 1261, 395" href="topic433.html" alt="EmployeeID Element" title="EmployeeID Element"></area>
+  <area shape="rect" coords="1004, 298, 1342, 332" href="topic432.html" alt="LineItemID Element" title="LineItemID Element"></area>
+  <area shape="rect" coords="862, 424, 963, 459" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="472, 424, 842, 458" href="topic376.html" alt="ExpenseBenefitSummary Element" title="ExpenseBenefitSummary Element"></area>
+  <area shape="rect" coords="1735, 256, 2038, 290" href="topic430.html" alt="ExpensesBenefitsToDeleteCount Element" title="ExpensesBenefitsToDeleteCount Element"></area>
+  <area shape="rect" coords="1735, 214, 1993, 248" href="topic429.html" alt="ExpensesBenefitsCount Element" title="ExpensesBenefitsCount Element"></area>
+  <area shape="rect" coords="1735, 172, 1892, 206" href="topic428.html" alt="Amount Element" title="Amount Element"></area>
+  <area shape="rect" coords="1593, 214, 1694, 249" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="1061, 214, 1573, 248" href="topic426.html" alt="ExpenseBenefitSubmissionSummary Element" title="ExpenseBenefitSubmissionSummary Element"></area>
+  <area shape="rect" coords="1061, 130, 1326, 164" href="topic425.html" alt="Status Element" title="Status Element"></area>
+  <area shape="rect" coords="1061, 88, 1348, 122" href="topic424.html" alt="SubmissionID Element" title="SubmissionID Element"></area>
+  <area shape="rect" coords="919, 172, 1020, 207" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="472, 172, 899, 206" href="topic375.html" alt="ExpenseBenefitSubmissions Element" title="ExpenseBenefitSubmissions Element"></area>
+  <area shape="rect" coords="472, 46, 685, 80" href="topic374.html" alt="Amount Element" title="Amount Element"></area>
+  <area shape="rect" coords="472, 4, 737, 38" href="topic373.html" alt="Status Element" title="Status Element"></area>
+  <area shape="rect" coords="330, 340, 431, 375" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 340, 310, 374" href="topic356.html" alt="CheckErrRunResponse Element" title="CheckErrRunResponse Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic372.html">CheckErrRunResponse</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic373.html">Status</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic488.html">processingStatus Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Current Status of Enhanced Reporting Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the run are at a status of Pending.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic374.html">Amount</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Total amount across valid line items for the Enhanced Reporting Run. Included when all submissions received for the run have been processed.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic375.html">ExpenseBenefitSubmissions</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic423.html">ExpenseBenefitSubmissionStatus Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>High Level details of the Expense Benefit Submissions that make up the Expense Benefit Run.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic424.html">SubmissionID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic496.html">submissionID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 3. Unique ID of the Enhanced Reporting Submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic425.html">Status</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic488.html">processingStatus Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic426.html">ExpenseBenefitSubmissionSummary</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic427.html">ExpenseBenefitSubmissionSummary Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Summary details of Expense Submission. Included when submission has completed processing.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic428.html">Amount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Total amount across valid line items on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic429.html">ExpensesBenefitsCount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Total number of line items included on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic430.html">ExpensesBenefitsToDeleteCount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Total number of Expense Benefit line item IDs for deletion included on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic376.html">ExpenseBenefitSummary</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic431.html">ExpenseBenefitSummary Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Summary details of individual Expense Benefits that make up the Expense Benefit Run.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic432.html">LineItemID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic480.html">expenseBenefitLineItemID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 5. Used to uniquely identify individual line items.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic433.html">EmployeeID</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic393.html">EmployeeID Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Refs: 9 and 15. Unique references to an employment for an employee. Includes PPSN and Employment ID.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic394.html">EmployeePPSN</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic472.html">EmployeePPSN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 9. Employee's PPS Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic395.html">EmploymentID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic475.html">employmentID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 15. Employment ID. Unique identifier for each distinct employment for an employee. To be set by the employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic434.html">EmployerReference</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic473.html">employerReference Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 14. Employee's internal staff identifier/reference. This will be mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic435.html">Category</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic464.html">category Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 18. Category of Expense Benefit. Possible values are Travel and Subsistence, Remote Working Daily Allowance, Small Benefits Exemption.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic436.html">SubCategory</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic495.html">subcategory Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic437.html">Amount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 17. Total amount for this Expense Benefit on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic377.html">ValidationError</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic406.html">Error Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Errors (if any) on the CheckErrRunRequest.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic407.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic477.html">errorCode Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical Error Code - to be used for mapping to error messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic408.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic479.html">errorPath Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Path to error in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic409.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic478.html">errorDescription Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical description of error.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##EXAMPLEINTRO" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=""$$Example$$%%designlist:tagidentifier=##EXAMPLECODE,itemtype=Example%%""%%%%comment%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="EXAMPLEGROUP_LIST" namespace="ExampleGroup" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""="",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="INLINE_EXAMPLE" namespace="Example" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""<>"",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="MENU_LINK" namespace="example" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="FAULT_RESPONSE_LIST" namespace="response" source="Item" filter="type=fault" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Fault  Responses$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+            <!--DXMETADATA start type="TaggedComment" source="Item" id="##REMARKS" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=remarks,caption=$$Remarks$$%%%%comment%%</div>" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORIZED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""$$See_Also$$%%designlist:tagidentifier=##SEEALSO,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="i-section-heading" id="i-seealso-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">See Also</span></div><div id="i-seealso-section-content" class="i-section-content"><a href="topic521.html">All Operations Resource Group</a>
+|&nbsp;<a href="topic520.html">Enhanced Reporting Web Service</a>
+</p>
+</div><!--DXMETADATA end-->
+    </div>
+    <div id="i-footer-content" class="i-footer-content">
+        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" -->Please register for our <a href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">PIT Support Help Desk</a> for the following: <br/>
+<ul>
+  <li>Technical issues encountered using the PIT facility</li>
+  <li>Queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+</ul><!--DXMETADATA end-->
+    </div>
+    
+
+    <!--DXMETADATA start type="IsNew" format="<script type=""text/javascript"">setIsNew = true;</script>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<script type=""text/javascript"">setIsResponsiveEnabled = true;</script>" --><!--DXMETADATA end-->
+    <script type="text/javascript">
+        $(function() {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.isNew = !(typeof setIsNew === "undefined");
+            documentInstance.isResponsiveEnabled = !(typeof setIsResponsiveEnabled === "undefined");
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
