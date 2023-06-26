@@ -1439,6 +1439,15 @@
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "20/04/2023",
 				"category": "download"
+			},
+			{
+				"link": "PIT4/guide/PIT_Employment_Data_Creation_Guide.pdf",
+				"description": "PIT Employment Data Creation Guide",
+				"anchor": "PIT_Employment_Data_Creation_Guide",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "22/06/2023",
+				"category": "download"
 			}
 		]
 	}
