@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "15/06/2023",
+				"dateLastUpdated": "29/06/2023",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1365,7 @@
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "29/06/2023",
 				"category": "download"
 			},
 			{
@@ -1374,7 +1374,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "29/06/2023",
 				"category": "LINK"
 			},
 			{

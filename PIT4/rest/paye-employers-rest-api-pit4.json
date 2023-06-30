@@ -1111,7 +1111,7 @@
         "status" : {
           "type" : "string",
           "description" : "Current Status of Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the Run are at a status of Pending.",
-          "enum" : [ "PENDING", "PROCESSED", "COMPLETED", "DELETED", "INTERNALLY_DELETED" ]
+          "enum" : [ "PENDING", "PROCESSED", "COMPLETED" ]
         },
         "amount" : {
           "type" : "number",
@@ -1154,7 +1154,7 @@
         "status" : {
           "type" : "string",
           "description" : "Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.",
-          "enum" : [ "PENDING", "PROCESSED", "COMPLETED", "DELETED", "INTERNALLY_DELETED" ]
+          "enum" : [ "PENDING", "PROCESSED", "COMPLETED" ]
         },
         "expenseBenefitSubmissionSummary" : {
           "description" : "Summary totals for Expense Benefit Submission. Included when submission has completed processing.",
@@ -1577,9 +1577,7 @@
 "enum": [
 "PENDING",
 "PROCESSED",
-"COMPLETED",
-"DELETED",
-"INTERNALLY_DELETED"
+"COMPLETED"
 ]
 },
 "expenseBenefitSubmissionSummary": {
