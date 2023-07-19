@@ -41,6 +41,10 @@ v. Document updated on 07/12/2018:
 vi. Document updated on 22/02/2023:
 		Document moved to common folder to share between PMOD and ERR schema
 		Additional ERR schema specific paye types added
+
+======== Version 2.1 Milestone 1 ====================================
+vii. Document updated on 12/06/2023:
+		Additional ERR schema for monthly statement request
 -->
 
 
@@ -228,7 +232,22 @@ vi. Document updated on 22/02/2023:
 	<xs:simpleType name="expenseBenefitLineItemID">
 		<xs:restriction base="pc:IDString"/>
 	</xs:simpleType>
-
+	<xs:simpleType name="month">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="JANUARY"/>
+			<xs:enumeration value="FEBRUARY"/>
+			<xs:enumeration value="MARCH"/>
+			<xs:enumeration value="APRIL"/>
+			<xs:enumeration value="MAY"/>
+			<xs:enumeration value="JUNE"/>
+			<xs:enumeration value="JULY"/>
+			<xs:enumeration value="AUGUST"/>
+			<xs:enumeration value="SEPTEMBER"/>
+			<xs:enumeration value="OCTOBER"/>
+			<xs:enumeration value="NOVEMBER"/>
+			<xs:enumeration value="DECEMBER"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 
 
@@ -241,6 +260,9 @@ vi. Document updated on 22/02/2023:
 		<xs:restriction base="pc:longString"/>
 	</xs:simpleType>
 	<xs:simpleType name="errorDescription">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorId">
 		<xs:restriction base="pc:longString"/>
 	</xs:simpleType>
 	<xs:simpleType name="warningCode">

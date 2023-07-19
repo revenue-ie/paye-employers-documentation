@@ -3,6 +3,8 @@
 ======== Version 0.1 ====================================
 i. Document Created 22/03/2023
 
+ii. Document updated 19/07/2023
+        Added EmploymentCeased element
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:pn="http://www.ros.ie/schemas/paye-employers/err/v1/ern/"
@@ -103,7 +105,7 @@ i. Document Created 22/03/2023
                     <xs:documentation>Data Item Ref: N/A. EmployeePPSNs of employees who do not currently have an employment associated with the employer.</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ValidationError" type="pn:Error" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="ValidationError" type="pn:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request.</xs:documentation>
                 </xs:annotation>
@@ -147,7 +149,7 @@ i. Document Created 22/03/2023
     </xs:complexType>
     <xs:complexType name="ERN">
         <xs:annotation>
-            <xs:documentation>Enhanced Reporting Notification (RPN) for an employee.</xs:documentation>
+            <xs:documentation>Enhanced Reporting Notification (ERN) for an employee.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="EmployeeID" type="pn:EmployeeID">
@@ -158,6 +160,11 @@ i. Document Created 22/03/2023
             <xs:element name="Name" type="pn:Name" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>The employee name.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EmploymentCeased" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>Employment ceased marker.</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
@@ -179,9 +186,9 @@ i. Document Created 22/03/2023
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="Error">
+    <xs:complexType name="ErrorWithId">
         <xs:annotation>
-            <xs:documentation>Standard Validation error.</xs:documentation>
+            <xs:documentation>Standard Validation error with identification element.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="Code" type="pc:errorCode">
@@ -197,6 +204,11 @@ i. Document Created 22/03/2023
             <xs:element name="Description" type="pc:errorDescription">
                 <xs:annotation>
                     <xs:documentation>Description of error - to be used for support.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Id" type="pc:errorId">
+                <xs:annotation>
+                    <xs:documentation>Optional ID for error - to be used when multiple customers are validated.</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>

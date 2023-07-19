@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 Document History:
-======== Version 0.1 ====================================
+======== Version 1.0 ====================================
 i. Document Created 22/02/2023
+======== Version 1.1 ====================================
+ii. Document Updated 14/06/2023
+	- Added Monthly Err Statement operation
+======== Version 1.2 ====================================
+iii. Document Updated 14/06/2023
+	- Rewording of Monthly Statement to Monthly Report
 
 -->
 <wsdl:definitions name="EnhancedReportingRequirements" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
@@ -33,7 +39,13 @@ i. Document Created 22/02/2023
 	<wsdl:message name="CheckErrRunResponse">
 		<wsdl:part element="tns:CheckErrRunResponse" name="parameters"/>
 	</wsdl:message>
-	
+	<wsdl:message name="MonthlyErrReportRequest">
+		<wsdl:part element="tns:MonthlyErrReportRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="MonthlyErrReportResponse">
+		<wsdl:part element="tns:MonthlyErrReportResponse" name="parameters"/>
+	</wsdl:message>
+
 	<wsdl:portType name="EnhancedReportingPortType">
 		<wsdl:operation name="EnhancedReportingSubmissionOperation">
 			<wsdl:input message="tns:EnhancedReportingSubmissionRequest"/>
@@ -46,6 +58,10 @@ i. Document Created 22/02/2023
 		<wsdl:operation name="CheckErrRunOperation">
 			<wsdl:input message="tns:CheckErrRunRequest"/>
 			<wsdl:output message="tns:CheckErrRunResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="MonthlyErrReportOperation">
+			<wsdl:input message="tns:MonthlyErrReportRequest"/>
+			<wsdl:output message="tns:MonthlyErrReportResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	
@@ -71,6 +87,15 @@ i. Document Created 22/02/2023
 		</wsdl:operation>
 		<wsdl:operation name="CheckErrRunOperation">
 			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/CheckErrRunOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MonthlyErrReportOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/MonthlyErrReportOperation" soapActionRequired="true"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

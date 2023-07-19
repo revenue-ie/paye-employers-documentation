@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%LocalItemTitle%%</title>" --><title>LookupPayrollDetailsByReturnPeriod (Method)</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content=""/><!--DXMETADATA end-->    
+    
+
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:{"dynamictoc":{"initialNodeId":"n0","initialNodeContainer":"c0"},"currentLocale":"-","isFrameless":false,"navigationKind":"frames","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/plugins-webservice/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv1.css"" data-responsive-mobile=""template/packages/core-webservice/dx.webservice.mobile.css"" data-responsive-tablet=""template/packages/core-webservice/dx.webservice.tablet.css"""--><link rel="stylesheet" type="text/css" href="template/packages/core-webservice/css/dx.webservice.css"  data-mshv2-stylesheet="/template/packages/core-webservice/dx.webservice.mshv2.css" data-mshv1-stylesheet="/template/packages/core-webservice/dx.webservice.mshv1.css" data-responsive-mobile="template/packages/core-webservice/dx.webservice.mobile.css" data-responsive-tablet="template/packages/core-webservice/dx.webservice.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="script"--><script src="template/packages/plugins-webservice/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="script"--><script src="template/packages/core-webservice/script/dx.webservice.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="Returns Reconciliation_ws~r-LookupPayrollDetailsByReturnPeriod~o-Method"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+    <div id="i-header-content" class="i-header-content">
+        <!--DXMETADATA start type="LogoImage" --><img class="logoimage" src="RevenueLogo.jpg" border="0"></img><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Returns Reconciliation Web Service<!--DXMETADATA end--></div>
+        <div class="i-page-title"><div class="i-page-title-text">
+			    <!--DXMETADATA start type="Scrap" name="_OPERATION_PAGE_TITLE" --><table class="i-operation-page-title"><tr><td class="i-operation-kind Method">Method</td><td class="i-operation-page-title-text">LookupPayrollDetailsByReturnPeriod</td></tr></table><!--DXMETADATA end-->
+			</div></div>
+    </div>
+    <div id="i-after-header-content" class="i-after-header-content">
+        <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="IsWebOutputRootPageLinkEnabled" format="<a href='#' class='i-page-link i-view-in-frame-link' title='$$VIEW_WITH_NAVIGATION_TOOLS_TIP$$' style='display: none' data-root-page='%%WebOutputRootPage%%%%OutputFileExtension%%' target='_top'>$$VIEW_WITH_NAVIGATION_TOOLS_TEXT$$</a>" --><!--DXMETADATA end-->
+    </div>
+    <!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container"><table><tr><td>
+<a href="topic551.html">Returns Reconciliation Web Service</a>
+ > <a href="topic552.html">All Operations Resource Group</a>
+ : LookupPayrollDetailsByReturnPeriod (Method)</td></tr></table></div><!--DXMETADATA end -->
+    
+    
+    <div id="i-body-content" class="i-body-content">
+        <!--DXMETADATA start type="ResourcePath" condition="content:content=""%%ResourcePath%%"",operator=""<>"",value=""%%ItemName%%""" format="<p class=""resource-path-container""><strong>$$RESOURCE_PATH$$</strong> <span class=""i-resource-path"">%%ResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="FullyQualifiedResourcePath" condition="content:content=""%%IncludeFullResourceUriInOperationPages%%"",operator=""="",value=""True""" format="<p class=""resource-path-container""><strong>$$URI$$</strong> <span class=""i-resource-path"">%%FullyQualifiedResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="Description" source="Item" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=description,caption=$$Description$$%%<div class=""i-description-content"">%%description%%</div></div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="PARAMETER_LIST" namespace="parameter" source="Item" filter="type=!header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Parameters$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="HEADER_LIST" namespace="parameter" source="Item" filter="type=header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$REQUEST_HEADERS$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="REQUEST_LIST" namespace="request" source="Item" -->
+<div class="i-section-heading" id="i-request_LookupPayrollDetailsByReturnPeriodRequest-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Request  (LookupPayrollDetailsByReturnPeriodRequest)</span></div><div id="i-request_LookupPayrollDetailsByReturnPeriodRequest-section-content" class="i-section-content"><p>The request body is of type <a href="topic264.html">LookupPayrollDetailsByReturnPeriodRequest</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic264.png" usemap="#xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodRequest" /><map id="xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodRequest" name="xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodRequest">
+  <area shape="rect" coords="1070, 214, 1244, 248" href="topic299.html" alt="PeriodEndDate Element" title="PeriodEndDate Element"></area>
+  <area shape="rect" coords="1070, 172, 1248, 206" href="topic298.html" alt="PeriodStartDate Element" title="PeriodStartDate Element"></area>
+  <area shape="rect" coords="928, 192, 1029, 227" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="701, 193, 908, 227" href="topic274.html" alt="ReturnPeriod Element" title="ReturnPeriod Element"></area>
+  <area shape="rect" coords="1077, 130, 1329, 164" href="topic302.html" alt="Version Element" title="Version Element"></area>
+  <area shape="rect" coords="1077, 88, 1323, 122" href="topic301.html" alt="Name Element" title="Name Element"></area>
+  <area shape="rect" coords="935, 108, 1036, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="701, 109, 915, 143" href="topic273.html" alt="SoftwareUsed Element" title="SoftwareUsed Element"></area>
+  <area shape="rect" coords="701, 46, 1012, 80" href="topic272.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="701, 4, 1071, 38" href="topic271.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="559, 108, 660, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 109, 539, 143" href="topic264.html" alt="LookupPayrollDetailsByReturnPeriodRequest Element" title="LookupPayrollDetailsByReturnPeriodRequest Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic270.html">LookupPayrollDetailsByReturnPeriodRequest</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Data Items required for an employer/agent to request to view a Return for a specific period.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic271.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic512.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 201. Employer's PAYE-EMP Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic272.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic501.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 202. Tax Advisor Identification Number. Required if the Payroll Return by Period request is filed by an agent on behalf of an employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic273.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic300.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Third party software product identifier.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic301.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic508.html">defaultString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 205. Name of the third party software used.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic302.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic508.html">defaultString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 206. Version of the third party software used.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic274.html">ReturnPeriod</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic297.html">ReturnPeriod Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The period the Return relates to.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic298.html">PeriodStartDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 203. Period start date e.g. 01/01/2019. Used to identify the period the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic299.html">PeriodEndDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 204. Period end date e.g.31/01/2019. Used to identify the period the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="SUCCESS_RESPONSE_LIST" namespace="response" source="Item" filter="type=success" -->
+<div class="i-section-heading" id="i-response_LookupPayrollDetailsByReturnPeriodResponse-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">200 Response  (LookupPayrollDetailsByReturnPeriodResponse)</span></div><div id="i-response_LookupPayrollDetailsByReturnPeriodResponse-section-content" class="i-section-content"><p>The response body is of type <a href="topic265.html">LookupPayrollDetailsByReturnPeriodResponse</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic265.png" usemap="#xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodResponse" /><map id="xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodResponse" name="xsddiagrammap-Returns Reconciliation_xsd~e-LookupPayrollDetailsByReturnPeriodResponse">
+  <area shape="rect" coords="1083, 802, 1371, 836" href="topic269.html" alt="Description Element" title="Description Element"></area>
+  <area shape="rect" coords="1083, 760, 1357, 794" href="topic268.html" alt="Path Element" title="Path Element"></area>
+  <area shape="rect" coords="1083, 718, 1307, 752" href="topic267.html" alt="Code Element" title="Code Element"></area>
+  <area shape="rect" coords="941, 760, 1042, 795" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="716, 760, 921, 794" href="topic283.html" alt="ValidationError Element" title="ValidationError Element"></area>
+  <area shape="rect" coords="1168, 676, 1300, 710" href="topic291.html" alt="LPT Element" title="LPT Element"></area>
+  <area shape="rect" coords="1168, 634, 1303, 668" href="topic290.html" alt="USC Element" title="USC Element"></area>
+  <area shape="rect" coords="1168, 592, 1304, 626" href="topic289.html" alt="PRSI Element" title="PRSI Element"></area>
+  <area shape="rect" coords="1168, 550, 1354, 584" href="topic288.html" alt="TaxOnIncome Element" title="TaxOnIncome Element"></area>
+  <area shape="rect" coords="1168, 508, 1344, 542" href="topic287.html" alt="multiPeriod Element" title="multiPeriod Element"></area>
+  <area shape="rect" coords="1168, 466, 1309, 500" href="topic286.html" alt="RunDate Element" title="RunDate Element"></area>
+  <area shape="rect" coords="1168, 424, 1530, 458" href="topic285.html" alt="PayrollRunReference Element" title="PayrollRunReference Element"></area>
+  <area shape="rect" coords="1026, 550, 1127, 585" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="716, 550, 1006, 584" href="topic282.html" alt="PayrollRunDetails Element" title="PayrollRunDetails Element"></area>
+  <area shape="rect" coords="1172, 382, 1304, 416" href="topic296.html" alt="LPT Element" title="LPT Element"></area>
+  <area shape="rect" coords="1172, 340, 1307, 374" href="topic295.html" alt="USC Element" title="USC Element"></area>
+  <area shape="rect" coords="1172, 298, 1308, 332" href="topic294.html" alt="PRSI Element" title="PRSI Element"></area>
+  <area shape="rect" coords="1172, 256, 1358, 290" href="topic293.html" alt="TaxOnIncome Element" title="TaxOnIncome Element"></area>
+  <area shape="rect" coords="1030, 318, 1131, 353" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="716, 319, 1010, 353" href="topic281.html" alt="PeriodSummary Element" title="PeriodSummary Element"></area>
+  <area shape="rect" coords="716, 214, 988, 248" href="topic280.html" alt="Version Element" title="Version Element"></area>
+  <area shape="rect" coords="716, 172, 958, 206" href="topic279.html" alt="DateLastUpdated Element" title="DateLastUpdated Element"></area>
+  <area shape="rect" coords="1085, 130, 1259, 164" href="topic299.html" alt="PeriodEndDate Element" title="PeriodEndDate Element"></area>
+  <area shape="rect" coords="1085, 88, 1263, 122" href="topic298.html" alt="PeriodStartDate Element" title="PeriodStartDate Element"></area>
+  <area shape="rect" coords="943, 108, 1044, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="716, 109, 923, 143" href="topic278.html" alt="ReturnPeriod Element" title="ReturnPeriod Element"></area>
+  <area shape="rect" coords="716, 46, 1027, 80" href="topic277.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="716, 4, 1086, 38" href="topic276.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="574, 402, 675, 437" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 403, 554, 437" href="topic265.html" alt="LookupPayrollDetailsByReturnPeriodResponse Element" title="LookupPayrollDetailsByReturnPeriodResponse Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic275.html">LookupPayrollDetailsByReturnPeriodResponse</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Data Items sent to an employer/agent in response to a Payroll Return by Period request to view a Return for a specific period.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic276.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic512.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 201. Employer's PAYE-EMP Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic277.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic501.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 202. Tax Advisor Identification Number. Returned if the Payroll Return by Period request was filed by an agent on behalf of an employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic278.html">ReturnPeriod</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic297.html">ReturnPeriod Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The period the return relates to.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic298.html">PeriodStartDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 203. Period start date e.g. 01/01/2019. Used to identify the period the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic299.html">PeriodEndDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 204. Period end date e.g.31/01/2019. Used to identify the period the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic279.html">DateLastUpdated</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 208. This date indicates when the return was last updated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic280.html">Version</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic303.html">version Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 207. Indicates the version of the return that is being requested. </DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic281.html">PeriodSummary</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic292.html">PeriodSummary Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The overall totals for PAYE, PRSI (employer and employee), USC and LPT in the selected period.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic293.html">TaxOnIncome</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 209. The overall total income tax for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic294.html">PRSI</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 210. The overall total PRSI (employer and employee) for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic295.html">USC</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 211. The overall total USC for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic296.html">LPT</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 212. The overall total LPT for the period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic282.html">PayrollRunDetails</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic284.html">PayrollRunDetails Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. List of individual payroll runs with pay dates in the selected period.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic285.html">PayrollRunReference</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">PayrollRunReference Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 213. The reference number identifies a specific payroll run.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic286.html">RunDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 214. The date the payroll run was submitted or last updated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic287.html">multiPeriod</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:boolean</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 215. Indicates if the Payroll Run includes pay dates in other periods. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic288.html">TaxOnIncome</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 216. The total amount of Income Tax in the payroll run for this period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic289.html">PRSI</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 217. The total amount of PRSI (employer and employee) in the payroll run for this period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic290.html">USC</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 218. The total amount of USC in the payroll run for this period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic291.html">LPT</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 219. The total amount of LPT in the payroll run for this period. (Only payroll figures with pay dates in the selected period are included in this period's totals).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic283.html">ValidationError</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic266.html">Error Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Submission Validation Errors (if any).</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic267.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic515.html">errorCode Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical Error Code - to be used for mapping to error messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic268.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic518.html">errorPath Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Path to error in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic269.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic516.html">errorDescription Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical description of error.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##EXAMPLEINTRO" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=""$$Example$$%%designlist:tagidentifier=##EXAMPLECODE,itemtype=Example%%""%%%%comment%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="EXAMPLEGROUP_LIST" namespace="ExampleGroup" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""="",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><div class="i-section-heading" id="i-example-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Example</span></div><div id="i-example-section-content" class="i-section-content">
+<div class="i-tab-container">
+    <ul>
+        <li class="i-filtered-content-XML">
+			<a href="#i-tab-content-9705ea45-d20b-4eb2-81e9-cb4e0b0f3fdb">XML</a>
+		</li>
+        <li class="i-filtered-content-XML">
+			<a href="#i-tab-content-c198eb19-7209-4ebc-a324-9464cdefd5d0">XML</a>
+		</li>
+
+    </ul>
+	<div id="i-tab-content-9705ea45-d20b-4eb2-81e9-cb4e0b0f3fdb" class="i-filtered-content-XML">
+		<pre><span style="color: #0000FF; ">&lt;?</span><span style="color: #FF00FF; ">xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;</span><span style="color: #0000FF; ">?&gt;</span>
+<span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LookupPayrollDetailsByReturnPeriodRequest</span> <span style="color: #FF0000; ">xmlns:xsi</span><span style="color: #0000FF; ">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span style="color: #FF0000; ">xmlns:rr</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/returns_reconciliation/&quot;</span> <span style="color: #FF0000; ">xsi:schemaLocation</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/payroll_return/returns_reconciliation.xsd&quot;</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>1234567T<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:AgentTain</span><span style="color: #0000FF; ">&gt;</span>45879C<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:AgentTain</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:SoftwareUsed</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:Name</span><span style="color: #0000FF; ">&gt;</span>The Software<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:Name</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:Version</span><span style="color: #0000FF; ">&gt;</span>Version 10.0<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:Version</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:SoftwareUsed</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:ReturnPeriod</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PeriodStartDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-01<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PeriodStartDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PeriodEndDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-31<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PeriodEndDate</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:ReturnPeriod</span><span style="color: #0000FF; ">&gt;</span>
+<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LookupPayrollDetailsByReturnPeriodRequest</span><span style="color: #0000FF; ">&gt;</span></pre>
+	</div>
+	<div id="i-tab-content-c198eb19-7209-4ebc-a324-9464cdefd5d0" class="i-filtered-content-XML">
+		<pre><span style="color: #0000FF; ">&lt;?</span><span style="color: #FF00FF; ">xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;</span><span style="color: #0000FF; ">?&gt;</span>
+<span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LookupPayrollDetailsByReturnPeriodResponse</span> <span style="color: #FF0000; ">xmlns:xsi</span><span style="color: #0000FF; ">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span style="color: #FF0000; ">xmlns:rr</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/payroll_return/&quot;</span> <span style="color: #FF0000; ">xsi:schemaLocation</span><span style="color: #0000FF; ">=&quot;http://www.ros.ie/schemas/paye-employers/v1/payroll_return/returns_reconciliation.xsd&quot;</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>1234567T<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:EmployerRegistrationNumber</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:AgentTain</span><span style="color: #0000FF; ">&gt;</span>12345A<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:AgentTain</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:ReturnPeriod</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PeriodStartDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-01<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PeriodStartDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PeriodEndDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-31<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PeriodEndDate</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:ReturnPeriod</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:DateLastUpdated</span><span style="color: #0000FF; ">&gt;</span>2019-02-06<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:DateLastUpdated</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:Version</span><span style="color: #0000FF; ">&gt;</span>12456R<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:Version</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PeriodSummary</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>3000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>6000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>4500<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>1200<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PeriodSummary</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>2019_Jan_WEEK_1<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-12<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>false<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>1000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>2000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>1500<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>400<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>2019_Jan_Week2<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-20<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>true<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>1000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>2000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>1500<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>400<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>2019_Jan_Week3<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunReference</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>2019-01-28<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:RunDate</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>true<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:multiPeriod</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>1000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:TaxOnIncome</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>2000<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PRSI</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>1500<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:USC</span><span style="color: #0000FF; ">&gt;</span>
+        <span style="color: #0000FF; ">&lt;</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>400<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LPT</span><span style="color: #0000FF; ">&gt;</span>
+    <span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:PayrollRunDetails</span><span style="color: #0000FF; ">&gt;</span>
+<span style="color: #0000FF; ">&lt;/</span><span style="color: #800000; ">rr:LookupPayrollDetailsByReturnPeriodResponse</span><span style="color: #0000FF; ">&gt;</span></pre>
+	</div>
+	
+</div>
+</div><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="INLINE_EXAMPLE" namespace="Example" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""<>"",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="MENU_LINK" namespace="example" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="FAULT_RESPONSE_LIST" namespace="response" source="Item" filter="type=fault" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Fault  Responses$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+            <!--DXMETADATA start type="TaggedComment" source="Item" id="##REMARKS" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=remarks,caption=$$Remarks$$%%%%comment%%</div>" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORIZED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""$$See_Also$$%%designlist:tagidentifier=##SEEALSO,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="i-section-heading" id="i-seealso-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">See Also</span></div><div id="i-seealso-section-content" class="i-section-content"><a href="topic552.html">All Operations Resource Group</a>
+|&nbsp;<a href="topic551.html">Returns Reconciliation Web Service</a>
+</p>
+</div><!--DXMETADATA end-->
+    </div>
+    <div id="i-footer-content" class="i-footer-content">
+        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" -->Please register for our <a href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">PIT Support Help Desk</a> for the following: <br/>
+<ul>
+  <li>Technical issues encountered using the PIT facility</li>
+  <li>Queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+</ul><!--DXMETADATA end-->
+    </div>
+    
+
+    <!--DXMETADATA start type="IsNew" format="<script type=""text/javascript"">setIsNew = true;</script>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<script type=""text/javascript"">setIsResponsiveEnabled = true;</script>" --><!--DXMETADATA end-->
+    <script type="text/javascript">
+        $(function() {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.isNew = !(typeof setIsNew === "undefined");
+            documentInstance.isResponsiveEnabled = !(typeof setIsResponsiveEnabled === "undefined");
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>

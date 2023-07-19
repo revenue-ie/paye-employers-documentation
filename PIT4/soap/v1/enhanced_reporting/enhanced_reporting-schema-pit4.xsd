@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Document History:
-======== Version 0.1 ====================================
+======== Version 1.0 ====================================
 i. Document Created 22/02/2023
+======== Version 1.2 ====================================
+ii. Document updated 16/06/2023
+		- Monthly statement additions
+======== Version 1.3 ====================================
+iii. Document updated 16/06/2023
+		- Rewording of Monthly statement to Monthly Report
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/"
@@ -40,6 +46,16 @@ i. Document Created 22/02/2023
 	<xs:element name="CheckErrRunResponse" type="pp:CheckErrRunResponse">
 		<xs:annotation>
 			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MonthlyErrReportRequest" type="pp:MonthlyErrReportRequest">
+		<xs:annotation>
+			<xs:documentation>Request to get a monthly report of an Employer's PAYE Enhanced Reporting submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MonthlyErrReportResponse" type="pp:MonthlyErrReportResponse">
+		<xs:annotation>
+			<xs:documentation>Return the monthly report of an Employer's PAYE Enhanced Reporting submissions.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
@@ -174,7 +190,7 @@ i. Document Created 22/02/2023
 					<xs:documentation>List of Expense Benefit Warnings (if any) associated with Valid submission. Any in this list will have been saved.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ValidationError" type="pp:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>List of Errors (if any) on the CheckErrSubmissionRequest.</xs:documentation>
 				</xs:annotation>
@@ -242,6 +258,91 @@ i. Document Created 22/02/2023
 			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>List of Errors (if any) on the CheckErrRunRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MonthlyErrReportRequest">
+		<xs:annotation>
+			<xs:documentation>Request to get a monthly report of an Employer's PAYE Enhanced Reporting submissions, based on the month provided.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 301. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 302. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 305. Tax year that the expenses/benefits report is being requested for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Month" type="pc:month">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 306. Month to process for report breakdown.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 303 and 304. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MonthlyErrReportResponse">
+		<xs:annotation>
+			<xs:documentation>Return the monthly report of an Employer's PAYE Enhanced Reporting submissions. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 307. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 308.  Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 309. Tax year that the expenses/benefits report is being requested for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Month" type="pc:month">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 310. Month to process for report breakdown.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The date and time the report was requested.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumberOfExpensesBenefits" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 311. The number of expenses/benefits accounted for in the requested report.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 312. The overall total expenses/benefits reported for the requested month. (Only expense/benefit figures with pay dates in the selected month are included in this total).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CategoryBreakdown" type="pp:CategoryBreakdown" minOccurs="0" maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>List of category breakdowns containing the submission totals by category for the given month.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+			<xs:element name="RunReferenceBreakdown" type="pp:RunReferenceBreakdown" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of run reference breakdowns containing the run total for the given month and the date the run was last updated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -323,7 +424,7 @@ i. Document Created 22/02/2023
 			<xs:documentation>Summary totals and count across valid line items for an Enhanced Reporting Submission.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Amount" type="xs:decimal">
+			<xs:element name="TotalAmount" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: N/A. Total amount across valid line items on submission.</xs:documentation>
 				</xs:annotation>
@@ -457,6 +558,33 @@ i. Document Created 22/02/2023
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="ErrorWithId">
+		<xs:annotation>
+			<xs:documentation>Standard Validation error with identification element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Description of error - to be used for support.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Id" type="pc:errorId">
+				<xs:annotation>
+					<xs:documentation>Optional ID for error - to be used when multiple customers are validated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:complexType name="ExpenseBenefit">
 		<xs:annotation>
@@ -513,7 +641,7 @@ i. Document Created 22/02/2023
 					<xs:documentation>Data Item Ref: 16. Date employee is paid Expense Benefit (YYYY-MM-DD).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfDays" type="xs:unsignedInt" minOccurs="0">
+			<xs:element name="NumberOfDays" type="xs:integer" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 20. Number of Days. The total number of days for the Expense Benefit.</xs:documentation>
 				</xs:annotation>
@@ -571,7 +699,7 @@ i. Document Created 22/02/2023
 			</xs:element>
 			<xs:element name="County" type="pc:county" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 12. County element of the employee's address (required).</xs:documentation>
+					<xs:documentation>Data Item Ref: 12. County element of the employee's address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Eircode" type="pc:eircode" minOccurs="0">
@@ -582,6 +710,68 @@ i. Document Created 22/02/2023
 			<xs:element name="CountryCode" type="pc:countryCode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 12. Country code element. Codes used at the International Standard for country codes ISO 3166 Alpha-3.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CategoryBreakdown">
+		<xs:annotation>
+			<xs:documentation>Category breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CategoryType" type="pc:category">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 313. Identifies the category.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 314. The total expenses/benefits reported for that category in the requested month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubCategoryBreakdown" type="pp:SubCategoryBreakdown" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of sub-category breakdowns containing the submission totals.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubCategoryBreakdown">
+		<xs:annotation>
+			<xs:documentation>Sub-category breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubCategoryType" type="pc:subcategory">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 315. Identifies the sub category if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 316. The total expenses/benefits reported for that sub category in the requested month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RunReferenceBreakdown">
+		<xs:annotation>
+			<xs:documentation>Run reference breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RunReference" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 317. The reference number identifies a specific ERR run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 318. The date the ERR run was submitted/last updated. This date may relate to a submission outside of the month provided.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 319. The total expenses/benefits reported in the ERR Run with pay dates in the requested month.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

@@ -61,7 +61,9 @@
 			"employerPRSA": 0.0,
 			"employeePRSA": 0.0,
 			"employeeRAC": 0.0,
-			"employeeAVC": 0.0
+			"employeeAVC": 0.0,
+			"employerPEPP": 0,
+			"employeePEPP": 0
 		}],
 		"lineItemIDsToDelete": [{
 			"lineItem": ""

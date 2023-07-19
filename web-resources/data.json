@@ -199,7 +199,7 @@
 				"anchor": "OPA_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "07/10/2019",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "29/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -578,7 +578,7 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "25/01/2022",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -614,7 +614,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -623,7 +623,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "navigation"
 			},
 			{
@@ -632,7 +632,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -737,7 +737,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "04/05/2023",
+			"dateLastUpdated": "19/07/2023",
 			"category": "download"
 		},
 			{
@@ -746,7 +746,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "navigation"
 			},
 			{
@@ -755,7 +755,7 @@
 				"anchor": "REST_Integration_Guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -894,7 +894,7 @@
 				"anchor": "Payroll_Submission_Data_Items",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "30/03/2020",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -939,7 +939,7 @@
 				"anchor": "Error_Structure",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "30/06/2021",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1338,7 +1338,25 @@
 				"anchor": "ERR Enhanced Reporting Submission Request: Data Items",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/04/2023",
+				"dateLastUpdated": "19/07/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/data-items/ERR - Enhanced Reporting Notification (ERN) Request Data Items.pdf",
+				"description": "Enhanced Reporting Notification (ERN) Request: Data Items",
+				"anchor": "ERR Enhanced Reporting Notification (ERN) Request: Data Items",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "19/07/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/data-items/ERR - Enhanced Reporting Request Monthly Report Data Items.pdf",
+				"description": "Enhanced Reporting Request Monthly Report: Data Items",
+				"anchor": "ERR Enhanced Reporting Request Monthly Report: Data Items",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1347,7 +1365,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "15/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1356,7 +1374,7 @@
 				"anchor":"REST Web Service Integration Guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1383,7 @@
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "29/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1374,7 +1392,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "29/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "LINK"
 			},
 			{
@@ -1383,7 +1401,7 @@
 				"anchor": "SOAP_integration_guide",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1392,7 +1410,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/06/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "navigation"
 			},
 			{
@@ -1401,7 +1419,7 @@
 				"anchor": "ERR_Web_Service_Definition",
 				"type": "WSDL File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1410,7 +1428,7 @@
 				"anchor": "Enhanced_Reporting_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1428,7 +1446,7 @@
 				"anchor": "ERN_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "04/05/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
@@ -1437,7 +1455,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/04/2023",
+				"dateLastUpdated": "19/07/2023",
 				"category": "download"
 			},
 			{
