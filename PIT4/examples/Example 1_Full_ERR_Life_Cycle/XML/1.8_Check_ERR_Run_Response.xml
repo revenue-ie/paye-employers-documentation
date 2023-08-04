@@ -1,0 +1,29 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<env:Header/>
+<env:Body>
+<ns2:CheckErrRunResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+<ns2:Status>PROCESSED</ns2:Status>
+<ns2:Amount>100</ns2:Amount>
+<ns2:ExpenseBenefitSubmissions>
+<ns2:SubmissionID>Sub01</ns2:SubmissionID>
+<ns2:Status>COMPLETED</ns2:Status>
+<ns2:ExpenseBenefitSubmissionSummary>
+<ns2:TotalAmount>100</ns2:TotalAmount>
+<ns2:ExpensesBenefitsCount>1</ns2:ExpensesBenefitsCount>
+<ns2:ExpensesBenefitsToDeleteCount>0</ns2:ExpensesBenefitsToDeleteCount>
+</ns2:ExpenseBenefitSubmissionSummary>
+</ns2:ExpenseBenefitSubmissions>
+<ns2:ExpenseBenefitSummary>
+<ns2:LineItemID>Line01</ns2:LineItemID>
+<ns2:EmployeeID>
+<ns2:EmployeePPSN>1234567X</ns2:EmployeePPSN>
+<ns2:EmploymentID>1</ns2:EmploymentID>
+</ns2:EmployeeID>
+<ns2:EmployerReference>Ref01</ns2:EmployerReference>
+<ns2:Category>TRAVEL_AND_SUBSISTENCE</ns2:Category>
+<ns2:SubCategory>TRAVEL_VOUCHED</ns2:SubCategory>
+<ns2:Amount>100</ns2:Amount>
+</ns2:ExpenseBenefitSummary>
+</ns2:CheckErrRunResponse>
+</env:Body>
+</env:Envelope>

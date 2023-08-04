@@ -1,0 +1,28 @@
+{
+    "status": "PROCESSED",
+    "amount": 100,
+    "expenseBenefitSubmissions": [
+        {
+            "submissionID": "Sub01",
+            "status": "COMPLETED",
+            "expenseBenefitSubmissionSummary": {
+                "totalAmount": 100,
+                "expensesBenefitsCount": 1,
+                "expensesBenefitsToDeleteCount": 0
+            }
+        }
+    ],
+    "expenseBenefitSummaries": [
+        {
+            "lineItemID": "Line01",
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "1"
+            },
+            "employerReference": "Ref01",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_VOUCHED",
+            "amount": 100
+        }
+    ]
+}

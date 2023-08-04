@@ -1,0 +1,35 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<env:Header/>
+<env:Body>
+<ns2:MonthlyErrReportResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+<ns2:EmployerRegistrationNumber>1234567T</ns2:EmployerRegistrationNumber>
+<ns2:TaxYear>2024</ns2:TaxYear>
+<ns2:Month>JANUARY</ns2:Month>
+<ns2:DateTimeEffective>2024-07-25T11:49:39.550+01:00</ns2:DateTimeEffective>
+<ns2:NumberOfExpensesBenefits>2</ns2:NumberOfExpensesBenefits>
+<ns2:TotalAmount>165</ns2:TotalAmount>
+<ns2:CategoryBreakdown>
+<ns2:CategoryType>SMALL_BENEFITS_EXEMPTION</ns2:CategoryType>
+<ns2:TotalAmount>65</ns2:TotalAmount>
+</ns2:CategoryBreakdown>
+<ns2:CategoryBreakdown>
+<ns2:CategoryType>TRAVEL_AND_SUBSISTENCE</ns2:CategoryType>
+<ns2:TotalAmount>100</ns2:TotalAmount>
+<ns2:SubCategoryBreakdown>
+<ns2:SubCategoryType>TRAVEL_VOUCHED</ns2:SubCategoryType>
+<ns2:TotalAmount>100</ns2:TotalAmount>
+</ns2:SubCategoryBreakdown>
+</ns2:CategoryBreakdown>
+<ns2:RunReferenceBreakdown>
+<ns2:RunReference>Run2</ns2:RunReference>
+<ns2:SubmissionDate>2024-07-25</ns2:SubmissionDate>
+<ns2:TotalAmount>65</ns2:TotalAmount>
+</ns2:RunReferenceBreakdown>
+<ns2:RunReferenceBreakdown>
+<ns2:RunReference>Run1</ns2:RunReference>
+<ns2:SubmissionDate>2024-07-25</ns2:SubmissionDate>
+<ns2:TotalAmount>100</ns2:TotalAmount>
+</ns2:RunReferenceBreakdown>
+</ns2:MonthlyErrReportResponse>
+</env:Body>
+</env:Envelope>

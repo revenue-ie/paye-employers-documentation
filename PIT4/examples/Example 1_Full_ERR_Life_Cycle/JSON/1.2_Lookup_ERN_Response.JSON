@@ -1,0 +1,21 @@
+{
+    "employerName": "Employer1",
+    "employerRegistrationNumber": "1234567T",
+    "taxYear": 2024,
+    "totalERNCount": 1,
+    "dateTimeEffective": "2023-07-25T14:37:25.013+01:00",
+    "erns": [
+        {
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "1"
+            },
+            "name": {
+                "firstName": "Anne",
+                "familyName": "Bloggs"
+            },
+            "employmentCeased": false
+        }
+    ],
+    "noERNs": []
+}

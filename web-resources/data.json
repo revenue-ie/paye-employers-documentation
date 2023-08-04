@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "03/08/2023",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1365,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "03/08/2023",
 				"category": "download"
 			},
 			{
@@ -1465,6 +1465,24 @@
 				"type": "PDF",
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "26/06/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/examples/Enhanced Reporting Requirements - Overview of Web Service Examples.pdf",
+				"description": "Enhanced Reporting Requirements - Overview of Web Service Examples",
+				"anchor": "Overview_Of_Web_Service_Examples",
+				"type": "PDF",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "03/08/2023",
+				"category": "download"
+			},
+			{
+				"link": "PIT4/examples/Example 1_Full_ERR_Life_Cycle.zip",
+				"description": "Example 1: Full ERR Life Cycle",
+				"anchor": "Example_1",
+				"type": "ZIP File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "03/08/2023",
 				"category": "download"
 			}
 		]

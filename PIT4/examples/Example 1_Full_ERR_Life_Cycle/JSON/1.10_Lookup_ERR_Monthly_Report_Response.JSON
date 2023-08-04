@@ -1,0 +1,31 @@
+{
+    "employerRegistrationNumber": "1234567T",
+    "taxYear": 2024,
+    "month": "JANUARY",
+    "dateTimeEffective": "2024-07-25T15:05:03.91+01:00",
+    "numberOfExpensesBenefits": 2,
+    "totalAmount": 165,
+    "categoryBreakdowns": {
+        "SMALL_BENEFITS_EXEMPTION": {
+            "totalAmount": 65,
+            "subCategoryBreakdown": {}
+        },
+        "TRAVEL_AND_SUBSISTENCE": {
+            "totalAmount": 100,
+            "subCategoryBreakdown": {
+				"TRAVEL_VOUCHED":100
+			}
+        }
+    },
+    "runReferenceBreakdowns": {
+        "Run01": {
+            "submissionDate": "2024-01-25",
+            "totalAmount": 100
+        },
+        "Run02": {
+            "submissionDate": "2024-01-25",
+            "totalAmount": 65
+        }
+       
+    }
+}
