@@ -1,0 +1,11 @@
+{
+	"requestType": "lookupERN",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2023,
+	"softwareUsed": "test",
+	"softwareVersion": "1.234",
+	"enhancedReportingRunReference": "Run01",
+	"submissionID": "Sub01",	
+	"ppsns": ["1234567X"]
+	
+}

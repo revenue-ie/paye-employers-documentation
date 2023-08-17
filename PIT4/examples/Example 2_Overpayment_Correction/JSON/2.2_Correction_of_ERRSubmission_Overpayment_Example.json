@@ -1,0 +1,30 @@
+{
+    "expensesBenefits": [
+        {
+            "lineItemID": "line01_V2",
+            "employeeID": {
+                "employeePpsn": "1234568X",
+                "employmentID": "1"
+            },
+            "employerReference": "Ref01",
+            "name": {
+                "firstName": "John",
+                "familyName": "Bloggs"
+            },
+            "address": {
+                "addressLines": [
+                    {
+                        "addressLine": "Test1"
+                    }
+                ],
+                "county": "Dublin",
+                "countryCode": "IRL"
+            },
+            "dateOfBirth": "1960-01-01",
+            "category": "REMOTE_WORKING_DAILY_ALLOWANCE",
+            "paymentDate": "2024-02-12",
+			"numberOfDays": "-1",
+            "amount": -3.20     
+        }
+    ]
+}
