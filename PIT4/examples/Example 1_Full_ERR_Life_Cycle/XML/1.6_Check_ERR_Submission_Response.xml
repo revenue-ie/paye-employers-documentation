@@ -5,7 +5,7 @@
 <ns2:SubmissionID>Sub01</ns2:SubmissionID>
 <ns2:Status>COMPLETED</ns2:Status>
 <ns2:ExpenseBenefitSubmissionSummary>
-<ns2:TotalAmount>100</ns2:TotalAmount>
+<ns2:Amount>100</ns2:Amount>
 <ns2:ExpensesBenefitsCount>1</ns2:ExpensesBenefitsCount>
 <ns2:ExpensesBenefitsToDeleteCount>0</ns2:ExpensesBenefitsToDeleteCount>
 </ns2:ExpenseBenefitSubmissionSummary>

@@ -1714,9 +1714,9 @@
       },
       "ExpenseBenefitSubmissionSummary": {
         "type": "object",
-      "required" : [ "expensesBenefitsCount", "expensesBenefitsToDeleteCount", "totalAmount" ],
+      "required" : [ "expensesBenefitsCount", "expensesBenefitsToDeleteCount", "amount" ],
         "properties": {
-        "totalAmount" : {
+        "amount" : {
             "type": "number",
             "description": "Data Item Ref: N/A. Total amount across valid line items on submission."
           },
