@@ -1289,7 +1289,7 @@
             "type": "array",
             "description": "List of Errors (if any) on the CheckErrSubmissionRequest.",
             "items": {
-              "$ref": "#/definitions/EnhancedReportingError"
+              "$ref": "#/definitions/EnhancedReportingErrorWithId"
             }
           }
         },
@@ -1473,43 +1473,68 @@
         },
         "description": "Unique references to an employment for an employee. Includes PPSN and Employment ID."
       },
-      "EnhancedReportingError": {
-        "type": "object",
-        "required": [
-          "code",
-          "description"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "Technical Error Code - to be used for mapping to error messages.",
-            "minLength": 0,
-            "maxLength": 50,
-            "pattern": "[A-Za-z0-9_\\-]*"
+      "EnhancedReportingError" : {
+        "type" : "object",
+        "required" : [ "code", "description" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Technical Error Code - to be used for mapping to error messages.",
+            "minLength" : 0,
+            "maxLength" : 50,
+            "pattern" : "[A-Za-z0-9_\\-]*"
           },
-          "path": {
-            "type": "string",
-            "description": "Path to error in schema, if available.",
-            "minLength": 0,
-            "maxLength": 500,
-            "pattern": "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "path" : {
+            "type" : "string",
+            "description" : "Path to error in schema, if available.",
+            "minLength" : 0,
+            "maxLength" : 500,
+            "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
           },
-          "description": {
-            "type": "string",
-            "description": "Technical description of error.",
-            "minLength": 0,
-            "maxLength": 500,
-            "pattern": "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
-          },
-          "id": {
-            "type": "string",
-            "description": "Optional id element in cases of validations across multiple customers.",
-            "minLength": 0,
-            "maxLength": 500,
-            "pattern": "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          "description" : {
+            "type" : "string",
+            "description" : "Technical description of error.",
+            "minLength" : 0,
+            "maxLength" : 500,
+            "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
           }
         },
-        "description": "Details of validation check failure."
+        "description" : "Details of validation check failure."
+      },
+      "EnhancedReportingErrorWithId" : {
+        "type" : "object",
+        "required" : [ "code", "description" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Technical Error Code - to be used for mapping to error messages.",
+            "minLength" : 0,
+            "maxLength" : 50,
+            "pattern" : "[A-Za-z0-9_\\-]*"
+          },
+          "path" : {
+            "type" : "string",
+            "description" : "Path to error in schema, if available.",
+            "minLength" : 0,
+            "maxLength" : 500,
+            "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Technical description of error.",
+            "minLength" : 0,
+            "maxLength" : 500,
+            "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "Optional id element in cases of validations across multiple customers.",
+            "minLength" : 0,
+            "maxLength" : 500,
+            "pattern" : "[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&\"'<>\\\\.*()\\[\\]{}+-?|]*"
+          }
+        },
+        "description" : "Details of validation check failure with id information detail when applicable."
       },
       "EnhancedReportingName": {
         "type": "object",
@@ -1918,7 +1943,7 @@
             "type": "array",
             "description": "Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request.",
             "items": {
-              "$ref": "#/definitions/EnhancedReportingError"
+              "$ref": "#/definitions/EnhancedReportingErrorWithId"
             }
           }
         },
