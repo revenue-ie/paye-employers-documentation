@@ -97,7 +97,7 @@
   <area shape="rect" coords="550, 529, 890, 563" href="topic400.html" alt="InvalidExpenseBenefit Element" title="InvalidExpenseBenefit Element"></area>
   <area shape="rect" coords="1224, 424, 1527, 458" href="topic445.html" alt="ExpensesBenefitsToDeleteCount Element" title="ExpensesBenefitsToDeleteCount Element"></area>
   <area shape="rect" coords="1224, 382, 1482, 416" href="topic444.html" alt="ExpensesBenefitsCount Element" title="ExpensesBenefitsCount Element"></area>
-  <area shape="rect" coords="1224, 340, 1406, 374" href="topic443.html" alt="TotalAmount Element" title="TotalAmount Element"></area>
+  <area shape="rect" coords="1224, 340, 1381, 374" href="topic443.html" alt="Amount Element" title="Amount Element"></area>
   <area shape="rect" coords="1082, 382, 1183, 417" alt="Sequence" title="Sequence"></area>
   <area shape="rect" coords="550, 382, 1062, 416" href="topic399.html" alt="ExpenseBenefitSubmissionSummary Element" title="ExpenseBenefitSubmissionSummary Element"></area>
   <area shape="rect" coords="1367, 298, 1636, 332" href="topic481.html" alt="Version Element" title="Version Element"></area>
@@ -110,7 +110,7 @@
   <area shape="rect" coords="985, 88, 1355, 122" href="topic486.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
   <area shape="rect" coords="843, 192, 944, 227" alt="Sequence" title="Sequence"></area>
   <area shape="rect" coords="550, 193, 823, 227" href="topic398.html" alt="SubmissionHeader Element" title="SubmissionHeader Element"></area>
-  <area shape="rect" coords="550, 46, 814, 80" href="topic397.html" alt="Status Element" title="Status Element"></area>
+  <area shape="rect" coords="550, 46, 873, 80" href="topic397.html" alt="Status Element" title="Status Element"></area>
   <area shape="rect" coords="550, 4, 837, 38" href="topic396.html" alt="SubmissionID Element" title="SubmissionID Element"></area>
   <area shape="rect" coords="408, 466, 509, 501" alt="Sequence" title="Sequence"></area>
   <area shape="rect" coords="0, 466, 388, 500" href="topic362.html" alt="CheckErrSubmissionResponse Element" title="CheckErrSubmissionResponse Element"></area>
@@ -143,7 +143,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic397.html">Status</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic534.html">statusProcessing Simple Type</A></SPAN>
+<DIV class=i-item-summary><A href="topic397.html">Status</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic537.html">submissionProcessingStatus Simple Type</A></SPAN>
 <DIV class=i-child-tree-description>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>
@@ -190,7 +190,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic489.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic537.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-item-summary><A href="topic489.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic538.html">taxYear Simple Type</A></SPAN>
 <DIV class=i-child-tree-description>Data Item Ref: 6. Tax year to which the submission relates (YYYY).</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>
@@ -244,7 +244,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic443.html">TotalAmount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-item-summary><A href="topic443.html">Amount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
 <DIV class=i-child-tree-description>Data Item Ref: N/A. Total amount across valid line items on submission.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>
@@ -368,7 +368,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic492.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic539.html">warningCode Simple Type</A></SPAN>
+<DIV class=i-item-summary><A href="topic492.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">warningCode Simple Type</A></SPAN>
 <DIV class=i-child-tree-description>Technical Code for warning - to be used for mapping to warning messages.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>
@@ -376,7 +376,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic493.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic541.html">warningPath Simple Type</A></SPAN>
+<DIV class=i-item-summary><A href="topic493.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic542.html">warningPath Simple Type</A></SPAN>
 <DIV class=i-child-tree-description>Path to warning in schema, if available.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>
@@ -384,7 +384,7 @@
 <TR>
 <TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
 <TD>
-<DIV class=i-item-summary><A href="topic494.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">warningDescription Simple Type</A></SPAN>
+<DIV class=i-item-summary><A href="topic494.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic541.html">warningDescription Simple Type</A></SPAN>
 <DIV class=i-child-tree-description>Technical description of warning.</DIV></DIV>
 <DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
 <TABLE class=i-child-tree-table>

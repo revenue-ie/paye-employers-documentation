@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/09/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "download"
 			},
 			{
@@ -614,7 +614,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "download"
 			},
 			{
@@ -623,7 +623,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "navigation"
 			},
 			{
@@ -1383,7 +1383,7 @@
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/09/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "download"
 			},
 			{
@@ -1392,7 +1392,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/09/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "LINK"
 			},
 			{
@@ -1410,7 +1410,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "navigation"
 			},
 			{
@@ -1428,7 +1428,7 @@
 				"anchor": "Enhanced_Reporting_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "download"
 			},
 			{
@@ -1455,7 +1455,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/09/2023",
 				"category": "download"
 			},
 			{

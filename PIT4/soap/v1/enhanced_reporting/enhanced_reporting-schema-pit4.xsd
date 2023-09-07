@@ -165,7 +165,7 @@ iii. Document updated 16/06/2023
 					<xs:documentation>Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Status" type="pc:statusProcessing">
+			<xs:element name="Status" type="pc:submissionProcessingStatus">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</xs:documentation>
 				</xs:annotation>
@@ -235,7 +235,7 @@ iii. Document updated 16/06/2023
 			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Status" type="pc:processingStatus">
+			<xs:element name="Status" type="pc:runProcessingStatus">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the run are at a status of Pending.</xs:documentation>
 				</xs:annotation>
@@ -339,7 +339,7 @@ iii. Document updated 16/06/2023
 			<xs:annotation>
 				<xs:documentation>List of category breakdowns containing the submission totals by category for the given month.</xs:documentation>
 			</xs:annotation>
-		</xs:element>
+			</xs:element>
 			<xs:element name="RunReferenceBreakdown" type="pp:RunReferenceBreakdown" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>List of run reference breakdowns containing the run total for the given month and the date the run was last updated.</xs:documentation>
@@ -407,7 +407,7 @@ iii. Document updated 16/06/2023
 					<xs:documentation>Data Item Ref: 3. Unique ID of the Enhanced Reporting Submission.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Status" type="pc:processingStatus">
+			<xs:element name="Status" type="pc:submissionProcessingStatus">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</xs:documentation>
 				</xs:annotation>
@@ -424,7 +424,7 @@ iii. Document updated 16/06/2023
 			<xs:documentation>Summary totals and count across valid line items for an Enhanced Reporting Submission.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="TotalAmount" type="xs:decimal">
+			<xs:element name="Amount" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: N/A. Total amount across valid line items on submission.</xs:documentation>
 				</xs:annotation>

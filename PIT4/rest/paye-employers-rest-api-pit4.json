@@ -341,7 +341,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/MonthlyErrReportResponse."
+              "$ref" : "#/definitions/MonthlyErrReportResponse"
             }
           },
           "400" : {
@@ -1187,25 +1187,23 @@
         },
         "description": "Status of each batch for a submission recieved in multiple batches."
       },
-      "CategoryBreakdown.": {
-        "type": "object",
-        "required": [
-          "totalAmount"
-        ],
-        "properties": {
-          "totalAmount": {
-            "type": "number",
-          "description" : "Data Item Ref: 314. The total expenses/benefits reported for that category in the requested month."
+      "CategoryBreakdown" : {
+        "type" : "object",
+        "required" : [ "totalAmount" ],
+        "properties" : {
+          "totalAmount" : {
+            "type" : "number",
+            "description" : "Data Item Ref: 314. The total expenses/benefits reported for that category in the requested month."
           },
-          "subCategoryBreakdown": {
-            "type": "object",
-          "description" : "Data Item Ref: 315. Sub-category breakdown information.",
-            "additionalProperties": {
-              "type": "number"
+          "subCategoryBreakdown" : {
+            "type" : "object",
+            "description" : "Data Item Ref: 315. Sub-category breakdown information. Map keyed on 'sub-category' with value of totalAmount.",
+            "additionalProperties" : {
+              "type" : "number"
             }
           }
         },
-      "description" : "Monthly ERR Report Category Breakdown."
+        "description" : "Monthly ERR Report Category Breakdown."
       },
       "CheckErrRunResponse": {
         "type": "object",
@@ -1218,8 +1216,7 @@
             "description": "Current Status of Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the Run are at a status of Pending.",
             "enum": [
               "PENDING",
-              "PROCESSED",
-              "COMPLETED"
+              "PROCESSED"
             ]
           },
           "amount": {
@@ -1267,7 +1264,6 @@
             "description": "Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.",
             "enum": [
               "PENDING",
-              "PROCESSED",
               "COMPLETED"
             ]
           },
@@ -1702,7 +1698,6 @@
             "description": "Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.",
             "enum": [
               "PENDING",
-              "PROCESSED",
               "COMPLETED"
             ]
           },
@@ -2054,77 +2049,69 @@
         },
         "description": "Employer's Lookup RPN Response. Will either return RPN detail or details of validation errors."
       },
-    "MonthlyErrReportResponse." : {
-        "type": "object",
-      "required" : [ "dateTimeEffective", "employerRegistrationNumber", "month", "numberOfExpensesBenefits", "taxYear", "totalAmount" ],
-        "properties": {
-          "employerRegistrationNumber": {
-            "type": "string",
-          "description" : "Data Item Ref: 307. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.",
-            "minLength": 0,
-            "maxLength": 100,
-            "pattern": "[0-9]{7,8}[A-Wa-w][A-ITWXZa-itwxz ]?"
+      "MonthlyErrReportResponse" : {
+        "type" : "object",
+        "required" : [ "dateTimeEffective", "employerRegistrationNumber", "month", "numberOfExpensesBenefits", "taxYear", "totalAmount" ],
+        "properties" : {
+          "employerRegistrationNumber" : {
+            "type" : "string",
+            "description" : "Data Item Ref: 307. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.",
+            "minLength" : 0,
+            "maxLength" : 100,
+            "pattern" : "[0-9]{7,8}[A-Wa-w][A-ITWXZa-itwxz ]?"
           },
-          "agentTain": {
-            "type": "string",
-          "description" : "Data Item Ref: 308. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.",
-            "pattern": "[0-9]{5}[A-Wa-w]"
+          "agentTain" : {
+            "type" : "string",
+            "description" : "Data Item Ref: 308. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.",
+            "pattern" : "[0-9]{5}[A-Wa-w]"
           },
-          "taxYear": {
-            "type": "integer",
-            "format": "int32",
-          "description" : "Data Item Ref: 309. Tax year that the expenses/benefits report is being requested for.",
-          "minimum" : 2000,
-          "maximum" : 2100
+          "taxYear" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Data Item Ref: 309. Tax year that the expenses/benefits report is being requested for.",
+            "minimum" : 2000.0,
+            "maximum" : 2100.0
           },
-        "month" : {
-            "type": "string",
-          "description" : "Data Item Ref: 310. Month to process for report.",
-            "enum": [
-              "JANUARY",
-              "FEBRUARY",
-              "MARCH",
-              "APRIL",
-              "MAY",
-              "JUNE",
-              "JULY",
-              "AUGUST",
-              "SEPTEMBER",
-              "OCTOBER",
-              "NOVEMBER",
-              "DECEMBER"
-            ]
+          "month" : {
+            "type" : "string",
+            "description" : "Data Item Ref: 310. Month to process for report.",
+            "enum" : [ "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" ]
           },
-          "dateTimeEffective": {
-            "type": "string",
-            "format": "date-time",
-          "description" : "Data Item Ref: N/A. The date and time the report was requested."
+          "dateTimeEffective" : {
+            "type" : "string",
+            "format" : "date-time",
+            "description" : "Data Item Ref: N/A. The date and time the report was requested."
           },
-        "numberOfExpensesBenefits" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Data Item Ref: 311. The number of expenses/benefits accounted for in the requested report."
-        },
-          "totalAmount": {
-            "type": "number",
-          "description" : "Data Item Ref: 312. The overall total expenses/benefits reported for the requested month. (Only expense/benefit figures with pay dates in the selected month are included in this total)."
+          "numberOfExpensesBenefits" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Data Item Ref: 311. The number of expenses/benefits accounted for in the requested report."
           },
-          "categoryBreakdowns": {
-            "type": "object",
-          "description" : "Data Item Ref: 313. Category breakdown information.",
-            "additionalProperties": {
-              "$ref": "#/definitions/CategoryBreakdown."
+          "totalAmount" : {
+            "type" : "number",
+            "description" : "Data Item Ref: 312. The overall total expenses/benefits reported for the requested month. (Only expense/benefit figures with pay dates in the selected month are included in this total)."
+          },
+          "categoryBreakdowns" : {
+            "type" : "object",
+            "example":
+            {"TRAVEL_AND_SUBSISTENCE": { "totalAmount": 0, "subCategoryBreakdown":
+            {"TRAVEL_VOUCHED": 0} } },
+            "description" : "Data Item Ref: 313. Category breakdown information. Map keyed on 'category' with value containing totalAmount and sub-category breakdown.",
+            "additionalProperties" : {
+              "$ref" : "#/definitions/CategoryBreakdown"
             }
-        },
-        "runReferenceBreakdowns" : {
-          "type" : "object",
-          "description" : "Data Item Ref: 317. Run reference breakdown information.",
-          "additionalProperties" : {
-            "$ref" : "#/definitions/RunReferenceBreakdown."
+          },
+          "runReferenceBreakdowns" : {
+            "type" : "object",
+            "example":
+            {"run1": { "submissionDate": "2023-01-01", "totalAmount": 0 } },
+            "description" : "Data Item Ref: 317. Run reference breakdown information. Map keyed on 'runReference' String with value containing totalAmount and submissionDate.",
+            "additionalProperties" : {
+              "$ref" : "#/definitions/RunReferenceBreakdown"
+            }
           }
-          }
         },
-      "description" : "Request Monthly ERR Report."
+        "description" : "Request Monthly ERR Report."
       },
       "NewEmployeeDetail": {
         "type": "object",
@@ -3222,7 +3209,7 @@
         },
         "description": "The period the return relates to."
       },
-    "RunReferenceBreakdown." : {
+      "RunReferenceBreakdown" : {
       "type" : "object",
       "required" : [ "submissionDate", "totalAmount" ],
       "properties" : {

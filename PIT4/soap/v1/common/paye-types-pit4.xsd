@@ -197,12 +197,16 @@ vii. Document updated on 12/06/2023:
 			<xs:maxInclusive value="2100"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="statusProcessing">
+	<xs:simpleType name="runProcessingStatus">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="NOT_ACKNOWLEDGED"/>
+			<xs:enumeration value="PENDING"/>
+			<xs:enumeration value="PROCESSED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="submissionProcessingStatus">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="PENDING"/>
 			<xs:enumeration value="COMPLETED"/>
-			<xs:enumeration value="PROCESSED"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="statusAcknowledgement">
