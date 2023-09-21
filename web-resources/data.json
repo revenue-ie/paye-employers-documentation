@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "21/09/2023",
 				"category": "download"
 			},
 			{
@@ -1466,6 +1466,15 @@
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "26/06/2023",
 				"category": "download"
+			},
+			{
+				"link": "https://revenue-ie.github.io/err-sug-documents",
+				"description": "Enhanced Reporting Requirements Service User Group (SUG) Meetings",
+				"anchor": "Enhanced Reporting Requirements Service User Group (SUG)",
+				"type": "Link",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "21/09/2023",
+				"category": "link"
 			}
 		]
 	},
@@ -1520,12 +1529,21 @@
 				"category": "download"
 			},
 			{
+				"link": "PIT4/examples/ERR_Scenarios.zip",
+				"description": "ERR Example Scenarios",
+				"anchor": "ERR_Scenarios",
+				"type": "ZIP File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "21/09/2023",
+				"category": "download"
+			},
+			{
 				"link": "PIT4/examples/Screen_Upload_Examples.zip",
 				"description": "ERR Screen Upload Examples",
 				"anchor": "Screen_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "16/08/2023",
+				"dateLastUpdated": "21/09/2023",
 				"category": "download"
 			}
 

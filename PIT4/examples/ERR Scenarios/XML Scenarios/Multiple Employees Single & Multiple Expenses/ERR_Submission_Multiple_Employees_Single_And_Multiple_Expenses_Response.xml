@@ -1,0 +1,9 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+   <env:Header/>
+   <env:Body>
+      <ns2:EnhancedReportingSubmissionResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+         <ns2:AcknowledgementStatus>ACKNOWLEDGED</ns2:AcknowledgementStatus>
+         <ns2:AcknowledgementID>15b2c6ad-83d9-42ba-a6b2-c6ad5f2a93d8</ns2:AcknowledgementID>
+      </ns2:EnhancedReportingSubmissionResponse>
+   </env:Body>
+</env:Envelope>
