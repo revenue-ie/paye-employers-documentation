@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "21/09/2023",
+				"dateLastUpdated": "27/09/2023",
 				"category": "download"
 			},
 			{
@@ -623,7 +623,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "27/09/2023",
 				"category": "navigation"
 			},
 			{
@@ -746,7 +746,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "27/09/2023",
 				"category": "navigation"
 			},
 			{
@@ -1392,7 +1392,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "27/09/2023",
 				"category": "LINK"
 			},
 			{
@@ -1410,7 +1410,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "27/09/2023",
 				"category": "navigation"
 			},
 			{

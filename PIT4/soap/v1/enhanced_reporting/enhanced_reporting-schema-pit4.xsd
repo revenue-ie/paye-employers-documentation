@@ -192,7 +192,7 @@ iii. Document updated 16/06/2023
 			</xs:element>
 			<xs:element name="ValidationError" type="pp:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>List of Errors (if any) on the CheckErrSubmissionRequest.</xs:documentation>
+					<xs:documentation>List of Errors (if any) on the CheckErrSubmissionRequest. Validations are returned with an id field where a lineItem deletion validation error has occurred and the lineItem needs to be specified.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -766,7 +766,7 @@ iii. Document updated 16/06/2023
 			</xs:element>
 			<xs:element name="SubmissionDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 318. The date the ERR run was submitted/last updated. This date may relate to a submission outside of the month provided.</xs:documentation>
+					<xs:documentation>Data Item Ref: 318.  The date the ERR run was submitted/last updated. This date may relate to a submission outside of the month provided.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalAmount" type="xs:decimal">

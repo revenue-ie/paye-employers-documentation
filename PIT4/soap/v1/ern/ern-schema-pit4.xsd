@@ -107,7 +107,7 @@ ii. Document updated 19/07/2023
             </xs:element>
             <xs:element name="ValidationError" type="pn:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                    <xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request.</xs:documentation>
+                    <xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request. Validations are returned with an id field where a PPSN provided is invalid. The id field will not be present where PPSN processing is not reached e.g. No RPN found for the employer.</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>

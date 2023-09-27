@@ -1287,7 +1287,7 @@
           },
           "validationErrors": {
             "type": "array",
-            "description": "List of Errors (if any) on the CheckErrSubmissionRequest.",
+            "description": "List of Errors (if any) on the CheckErrSubmissionRequest. Validations are returned with an id field where a lineItem deletion validation error has occurred and the lineItem needs to be specified.",
             "items": {
               "$ref": "#/definitions/EnhancedReportingErrorWithId"
             }
@@ -1941,7 +1941,7 @@
           },
           "validationErrors": {
             "type": "array",
-            "description": "Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request.",
+            "description": "Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request. Validations are returned with an id field where a PPSN provided is invalid. The id field will not be present where PPSN processing is not reached e.g. No RPN found for the employer.",
             "items": {
               "$ref": "#/definitions/EnhancedReportingErrorWithId"
             }
