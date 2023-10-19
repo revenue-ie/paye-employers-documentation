@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "27/09/2023",
+				"dateLastUpdated": "19/10/2023",
 				"category": "download"
 			},
 			{
@@ -737,7 +737,7 @@
 			"anchor": "REST_API_Spec",
 			"type": "API File",
 			"environment": "PIT Next Version",
-			"dateLastUpdated": "19/07/2023",
+			"dateLastUpdated": "19/10/2023",
 			"category": "download"
 		},
 			{
@@ -746,7 +746,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "27/09/2023",
+				"dateLastUpdated": "19/10/2023",
 				"category": "navigation"
 			},
 			{
@@ -1365,7 +1365,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "03/08/2023",
+				"dateLastUpdated": "19/10/2023",
 				"category": "download"
 			},
 			{
@@ -1383,7 +1383,7 @@
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "19/10/2023",
 				"category": "download"
 			},
 			{
@@ -1392,7 +1392,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "27/09/2023",
+				"dateLastUpdated": "19/10/2023",
 				"category": "LINK"
 			},
 			{

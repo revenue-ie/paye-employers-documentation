@@ -2813,14 +2813,14 @@
           "employerPEPP": {
             "type": "number",
             "description": "Data Item Ref: 59. Amount contributed by employer to Pan-European Personal Pension Product (PEPP) scheme.",
-            "minimum": -9.99999999,
-            "maximum": 9.9999999999
+            "minimum": -999999999,
+            "maximum": 999999999.99
           },
           "employeePEPP": {
             "type": "number",
             "description": "Data Item Ref: 60. Amount contributed by employee to Pan-European Personal Pension Product (PEPP) scheme.",
-            "minimum": -9.99999999,
-            "maximum": 9.9999999999
+            "minimum": -999999999,
+            "maximum": 999999999.99
           },
           "otherPayments": {
             "type": "array",
