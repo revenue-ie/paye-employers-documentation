@@ -1,0 +1,17 @@
+{
+	"requestType": "EnhancedReportingSubmission",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2024,
+	"softwareUsed": "test",
+	"softwareVersion": "1.234",
+	"enhancedReportingRunReference": "Run01",
+	"submissionID": "Sub01",
+	"requestBody": {
+		"expensesBenefits": 
+		"!!! ITEMS CONVERTED FROM CSV_ExpensesBenefits_Template HERE !!!"
+		
+		,
+		"lineItemIDsToDelete": 
+		"!!! ITEMS CONVERTED FROM CSV_LineItemIDsToDelete_Template HERE !!!"
+	}
+}

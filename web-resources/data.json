@@ -1545,6 +1545,15 @@
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "21/09/2023",
 				"category": "download"
+			},
+			{
+				"link": "PIT4/examples/ERR_File_Upload_CSV_Conversion.zip",
+				"description": "ERR File Upload CSV Conversion",
+				"anchor": "ERR_File_Upload_CSV_Conversion",
+				"type": "ZIP File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "23/11/2023",
+				"category": "download"
 			}
 
 		]

@@ -1,0 +1,44 @@
+{
+	"requestType": "EnhancedReportingSubmission",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2024,
+	"softwareUsed": "test",
+	"softwareVersion": "1.234",
+	"enhancedReportingRunReference": "Run01",
+	"submissionID": "Sub01",
+	"requestBody": {
+		"expensesBenefits": [
+			{
+				"lineItemID": "Line_2346",
+				"employeeID": {
+					"employeePpsn": "1234567X",
+					"employmentID": "1"
+				},
+				"employerReference": "RefAllLink",
+				"name": {
+					"firstName": "Anne",
+					"familyName": "Bloggs"
+				},
+				"address": {
+					"addressLines": [
+						{
+							"addressLine": "Test1"
+						}
+					],
+					"county": "Dublin",
+					"countryCode": "IRL"
+				},
+				"dateOfBirth": "1960-01-01",
+				"category": "TRAVEL_AND_SUBSISTENCE",
+				"subCategory": "TRAVEL_UNVOUCHED",
+				"paymentDate": "2024-01-01",
+				"amount": 100   
+			}
+		],
+		"lineItemIDsToDelete": [
+			{
+				"lineItem": "Line_9876"
+			}
+		]
+	}
+}
