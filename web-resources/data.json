@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/11/2023",
+				"dateLastUpdated": "30/11/2023",
 				"category": "download"
 			},
 			{
@@ -1534,7 +1534,7 @@
 				"anchor": "ERR_Scenarios",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "21/09/2023",
+				"dateLastUpdated": "30/11/2023",
 				"category": "download"
 			},
 			{

@@ -180,6 +180,38 @@
             <enh:PaymentDate>2024-05-28</enh:PaymentDate>
             <enh:Amount>50</enh:Amount>
          </enh:ExpensesBenefits>
+		 <enh:ExpensesBenefits>
+            <enh:LineItemID>Line06</enh:LineItemID>
+            <!--Optional:-->
+            <!--enh:PreviousLineItemID>?</enh:PreviousLineItemID-->
+            <!--Optional:-->
+            <enh:EmployeeID>
+               <enh:EmployeePPSN>7654321X</enh:EmployeePPSN>
+               <enh:EmploymentID>74</enh:EmploymentID>
+            </enh:EmployeeID>
+            <!--Optional:-->
+            <enh:EmployerReference>PLKA1254</enh:EmployerReference>
+            <enh:Name>
+               <enh:FirstName>Sarah</enh:FirstName>
+               <enh:FamilyName>Bloggs</enh:FamilyName>
+            </enh:Name>
+            <!--Optional:-->
+            <enh:Address>
+               <!--1 to 3 repetitions:-->
+               <enh:AddressLine>1 Station Road</enh:AddressLine>
+               <!--Optional:-->
+               <enh:County>Dublin</enh:County>
+               <!--Optional:-->
+               <enh:Eircode>D05FY92</enh:Eircode>
+               <!--Optional:-->
+               <enh:CountryCode>IRL</enh:CountryCode>
+            </enh:Address>
+            <!--Optional:-->
+            <enh:DateOfBirth>1960-01-01</enh:DateOfBirth>
+            <enh:Category>SMALL_BENEFITS_EXEMPTION</enh:Category>
+            <enh:PaymentDate>2024-07-07</enh:PaymentDate>
+            <enh:Amount>500</enh:Amount>
+         </enh:ExpensesBenefits>
          <!--Zero or more repetitions:-->
          <!--enh:LineItemIDToDelete>Line01</enh:LineItemIDToDelete-->
       </enh:EnhancedReportingSubmissionRequest>
