@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "12/12/2023",
+				"dateLastUpdated": "10/01/2024",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1365,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "12/12/2023",
+				"dateLastUpdated": "10/01/2024",
 				"category": "download"
 			},
 			{
@@ -1543,7 +1543,7 @@
 				"anchor": "Screen_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "21/09/2023",
+				"dateLastUpdated": "10/01/2024",
 				"category": "download"
 			},
 			{
