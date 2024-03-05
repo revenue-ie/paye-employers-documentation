@@ -1,0 +1,75 @@
+{
+	"expensesBenefits": [{
+			"lineItemID": "line01",
+			"employeeID": {
+				"employeePpsn": "1234567X",
+				"employmentID": "26"
+			},
+			"employerReference": "JDEHJ352",
+			"name": {
+				"firstName": "Joe",
+				"familyName": "Bloggs"
+			},
+			"address": {
+				"addressLines": [{
+					"addressLine": "12 Station Road"
+				}],
+				"county": "Dublin",
+				"countryCode": "IRL"
+			},
+			"dateOfBirth": "1960-01-01",
+			"category": "TRAVEL_AND_SUBSISTENCE",
+			"subCategory": "TRAVEL_VOUCHED",
+			"paymentDate": "2024-02-24",
+			"amount": 25
+		},
+		{
+			"lineItemID": "line02",
+			"employeeID": {
+				"employeePpsn": "1234567X",
+				"employmentID": "26"
+			},
+			"employerReference": "JDEHJ352",
+			"name": {
+				"firstName": "Joe",
+				"familyName": "Bloggs"
+			},
+			"address": {
+				"addressLines": [{
+					"addressLine": "12 Station Road"
+				}],
+				"county": "Dublin",
+				"countryCode": "IRL"
+			},
+			"dateOfBirth": "1960-01-01",
+			"category": "TRAVEL_AND_SUBSISTENCE",
+			"subCategory": "TRAVEL_UNVOUCHED",
+			"paymentDate": "2024-03-14",
+			"amount": 65
+		},
+		{
+			"lineItemID": "line03",
+			"employeeID": {
+				"employeePpsn": "1234567X",
+				"employmentID": "26"
+			},
+			"employerReference": "JDEHJ352",
+			"name": {
+				"firstName": "Joe",
+				"familyName": "Bloggs"
+			},
+			"address": {
+				"addressLines": [{
+					"addressLine": "12 Station Road"
+				}],
+				"county": "Dublin",
+				"countryCode": "IRL"
+			},
+			"dateOfBirth": "1960-01-01",
+			"category": "TRAVEL_AND_SUBSISTENCE",
+			"subCategory": "TRAVEL_UNVOUCHED",
+			"paymentDate": "2024-04-19",
+			"amount": 50
+		}
+	]
+}

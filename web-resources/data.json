@@ -344,7 +344,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{
@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "10/01/2024",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{
@@ -482,7 +482,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "04/02/2022",
+				"dateLastUpdated": "27/02/2024",
 				"category": "navigation"
 			},
 			{
@@ -685,7 +685,7 @@
 				"anchor": "REST_API_Spec",
 				"type": "API File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "18/02/2022",
+				"dateLastUpdated": "27/02/2024",
 				"category": "download"
 			},
 			{
@@ -694,7 +694,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "04/02/2022",
+				"dateLastUpdated": "27/02/2024",
 				"category": "navigation"
 			},
 			{
@@ -1282,8 +1282,168 @@
 				"category": "download"
 			}]
 	},
-	"ERR Technical Support Documentation": {
-		"title": "ERR Technical Support Documentation",
+	"ERR Technical Support Documentation pit3": {
+		"title": "ERR Technical Support Documentation PIT Current Version",
+		"anchor": "ERR Guide PIT Current Version",
+		"class": "section-title",
+		"cards": [
+			{
+				"link": "https://www.revenue.ie/en/employing-people/becoming-an-employer-and-ongoing-obligations/reporting-jan-2024/index.aspx",
+				"description": "Enhanced Reporting Requirements Overview",
+				"anchor": "Enhanced Reporting Requirements Overview",
+				"type": "Link",
+				"environment": "All Versions",
+				"dateLastUpdated": "05/03/2024",
+				"category": "link"
+			},
+			{
+				"link": "PIT3/data-items/ERR - Enhanced Reporting Submission Request Data Items.pdf",
+				"description": "Enhanced Reporting Submission Request: Data Items",
+				"anchor": "ERR Enhanced Reporting Submission Request: Data Items",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/data-items/ERR - Enhanced Reporting Notification (ERN) Request Data Items.pdf",
+				"description": "Enhanced Reporting Notification (ERN) Request: Data Items",
+				"anchor": "ERR Enhanced Reporting Notification (ERN) Request: Data Items",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/data-items/ERR - Enhanced Reporting Request Monthly Report Data Items.pdf",
+				"description": "Enhanced Reporting Request Monthly Report: Data Items",
+				"anchor": "ERR Enhanced Reporting Request Monthly Report: Data Items",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/validation-rules/Enhanced Reporting Validation Rules.xlsx",
+				"description": "Enhanced Reporting Validation Rules",
+				"anchor": "Enhanced Reporting Validation Rules",
+				"type": "Excel File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link":"PIT3/rest/REST_Web_Service_Integration_Guide_ERR.pdf",
+				"description":"REST Web Service Integration Guide",
+				"anchor":"REST Web Service Integration Guide",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/rest/paye-employers-rest-api-pit3.json",
+				"description": "REST Open API Specification",
+				"anchor": "ERR REST Open API Specification",
+				"type": "API File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/rest/paye-employers-rest-api-pit3.html",
+				"description": "REST API Reference",
+				"anchor": "REST_API_Ref",
+				"type": "LINK",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "LINK"
+			},
+			{
+				"link": "PIT3/soap/SOAP_Web_Service_Integration_Guide_ERR.pdf",
+				"description": "SOAP Web Service Integration Guide",
+				"anchor": "SOAP_integration_guide",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/soap/soap-schema-reference/webframe.html",
+				"description": "SOAP Schema Reference",
+				"anchor": "SOAP_Schema_Reference",
+				"type": "Link",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "navigation"
+			},
+			{
+				"link": "PIT3/soap/v1/enhanced_reporting_pit3.wsdl",
+				"description": "Enhanced Reporting Web Service Definition",
+				"anchor": "ERR_Web_Service_Definition",
+				"type": "WSDL File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/soap/v1/enhanced_reporting/enhanced_reporting-schema-pit3.xsd",
+				"description": "Enhanced Reporting Schema",
+				"anchor": "Enhanced_Reporting_Schema",
+				"type": "Schema",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/soap/v1/ern_pit3.wsdl",
+				"description": "ERN Web Service Definition",
+				"anchor": "ERN_Web_Service_Definition",
+				"type": "WSDL File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/soap/v1/ern/ern-schema-pit3.xsd",
+				"description": "ERN Schema",
+				"anchor": "ERN_Schema",
+				"type": "Schema",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/soap/v1/common/paye-types-err-pit3.xsd",
+				"description": "Common PAYE Types Schema",
+				"anchor": "PAYE_Types_Schema",
+				"type": "Schema",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/guide/PIT_Employment_Data_Creation_Guide.pdf",
+				"description": "PIT Employment Data Creation Guide",
+				"anchor": "PIT_Employment_Data_Creation_Guide",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "https://revenue-ie.github.io/err-sug-documents",
+				"description": "Enhanced Reporting Requirements Service User Group (SUG) Meetings",
+				"anchor": "Enhanced Reporting Requirements Service User Group (SUG)",
+				"type": "Link",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "link"
+			}
+		]
+	},
+	"ERR Technical Support Documentation pit4": {
+		"title": "ERR Technical Support Documentation PIT Next Version",
 		"anchor": "ERR Guide PIT Next Version",
 		"class": "section-title",
 		"cards": [
@@ -1338,7 +1498,7 @@
 				"anchor": "ERR Enhanced Reporting Submission Request: Data Items",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{
@@ -1356,7 +1516,7 @@
 				"anchor": "ERR Enhanced Reporting Request Monthly Report: Data Items",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{
@@ -1365,7 +1525,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "10/01/2024",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{
@@ -1478,7 +1638,88 @@
 			}
 		]
 	},
-	"ERR examples-pit4": {
+	"ERR examples-pit4 pit3": {
+		"title": "ERR Examples PIT Current Version",
+		"anchor": "examples",
+		"class": "section-title",
+		"cards": [
+			{
+				"link": "PIT3/examples/Enhanced Reporting Requirements - Overview of Web Service Examples.pdf",
+				"description": "Enhanced Reporting Requirements - Overview of Web Service Examples",
+				"anchor": "Overview_Of_Web_Service_Examples",
+				"type": "PDF",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/Example 1_Full_ERR_Life_Cycle.zip",
+				"description": "Example 1: Full ERR Life Cycle",
+				"anchor": "Example_1",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/Example 2_Overpayment_Correction.zip",
+				"description": "Example 2: Overpayment Correction",
+				"anchor": "Example_2",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/Example 3_Underpayment_Correction.zip",
+				"description": "Example 3: Underpayment Correction",
+				"anchor": "Example_3",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/Example 4_Amendment_of_Incorrect_ERR_Submission.zip",
+				"description": "Example 4: Amendment of Incorrect ERR Submission",
+				"anchor": "Example_4",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/ERR_Scenarios.zip",
+				"description": "ERR Example Scenarios",
+				"anchor": "ERR_Scenarios",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/Screen_Upload_Examples.zip",
+				"description": "ERR Screen Upload Examples",
+				"anchor": "Screen_Upload_Examples",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			},
+			{
+				"link": "PIT3/examples/ERR_File_Upload_CSV_Conversion.zip",
+				"description": "ERR File Upload CSV Conversion",
+				"anchor": "ERR_File_Upload_CSV_Conversion",
+				"type": "ZIP File",
+				"environment": "PIT Current Version",
+				"dateLastUpdated": "05/03/2024",
+				"category": "download"
+			}
+
+		]
+
+	},
+	"ERR examples-pit4 pit4": {
 		"title": "ERR Examples PIT Next Version",
 		"anchor": "examples",
 		"class": "section-title",
@@ -1543,7 +1784,7 @@
 				"anchor": "Screen_Upload_Examples",
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "10/01/2024",
+				"dateLastUpdated": "05/03/2024",
 				"category": "download"
 			},
 			{

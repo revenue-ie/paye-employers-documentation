@@ -1,0 +1,81 @@
+<err:EnhancedReportingSubmissionRequest xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/enhanced_reporting-schema.xsd" xmlns:err="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" xmlns="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <err:SubmissionID>test-submission-1-130</err:SubmissionID>
+   <err:Header>
+      <err:EmployerRegistrationNumber>3710899UH</err:EmployerRegistrationNumber>
+      <err:EnhancedReportingRunReference>Run2000</err:EnhancedReportingRunReference>
+      <err:TaxYear>2024</err:TaxYear>
+      <err:SoftwareUsed>
+         <err:Name>The Software</err:Name>
+         <err:Version>Version 10.0</err:Version>
+      </err:SoftwareUsed>
+   </err:Header>
+   <err:ExpensesBenefits>
+            <err:LineItemID>Line01</err:LineItemID>
+            <err:EmployeeID>
+               <err:EmployeePPSN>1234567X</err:EmployeePPSN>
+               <err:EmploymentID>26</err:EmploymentID>
+            </err:EmployeeID>
+            <err:EmployerReference>JDEHJ352</err:EmployerReference>
+            <err:Name>
+               <err:FirstName>Joe</err:FirstName>
+               <err:FamilyName>Smith</err:FamilyName>
+            </err:Name>
+            <err:Address>
+               <err:AddressLine>12 Station Road</err:AddressLine>
+               <err:County>Dublin</err:County>
+               <err:Eircode>D05FY62</err:Eircode>
+               <err:CountryCode>IRL</err:CountryCode>
+            </err:Address>
+            <err:DateOfBirth>1960-01-01</err:DateOfBirth>
+            <err:Category>TRAVEL_AND_SUBSISTENCE</err:Category>
+            <err:SubCategory>TRAVEL_VOUCHED</err:SubCategory>
+            <err:PaymentDate>2024-02-24</err:PaymentDate>
+            <err:Amount>25</err:Amount>
+         </err:ExpensesBenefits>
+		 <err:ExpensesBenefits>
+            <err:LineItemID>Line02</err:LineItemID>
+            <err:EmployeeID>
+               <err:EmployeePPSN>7654321X</err:EmployeePPSN>
+               <err:EmploymentID>74</err:EmploymentID>
+            </err:EmployeeID>
+            <err:EmployerReference>PLKA1254</err:EmployerReference>
+            <err:Name>
+               <err:FirstName>Sarah</err:FirstName>
+               <err:FamilyName>Keane</err:FamilyName>
+            </err:Name>
+            <err:Address>
+               <err:AddressLine>1 Station Road</err:AddressLine>
+               <err:County>Dublin</err:County>
+               <err:Eircode>D05FY62</err:Eircode>
+               <err:CountryCode>IRL</err:CountryCode>
+            </err:Address>
+            <err:DateOfBirth>1960-01-01</err:DateOfBirth>
+            <err:Category>REMOTE_WORKING_DAILY_ALLOWANCE</err:Category>
+			<err:PaymentDate>2024-07-07</err:PaymentDate>
+			<err:NumberOfDays>10</err:NumberOfDays>
+            <err:Amount>45</err:Amount>
+         </err:ExpensesBenefits>
+		 <err:ExpensesBenefits>
+            <err:LineItemID>Line03</err:LineItemID>
+            <err:EmployeeID>
+               <err:EmployeePPSN>7654322X</err:EmployeePPSN>
+               <err:EmploymentID>20</err:EmploymentID>
+            </err:EmployeeID>
+            <err:EmployerReference>UEJD283</err:EmployerReference>
+            <err:Name>
+               <err:FirstName>Shona</err:FirstName>
+               <err:FamilyName>Kelly</err:FamilyName>
+            </err:Name>
+            <err:Address>
+               <err:AddressLine>45 Station Road</err:AddressLine>
+               <err:County>Dublin</err:County>
+               <err:Eircode>D05YN62</err:Eircode>
+               <err:CountryCode>IRL</err:CountryCode>
+            </err:Address>
+            <err:DateOfBirth>1960-01-01</err:DateOfBirth>
+            <err:Category>TRAVEL_AND_SUBSISTENCE</err:Category>
+            <err:SubCategory>TRAVEL_UNVOUCHED</err:SubCategory>
+            <err:PaymentDate>2024-05-28</err:PaymentDate>
+            <err:Amount>50</err:Amount>
+         </err:ExpensesBenefits>
+</err:EnhancedReportingSubmissionRequest>

@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:enh="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+   <soap:Header/>
+   <soap:Body>
+      <enh:CheckErrRunRequest>
+         <enh:EmployerRegistrationNumber>7654321T</enh:EmployerRegistrationNumber>
+         <enh:TaxYear>2024</enh:TaxYear>
+         <enh:SoftwareUsed>
+            <enh:Name>abc</enh:Name>
+            <enh:Version>123</enh:Version>
+         </enh:SoftwareUsed>
+         <enh:EnhancedReportingRunReference>Run12</enh:EnhancedReportingRunReference>
+      </enh:CheckErrRunRequest>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,9 @@
+{
+	"requestType": "lookupERN",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2023,
+	"softwareUsed": "test",
+	"softwareVersion": "1.234",	
+	"ppsns": ["1234567X"]
+	
+}

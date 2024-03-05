@@ -1,0 +1,9 @@
+{
+    "submissionID": "Sub1",
+    "status": "COMPLETED",
+    "expenseBenefitSubmissionSummary": {
+        "amount": 280,
+        "expensesBenefitsCount": 6,
+        "expensesBenefitsToDeleteCount": 0
+    }
+}

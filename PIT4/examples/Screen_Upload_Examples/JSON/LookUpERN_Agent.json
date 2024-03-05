@@ -1,0 +1,11 @@
+{
+  "requestType": "lookupERN",
+  "employerRegistrationNumber": "1234567T",
+  "agentTain": "12345X",
+  "taxYear": 2024,
+  "softwareUsed": "test",
+  "softwareVersion": "1.234",
+  "ppsns": [
+    "1234567X"
+  ]
+}

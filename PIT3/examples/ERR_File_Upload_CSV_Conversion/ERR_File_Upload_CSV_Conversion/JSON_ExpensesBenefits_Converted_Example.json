@@ -1,0 +1,91 @@
+[
+ {
+   "lineItemID": "Line1",
+   "employeeID": {
+      "employeePpsn": "1234567X",
+      "employmentID": 1
+   },
+   "employerReference": "RefLinkX",
+   "name": {
+      "firstName": "Alpha",
+      "familyName": "Bloggs"
+   },
+   "address": {
+      "addressLines": [
+         {
+            "addressLine": "LaneX"
+         }
+      ],
+      "county": "Dublin",
+      "eircode": "A12B3C4",
+      "countryCode": "IRL"
+   },
+   "dateOfBirth": "1960-01-01",
+   "category": "SMALL_BENEFITS_EXEMPTION",
+   "paymentDate": "2024-01-01",
+   "amount": 100
+},
+ {
+   "lineItemID": "Line2",
+   "employeeID": {
+      "employeePpsn": "1234567Y",
+      "employmentID": 1
+   },
+   "employerReference": "RefLinkY",
+   "name": {
+      "firstName": "Bravo",
+      "familyName": "Bloggs"
+   },
+   "address": {
+      "addressLines": [
+         {
+            "addressLine": "LaneY"
+         },
+         {
+            "addressLine": "StreetY"
+         }
+      ],
+      "county": "Galway",
+      "eircode": "A12B3C4",
+      "countryCode": "IRL"
+   },
+   "dateOfBirth": "1960-01-01",
+   "category": "TRAVEL_AND_SUBSISTENCE",
+   "subCategory": "TRAVEL_VOUCHED",
+   "paymentDate": "2024-01-01",
+   "amount": 100
+},
+ {
+   "lineItemID": "Line3",
+   "employeeID": {
+      "employeePpsn": "1234567Z",
+      "employmentID": 1
+   },
+   "employerReference": "RefLinkZ",
+   "name": {
+      "firstName": "Charlie",
+      "familyName": "Bloggs"
+   },
+   "address": {
+      "addressLines": [
+         {
+            "addressLine": "LaneZ"
+         },
+         {
+            "addressLine": "StreetZ"
+         },
+         {
+            "addressLine": "TownZ"
+         }
+      ],
+      "county": "Cork",
+      "eircode": "A12B3C4",
+      "countryCode": "IRL"
+   },
+   "dateOfBirth": "1960-01-01",
+   "category": "REMOTE_WORKING_DAILY_ALLOWANCE",
+   "numberOfDays": "30",
+   "paymentDate": "2024-01-01",
+   "amount": 100
+}
+]

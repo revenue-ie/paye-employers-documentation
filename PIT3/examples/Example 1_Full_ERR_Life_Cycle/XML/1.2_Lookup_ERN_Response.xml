@@ -1,0 +1,23 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<env:Header/>
+<env:Body>
+<ns2:LookUpERNResponse xmlns:ns2="http://www.ros.ie/schemas/paye-employers/err/v1/ern/">
+<ns2:EmployerName>Employer1</ns2:EmployerName>
+<ns2:EmployerRegistrationNumber>1234567T</ns2:EmployerRegistrationNumber>
+<ns2:TaxYear>2024</ns2:TaxYear>
+<ns2:TotalERNCount>1</ns2:TotalERNCount>
+<ns2:DateTimeEffective>2024-07-25T12:12:05.764+01:00</ns2:DateTimeEffective>
+<ns2:ERN>
+<ns2:EmployeeID>
+<ns2:EmployeePPSN>1234567X</ns2:EmployeePPSN>
+<ns2:EmploymentID>1</ns2:EmploymentID>
+</ns2:EmployeeID>
+<ns2:Name>
+<ns2:FirstName>Anne</ns2:FirstName>
+<ns2:FamilyName>Bloggs</ns2:FamilyName>
+</ns2:Name>
+<ns2:EmploymentCeased>false</ns2:EmploymentCeased>
+</ns2:ERN>
+</ns2:LookUpERNResponse>
+</env:Body>
+</env:Envelope>

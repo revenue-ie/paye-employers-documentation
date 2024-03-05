@@ -1,0 +1,30 @@
+{
+    "expensesBenefits": [
+        {
+            "lineItemID": "line01_V1",
+            "employeeID": {
+                "employeePpsn": "1234569X",
+                "employmentID": "1"
+            },
+            "employerReference": "Ref01",
+            "name": {
+                "firstName": "Mary",
+                "familyName": "Bloggs"
+            },
+            "address": {
+                "addressLines": [
+                    {
+                        "addressLine": "Test1"
+                    }
+                ],
+                "county": "Dublin",
+                "countryCode": "IRL"
+            },
+            "dateOfBirth": "1960-01-01",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_VOUCHED",
+            "paymentDate": "2024-02-01",
+            "amount": 100.0     
+        }
+    ]
+}

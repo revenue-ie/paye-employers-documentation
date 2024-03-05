@@ -1,0 +1,4 @@
+lineItemID,previousLineItemID,employeeID/employeePpsn,employeeID/employmentID,employerReference,name/firstName,name/familyName,address/addressLines/0/addressLine,address/addressLines/1/addressLine,address/addressLines/2/addressLine,address/county,address/eircode,address/countryCode,dateOfBirth,category,subCategory,numberOfDays,paymentDate,amount
+Line1,NULL,1234567X,1,RefLinkX,Alpha,Bloggs,LaneX,NULL,NULL,Dublin,A12B3C4,IRL,01/01/1960,SMALL_BENEFITS_EXEMPTION,NULL,NULL,01/01/2024,100.789
+Line2,NULL,1234567Y,1,RefLinkY,Bravo,Bloggs,LaneY,StreetY,NULL,Galway,A12B3C4,IRL,01/01/1960,TRAVEL_AND_SUBSISTENCE,TRAVEL_VOUCHED,NULL,01/01/2024,100
+Line3,NULL,1234567Z,1,RefLinkZ,Charlie,Bloggs,LaneZ,StreetZ,TownZ,Cork,A12B3C4,IRL,01/01/1960,REMOTE_WORKING_DAILY_ALLOWANCE,NULL,30,01/01/2024,100

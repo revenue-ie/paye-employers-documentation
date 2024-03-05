@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 0.1 ====================================
+i. Document Created 22/03/2023
+
+ii. Document updated 19/07/2023
+        Added EmploymentCeased element
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pn="http://www.ros.ie/schemas/paye-employers/err/v1/ern/"
+           xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" elementFormDefault="qualified"
+           attributeFormDefault="unqualified" vc:minVersion="0.1">
+
+    <xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
+
+    <!-- ERN (Employer Reporting Notification) Request and Response Schema Elements -->
+    <xs:element name="LookUpERNRequest" type="pn:LookUpERNRequest">
+        <xs:annotation>
+            <xs:documentation>Enhanced Reporting Notification Request.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="LookUpERNResponse" type="pn:LookUpERNResponse">
+        <xs:annotation>
+            <xs:documentation>Enhanced Reporting Notification Request Response.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <!-- ERN Data Types -->
+    <xs:complexType name="LookUpERNRequest">
+        <xs:annotation>
+            <xs:documentation>Enhanced Reporting Notification Request.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+                <xs:annotation>
+                    <xs:documentation>Employer's PAYE Registration Number.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Tax Advisor Identification Number. Required if ERN is queried by agent on behalf of employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SoftwareUsed" type="pn:SoftwareUsed">
+                <xs:annotation>
+                    <xs:documentation>References to third party software used to lookup ERN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TaxYear" type="pc:taxYear">
+                <xs:annotation>
+                    <xs:documentation>The tax year to which the ERN lookup relates (YYYY).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PPSN" type="pc:EmployeePPSN" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>List of PPSNs for search.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LookUpERNResponse">
+        <xs:annotation>
+            <xs:documentation>Enhanced Reporting Notification Request Response.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EmployerName" type="pc:defaultString">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. The official name of the employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. Employer's PAYE Registration Number.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. Tax Advisor Identification Number. Required if ERN queried by agent on behalf of employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TaxYear" type="pc:dateYear">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. The tax year to which the ERN lookup relates (YYYY).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TotalERNCount" type="xs:unsignedInt">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. The total number of ERNs that are associated with the ERN request submitted.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="DateTimeEffective" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. The date and time the ERN was requested.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ERN" type="pn:ERN" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. List of valid ERNs.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="NoERN" type="pc:EmployeePPSN" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. EmployeePPSNs of employees who do not currently have an employment associated with the employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ValidationError" type="pn:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Data Item Ref: N/A. List of Validation errors (if any) on the Look Up ERN request. Validations are returned with an id field where a PPSN provided is invalid. The id field will not be present where PPSN processing is not reached e.g. No RPN found for the employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SoftwareUsed">
+        <xs:annotation>
+            <xs:documentation>References to third party software used.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Name" type="pc:NonEmptyString">
+                <xs:annotation>
+                    <xs:documentation>Name of third party software product.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Version" type="pc:NonEmptyString">
+                <xs:annotation>
+                    <xs:documentation>Version of third party software product.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EmployeeID">
+        <xs:annotation>
+            <xs:documentation>Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EmployeePPSN" type="pc:EmployeePPSN">
+                <xs:annotation>
+                    <xs:documentation>Employee's PPS Number.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EmploymentID" type="pc:employmentID" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Employment ID. Unique identifier for each distinct employment for an employee. To be set by the employer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ERN">
+        <xs:annotation>
+            <xs:documentation>Enhanced Reporting Notification (ERN) for an employee.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EmployeeID" type="pn:EmployeeID">
+                <xs:annotation>
+                    <xs:documentation>Employee's PPS Number and Employment ID (if available).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Name" type="pn:Name" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The employee name.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EmploymentCeased" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>Employment ceased marker.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Name">
+        <xs:annotation>
+            <xs:documentation>Employee Name.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="FirstName" type="pc:defaultString">
+                <xs:annotation>
+                    <xs:documentation>The first name of the employee.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FamilyName" type="pc:defaultString">
+                <xs:annotation>
+                    <xs:documentation>The surname/family name of the employee.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ErrorWithId">
+        <xs:annotation>
+            <xs:documentation>Standard Validation error with identification element.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Code" type="pc:errorCode">
+                <xs:annotation>
+                    <xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Path" type="pc:errorPath" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Path to error in schema, if available.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Description" type="pc:errorDescription">
+                <xs:annotation>
+                    <xs:documentation>Description of error - to be used for support.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Id" type="pc:errorId">
+                <xs:annotation>
+                    <xs:documentation>Optional ID for error - to be used when multiple customers are validated.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

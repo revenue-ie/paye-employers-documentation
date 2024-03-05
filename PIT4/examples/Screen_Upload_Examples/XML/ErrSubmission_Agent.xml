@@ -1,0 +1,35 @@
+<err:EnhancedReportingSubmissionRequest xmlns:err="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" xmlns="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/enhanced_reporting-schema.xsd">
+<err:SubmissionID>test-submission-1-130</err:SubmissionID>
+<err:Header>
+<err:EmployerRegistrationNumber>1234567T</err:EmployerRegistrationNumber>
+<err:AgentTain>12345X</err:AgentTain>
+<err:EnhancedReportingRunReference>Run01</err:EnhancedReportingRunReference>
+<err:TaxYear>2024</err:TaxYear>
+<err:SoftwareUsed>
+<err:Name>The Software</err:Name>
+<err:Version>Version 10.0</err:Version>
+</err:SoftwareUsed>
+</err:Header>
+<err:ExpensesBenefits>
+<err:LineItemID>Line01</err:LineItemID>
+<err:EmployeeID>
+<err:EmployeePPSN>1234567X</err:EmployeePPSN>
+<err:EmploymentID>1</err:EmploymentID>
+</err:EmployeeID>
+<err:Name>
+<err:FirstName>Ann</err:FirstName>
+<err:FamilyName>Doe</err:FamilyName>
+</err:Name>
+<err:Address>
+<err:AddressLine>Line1</err:AddressLine>
+<err:County>Dublin</err:County>
+<err:Eircode>D0012AB</err:Eircode>
+<err:CountryCode>IRL</err:CountryCode>
+</err:Address>
+<err:DateOfBirth>1960-01-01</err:DateOfBirth>
+<err:Category>TRAVEL_AND_SUBSISTENCE</err:Category>
+<err:SubCategory>TRAVEL_VOUCHED</err:SubCategory>
+<err:PaymentDate>2024-01-01</err:PaymentDate>
+<err:Amount>100</err:Amount>
+</err:ExpensesBenefits>
+</err:EnhancedReportingSubmissionRequest>

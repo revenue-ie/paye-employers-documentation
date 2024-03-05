@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Document History:
+======== Version 1.0 ====================================
+i. Document Created 22/02/2023
+======== Version 1.1 ====================================
+ii. Document Updated 14/06/2023
+	- Added Monthly Err Statement operation
+======== Version 1.2 ====================================
+iii. Document Updated 14/06/2023
+	- Rewording of Monthly Statement to Monthly Report
+
+-->
+<wsdl:definitions name="EnhancedReportingRequirements" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
+				  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/"
+				  targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" schemaLocation="enhanced_reporting/enhanced_reporting-schema-pit4.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="EnhancedReportingSubmissionRequest">
+		<wsdl:part element="tns:EnhancedReportingSubmissionRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="EnhancedReportingSubmissionResponse">
+		<wsdl:part element="tns:EnhancedReportingSubmissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckErrSubmissionRequest">
+		<wsdl:part element="tns:CheckErrSubmissionRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckErrSubmissionResponse">
+		<wsdl:part element="tns:CheckErrSubmissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckErrRunRequest">
+		<wsdl:part element="tns:CheckErrRunRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckErrRunResponse">
+		<wsdl:part element="tns:CheckErrRunResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="MonthlyErrReportRequest">
+		<wsdl:part element="tns:MonthlyErrReportRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="MonthlyErrReportResponse">
+		<wsdl:part element="tns:MonthlyErrReportResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:portType name="EnhancedReportingPortType">
+		<wsdl:operation name="EnhancedReportingSubmissionOperation">
+			<wsdl:input message="tns:EnhancedReportingSubmissionRequest"/>
+			<wsdl:output message="tns:EnhancedReportingSubmissionResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckErrSubmissionOperation">
+			<wsdl:input message="tns:CheckErrSubmissionRequest"/>
+			<wsdl:output message="tns:CheckErrSubmissionResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckErrRunOperation">
+			<wsdl:input message="tns:CheckErrRunRequest"/>
+			<wsdl:output message="tns:CheckErrRunResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="MonthlyErrReportOperation">
+			<wsdl:input message="tns:MonthlyErrReportRequest"/>
+			<wsdl:output message="tns:MonthlyErrReportResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="EnhancedReportingBindingSOAP" type="tns:EnhancedReportingPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="EnhancedReportingSubmissionOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/EnhancedReportingSubmissionOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckErrSubmissionOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/CheckErrSubmissionOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckErrRunOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/CheckErrRunOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MonthlyErrReportOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/MonthlyErrReportOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="EnhancedReportingOnlineService">
+		<wsdl:port name="EnhancedReportingBindingSOAP" binding="tns:EnhancedReportingBindingSOAP">
+			<soap:address location="https://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

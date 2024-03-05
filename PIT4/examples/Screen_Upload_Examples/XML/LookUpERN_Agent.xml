@@ -1,0 +1,11 @@
+<ern:LookUpERNRequest xmlns:ern="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" xmlns="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/ern/v1/ern-schema.xsd">
+<ern:EmployerRegistrationNumber>1234567T</ern:EmployerRegistrationNumber>
+<ern:AgentTain>12345X</ern:AgentTain>
+<ern:SoftwareUsed>
+<ern:Name>SOAP UI</ern:Name>
+<ern:Version>5.4.0</ern:Version>
+</ern:SoftwareUsed>
+<ern:TaxYear>2024</ern:TaxYear>
+<!-- Zero or more repetitions: -->
+<ern:PPSN>1234567X</ern:PPSN>
+</ern:LookUpERNRequest>

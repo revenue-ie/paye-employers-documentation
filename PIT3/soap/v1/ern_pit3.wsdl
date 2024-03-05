@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Document History:
+======== Version 0.1 ====================================
+i. Document Created 22/03/2023
+
+-->
+<wsdl:definitions name="EnhancedReportingNotifications" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
+				  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ros.ie/schemas/paye-employers/err/v1/ern/"
+				  targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/ern/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" schemaLocation="ern/ern-schema-pit4.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="LookUpERNRequest">
+		<wsdl:part element="tns:LookUpERNRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="LookUpERNResponse">
+		<wsdl:part element="tns:LookUpERNResponse" name="parameters"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="ERNPortType">
+		<wsdl:operation name="LookUpERNOperation">
+			<wsdl:input message="tns:LookUpERNRequest"/>
+			<wsdl:output message="tns:LookUpERNResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="ERNBindingSOAP" type="tns:ERNPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="LookUpERNOperation">
+			<soap:operation soapAction="http://www.ros.ie/schemas/paye-employers/err/v1/ern/LookUpERNOperation" soapActionRequired="true"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="ERNOnlineService">
+		<wsdl:port name="ERNBindingSOAP" binding="tns:ERNBindingSOAP">
+			<soap:address location="https://www.ros.ie/schemas/paye-employers/err/v1/ern"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

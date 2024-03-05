@@ -1,0 +1,24 @@
+{
+    "employerName": "Sara-Er-Schulist Group",
+    "employerRegistrationNumber": "3710899T",
+    "taxYear": 2023,
+    "totalERNCount": 1,
+    "dateTimeEffective": "2023-09-19T14:27:44.307+01:00",
+    "erns": [
+        {
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "26"
+            },
+            "name": {
+                "firstName": "Joe",
+                "familyName": "Bloggs"
+            },
+            "employmentCeased": false
+        }
+    ],
+    "noERNs": [
+        "7654321X",
+        "7654322X"
+    ]
+}

@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document History:
+======== Version 1.0 ====================================
+i. Document Created 22/02/2023
+======== Version 1.2 ====================================
+ii. Document updated 16/06/2023
+		- Monthly statement additions
+======== Version 1.3 ====================================
+iii. Document updated 16/06/2023
+		- Rewording of Monthly statement to Monthly Report
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/"
+		   xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/"
+		   xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+		   targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/" elementFormDefault="qualified"
+		   attributeFormDefault="unqualified" vc:minVersion="0.1">
+	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
+
+	<!--Enhanced Reporting Request and Response Schema Elements -->
+	<xs:element name="EnhancedReportingSubmissionRequest" type="pp:EnhancedReportingSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's PAYE Enhanced Reporting Submission Request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EnhancedReportingSubmissionResponse" type="pp:EnhancedReportingSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Acknowledges the receipt of an Employer's PAYE Enhanced Reporting Submission Request, or Validation Errors if validation failed.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckErrSubmissionRequest" type="pp:CheckErrSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Enhanced Reporting Submission, based on the Submission ID.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckErrSubmissionResponse" type="pp:CheckErrSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Submission. If processed, includes summary totals of valid data items and validation errors for invalid data items.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckErrRunRequest" type="pp:CheckErrRunRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Enhanced Reporting Run, based on the Run Reference.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CheckErrRunResponse" type="pp:CheckErrRunResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MonthlyErrReportRequest" type="pp:MonthlyErrReportRequest">
+		<xs:annotation>
+			<xs:documentation>Request to get a monthly report of an Employer's PAYE Enhanced Reporting submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MonthlyErrReportResponse" type="pp:MonthlyErrReportResponse">
+		<xs:annotation>
+			<xs:documentation>Return the monthly report of an Employer's PAYE Enhanced Reporting submissions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<!--Enhanced Reporting Data Items -->
+	<xs:complexType name="EnhancedReportingSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Employer's PAYE Enhanced Reporting Submission Request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- Header Elements -->
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 3. Unique submission identifier. Must be unique for submissions under a given employer's PAYE registration number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Header" type="pp:SubmissionHeader">
+				<xs:annotation>
+					<xs:documentation>Required header level elements for a submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- Expense Benefit Line Item Elements -->
+			<xs:element name="ExpensesBenefits" type="pp:ExpenseBenefit" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Expense Benefits that make up the Employer Enhanced Reporting Submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- Expense Benefit Deletion Line Item Elements -->
+			<xs:element name="LineItemIDToDelete" type="pc:expenseBenefitLineItemID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>For correction submissions, this should include any line item IDs across the run to be deleted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnhancedReportingSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Acknowledges the receipt of an Employer's PAYE Enhanced Reporting Submission Request, or Validation Errors if validation failed.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AcknowledgementStatus" type="pc:statusAcknowledgement">
+				<xs:annotation>
+					<xs:documentation>Acknowledgement status for Employer's PAYE Enhanced Reporting Submission Request. Possible values are Acknowledged or Rejected.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AcknowledgementID" type="pc:acknowledgementID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique ID for acknowledged requests - to be used for technical support if required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Submission Validation Errors (if any).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationWarning" type="pp:Warning" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Submission Validation Warnings (if any).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CheckErrSubmissionRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Enhanced Reporting Submission, based on the Submission ID.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 1. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission filed by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 7 and 8. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnhancedReportingRunReference" type="pc:enhancedReportingRunReference">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 4. Used to identify the Enhanced Reporting event to which the submission refers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckErrSubmissionResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Submission. If processed, includes summary totals of valid data items and validation errors for invalid data items.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="pc:submissionProcessingStatus">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionHeader" type="pp:SubmissionHeader">
+				<xs:annotation>
+					<xs:documentation>Header elements that were included in submission that is being checked.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpenseBenefitSubmissionSummary" type="pp:ExpenseBenefitSubmissionSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Summary totals for Expense Benefit Submission. Included when submission has completed processing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InvalidExpenseBenefit" type="pp:InvalidExpenseBenefit" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Invalid Expense Benefits (if any). Any in this list will not have been saved.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WarningExpenseBenefit" type="pp:WarningExpenseBenefit" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Expense Benefit Warnings (if any) associated with Valid submission. Any in this list will have been saved.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:ErrorWithId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Errors (if any) on the CheckErrSubmissionRequest. Validations are returned with an id field where a lineItem deletion validation error has occurred and the lineItem needs to be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CheckErrRunRequest">
+		<xs:annotation>
+			<xs:documentation>Request to check the current status of an Employer's PAYE Enhanced Reporting Run, based on the RunReference.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 1. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by an agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 7 and 8. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnhancedReportingRunReference" type="pc:enhancedReportingRunReference">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 4. Used to identify the Enhanced Reporting event for which the submission refers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CheckErrRunResponse">
+		<xs:annotation>
+			<xs:documentation>Return the current status of an Employer's PAYE Enhanced Reporting Run. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Status" type="pc:runProcessingStatus">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Run. Possible values are Pending or Processed. Will be marked as Pending if any submissions making up the run are at a status of Pending.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Total amount across valid line items for the Enhanced Reporting Run. Included when all submissions received for the run have been processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpenseBenefitSubmissions" type="pp:ExpenseBenefitSubmissionStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>High Level details of the Expense Benefit Submissions that make up the Expense Benefit Run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpenseBenefitSummary" type="pp:ExpenseBenefitSummary" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Summary details of individual Expense Benefits that make up the Expense Benefit Run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValidationError" type="pp:Error" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of Errors (if any) on the CheckErrRunRequest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MonthlyErrReportRequest">
+		<xs:annotation>
+			<xs:documentation>Request to get a monthly report of an Employer's PAYE Enhanced Reporting submissions, based on the month provided.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 301. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 302. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 305. Tax year that the expenses/benefits report is being requested for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Month" type="pc:month">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 306. Month to process for report breakdown.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 303 and 304. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MonthlyErrReportResponse">
+		<xs:annotation>
+			<xs:documentation>Return the monthly report of an Employer's PAYE Enhanced Reporting submissions. Includes list of submissions that make up the run and includes summary details of processed submissions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 307. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 308.  Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 309. Tax year that the expenses/benefits report is being requested for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Month" type="pc:month">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 310. Month to process for report breakdown.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTimeEffective" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. The date and time the report was requested.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumberOfExpensesBenefits" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 311. The number of expenses/benefits accounted for in the requested report.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 312. The overall total expenses/benefits reported for the requested month. (Only expense/benefit figures with pay dates in the selected month are included in this total).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CategoryBreakdown" type="pp:CategoryBreakdown" minOccurs="0" maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>List of category breakdowns containing the submission totals by category for the given month.</xs:documentation>
+			</xs:annotation>
+			</xs:element>
+			<xs:element name="RunReferenceBreakdown" type="pp:RunReferenceBreakdown" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of run reference breakdowns containing the run total for the given month and the date the run was last updated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubmissionHeader">
+		<xs:annotation>
+			<xs:documentation>Required header level elements for an Enhanced Reporting Submission.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployerRegistrationNumber" type="pc:employerReg">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 1. Employer's PAYE Registration Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgentTain" type="pc:agentTAIN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by agent on behalf of employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnhancedReportingRunReference" type="pc:enhancedReportingRunReference">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 4. Enhanced Reporting Run Reference. Used to identify the event to which the submission refers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxYear" type="pc:taxYear">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 6. Tax year to which the submission relates (YYYY).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareUsed" type="pp:SoftwareUsed">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 7 and 8. Third party software product identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoftwareUsed">
+		<xs:annotation>
+			<xs:documentation>Third party software product identifier.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 7. Name of third party software product.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="pc:NonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 8. Version of third party software product.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExpenseBenefitSubmissionStatus">
+		<xs:annotation>
+			<xs:documentation>High Level details of the Enhanced Reporting Submissions that make up the Run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubmissionID" type="pc:submissionID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 3. Unique ID of the Enhanced Reporting Submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="pc:submissionProcessingStatus">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpenseBenefitSubmissionSummary" type="pp:ExpenseBenefitSubmissionSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Summary details of Expense Submission. Included when submission has completed processing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExpenseBenefitSubmissionSummary">
+		<xs:annotation>
+			<xs:documentation>Summary totals and count across valid line items for an Enhanced Reporting Submission.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Amount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Total amount across valid line items on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpensesBenefitsCount" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Total number of line items included on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpensesBenefitsToDeleteCount" type="xs:unsignedInt">
+				<xs:annotation>
+					<xs:documentation>Total number of Expense Benefit line item IDs for deletion included on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExpenseBenefitSummary">
+		<xs:annotation>
+			<xs:documentation>Summary totals for an individual Expense Benefit in an Enhanced Reporting Submission or Run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:expenseBenefitLineItemID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 5. Used to uniquely identify individual line items.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pp:EmployeeID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 9 and 15. Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 14. Employee's internal staff identifier/reference. This will be mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Category" type="pc:category">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 18. Category of Expense Benefit. Possible values are Travel and Subsistence, Remote Working Daily Allowance, Small Benefits Exemption.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubCategory" type="pc:subcategory" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 17. Total amount for this Expense Benefit on submission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvalidExpenseBenefit">
+		<xs:annotation>
+			<xs:documentation>Detail of Invalid Expense Benefit. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:expenseBenefitLineItemID">
+				<xs:annotation>
+					<xs:documentation>LineItemID of the Expense Benefit containing validation errors.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Error" type="pp:Error" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of validation errors related to the Expense Benefit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WarningExpenseBenefit">
+		<xs:annotation>
+			<xs:documentation>Validation warning identified at Expense Benefit/Line Item Level.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:expenseBenefitLineItemID">
+				<xs:annotation>
+					<xs:documentation>LineItemID of the Expense Benefit containing validation warnings.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Warning" type="pp:Warning" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of validation warnings related to the Expense Benefit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Error">
+		<xs:annotation>
+			<xs:documentation>Details of validation check failure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Technical description of error.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Warning">
+		<xs:annotation>
+			<xs:documentation>Details of validation check warning.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:warningCode">
+				<xs:annotation>
+					<xs:documentation>Technical Code for warning - to be used for mapping to warning messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:warningPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to warning in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:warningDescription">
+				<xs:annotation>
+					<xs:documentation>Technical description of warning.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErrorWithId">
+		<xs:annotation>
+			<xs:documentation>Standard Validation error with identification element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="pc:errorCode">
+				<xs:annotation>
+					<xs:documentation>Technical Error Code - to be used for mapping to error messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Path" type="pc:errorPath" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path to error in schema, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="pc:errorDescription">
+				<xs:annotation>
+					<xs:documentation>Description of error - to be used for support.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Id" type="pc:errorId">
+				<xs:annotation>
+					<xs:documentation>Optional ID for error - to be used when multiple customers are validated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ExpenseBenefit">
+		<xs:annotation>
+			<xs:documentation>Individual Expense Benefit details for Enhanced Reporting submission.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineItemID" type="pc:expenseBenefitLineItemID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 5. Used to uniquely identify individual line items.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreviousLineItemID" type="pc:expenseBenefitLineItemID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: N/A. Used to identify a previous version of this line item when corrections are made. Can only reference line items within the same Enhanced Reporting Run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeeID" type="pp:EmployeeID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Refs: 9 and 15. Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerReference" type="pc:employerReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 14. Employee's internal staff identifier/reference. This will be mandatory if the PPSN isn’t available and must remain unchanged in all submissions received until the PPSN is available. Optional if PPSN is available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="pp:Name">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 10 and 11. Employee Name. Mandatory.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="pp:Address" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. Elements required when Employee PPSN is not known.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateOfBirth" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 13. Employee's Date of Birth - format YYYY-MM-DD. This will be mandatory if the PPSN isn’t available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Category" type="pc:category">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 18. Category of Expense Benefit. Possible values are Travel and Subsistence, Remote Working Daily Allowance, Small Benefits Exemption.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubCategory" type="pc:subcategory" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PaymentDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 16. Date employee is paid Expense Benefit (YYYY-MM-DD).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumberOfDays" type="xs:integer" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 20. Number of Days. The total number of days for the Expense Benefit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="pc:defaultDecimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 17. Expense Benefit Amount. The total amount of the Expense Benefit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EmployeeID">
+		<xs:annotation>
+			<xs:documentation>Unique references to an employment for an employee. Includes PPSN and Employment ID.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EmployeePPSN" type="pc:EmployeePPSN">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 9. Employee's PPS Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentID" type="pc:employmentID">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 15. Employment ID. Unique identifier for each distinct employment for an employee. To be set by the employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Name">
+		<xs:annotation>
+			<xs:documentation>Employee Name.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 10. The first name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FamilyName" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 11. The surname/family name of the employee.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Address">
+		<xs:annotation>
+			<xs:documentation>The address of the employee. This will be mandatory if the PPSN isn’t available.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AddressLine" type="pc:defaultString" maxOccurs="3">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. The address will be mandatory if the PPSN isn’t available. Line 1 of the employee's address is required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="County" type="pc:county" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. County element of the employee's address.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Eircode" type="pc:eircode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. Employee's Eircode (if known). Used for Irish addresses only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="pc:countryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 12. Country code element. Codes used at the International Standard for country codes ISO 3166 Alpha-3.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CategoryBreakdown">
+		<xs:annotation>
+			<xs:documentation>Category breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CategoryType" type="pc:category">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 313. Identifies the category.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 314. The total expenses/benefits reported for that category in the requested month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubCategoryBreakdown" type="pp:SubCategoryBreakdown" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of sub-category breakdowns containing the submission totals.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubCategoryBreakdown">
+		<xs:annotation>
+			<xs:documentation>Sub-category breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SubCategoryType" type="pc:subcategory">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 315. Identifies the sub category if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 316. The total expenses/benefits reported for that sub category in the requested month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RunReferenceBreakdown">
+		<xs:annotation>
+			<xs:documentation>Run reference breakdown information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RunReference" type="pc:defaultString">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 317. The reference number identifies a specific ERR run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubmissionDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 318.  The date the ERR run was submitted/last updated. This date may relate to a submission outside of the month provided.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 319. The total expenses/benefits reported in the ERR Run with pay dates in the requested month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+

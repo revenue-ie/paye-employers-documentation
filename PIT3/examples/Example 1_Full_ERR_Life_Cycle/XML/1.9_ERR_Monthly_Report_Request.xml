@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:enh="http://www.ros.ie/schemas/paye-employers/err/v1/enhanced_reporting/">
+<soap:Header/>
+<soap:Body>
+<enh:MonthlyErrReportRequest>
+<enh:EmployerRegistrationNumber>1234567T</enh:EmployerRegistrationNumber>
+<enh:TaxYear>2024</enh:TaxYear>
+<enh:Month>JANUARY</enh:Month>
+<enh:SoftwareUsed>
+<enh:Name>SOAP UI</enh:Name>
+<enh:Version>5.4.3</enh:Version>
+</enh:SoftwareUsed>
+</enh:MonthlyErrReportRequest>
+</soap:Body>
+</soap:Envelope>

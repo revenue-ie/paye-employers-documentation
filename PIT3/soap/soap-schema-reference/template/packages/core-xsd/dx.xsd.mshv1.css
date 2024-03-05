@@ -1,4 +1,4 @@
-﻿
+
 
 /* Standard url() references in stylesheets don't work in MSHV 2 so we have to use an alternate syntax 
     in this stylesheet, which is loaded only when the content runs under MSHV 1 */

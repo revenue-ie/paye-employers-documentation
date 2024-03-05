@@ -1,0 +1,61 @@
+{
+    "status": "PROCESSED",
+    "amount": 280,
+    "expenseBenefitSubmissions": [
+        {
+            "submissionID": "Sub1",
+            "status": "COMPLETED",
+            "expenseBenefitSubmissionSummary": {
+                "amount": 280,
+                "expensesBenefitsCount": 6,
+                "expensesBenefitsToDeleteCount": 0
+            }
+        }
+    ],
+    "expenseBenefitSummaries": [
+        {
+            "lineItemID": "line14",
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "26"
+            },
+            "employerReference": "JDEHJ352",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_VOUCHED",
+            "amount": 25
+        },
+        {
+            "lineItemID": "line15",
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "26"
+            },
+            "employerReference": "JDEHJ352",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_UNVOUCHED",
+            "amount": 65
+        },
+        {
+            "lineItemID": "line16",
+            "employeeID": {
+                "employeePpsn": "7654321X",
+                "employmentID": "26"
+            },
+            "employerReference": "JDEHJ352",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_UNVOUCHED",
+            "amount": 50
+        },
+        {
+            "lineItemID": "line17",
+            "employeeID": {
+                "employeePpsn": "7654322X",
+                "employmentID": "95"
+            },
+            "employerReference": "JDEHJ352",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+            "subCategory": "TRAVEL_VOUCHED",
+            "amount": 140
+        }
+    ]
+}
