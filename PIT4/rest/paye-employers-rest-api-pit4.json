@@ -1674,7 +1674,7 @@
           },
           "subCategory": {
             "type": "string",
-            "description": "Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.",
+            "description": "Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site, Advance Payment.",
             "enum": [
               "TRAVEL_VOUCHED",
               "TRAVEL_UNVOUCHED",
@@ -1682,7 +1682,8 @@
               "SUBSISTENCE_UNVOUCHED",
               "SITE_BASED_EMPLOYEES",
               "EMERGENCY_TRAVEL",
-              "EATING_ON_SITE"
+              "EATING_ON_SITE",
+              "ADVANCE_PAYMENT"
             ]
           },
           "paymentDate": {
@@ -1700,6 +1701,11 @@
             "description": "Data Item Ref: 17. Expense Benefit Amount. The total amount of the Expense Benefit.",
             "minimum": -9.99999999E8,
             "maximum": 9.9999999999E8
+          },
+          "advancePaymentReconciliation" : {
+            "type" : "boolean",
+            "description" : "Data Item Ref: 21. Advance Payment Reconciliation. This is to identify if a Travel and Subsistence submission relates to a previously submitted Advance Payment.",
+            "default" : false
           }
         },
         "description": "Individual Expense Benefit details for Enhanced Reporting submission."
@@ -1789,7 +1795,7 @@
           },
           "subCategory": {
             "type": "string",
-            "description": "Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.",
+            "description": "Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site, Advance Payment.",
             "enum": [
               "TRAVEL_VOUCHED",
               "TRAVEL_UNVOUCHED",
@@ -1797,7 +1803,8 @@
               "SUBSISTENCE_UNVOUCHED",
               "SITE_BASED_EMPLOYEES",
               "EMERGENCY_TRAVEL",
-              "EATING_ON_SITE"
+              "EATING_ON_SITE",
+              "ADVANCE_PAYMENT"
             ]
           },
           "amount": {

@@ -231,6 +231,7 @@ vii. Document updated on 12/06/2023:
 			<xs:enumeration value="SITE_BASED_EMPLOYEES"/>
 			<xs:enumeration value="EMERGENCY_TRAVEL"/>
 			<xs:enumeration value="EATING_ON_SITE"/>
+			<xs:enumeration value="ADVANCE_PAYMENT"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="expenseBenefitLineItemID">

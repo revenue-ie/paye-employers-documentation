@@ -468,7 +468,7 @@ iii. Document updated 16/06/2023
 			</xs:element>
 			<xs:element name="SubCategory" type="pc:subcategory" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.</xs:documentation>
+					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site, Advance Payment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Amount" type="xs:decimal">
@@ -633,7 +633,12 @@ iii. Document updated 16/06/2023
 			</xs:element>
 			<xs:element name="SubCategory" type="pc:subcategory" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site.</xs:documentation>
+					<xs:documentation>Data Item Ref: 19. Subcategory of Expense Benefit. Will be mandatory if relevant category is selected. Possible values for Travel and Subsistence category are Travel Vouched, Travel Unvouched, Subsistence Vouched, Subsistence Unvouched, Site Based Employees, Emergency Travel, Eating on Site, Advance Payment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AdvancePaymentReconciliation" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 21. Advance Payment Reconciliation. This is to identify if a Travel and Subsistence submission relates to a previously submitted Advance Payment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PaymentDate" type="xs:date">

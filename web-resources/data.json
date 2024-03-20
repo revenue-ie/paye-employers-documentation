@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/03/2024",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
@@ -1543,7 +1543,7 @@
 				"anchor": "ERR REST Open API Specification",
 				"type": "API File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/10/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
@@ -1552,7 +1552,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/10/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "LINK"
 			},
 			{
@@ -1570,7 +1570,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "27/09/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "navigation"
 			},
 			{
@@ -1588,7 +1588,7 @@
 				"anchor": "Enhanced_Reporting_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
@@ -1615,7 +1615,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "06/09/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
@@ -1730,7 +1730,7 @@
 				"anchor": "Overview_Of_Web_Service_Examples",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "17/08/2023",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
@@ -1767,6 +1767,14 @@
 				"type": "ZIP File",
 				"environment": "PIT Next Version",
 				"dateLastUpdated": "17/08/2023",
+				"category": "download"
+			},{
+				"link": "PIT4/examples/Example 5_New Sub_Category_ADVANCE_PAYMENT.zip",
+				"description": "Example 5 : New Sub Category - ADVANCE PAYMENT",
+				"anchor": "Example_5",
+				"type": "ZIP File",
+				"environment": "PIT Next Version",
+				"dateLastUpdated": "20/03/2024",
 				"category": "download"
 			},
 			{
