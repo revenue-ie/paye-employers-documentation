@@ -56,8 +56,8 @@
 <enh:DateOfBirth>1960-01-01</enh:DateOfBirth>
 <enh:Category>TRAVEL_AND_SUBSISTENCE</enh:Category>
 <enh:SubCategory>TRAVEL_VOUCHED</enh:SubCategory>
-<enh:PaymentDate>2024-01-01</enh:PaymentDate>
 <enh:AdvancePaymentReconciliation>true</enh:AdvancePaymentReconciliation>
+<enh:PaymentDate>2024-01-01</enh:PaymentDate>
 <enh:Amount>200</enh:Amount>
 </enh:ExpensesBenefits>
 </enh:EnhancedReportingSubmissionRequest>
