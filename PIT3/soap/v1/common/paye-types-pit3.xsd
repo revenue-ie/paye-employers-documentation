@@ -17,8 +17,8 @@ iii. Document updated on 17/11/2017:
 iv. Document updated on 09/02/2018:
 		dateString pattern and minLength changed
 
-======== Version 1.0 Release Candidate 2 ====================================
-v. Document updated on 17/04/2018:
+======== Version 1.0 Milestone 3 ====================================
+iv. Document updated on 17/04/2018:
 		Enum values changed from CamelCase to standard Java enum format (e.g. Week1 to WEEK_1) for following fields
 			prsiExemptionReason
 			IncomeTaxCalculationBasis
@@ -27,46 +27,40 @@ v. Document updated on 17/04/2018:
 			acknowledgementStatus
 			county
 		Six new Northern Irish Counties added in "County" field
-vi. Document updated on 02/11/2018:
+
+======== Version 1.0 Milestone 4 ====================================
+iv. Document updated on 02/11/2018:
 		County field within Address, changed from enumeration to String
+
+======== Version 1.0 Milestone 4 ====================================
 v. Document updated on 07/12/2018:
 		SubmissionID minLength restriction added.
 		PayrollRunReference minLength restriction added.
+
+======== Version 2.0 Milestone 1 ====================================
+vi. Document updated on 22/02/2023:
+		Document moved to common folder to share between PMOD and ERR schema
+		Additional ERR schema specific paye types added
+
+======== Version 2.1 Milestone 1 ====================================
+vii. Document updated on 12/06/2023:
+		Additional ERR schema for monthly statement request
+
+======== Version 2.2 Milestone 1 ====================================
+vii. Document updated on 22/04/2024:
+		ERR Advance Payment subcategory added
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
-	<!--PAYE-specific Simple Types -->
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/"
+		   xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+		   targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/common/" elementFormDefault="qualified"
+		   attributeFormDefault="unqualified" vc:minVersion="0.9">
+
+	<!-- Common PAYE - Simple Types-->
 	<xs:simpleType name="submissionID">
 		<xs:restriction base="pc:IDString">
 			<xs:minLength value="1"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="requestID">
-		<xs:restriction base="pc:IDString"/>
-	</xs:simpleType>
-	<xs:simpleType name="payrollRunLineItemID">
-		<xs:restriction base="pc:IDString"/>
-	</xs:simpleType>
-	<xs:simpleType name="acknowledgementID">
-		<xs:restriction base="pc:IDString"/>
-	</xs:simpleType>
-	<xs:simpleType name="PayrollRunReference">
-		<xs:restriction base="pc:IDString">
-			<xs:minLength value="1"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="rpnNumber">
-		<xs:restriction base="pc:IDString">
-			<xs:maxLength value="20"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="employmentID">
-		<xs:restriction base="pc:IDString">
-			<xs:maxLength value="20"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="employerReference">
-		<xs:restriction base="pc:defaultString">
-			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="employerReg">
@@ -79,11 +73,61 @@ v. Document updated on 07/12/2018:
 			<xs:pattern value="[0-9]{5}[A-Wa-w]"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="acknowledgementID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="employerReference">
+		<xs:restriction base="pc:defaultString">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="employmentID">
+		<xs:restriction base="pc:IDString">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="county">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eircode">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[A-Za-z0-9 ]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="countryCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="EmployeePPSN">
 		<xs:restriction base="pc:defaultString">
 			<xs:minLength value="8"/>
 			<xs:maxLength value="10"/>
 			<xs:pattern value="[0-9A-Za-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	<!-- PMOD Specific - Simple Types -->
+	<xs:simpleType name="requestID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="payrollRunLineItemID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="PayrollRunReference">
+		<xs:restriction base="pc:IDString">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="rpnNumber">
+		<xs:restriction base="pc:IDString">
+			<xs:maxLength value="20"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="pensionTracingNumber">
@@ -97,18 +141,6 @@ v. Document updated on 07/12/2018:
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="2000"/>
 			<xs:maxInclusive value="2100"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="eircode">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="7"/>
-			<xs:maxLength value="8"/>
-			<xs:pattern value="[A-Za-z0-9 ]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="countryCode">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Za-z]{3}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="prsiClass">
@@ -154,11 +186,81 @@ v. Document updated on 07/12/2018:
 			<xs:enumeration value="REJECTED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="county">
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="35"/>
+
+
+
+	<!-- ERR PAYE Specific Simple Types-->
+	<xs:simpleType name="enhancedReportingRunReference">
+		<xs:restriction base="pc:IDString">
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="taxYear">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="2000"/>
+			<xs:maxInclusive value="2100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="runProcessingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PENDING"/>
+			<xs:enumeration value="PROCESSED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="submissionProcessingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PENDING"/>
+			<xs:enumeration value="COMPLETED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="statusAcknowledgement">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACKNOWLEDGED"/>
+			<xs:enumeration value="REJECTED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="category">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TRAVEL_AND_SUBSISTENCE"/>
+			<xs:enumeration value="REMOTE_WORKING_DAILY_ALLOWANCE"/>
+			<xs:enumeration value="SMALL_BENEFITS_EXEMPTION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="subcategory">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TRAVEL_VOUCHED"/>
+			<xs:enumeration value="TRAVEL_UNVOUCHED"/>
+			<xs:enumeration value="SUBSISTENCE_VOUCHED"/>
+			<xs:enumeration value="SUBSISTENCE_UNVOUCHED"/>
+			<xs:enumeration value="SITE_BASED_EMPLOYEES"/>
+			<xs:enumeration value="EMERGENCY_TRAVEL"/>
+			<xs:enumeration value="EATING_ON_SITE"/>
+			<xs:enumeration value="ADVANCE_PAYMENT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="expenseBenefitLineItemID">
+		<xs:restriction base="pc:IDString"/>
+	</xs:simpleType>
+	<xs:simpleType name="month">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="JANUARY"/>
+			<xs:enumeration value="FEBRUARY"/>
+			<xs:enumeration value="MARCH"/>
+			<xs:enumeration value="APRIL"/>
+			<xs:enumeration value="MAY"/>
+			<xs:enumeration value="JUNE"/>
+			<xs:enumeration value="JULY"/>
+			<xs:enumeration value="AUGUST"/>
+			<xs:enumeration value="SEPTEMBER"/>
+			<xs:enumeration value="OCTOBER"/>
+			<xs:enumeration value="NOVEMBER"/>
+			<xs:enumeration value="DECEMBER"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+
 	<!--Validation - Simple Types -->
 	<xs:simpleType name="errorCode">
 		<xs:restriction base="pc:IDString"/>
@@ -167,6 +269,9 @@ v. Document updated on 07/12/2018:
 		<xs:restriction base="pc:longString"/>
 	</xs:simpleType>
 	<xs:simpleType name="errorDescription">
+		<xs:restriction base="pc:longString"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorId">
 		<xs:restriction base="pc:longString"/>
 	</xs:simpleType>
 	<xs:simpleType name="warningCode">
@@ -178,12 +283,20 @@ v. Document updated on 07/12/2018:
 	<xs:simpleType name="warningDescription">
 		<xs:restriction base="pc:longString"/>
 	</xs:simpleType>
-	<!--Common Default Simple Types -->
-	<xs:simpleType name="dateString">
-		<xs:restriction base="pc:defaultString">
-			<xs:minLength value="10"/>
-			<xs:maxLength value="10"/>
-			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+
+
+
+
+	<!-- Common Default - Simple Types -->
+	<xs:simpleType name="defaultString">
+		<xs:restriction base="pc:longString">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="longString">
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="500"/>
+			<xs:pattern value="[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&amp;&quot;&apos;&lt;&gt;\\\.\*\(\)\[\]\{\}\+\-\?\|]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IDString">
@@ -197,17 +310,6 @@ v. Document updated on 07/12/2018:
 			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="defaultString">
-		<xs:restriction base="pc:longString">
-			<xs:maxLength value="100"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="longString">
-		<xs:restriction base="xs:normalizedString">
-			<xs:maxLength value="500"/>
-			<xs:pattern value="[A-Za-z0-9áéíóúÁÉÍÓÚ =_^,~!/'@:;£€$#%&amp;&quot;&apos;&lt;&gt;\\\.\*\(\)\[\]\{\}\+\-\?\|]*"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="defaultDecimal">
 		<xs:restriction base="xs:decimal">
 			<xs:minInclusive value="-999999999.00"/>
@@ -216,4 +318,13 @@ v. Document updated on 07/12/2018:
 			<xs:totalDigits value="12"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="dateString">
+		<xs:restriction base="pc:defaultString">
+			<xs:minLength value="10"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
 </xs:schema>

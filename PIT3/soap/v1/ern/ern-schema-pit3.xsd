@@ -13,7 +13,7 @@ ii. Document updated 19/07/2023
            targetNamespace="http://www.ros.ie/schemas/paye-employers/err/v1/ern/" elementFormDefault="qualified"
            attributeFormDefault="unqualified" vc:minVersion="0.1">
 
-    <xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
+    <xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
 
     <!-- ERN (Employer Reporting Notification) Request and Response Schema Elements -->
     <xs:element name="LookUpERNRequest" type="pn:LookUpERNRequest">

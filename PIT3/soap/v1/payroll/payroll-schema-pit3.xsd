@@ -45,8 +45,16 @@ viii. Document updated on 02/03/2020
 ix. Document updated on 30/03/2020
 		"OtherPayments" property added to payslip
 
-X. Document updated on 25/01/2022
+viii. Document updated on 14/08/2020
+		"EWSS" enum added to OtherPayments
+		Warning added to PayrollSubmissionResponse
+
+viii. Document updated on 25/01/2022
 		enums added to OtherPayments
+
+======== Version 2.0 Milestone 1 ====================================
+ix. Document updated on 19/07/2023:
+		Added PEPP elements
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
@@ -598,6 +606,16 @@ X. Document updated on 25/01/2022
 			<xs:element name="EmployeeASC" type="pc:defaultDecimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 54. Amount contributed by employee to Additional Superannuation Contribution (ASC) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployerPEPP" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 59. Amount contributed by employer to Pan-European Personal Pension Product (PEPP) scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmployeePEPP" type="pc:defaultDecimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 60. Amount contributed by employee to Pan-European Personal Pension Product (PEPP) scheme.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherPayments" type="pp:OtherPayments" minOccurs="0" maxOccurs="unbounded">

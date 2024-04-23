@@ -1,0 +1,57 @@
+{
+    "expensesBenefits": [
+	{
+            "lineItemID": "line02",
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "1"
+            },
+            "employerReference": "RefAllLink",
+            "name": {
+                "firstName": "John",
+                "familyName": "Bloggs"
+            },
+            "address": {
+                "addressLines": [
+                    {
+                        "addressLine": "Test1"
+                    }
+                ],
+                "county": "Dublin",
+                "countryCode": "IRL"
+            },
+            "dateOfBirth": "1960-01-01",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+	        "subCategory": "ADVANCE_PAYMENT",
+            "paymentDate": "2024-02-11",
+            "amount": -500.0     
+       }, 
+	   {
+            "lineItemID": "line03",
+            "employeeID": {
+                "employeePpsn": "1234567X",
+                "employmentID": "1"
+            },
+            "employerReference": "RefAllLink",
+            "name": {
+                "firstName": "John",
+                "familyName": "Bloggs"
+            },
+            "address": {
+                "addressLines": [
+                    {
+                        "addressLine": "Test1"
+                    }
+                ],
+                "county": "Dublin",
+                "countryCode": "IRL"
+            },
+            "dateOfBirth": "1960-01-01",
+            "category": "TRAVEL_AND_SUBSISTENCE",
+	        "subCategory": "TRAVEL_VOUCHED",
+			"advancedPaymentReconciliation": true,
+            "paymentDate": "2024-02-11",
+            "amount": 200.0     
+        }
+    ]
+}
