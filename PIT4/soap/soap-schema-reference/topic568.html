@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%LocalItemTitle%%</title>" --><title>MonthlyErrReportOperation (Method)</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content=""/><!--DXMETADATA end-->    
+    
+
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:{"dynamictoc":{"initialNodeId":"n0","initialNodeContainer":"c0"},"currentLocale":"-","isFrameless":false,"navigationKind":"frames","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/plugins-webservice/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv1.css"" data-responsive-mobile=""template/packages/core-webservice/dx.webservice.mobile.css"" data-responsive-tablet=""template/packages/core-webservice/dx.webservice.tablet.css"""--><link rel="stylesheet" type="text/css" href="template/packages/core-webservice/css/dx.webservice.css"  data-mshv2-stylesheet="/template/packages/core-webservice/dx.webservice.mshv2.css" data-mshv1-stylesheet="/template/packages/core-webservice/dx.webservice.mshv1.css" data-responsive-mobile="template/packages/core-webservice/dx.webservice.mobile.css" data-responsive-tablet="template/packages/core-webservice/dx.webservice.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="script"--><script src="template/packages/plugins-webservice/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="script"--><script src="template/packages/core-webservice/script/dx.webservice.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="Enhanced Reporting_ws~r-MonthlyErrReportOperation~o-Method"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+    <div id="i-header-content" class="i-header-content">
+        <!--DXMETADATA start type="LogoImage" --><img class="logoimage" src="RevenueLogo.jpg" border="0"></img><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Enhanced Reporting Web Service<!--DXMETADATA end--></div>
+        <div class="i-page-title"><div class="i-page-title-text">
+			    <!--DXMETADATA start type="Scrap" name="_OPERATION_PAGE_TITLE" --><table class="i-operation-page-title"><tr><td class="i-operation-kind Method">Method</td><td class="i-operation-page-title-text">MonthlyErrReportOperation</td></tr></table><!--DXMETADATA end-->
+			</div></div>
+    </div>
+    <div id="i-after-header-content" class="i-after-header-content">
+        <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="IsWebOutputRootPageLinkEnabled" format="<a href='#' class='i-page-link i-view-in-frame-link' title='$$VIEW_WITH_NAVIGATION_TOOLS_TIP$$' style='display: none' data-root-page='%%WebOutputRootPage%%%%OutputFileExtension%%' target='_top'>$$VIEW_WITH_NAVIGATION_TOOLS_TEXT$$</a>" --><!--DXMETADATA end-->
+    </div>
+    <!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container"><table><tr><td>
+<a href="topic563.html">Enhanced Reporting Web Service</a>
+ > <a href="topic564.html">All Operations Resource Group</a>
+ : MonthlyErrReportOperation (Method)</td></tr></table></div><!--DXMETADATA end -->
+    
+    
+    <div id="i-body-content" class="i-body-content">
+        <!--DXMETADATA start type="ResourcePath" condition="content:content=""%%ResourcePath%%"",operator=""<>"",value=""%%ItemName%%""" format="<p class=""resource-path-container""><strong>$$RESOURCE_PATH$$</strong> <span class=""i-resource-path"">%%ResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="FullyQualifiedResourcePath" condition="content:content=""%%IncludeFullResourceUriInOperationPages%%"",operator=""="",value=""True""" format="<p class=""resource-path-container""><strong>$$URI$$</strong> <span class=""i-resource-path"">%%FullyQualifiedResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="Description" source="Item" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=description,caption=$$Description$$%%<div class=""i-description-content"">%%description%%</div></div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="PARAMETER_LIST" namespace="parameter" source="Item" filter="type=!header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Parameters$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="HEADER_LIST" namespace="parameter" source="Item" filter="type=header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$REQUEST_HEADERS$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="REQUEST_LIST" namespace="request" source="Item" -->
+<div class="i-section-heading" id="i-request_MonthlyErrReportRequest-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Request  (MonthlyErrReportRequest)</span></div><div id="i-request_MonthlyErrReportRequest-section-content" class="i-section-content"><p>The request body is of type <a href="topic366.html">MonthlyErrReportRequest</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic366.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportRequest" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportRequest" name="xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportRequest">
+  <area shape="rect" coords="889, 214, 1158, 248" href="topic483.html" alt="Version Element" title="Version Element"></area>
+  <area shape="rect" coords="889, 172, 1152, 206" href="topic482.html" alt="Name Element" title="Name Element"></area>
+  <area shape="rect" coords="747, 192, 848, 227" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="507, 193, 727, 227" href="topic463.html" alt="SoftwareUsed Element" title="SoftwareUsed Element"></area>
+  <area shape="rect" coords="507, 130, 722, 164" href="topic462.html" alt="Month Element" title="Month Element"></area>
+  <area shape="rect" coords="507, 88, 731, 122" href="topic461.html" alt="TaxYear Element" title="TaxYear Element"></area>
+  <area shape="rect" coords="507, 46, 818, 80" href="topic460.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="507, 4, 877, 38" href="topic459.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="365, 108, 466, 143" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 109, 345, 143" href="topic366.html" alt="MonthlyErrReportRequest Element" title="MonthlyErrReportRequest Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic458.html">MonthlyErrReportRequest</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Request to get a monthly report of an Employer's PAYE Enhanced Reporting submissions, based on the month provided.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic459.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic514.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 301. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic460.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic503.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 302. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic461.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 305. Tax year that the expenses/benefits report is being requested for.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic462.html">Month</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic525.html">month Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 306. Month to process for report breakdown.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic463.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic481.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Refs: 303 and 304. Third party software product identifier.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic482.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 7. Name of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic483.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 8. Version of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="SUCCESS_RESPONSE_LIST" namespace="response" source="Item" filter="type=success" -->
+<div class="i-section-heading" id="i-response_MonthlyErrReportResponse-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">200 Response  (MonthlyErrReportResponse)</span></div><div id="i-response_MonthlyErrReportResponse-section-content" class="i-section-content"><p>The response body is of type <a href="topic367.html">MonthlyErrReportResponse</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic367.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportResponse" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportResponse" name="xsddiagrammap-Enhanced Reporting_xsd~e-MonthlyErrReportResponse">
+  <area shape="rect" coords="1057, 550, 1239, 584" href="topic480.html" alt="TotalAmount Element" title="TotalAmount Element"></area>
+  <area shape="rect" coords="1057, 508, 1238, 542" href="topic479.html" alt="SubmissionDate Element" title="SubmissionDate Element"></area>
+  <area shape="rect" coords="1057, 466, 1344, 500" href="topic478.html" alt="RunReference Element" title="RunReference Element"></area>
+  <area shape="rect" coords="915, 508, 1016, 543" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="522, 508, 895, 542" href="topic473.html" alt="RunReferenceBreakdown Element" title="RunReferenceBreakdown Element"></area>
+  <area shape="rect" coords="1534, 424, 1716, 458" href="topic486.html" alt="TotalAmount Element" title="TotalAmount Element"></area>
+  <area shape="rect" coords="1534, 382, 1835, 416" href="topic485.html" alt="SubCategoryType Element" title="SubCategoryType Element"></area>
+  <area shape="rect" coords="1392, 402, 1493, 437" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="1008, 403, 1372, 437" href="topic376.html" alt="SubCategoryBreakdown Element" title="SubCategoryBreakdown Element"></area>
+  <area shape="rect" coords="1008, 340, 1190, 374" href="topic375.html" alt="TotalAmount Element" title="TotalAmount Element"></area>
+  <area shape="rect" coords="1008, 298, 1270, 332" href="topic374.html" alt="CategoryType Element" title="CategoryType Element"></area>
+  <area shape="rect" coords="866, 360, 967, 395" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="522, 361, 846, 395" href="topic472.html" alt="CategoryBreakdown Element" title="CategoryBreakdown Element"></area>
+  <area shape="rect" coords="522, 256, 704, 290" href="topic471.html" alt="TotalAmount Element" title="TotalAmount Element"></area>
+  <area shape="rect" coords="522, 214, 778, 248" href="topic470.html" alt="NumberOfExpensesBenefits Element" title="NumberOfExpensesBenefits Element"></area>
+  <area shape="rect" coords="522, 172, 738, 206" href="topic469.html" alt="DateTimeEffective Element" title="DateTimeEffective Element"></area>
+  <area shape="rect" coords="522, 130, 737, 164" href="topic468.html" alt="Month Element" title="Month Element"></area>
+  <area shape="rect" coords="522, 88, 746, 122" href="topic467.html" alt="TaxYear Element" title="TaxYear Element"></area>
+  <area shape="rect" coords="522, 46, 833, 80" href="topic466.html" alt="AgentTain Element" title="AgentTain Element"></area>
+  <area shape="rect" coords="522, 4, 892, 38" href="topic465.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element"></area>
+  <area shape="rect" coords="380, 276, 481, 311" alt="Sequence" title="Sequence"></area>
+  <area shape="rect" coords="0, 277, 360, 311" href="topic367.html" alt="MonthlyErrReportResponse Element" title="MonthlyErrReportResponse Element"></area>
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic464.html">MonthlyErrReportResponse</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Return the monthly report of an Employer's PAYE Enhanced Reporting submissions. Includes list of submissions that make up the run and includes summary details of processed submissions.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic465.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic514.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 307. Employer's PAYE Registration Number. Used to identify employer to which the period details relate.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic466.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic503.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 308. Used to identify the agent requesting on behalf of the employer and to ensure that an agent link exists for this employer agent relationship for the period that the request relates to.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic467.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 309. Tax year that the expenses/benefits report is being requested for.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic468.html">Month</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic525.html">month Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 310. Month to process for report breakdown.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic469.html">DateTimeEffective</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:dateTime</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. The date and time the report was requested.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic470.html">NumberOfExpensesBenefits</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:integer</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 311. The number of expenses/benefits accounted for in the requested report.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic471.html">TotalAmount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 312. The overall total expenses/benefits reported for the requested month. (Only expense/benefit figures with pay dates in the selected month are included in this total).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic472.html">CategoryBreakdown</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic373.html">CategoryBreakdown Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of category breakdowns containing the submission totals by category for the given month.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic374.html">CategoryType</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic504.html">category Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 313. Identifies the category.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic375.html">TotalAmount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 314. The total expenses/benefits reported for that category in the requested month.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic376.html">SubCategoryBreakdown</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic484.html">SubCategoryBreakdown Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of sub-category breakdowns containing the submission totals.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic485.html">SubCategoryType</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic537.html">subcategory Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 315. Identifies the sub category if applicable.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic486.html">TotalAmount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 316. The total expenses/benefits reported for that sub category in the requested month.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic473.html">RunReferenceBreakdown</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic477.html">RunReferenceBreakdown Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of run reference breakdowns containing the run total for the given month and the date the run was last updated.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic478.html">RunReference</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic510.html">defaultString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 317. The reference number identifies a specific ERR run.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic479.html">SubmissionDate</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:date</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 318. The date the ERR run was submitted/last updated. This date may relate to a submission outside of the month provided.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic480.html">TotalAmount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 319. The total expenses/benefits reported in the ERR Run with pay dates in the requested month.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##EXAMPLEINTRO" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=""$$Example$$%%designlist:tagidentifier=##EXAMPLECODE,itemtype=Example%%""%%%%comment%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="EXAMPLEGROUP_LIST" namespace="ExampleGroup" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""="",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="INLINE_EXAMPLE" namespace="Example" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""<>"",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="MENU_LINK" namespace="example" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="FAULT_RESPONSE_LIST" namespace="response" source="Item" filter="type=fault" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Fault  Responses$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+            <!--DXMETADATA start type="TaggedComment" source="Item" id="##REMARKS" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=remarks,caption=$$Remarks$$%%%%comment%%</div>" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORIZED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""$$See_Also$$%%designlist:tagidentifier=##SEEALSO,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="i-section-heading" id="i-seealso-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">See Also</span></div><div id="i-seealso-section-content" class="i-section-content"><a href="topic564.html">All Operations Resource Group</a>
+|&nbsp;<a href="topic563.html">Enhanced Reporting Web Service</a>
+</p>
+</div><!--DXMETADATA end-->
+    </div>
+    <div id="i-footer-content" class="i-footer-content">
+        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" -->Please register for our <a href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">PIT Support Help Desk</a> for the following: <br/>
+<ul>
+  <li>Technical issues encountered using the PIT facility</li>
+  <li>Queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+</ul><!--DXMETADATA end-->
+    </div>
+    
+
+    <!--DXMETADATA start type="IsNew" format="<script type=""text/javascript"">setIsNew = true;</script>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<script type=""text/javascript"">setIsResponsiveEnabled = true;</script>" --><!--DXMETADATA end-->
+    <script type="text/javascript">
+        $(function() {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.isNew = !(typeof setIsNew === "undefined");
+            documentInstance.isResponsiveEnabled = !(typeof setIsResponsiveEnabled === "undefined");
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
