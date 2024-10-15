@@ -344,7 +344,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
@@ -446,7 +446,7 @@
 				"anchor": "RPN_Schema",
 				"type": "Schema",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
@@ -482,7 +482,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "15/10/2024",
 				"category": "navigation"
 			},
 			{
@@ -694,7 +694,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "15/10/2024",
 				"category": "navigation"
 			},
 			{
@@ -807,7 +807,7 @@
 				"anchor": "RPN_Data_Items",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
@@ -1082,29 +1082,29 @@
 				"anchor": "Scenarios_Document",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "19/06/2018",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
 				"link": "PIT3/Scenarios/XML.zip",
 				"description": "Payroll Scenarios - XML",
-				"explainer": "This ZIP file contains 30 diverse XML examples outlined in the payroll scenarios document",
+				"explainer": "This ZIP file contains 32 diverse XML examples outlined in the payroll scenarios document",
 				"explainerIndex": "2",
 				"anchor": "Scenarios",
 				"type": "ZIP File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
 				"link": "PIT3/Scenarios/JSON.zip",
 				"description": "Payroll Scenarios - JSON",
-				"explainer": "This ZIP file contains 30 diverse JSON examples outlined in the payroll scenarios document",
+				"explainer": "This ZIP file contains 32 diverse JSON examples outlined in the payroll scenarios document",
 				"explainerIndex": "3",
 				"anchor": "Scenarios",
 				"type": "ZIP File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "24/05/2018",
+				"dateLastUpdated": "15/10/2024",
 				"category": "download"
 			},
 			{
@@ -1244,7 +1244,7 @@
 			{
 				"link": "PIT4/Scenarios/XML.zip",
 				"description": "Payroll Scenarios - XML",
-				"explainer": "This ZIP file contains 30 diverse XML examples outlined in the payroll scenarios document",
+				"explainer": "This ZIP file contains 32 diverse XML examples outlined in the payroll scenarios document",
 				"explainerIndex": "2",
 				"anchor": "Scenarios",
 				"type": "ZIP File",
@@ -1255,7 +1255,7 @@
 			{
 				"link": "PIT4/Scenarios/JSON.zip",
 				"description": "Payroll Scenarios - JSON",
-				"explainer": "This ZIP file contains 30 diverse JSON examples outlined in the payroll scenarios document",
+				"explainer": "This ZIP file contains 32 diverse JSON examples outlined in the payroll scenarios document",
 				"explainerIndex": "3",
 				"anchor": "Scenarios",
 				"type": "ZIP File",
@@ -1356,7 +1356,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "LINK",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "15/10/2024",
 				"category": "LINK"
 			},
 			{
@@ -1374,7 +1374,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "15/10/2024",
 				"category": "navigation"
 			},
 			{
@@ -1579,7 +1579,7 @@
 				"anchor": "ERR_Web_Service_Definition",
 				"type": "WSDL File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "18/07/2023",
 				"category": "download"
 			},
 			{

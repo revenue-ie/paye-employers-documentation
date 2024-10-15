@@ -1,0 +1,13 @@
+<rat:LookupRPNRequest xmlns:rat="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns="http://www.ros.ie/schemas/paye-employers/v1/rpn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ros.ie/schemas/paye-employers/v1/rpn/rpn-schema-pit3.xsd">
+	<rat:EmployerRegistrationNumber>1234567T</rat:EmployerRegistrationNumber>
+	<rat:SoftwareUsed>
+		<rat:Name>The Software</rat:Name>
+		<rat:Version>Version 10.0</rat:Version>
+	</rat:SoftwareUsed>
+	<rat:TaxYear>2025</rat:TaxYear>
+	<rat:DateLastUpdated>2025-01-10</rat:DateLastUpdated>
+	<rat:EmployeeID>
+		<rat:EmployeePPSN>1234567T</rat:EmployeePPSN>
+		<rat:EmploymentID>1</rat:EmploymentID>
+	</rat:EmployeeID>
+</rat:LookupRPNRequest>

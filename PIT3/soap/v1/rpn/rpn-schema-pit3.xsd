@@ -346,6 +346,11 @@ vii. Document updated on 02/03/2020
 					<xs:documentation>Data Item Ref: 113.  Indicates if there is an exclusion order on file for the employee. Set to “true” if an exclusion order is on file for the employee.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="StatePensionCont" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data Item Ref: 137. True for an employee drawing down their state pension contributory. Default from 2025 onwards is false.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="YearlyTaxCredits" type="pc:defaultDecimal">
 				<xs:annotation>
 					<xs:documentation>Data Item Ref: 118. Net Tax Credits. Amount of tax credits available to the employee for the year the RPN relates to. Amount of tax credits available for use in the PAYE calculation.</xs:documentation>

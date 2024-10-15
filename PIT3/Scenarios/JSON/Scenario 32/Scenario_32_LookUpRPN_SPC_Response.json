@@ -1,0 +1,60 @@
+{
+	"employerName": "Employer1",
+	"employerRegistrationNumber": "1234567T",
+	"taxYear": 2025,
+	"totalRPNCount": 1,
+	"dateTimeEffective": "2025-01-09T11:58:02.000+0000",
+	"rpns": [{
+		"rpnNumber": "5",
+		"employeeID": {
+			"employeePpsn": "00000008P",
+			"employmentID": "1"
+		},
+		"rpnIssueDate": "2019-01-10",
+		"name": {
+			"firstName": "Ann",
+			"familyName": "Doe"
+		},
+		"effectiveDate": "2025-01-01",
+		"endDate": "2025-12-31",
+		"incomeTaxCalculationBasis": "CUMULATIVE",
+		"statePensionCont": true,
+		"yearlyTaxCredits": 3300.00,
+		"taxRates": [{
+				"index": 1,
+				"taxRatePercent": 20,
+				"yearlyRateCutOff": 33800.00
+			},
+			{
+				"index": 2,
+				"taxRatePercent": 40
+			}
+		],
+		"payForIncomeTaxToDate": 1230.00,
+		"incomeTaxDeductedToDate": 0,
+		"uscStatus": "ORDINARY",
+		"uscRates": [{
+				"index": 1,
+				"uscRatePercent": 0.5,
+				"yearlyUSCRateCutOff": 12012.00
+			},
+			{
+				"index": 2,
+				"uscRatePercent": 2.5,
+				"yearlyUSCRateCutOff": 18772.00
+			},
+			{
+				"index": 3,
+				"uscRatePercent": 5,
+				"yearlyUSCRateCutOff": 70044.00
+			},
+			{
+				"index": 4,
+				"uscRatePercent": 8
+			}
+		],
+		"payForUSCToDate": 1230.00,
+		"uscDeductedToDate": 12.28,
+		"lptToDeduct": 191.00
+	}]
+}
