@@ -344,7 +344,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "15/10/2024",
+				"dateLastUpdated": "09/12/2024",
 				"category": "download"
 			},
 			{
@@ -694,7 +694,7 @@
 				"anchor": "REST_API_Ref",
 				"type": "Link",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "15/10/2024",
+				"dateLastUpdated": "06/12/2024",
 				"category": "navigation"
 			},
 			{
@@ -825,7 +825,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "06/12/2024",
 				"category": "download"
 			},
 			{
@@ -921,7 +921,7 @@
 				"anchor": "Validation_Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "06/12/2024",
 				"category": "download"
 			},
 			{
@@ -1329,7 +1329,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/04/2024",
+				"dateLastUpdated": "09/12/2024",
 				"category": "download"
 			},
 			{
@@ -1525,7 +1525,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/11/2024",
+				"dateLastUpdated": "09/12/2024",
 				"category": "download"
 			},
 			{
