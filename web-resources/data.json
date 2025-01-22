@@ -125,7 +125,7 @@
 				"anchor": "RPN_Request_CSV_File_Response",
 				"type": "PDF",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "02/03/2020",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -134,7 +134,7 @@
 				"anchor": "RPN_Format_CSV",
 				"type": "CSV",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "05/05/2020",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -145,7 +145,7 @@
 				"anchor": "RPN_CSV_Example",
 				"type": "CSV",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "05/05/2020",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			}
 		]
@@ -217,7 +217,7 @@
 				"anchor": "RPN_Request_CSV_File_Response",
 				"type": "PDF",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "02/09/2019",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -226,7 +226,7 @@
 				"anchor": "RPN_Format_CSV",
 				"type": "CSV",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/05/2020",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -237,7 +237,7 @@
 				"anchor": "RPN_CSV_Example",
 				"type": "CSV",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "05/05/2020",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -344,7 +344,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "09/12/2024",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
@@ -377,7 +377,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "08/11/2024",
+				"dateLastUpdated": "22/01/2025",
 				"category": "download"
 			},
 			{
