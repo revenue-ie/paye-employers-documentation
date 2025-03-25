@@ -344,7 +344,7 @@
 				"anchor": "Schema_Publication_Changelog",
 				"type": "XLSX",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "22/01/2025",
+				"dateLastUpdated": "24/03/2025",
 				"category": "download"
 			},
 			{
@@ -1329,7 +1329,7 @@
 				"anchor": "Enhanced Reporting Validation Rules",
 				"type": "Excel File",
 				"environment": "PIT Current Version",
-				"dateLastUpdated": "09/12/2024",
+				"dateLastUpdated": "24/03/2025",
 				"category": "download"
 			},
 			{
