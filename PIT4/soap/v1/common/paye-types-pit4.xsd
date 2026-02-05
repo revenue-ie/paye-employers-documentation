@@ -316,6 +316,7 @@ vii. Document updated on 20/03/2024:
 			<xs:maxInclusive value="999999999.99"/>
 			<xs:fractionDigits value="2"/>
 			<xs:totalDigits value="12"/>
+			<xs:pattern value="-?\d+\.?\d{0,2}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="dateString">

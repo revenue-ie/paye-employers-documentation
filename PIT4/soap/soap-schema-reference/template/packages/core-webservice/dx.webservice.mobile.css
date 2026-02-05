@@ -1,4 +1,11 @@
-﻿/*!
+﻿
+/*!
+ * Help Studio Documentation Styles
+ * Copyright (c) 2020-2025 Contiem. Ltd. All rights reserved.
+ * Generated: 2025-11-13 15:58:43
+ */
+
+/*!
  * Bootstrap v2.0.4
  *
  * Copyright 2012 Twitter, Inc
@@ -1058,11 +1065,6 @@ table.i-filtered-item-list td {
 
 table.i-filtered-item-list tr:last-child td {
     border-bottom-style: none;
-}
-
-/* Hide the first row in filtered item list tables and the "top" link in sections */
-.i-section-content table.i-filtered-item-list tr:first-child {
-    display: none;
 }
 
 /* Additional margins for inheritance and hierarchy links */

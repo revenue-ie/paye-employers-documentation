@@ -1,17 +1,209 @@
-div#i-results p
-{
-	display: none;
-}
-
 div#i-results a
 {
 	margin-top: 6px;
 	margin-bottom: 6px;
 }
 
-.i-result-list tr td:first-child
-{
-	display: none;
+.i-search-highlight {
+    background-color: yellow;
+}
+
+.i-snippet-centre {
+    margin-bottom: 5px; /* Space below the snippet */
+    text-align: center;
+} 
+
+.i-static-input-container {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0; /* Adjust this value to control the sticky position */
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: white; /* Optional: Set a background color to avoid overlap issues */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+.i-result-list {
+    width: 100%;
+    max-width: 100%; /* Ensure it does not extend beyond the viewport width */
+    min-width: 300px; /* Ensure it does not shrink too much */
+    border-collapse: collapse;
+    margin: 10px 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    table-layout: auto; /* Allow the table to adjust column widths based on content */
+    word-wrap: break-word; /* Ensure long words break and wrap */
+    overflow-wrap: break-word; /* Ensure long words break and wrap */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+    .i-result-list td, .i-result-list th {
+        padding: 8px; /* Add padding for better spacing */
+        text-align: left; /* Align text to the left */
+        vertical-align: top; /* Align text to the top */
+        border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+    }
+
+@media (max-width: 600px) {
+    .i-result-list td, .i-result-list th {
+        padding: 4px; /* Reduce padding on smaller screens */
+    }
+
+    .i-result-list {
+        font-size: 14px; /* Adjust font size for better readability on smaller screens */
+    }
+}
+
+.i-result, .i-result-tr {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+    .i-result h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+.i-result-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.i-result-link {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+    .i-result-link:hover {
+        text-decoration: underline;
+    }
+
+.i-result-url {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 2px;
+}
+
+.i-result-snippet {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.i-result-keywords {
+    font-size: 12px;
+    color: #545454;
+    margin: 5px 0;
+}
+
+.i-keyword {
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.i-expander-icon {
+    display: inline-block;
+    width: 16px; /* Width of the icon */
+    height: 16px; /* Height of the icon */
+    background-image: url('../images/icons.png'); /* Path to the expand icon */
+    background-repeat: no-repeat;
+    background-position: -752px 0px; /* Adjusted position for the expand icon */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+    .i-expander-icon.expanded {
+        background-position: -770px 0px; /* Adjusted position for the collapse icon */
+        background-image: url('../images/icons.png'); /* Path to the collapse icon */
+    }
+
+.expander {
+    cursor: pointer;
+    color: #007bff; /* Blue color for the clickable text */
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Padding for better click area */
+    margin-bottom: 5px; /* Space below the expander */
+    display: table; /* Ensure it fits within the table cell */
+    width: 100%; /* Full width */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Bold text */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+    .expander:hover {
+        background-color: #e2e6ea; /* Slightly darker background on hover */
+        border-color: #ccc; /* Slightly darker border on hover */
+    }
+
+.expander-content {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: none; /* Initially hidden */
+    margin-top: 5px;
+    padding: 10px; /* Padding for the content */
+    border-left: 2px solid #ddd; /* Left border to visually separate the content */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+#i-results-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh; /* Adjust this value to control the maximum height */
+    margin: 0;
+    padding: 0;
+}
+
+#i-results, #divResults {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Pagination controls */
+.pagination {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .pagination button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .pagination button:disabled {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        .pagination button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .pagination button:hover {
+            background-color: #e0e0e0;
+        }
+
+.pagination-info {
+    margin: 0 10px;
+    font-size: 0.9em;
 }
 
 .i-result-list td.i-inner-row
@@ -29,8 +221,8 @@ input#i-search
 	height: 28px;
 }
 
-input#i-execute-search
-{
-	margin-top: 3px;
-	height: 28px;
+input#i-execute-search {
+    margin-top: 3px;
+    height: 28px;
+    background-repeat: no-repeat;
 }

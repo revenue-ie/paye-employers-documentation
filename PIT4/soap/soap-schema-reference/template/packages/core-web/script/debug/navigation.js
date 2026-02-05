@@ -1,3 +1,4 @@
+// Copyright (c) 2023 - 2025 Contiem. Ltd. All rights reserved.
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -17,6 +18,8 @@ var __extends = (this && this.__extends) || (function () {
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -122,14 +125,14 @@ var Innovasys;
             Browser.replaceLocation = function (newLocation) {
                 if (window.history.replaceState) {
                     try {
-                        window.history.replaceState("", "", "#" + newLocation);
+                        window.history.replaceState("", "", "#".concat(newLocation));
                     }
                     catch (ex) {
                         // May fail with security exception on local file system
                     }
                 }
                 else {
-                    window.location.replace("#" + newLocation);
+                    window.location.replace("#".concat(newLocation));
                 }
             };
             /**
@@ -161,7 +164,7 @@ var Innovasys;
              */
             Browser.loadStylesheet = function (stylesheetUrl, stylesheetId, beforeElementId, onLoaded) {
                 if (onLoaded === void 0) { onLoaded = null; }
-                var id = "file" + this.dynamicallyLoadedFileIndex;
+                var id = "file".concat(this.dynamicallyLoadedFileIndex);
                 this.dynamicallyLoadedFileIndex++;
                 var attributes = { "data-stylesheet-id": stylesheetId };
                 yepnope.injectCss({ href: stylesheetUrl, attrs: attributes }, function () {
@@ -174,7 +177,7 @@ var Innovasys;
              */
             Browser.loadScript = function (scriptUrl, scriptId, beforeElementId, onLoaded) {
                 if (onLoaded === void 0) { onLoaded = null; }
-                var id = "file" + this.dynamicallyLoadedFileIndex;
+                var id = "file".concat(this.dynamicallyLoadedFileIndex);
                 this.dynamicallyLoadedFileIndex++;
                 var attributes = { "data-script-id": scriptId };
                 yepnope.injectJs({ src: scriptUrl, attrs: attributes }, function () {
@@ -233,7 +236,7 @@ var Innovasys;
                                 // Make sure at least as high as the window
                                 currentHeight = minAllowedHeight;
                             }
-                            $(element).height(currentHeight + "px");
+                            $(element).height("".concat(currentHeight, "px"));
                             $(element).data("last-height", currentHeight);
                         }
                     }
@@ -282,12 +285,12 @@ var Innovasys;
             };
             Browser.getQueryStringParameter = function (name) {
                 name = name.replace(/[[]/, "\\[").replace(/[\]]/, "\\]");
-                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+                var regex = new RegExp("[\\?&]".concat(name, "=([^&#]*)"));
                 var results = regex.exec(Browser.getLocationInfo().search);
                 return results == null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
             };
             Browser.isCompiledHelp = function () {
-                var currentHref = Browser.getLocationInfo().href + ".";
+                var currentHref = "".concat(Browser.getLocationInfo().href, ".");
                 var currentProtocol = Browser.getLocationInfo().protocol;
                 if (currentHref.indexOf("mk:@MSITStore") === 0) {
                     return true;
@@ -321,7 +324,7 @@ var Innovasys;
                     return idValue;
                 };
                 var id = getId();
-                while ($("#" + id).length > 0) {
+                while ($("#".concat(id)).length > 0) {
                     id = getId();
                 }
                 return id;
@@ -352,9 +355,9 @@ var Innovasys;
              * Creates or returns a <style> element to contain custom style markup
              */
             Browser.getDynamicStyleContainer = function (id) {
-                var $dynamicStyleElement = $("#" + id);
+                var $dynamicStyleElement = $("#".concat(id));
                 if ($dynamicStyleElement.length === 0) {
-                    $dynamicStyleElement = $("<style type=\"text/css\" id=\"" + id + "\"></style>");
+                    $dynamicStyleElement = $("<style type=\"text/css\" id=\"".concat(id, "\"></style>"));
                     $("head").append($dynamicStyleElement);
                 }
                 return $dynamicStyleElement;
@@ -381,6 +384,7 @@ var Innovasys;
             Browser.isDesignTime = false;
             /** Indicates that animations should be disabled */
             Browser.isAnimationDisabled = false;
+            Browser.isAutoResponsive = false;
             /** Provides access to more information about the browser agent etc. */
             Browser.info = new BrowserInfo();
             /** Index for dynamically loaded stylesheets */
@@ -472,17 +476,30 @@ var Innovasys;
                     .get(0);
                 var parentTable = $(parentTableQuery);
                 var tableCell = parentTable.find("td").get(0);
-                if (tableCell != null) {
-                    if (tableCell.textContent != null) {
-                        return tableCell.textContent;
-                    }
-                    else if (tableCell.innerText != null) {
-                        return tableCell.innerText;
-                    }
-                    else {
-                        return $(tableCell).text();
+                var preCell = $(tableCell).find("pre");
+                var elemsToUse = [];
+                if (preCell && preCell.length > 0) {
+                    elemsToUse = preCell.toArray();
+                }
+                else {
+                    elemsToUse.push(tableCell);
+                }
+                var textResult = "";
+                for (var index = 0; index < elemsToUse.length; ++index) {
+                    var elemTmp = elemsToUse[index];
+                    if (elemTmp != null) {
+                        if (elemTmp.textContent != null) {
+                            textResult += elemTmp.textContent;
+                        }
+                        else if (elemTmp.innerText != null) {
+                            textResult += elemTmp.innerText;
+                        }
+                        else {
+                            textResult += $(elemTmp).text();
+                        }
                     }
                 }
+                return textResult;
             };
             return DomHelpers;
         }());
@@ -507,7 +524,7 @@ var findHelp2Keyword = function (namespaceName, keyword) {
         try {
             /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             var session = new ActiveXObject("HxDs.HxSession");
-            session.Initialize("ms-help://" + namespaceName, 0);
+            session.Initialize("ms-help://".concat(namespaceName), 0);
             /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             var topics = session.Query(keyword, "!DefaultAssociativeIndex", 0, "");
             if (topics.Count > 0) {
@@ -582,7 +599,7 @@ var resolveHelp2Keyword = function (keyword, onlineKeyword) {
         onlineKeyword = onlineKeyword.substring(0, bracketPosition);
     }
     var keywordForUrl = onlineKeyword.replace("`", "-").toLowerCase();
-    return "https://docs.microsoft.com/dotnet/api/" + keywordForUrl;
+    return "https://docs.microsoft.com/dotnet/api/".concat(keywordForUrl);
 };
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 var navigateToHelp2Keyword = function (keyword, onlineKeyword, replacePage) {
@@ -595,7 +612,11 @@ var navigateToHelp2Keyword = function (keyword, onlineKeyword, replacePage) {
         || url.substring(0, DOCS_PREFIX_LENGTH) === "https://docs.microsoft.com") &&
         window.parent != null) {
         // MSDN no longer support hosting in an IFRAME so open in new browser window
-        window.open(url, "_blank");
+        var win = window.open('about:blank', '_blank');
+        urlExistsInnov(url, function () { win.location.href = url; }, function () {
+            var parentUrl = url.substring(0, url.lastIndexOf("."));
+            urlExistsInnov(parentUrl, function () { win.location.href = parentUrl; }, function () { win.location.href = url; });
+        });
     }
     else if (replacePage) {
         location.replace(url);
@@ -603,6 +624,21 @@ var navigateToHelp2Keyword = function (keyword, onlineKeyword, replacePage) {
     else {
         location.href = url;
     }
+};
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+var urlExistsInnov = function (url, successCallBack, notfoundCallBack) {
+    $.ajax({
+        url: url,
+        dataType: "jsonp",
+        statusCode: {
+            200: function (response) {
+                successCallBack();
+            },
+            404: function (response) {
+                notfoundCallBack();
+            }
+        }
+    });
 };
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 var Innovasys;
@@ -680,12 +716,12 @@ var Innovasys;
                         this.cookieData[key] = null;
                     }
                     else {
-                        this.cookieData[key] = "" + value;
+                        this.cookieData[key] = "".concat(value);
                     }
                     Cookies.set("localStorage", JSON.stringify(this.cookieData), { expires: 365, path: "/", domain: "" });
                 }
                 else if (this.storageMethod === "userdata") {
-                    this.storageElement.setAttribute(key, "" + value);
+                    this.storageElement.setAttribute(key, "".concat(value));
                     // Save method is added by the userdata behavior
                     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                     this.storageElement.save("localStorage");
@@ -805,7 +841,7 @@ var Innovasys;
             Messaging.routeMessageToWindow = function (window, messageType, messageData) {
                 if (window != null && self !== window) {
                     if (window != null && window.postMessage != null) {
-                        window.postMessage(messageType + "|" + messageData, "*");
+                        window.postMessage("".concat(messageType, "|").concat(messageData), "*");
                     }
                 }
             };
@@ -924,11 +960,11 @@ var Innovasys;
     })(Content = Innovasys.Content || (Innovasys.Content = {}));
 })(Innovasys || (Innovasys = {}));
 /* Userdata support in CHMs requires pages are loaded under the ms-its protocol and not mk:@MSITStore */
-var currentLocation = location.href + ".";
+var currentLocation = "".concat(location.href, ".");
 var mkPrefix = "mk:@MSITStore";
 if (currentLocation.indexOf(mkPrefix) === 0) {
     var restOfUrl = currentLocation.substring(mkPrefix.length + 1, currentLocation.length - 1);
-    var newLocation = "ms-its:" + restOfUrl;
+    var newLocation = "ms-its:".concat(restOfUrl);
     location.replace(newLocation);
 }
 /* eslint @typescript-eslint/no-unused-vars: "off" */
@@ -938,8 +974,8 @@ var Innovasys;
     (function (Content) {
         var Document = /** @class */ (function () {
             function Document(rootElement, id) {
-                var _this = this;
                 if (id === void 0) { id = ""; }
+                var _this = this;
                 /** Indicates if this document instance has been unloaded */
                 this._isUnloaded = true;
                 /** Provides an id that can be used to disambiguate this document if it is loaded in a parent document */
@@ -1283,11 +1319,11 @@ var Innovasys;
                                 .children("td")
                                 .each(function (cellIndex, cell) {
                                 if (cellIndex === pivotColumnIndex) {
-                                    header_1 = $("<div class=\"i-section-heading\"><span class=\"btn\">" + $(cell).text() + "</span></div>");
+                                    header_1 = $("<div class=\"i-section-heading\"><span class=\"btn\">".concat($(cell).text(), "</span></div>"));
                                 }
                                 else {
                                     // Add a new row for each column in the source table
-                                    var newRow = $("<tr><td>" + labels[cellIndex.toString()] + "</td></tr>");
+                                    var newRow = $("<tr><td>".concat(labels[cellIndex.toString()], "</td></tr>"));
                                     $(cell)
                                         .clone()
                                         .appendTo(newRow);
@@ -1355,14 +1391,14 @@ var Innovasys;
                             }
                             if (deviceType_1 !== "desktop") {
                                 // Find and add any stylesheets with data-responsive-{profileName} attributes
-                                $("link[data-responsive-" + deviceType_1 + "]").each(function (index, stylesheet) {
-                                    var responsiveStylesheets = $(stylesheet).attr("data-responsive-" + deviceType_1);
+                                $("link[data-responsive-".concat(deviceType_1, "]")).each(function (index, stylesheet) {
+                                    var responsiveStylesheets = $(stylesheet).attr("data-responsive-".concat(deviceType_1));
                                     if (responsiveStylesheets != null) {
                                         // Defer setting body visible while we wait for our custom stylesheet to load
                                         _this.documentInstance.setBodyVisibleAfterLoadComplete = false;
                                         $.each(responsiveStylesheets.split(","), function (_, url) {
                                             // Give the stylesheet a link so we can remove it later if the responsive style changes
-                                            _this._pendingResponsiveFiles.push(Content.Browser.loadStylesheet(url, "data-responsive-" + deviceType_1, "responsive-marker", function (stylesheetId) {
+                                            _this._pendingResponsiveFiles.push(Content.Browser.loadStylesheet(url, "data-responsive-".concat(deviceType_1), "responsive-marker", function (stylesheetId) {
                                                 _this.checkPendingResponsiveFilesLoad(stylesheetId);
                                             }));
                                         });
@@ -1376,7 +1412,7 @@ var Innovasys;
                                         var url = $.trim(scriptContainer.html());
                                         _this.documentInstance.setBodyVisibleAfterLoadComplete = false;
                                         // Give the stylesheet a link so we can remove it later if the responsive style changes
-                                        _this._pendingResponsiveFiles.push(Content.Browser.loadStylesheet(url, "data-responsive-" + deviceType_1, "responsive-marker", function (stylesheetId) {
+                                        _this._pendingResponsiveFiles.push(Content.Browser.loadStylesheet(url, "data-responsive-".concat(deviceType_1), "responsive-marker", function (stylesheetId) {
                                             _this.checkPendingResponsiveFilesLoad(stylesheetId);
                                         }));
                                     }
@@ -1389,7 +1425,7 @@ var Innovasys;
                                         var url = $.trim(scriptContainer.html());
                                         _this.documentInstance.setBodyVisibleAfterLoadComplete = false;
                                         // Give the stylesheet a link so we can remove it later if the responsive style changes
-                                        _this._pendingResponsiveFiles.push(Content.Browser.loadScript(url, "data-responsive-" + deviceType_1, "responsive-marker", function (scriptId) {
+                                        _this._pendingResponsiveFiles.push(Content.Browser.loadScript(url, "data-responsive-".concat(deviceType_1), "responsive-marker", function (scriptId) {
                                             _this.checkPendingResponsiveFilesLoad(scriptId);
                                         }));
                                     }
@@ -1605,7 +1641,7 @@ var Innovasys;
                     // value for overriding the default behavior so we only need to check it if we are actually running
                     // in a frame
                     var currentPath = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
-                    var responsiveStorageId = "innovasys-responsive-" + currentPath.replace(/[^a-zA-Z0-9_\-]/g, "");
+                    var responsiveStorageId = "innovasys-responsive-".concat(currentPath.replace(/[^a-zA-Z0-9_\-]/g, ""));
                     if (this.documentInstance.getLocalStorage().getAttribute(responsiveStorageId) != null) {
                         return this.documentInstance.getLocalStorage().getAttribute(responsiveStorageId);
                     }
@@ -1618,7 +1654,7 @@ var Innovasys;
                 ResponsiveDocumentFeature.prototype.setForcedDisplayMode = function (displayMode) {
                     var location = Content.Browser.getLocationInfo();
                     var currentPath = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
-                    var responsiveStorageId = "innovasys-responsive-" + currentPath.replace(/[^a-zA-Z0-9_\-]/g, "");
+                    var responsiveStorageId = "innovasys-responsive-".concat(currentPath.replace(/[^a-zA-Z0-9_\-]/g, ""));
                     this.documentInstance.getLocalStorage().setAttribute(responsiveStorageId, displayMode);
                 };
                 /**
@@ -1641,7 +1677,7 @@ var Innovasys;
                             $("html").data("responsive-load-complete", true);
                         }
                     }
-                    $("html").addClass("i-responsive-" + this._configuration.profileName);
+                    $("html").addClass("i-responsive-".concat(this._configuration.profileName));
                 };
                 return ResponsiveDocumentFeature;
             }(Content.DocumentFeatureBase));
@@ -1711,7 +1747,7 @@ var Innovasys;
                     }
                     if (!this.isPinned) {
                         var topValue = bodyTop - scrollTop;
-                        $(".i-fixed-to-top").css("top", topValue > 0 ? topValue + "px" : "");
+                        $(".i-fixed-to-top").css("top", topValue > 0 ? "".concat(topValue, "px") : "");
                     }
                 };
                 FixedToTopDocumentFeature.prototype.getBodyContentPosition = function () {
@@ -1773,7 +1809,7 @@ var Innovasys;
                             .on("change.theme", function (eventObject) {
                             var themeName = $(eventObject.currentTarget).data("theme-name");
                             var stylesheetUrl = $(eventObject.currentTarget).val();
-                            var themeOption = $("option[value='" + stylesheetUrl + "']", $(eventObject.currentTarget)).data("theme-option");
+                            var themeOption = $("option[value='".concat(stylesheetUrl, "']"), $(eventObject.currentTarget)).data("theme-option");
                             _this.onThemeSelected(themeName, themeOption, stylesheetUrl, true);
                         });
                     }
@@ -1782,12 +1818,12 @@ var Innovasys;
                         var themeName = $element.data("theme-name");
                         if (themeName != null) {
                             var themeOptionToApply = _this.documentInstance.getLocalStorage()
-                                .getAttribute("i-theme-" + themeName);
+                                .getAttribute("i-theme-".concat(themeName));
                             if (themeOptionToApply == null) {
                                 themeOptionToApply = settings.defaultThemeOption;
                             }
                             if (themeOptionToApply != null) {
-                                var themeOption = $("option[data-theme-option='" + themeOptionToApply + "']", $element);
+                                var themeOption = $("option[data-theme-option='".concat(themeOptionToApply, "']"), $element);
                                 if (themeOption.length > 0) {
                                     $element.val(themeOption.val());
                                     _this.onThemeSelected(themeName, themeOptionToApply, themeOption.val(), false);
@@ -1804,20 +1840,20 @@ var Innovasys;
                 };
                 ThemeDocumentFeature.prototype.onThemeSelected = function (themeName, themeValue, stylesheetUrl, saveSelection) {
                     // Remove any existing theme stylesheets
-                    var existingStylesheets = $("link[data-theme-name='" + themeName + "']");
+                    var existingStylesheets = $("link[data-theme-name='".concat(themeName, "']"));
                     existingStylesheets.remove();
                     // Add the new one (if not "none")
                     if (stylesheetUrl !== "none") {
-                        $("head").append("<link rel=\"stylesheet\" href=\"" + stylesheetUrl + "\" type=\"text/css\" data-theme-name=\"" + themeName + "\" />");
+                        $("head").append("<link rel=\"stylesheet\" href=\"".concat(stylesheetUrl, "\" type=\"text/css\" data-theme-name=\"").concat(themeName, "\" />"));
                     }
                     // Add a class to the root
                     $(".i-theme-select option", this._rootSelector).each(function (index, element) {
                         var optionValue = $(element).data("theme-option");
-                        $("html").toggleClass("i-theme-" + themeName + "-" + optionValue, optionValue === themeValue);
+                        $("html").toggleClass("i-theme-".concat(themeName, "-").concat(optionValue), optionValue === themeValue);
                     });
                     if (saveSelection) {
                         // Save as the current preference
-                        this.documentInstance.getLocalStorage().setAttribute("i-theme-" + themeName, themeValue);
+                        this.documentInstance.getLocalStorage().setAttribute("i-theme-".concat(themeName), themeValue);
                     }
                 };
                 return ThemeDocumentFeature;
@@ -1896,7 +1932,7 @@ var Innovasys;
                     if (this._addedStyles.dynamicWordBreak != null) {
                         // Style already added. If the current width is > applied width, remove and re-evaluate
                         if (bodyContent.offsetWidth > this._addedStyles.dynamicWordBreak) {
-                            $("#" + styleId).remove();
+                            $("#".concat(styleId)).remove();
                             this._addedStyles.dynamicWordBreak = null;
                         }
                         else {
@@ -2052,6 +2088,116 @@ var Innovasys;
     })(Content = Innovasys.Content || (Innovasys.Content = {}));
 })(Innovasys || (Innovasys = {}));
 Innovasys.Content.DocumentFeatureConfiguration.registerDocumentFeatureFactory(new Innovasys.Content.Features.DarkModeDocumentFeatureFactory());
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+var Innovasys;
+(function (Innovasys) {
+    var Content;
+    (function (Content) {
+        var Features;
+        (function (Features) {
+            var replacementList = [
+                { 'base': 'A', 'letters': /[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g },
+                { 'base': 'AA', 'letters': /[\uA732]/g },
+                { 'base': 'AE', 'letters': /[\u00C6\u01FC\u01E2]/g },
+                { 'base': 'AO', 'letters': /[\uA734]/g },
+                { 'base': 'AU', 'letters': /[\uA736]/g },
+                { 'base': 'AV', 'letters': /[\uA738\uA73A]/g },
+                { 'base': 'AY', 'letters': /[\uA73C]/g },
+                { 'base': 'B', 'letters': /[\u0042\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0182\u0181]/g },
+                { 'base': 'C', 'letters': /[\u0043\u24B8\uFF23\u0106\u0108\u010A\u010C\u00C7\u1E08\u0187\u023B\uA73E]/g },
+                { 'base': 'D', 'letters': /[\u0044\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018B\u018A\u0189\uA779]/g },
+                { 'base': 'DZ', 'letters': /[\u01F1\u01C4]/g },
+                { 'base': 'Dz', 'letters': /[\u01F2\u01C5]/g },
+                { 'base': 'E', 'letters': /[\u0045\u24BA\uFF25\u00C8\u00C9\u00CA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\u00CB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E]/g },
+                { 'base': 'F', 'letters': /[\u0046\u24BB\uFF26\u1E1E\u0191\uA77B]/g },
+                { 'base': 'G', 'letters': /[\u0047\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E]/g },
+                { 'base': 'H', 'letters': /[\u0048\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D]/g },
+                { 'base': 'I', 'letters': /[\u0049\u24BE\uFF29\u00CC\u00CD\u00CE\u0128\u012A\u012C\u0130\u00CF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197]/g },
+                { 'base': 'J', 'letters': /[\u004A\u24BF\uFF2A\u0134\u0248]/g },
+                { 'base': 'K', 'letters': /[\u004B\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2]/g },
+                { 'base': 'L', 'letters': /[\u004C\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780]/g },
+                { 'base': 'LJ', 'letters': /[\u01C7]/g },
+                { 'base': 'Lj', 'letters': /[\u01C8]/g },
+                { 'base': 'M', 'letters': /[\u004D\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C]/g },
+                { 'base': 'N', 'letters': /[\u004E\u24C3\uFF2E\u01F8\u0143\u00D1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u0220\u019D\uA790\uA7A4]/g },
+                { 'base': 'NJ', 'letters': /[\u01CA]/g },
+                { 'base': 'Nj', 'letters': /[\u01CB]/g },
+                { 'base': 'O', 'letters': /[\u004F\u24C4\uFF2F\u00D2\u00D3\u00D4\u1ED2\u1ED0\u1ED6\u1ED4\u00D5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\u00D6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\u00D8\u01FE\u0186\u019F\uA74A\uA74C]/g },
+                { 'base': 'OI', 'letters': /[\u01A2]/g },
+                { 'base': 'OO', 'letters': /[\uA74E]/g },
+                { 'base': 'OU', 'letters': /[\u0222]/g },
+                { 'base': 'P', 'letters': /[\u0050\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754]/g },
+                { 'base': 'Q', 'letters': /[\u0051\u24C6\uFF31\uA756\uA758\u024A]/g },
+                { 'base': 'R', 'letters': /[\u0052\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782]/g },
+                { 'base': 'S', 'letters': /[\u0053\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784]/g },
+                { 'base': 'T', 'letters': /[\u0054\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786]/g },
+                { 'base': 'TZ', 'letters': /[\uA728]/g },
+                { 'base': 'U', 'letters': /[\u0055\u24CA\uFF35\u00D9\u00DA\u00DB\u0168\u1E78\u016A\u1E7A\u016C\u00DC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244]/g },
+                { 'base': 'V', 'letters': /[\u0056\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245]/g },
+                { 'base': 'VY', 'letters': /[\uA760]/g },
+                { 'base': 'W', 'letters': /[\u0057\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72]/g },
+                { 'base': 'X', 'letters': /[\u0058\u24CD\uFF38\u1E8A\u1E8C]/g },
+                { 'base': 'Y', 'letters': /[\u0059\u24CE\uFF39\u1EF2\u00DD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE]/g },
+                { 'base': 'Z', 'letters': /[\u005A\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762]/g },
+                { 'base': 'a', 'letters': /[\u0061\u24D0\uFF41\u1E9A\u00E0\u00E1\u00E2\u1EA7\u1EA5\u1EAB\u1EA9\u00E3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\u00E4\u01DF\u1EA3\u00E5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250]/g },
+                { 'base': 'aa', 'letters': /[\uA733]/g },
+                { 'base': 'ae', 'letters': /[\u00E6\u01FD\u01E3]/g },
+                { 'base': 'ao', 'letters': /[\uA735]/g },
+                { 'base': 'au', 'letters': /[\uA737]/g },
+                { 'base': 'av', 'letters': /[\uA739\uA73B]/g },
+                { 'base': 'ay', 'letters': /[\uA73D]/g },
+                { 'base': 'b', 'letters': /[\u0062\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253]/g },
+                { 'base': 'c', 'letters': /[\u0063\u24D2\uFF43\u0107\u0109\u010B\u010D\u00E7\u1E09\u0188\u023C\uA73F\u2184]/g },
+                { 'base': 'd', 'letters': /[\u0064\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\uA77A]/g },
+                { 'base': 'dz', 'letters': /[\u01F3\u01C6]/g },
+                { 'base': 'e', 'letters': /[\u0065\u24D4\uFF45\u00E8\u00E9\u00EA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\u00EB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u025B\u01DD]/g },
+                { 'base': 'f', 'letters': /[\u0066\u24D5\uFF46\u1E1F\u0192\uA77C]/g },
+                { 'base': 'g', 'letters': /[\u0067\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\u1D79\uA77F]/g },
+                { 'base': 'h', 'letters': /[\u0068\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265]/g },
+                { 'base': 'hv', 'letters': /[\u0195]/g },
+                { 'base': 'i', 'letters': /[\u0069\u24D8\uFF49\u00EC\u00ED\u00EE\u0129\u012B\u012D\u00EF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131]/g },
+                { 'base': 'j', 'letters': /[\u006A\u24D9\uFF4A\u0135\u01F0\u0249]/g },
+                { 'base': 'k', 'letters': /[\u006B\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3]/g },
+                { 'base': 'l', 'letters': /[\u006C\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747]/g },
+                { 'base': 'lj', 'letters': /[\u01C9]/g },
+                { 'base': 'm', 'letters': /[\u006D\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F]/g },
+                { 'base': 'n', 'letters': /[\u006E\u24DD\uFF4E\u01F9\u0144\u00F1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5]/g },
+                { 'base': 'nj', 'letters': /[\u01CC]/g },
+                { 'base': 'o', 'letters': /[\u006F\u24DE\uFF4F\u00F2\u00F3\u00F4\u1ED3\u1ED1\u1ED7\u1ED5\u00F5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\u00F6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\u00F8\u01FF\u0254\uA74B\uA74D\u0275]/g },
+                { 'base': 'oi', 'letters': /[\u01A3]/g },
+                { 'base': 'ou', 'letters': /[\u0223]/g },
+                { 'base': 'oo', 'letters': /[\uA74F]/g },
+                { 'base': 'p', 'letters': /[\u0070\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755]/g },
+                { 'base': 'q', 'letters': /[\u0071\u24E0\uFF51\u024B\uA757\uA759]/g },
+                { 'base': 'r', 'letters': /[\u0072\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783]/g },
+                { 'base': 's', 'letters': /[\u0073\u24E2\uFF53\u00DF\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B]/g },
+                { 'base': 't', 'letters': /[\u0074\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787]/g },
+                { 'base': 'tz', 'letters': /[\uA729]/g },
+                { 'base': 'u', 'letters': /[\u0075\u24E4\uFF55\u00F9\u00FA\u00FB\u0169\u1E79\u016B\u1E7B\u016D\u00FC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289]/g },
+                { 'base': 'v', 'letters': /[\u0076\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C]/g },
+                { 'base': 'vy', 'letters': /[\uA761]/g },
+                { 'base': 'w', 'letters': /[\u0077\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73]/g },
+                { 'base': 'x', 'letters': /[\u0078\u24E7\uFF58\u1E8B\u1E8D]/g },
+                { 'base': 'y', 'letters': /[\u0079\u24E8\uFF59\u1EF3\u00FD\u0177\u1EF9\u0233\u1E8F\u00FF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF]/g },
+                { 'base': 'z', 'letters': /[\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763]/g }
+            ];
+            ;
+            var DiacriticsHelper = /** @class */ (function () {
+                /* eslint-disable-next-line no-useless-constructor */
+                function DiacriticsHelper() {
+                }
+                DiacriticsHelper.prototype.removeDiacritics = function (str) {
+                    for (var i = 0; i < replacementList.length; i++) {
+                        str = str.replace(replacementList[i].letters, replacementList[i].base);
+                    }
+                    return str;
+                };
+                return DiacriticsHelper;
+            }());
+            Features.DiacriticsHelper = DiacriticsHelper;
+        })(Features = Content.Features || (Content.Features = {}));
+    })(Content = Innovasys.Content || (Innovasys.Content = {}));
+})(Innovasys || (Innovasys = {}));
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -2061,11 +2207,22 @@ var __extends = (this && this.__extends) || (function () {
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 var Innovasys;
 (function (Innovasys) {
@@ -2290,7 +2447,7 @@ var Innovasys;
                 };
                 NavigationDocumentFeature.prototype.selectNavigationFrame = function (frameId) {
                     if (frameId != null && frameId.indexOf("nav-") === 0) {
-                        frameId = "i-" + frameId.substring(navigationConstants.navigationPrefixLength);
+                        frameId = "i-".concat(frameId.substring(navigationConstants.navigationPrefixLength));
                     }
                     for (var x = 0; x < this._navigationFrames.length; x++) {
                         var currentFrameId = this._navigationFrames[x];
@@ -2300,11 +2457,11 @@ var Innovasys;
                                 $("#i-accordion").accordion("option", "active", x);
                             }
                             else {
-                                $("iframe#" + currentFrameId).css("display", "block");
+                                $("iframe#".concat(currentFrameId)).css("display", "block");
                             }
                         }
                         else {
-                            $("iframe#" + currentFrameId).css("display", "none");
+                            $("iframe#".concat(currentFrameId)).css("display", "none");
                         }
                     }
                     if (!this._isAccordionView) {
@@ -2324,7 +2481,7 @@ var Innovasys;
                     /* eslint-disable-next-line no-magic-numbers */
                     for (var i = topWindowHeight / 2; i < closePaneHeight; i += topWindowHeight) {
                         var image = $("<i class=\"i-image\"></i>");
-                        image.css("top", i + "px");
+                        image.css("top", "".concat(i, "px"));
                         image.appendTo("#i-close-pane");
                     }
                 };
@@ -2646,7 +2803,7 @@ var Innovasys;
                                         }
                                     }
                                 }
-                                icon.addClass("i-icon-" + iconClassIndex);
+                                icon.addClass("i-icon-".concat(iconClassIndex));
                                 icon.prependTo(anchor);
                             }
                             anchor
@@ -2674,7 +2831,14 @@ var Innovasys;
                         this.syncTocUrl = url;
                         return;
                     }
-                    var anchor = $("div#i-toc-container > ul a[href=\"" + decodeURIComponent(url) + "\"]", this._rootSelector).first();
+                    var updatedUrl = url;
+                    if (url.split("#").length > 1) {
+                        updatedUrl = url.substring(0, url.indexOf("#"));
+                    }
+                    else if (url.split("?").length > 1) {
+                        updatedUrl = url.substring(0, url.indexOf("?"));
+                    }
+                    var anchor = $("div#i-toc-container > ul a[href=\"".concat(decodeURIComponent(updatedUrl), "\"]"), this._rootSelector).first();
                     if (anchor != null
                         && anchor.length
                         && !this._ignoreSyncRequest
@@ -2743,17 +2907,17 @@ var Innovasys;
                         return;
                     }
                     // If the ToC page already exists in the DOM then just change to it
-                    if ($("div#" + tocPageId, this._rootSelector).length) {
-                        $.mobile.changePage($("div#" + tocPageId, this._rootSelector), { dataUrl: tocPageId });
+                    if ($("div#".concat(tocPageId), this._rootSelector).length) {
+                        $.mobile.changePage($("div#".concat(tocPageId), this._rootSelector), { dataUrl: tocPageId });
                         return;
                     }
-                    var list = $("ul#" + listId, this._rootSelector).first();
+                    var list = $("ul#".concat(listId), this._rootSelector).first();
                     var title = list.prev("a").text();
                     var backId = list
                         .parent()
                         .closest("ul")
                         .attr("id");
-                    var newPage = $("<div data-role=\"page\" id=\"" + tocPageId + "\"></div>");
+                    var newPage = $("<div data-role=\"page\" id=\"".concat(tocPageId, "\"></div>"));
                     var header = $("<div data-role=\"header\" data-theme=\"b\"></div>");
                     if (backId === "i-root") {
                         backId = "i-root-node";
@@ -2761,8 +2925,8 @@ var Innovasys;
                     if (listId !== "i-root") {
                         // Add a header to all child pages
                         // Add a back button to the header (just icon no text)
-                        $("<a href=\"#" + backId + "\" data-icon=\"arrow-l\" data-iconpos=\"notext\">Back</a>").appendTo(header);
-                        $("<h1>" + title + "</h1>").appendTo(header);
+                        $("<a href=\"#".concat(backId, "\" data-icon=\"arrow-l\" data-iconpos=\"notext\">Back</a>")).appendTo(header);
+                        $("<h1>".concat(title, "</h1>")).appendTo(header);
                         header.appendTo(newPage);
                     }
                     var pageList = list.clone();
@@ -2792,7 +2956,7 @@ var Innovasys;
                     if (typeof pageData.toPage === "string") {
                         if (pageData.toPage.match(/(#node-(\d+)|#i-root-node)/)) {
                             var pageId = pageData.toPage.substring(pageData.toPage.lastIndexOf("#") + 1, pageData.toPage.length);
-                            if ($("div#" + pageId).length === 0) {
+                            if ($("div#".concat(pageId)).length === 0) {
                                 // Build the new ToC page and prevent JQM from handling this event
                                 this.buildToCPage(pageId);
                                 event.preventDefault();
@@ -2860,9 +3024,9 @@ var Innovasys;
                                 ul.prepend(listItem);
                             }
                             // Add an id to the list element which will be moved to the page div later
-                            ul.attr("id", "node-" + tocNodeIndex);
+                            ul.attr("id", "node-".concat(tocNodeIndex));
                             // Point the anchor in the list item to the child list
-                            $(anchorElement).attr("href", "#node-" + tocNodeIndex);
+                            $(anchorElement).attr("href", "#node-".concat(tocNodeIndex));
                             tocNodeIndex++;
                         }
                     });
@@ -2888,7 +3052,7 @@ var Innovasys;
                     $("div.ui-page a.ui-btn-active", this._rootSelector)
                         .removeClass("ui-btn-active");
                     $("div.ui-page li", this._rootSelector)
-                        .find("a[data-node-index=\"" + this._selectedNodeIndex + "\"]")
+                        .find("a[data-node-index=\"".concat(this._selectedNodeIndex, "\"]"))
                         .first()
                         .addClass("ui-btn-active");
                 };
@@ -2992,7 +3156,7 @@ var Innovasys;
                         this.layout = $(".i-layout-container", this.documentInstance.rootSelector).layout({
                             resizeWhileDragging: true,
                             /* eslint-disable-next-line @typescript-eslint/naming-convention */
-                            west__size: 270,
+                            west__size: 395,
                             maskIframesOnResize: true
                         });
                         this.onContentLoaded(null);
@@ -3101,7 +3265,7 @@ var Innovasys;
                         this._isIframeResizeTimerDisabled = true;
                         // Close the navbar
                         $("iframe#i-nav", this.documentInstance.rootSelector).animate({
-                            left: "-" + $("iframe#i-nav").css("width")
+                            left: "-".concat($("iframe#i-nav").css("width"))
                         }, topFrameConstants.navBarCloseDuration, "swing", function () {
                             $("iframe#i-nav", _this.documentInstance.rootSelector)
                                 .css("visibility", "hidden");
@@ -3137,14 +3301,14 @@ var Innovasys;
                 };
                 TopFrameDocumentFeature.prototype.updatePageTitle = function (pageTitle) {
                     if (pageTitle != null) {
-                        document.title = this.baseTitle + " - " + pageTitle;
+                        document.title = "".concat(this.baseTitle, " - ").concat(pageTitle);
                     }
                 };
                 TopFrameDocumentFeature.prototype.updateLocation = function (url) {
                     if (url != null) {
                         var location_1 = Content.Browser.getLocationInfo();
                         var pageName = url.substring(url.lastIndexOf("/") + 1);
-                        if ("#" + pageName !== location_1.hash && "?" + pageName !== location_1.search) {
+                        if ("#".concat(pageName) !== location_1.hash && "?".concat(pageName) !== location_1.search) {
                             Content.Browser.replaceLocation(pageName);
                         }
                     }
@@ -3165,7 +3329,7 @@ var Innovasys;
                     return topic;
                 };
                 TopFrameDocumentFeature.prototype.isUrl = function (possibleUrl) {
-                    return /^[\d\D\.]*:\/\//.test(possibleUrl);
+                    return /^[\d\D\.]*:/.test(possibleUrl);
                 };
                 TopFrameDocumentFeature.prototype.navigate = function (messageData) {
                     // ToC previous/next navigation
@@ -3257,20 +3421,21 @@ var Innovasys;
             }());
             Features.SearchTermWordMatch = SearchTermWordMatch;
             var SearchResult = /** @class */ (function () {
-                function SearchResult(fileIndex, rank, keywords, searchTerms) {
+                function SearchResult(fileIndex, rank, keywords, searchTerm) {
                     this.fileIndex = fileIndex;
                     this.rank = rank;
                     this.keywords = keywords;
-                    this.searchTerms = searchTerms;
+                    this.searchTerm = searchTerm;
                     this.rank = rank;
                 }
                 return SearchResult;
             }());
             Features.SearchResult = SearchResult;
+            var searchDocumentFeature;
             var SearchDocumentFeature = /** @class */ (function (_super) {
                 __extends(SearchDocumentFeature, _super);
-                function SearchDocumentFeature() {
-                    var _this = _super !== null && _super.apply(this, arguments) || this;
+                function SearchDocumentFeature(documentInstance) {
+                    var _this = _super.call(this, documentInstance) || this;
                     _this._webSearchPendingHighlight = null;
                     _this._rootSelector = null;
                     _this._isEnabled = false;
@@ -3279,6 +3444,10 @@ var Innovasys;
                     _this._isFullTextSearchFrameless = false;
                     _this._results = null;
                     _this._clickedResult = null;
+                    _this._diacriticsHelper = null;
+                    _this.currentPage = 1;
+                    _this.resultsPerPage = 10;
+                    searchDocumentFeature = _this;
                     return _this;
                 }
                 SearchDocumentFeature.escapeForRegEx = function (source) {
@@ -3304,8 +3473,12 @@ var Innovasys;
                             this._isFullTextSearchFrameless = true;
                         }
                     }
+                    this._diacriticsHelper = new Features.DiacriticsHelper;
                     if ($("#i-search-container", this._rootSelector).length > 0) {
                         this._isEnabled = true;
+                        if (this._results !== null && this._results.length > 0) {
+                            this.outputResults(this._results);
+                        }
                         $("#i-search", rootSelector)
                             .off("keyup.search")
                             .on("keyup.search", function (event) {
@@ -3318,13 +3491,27 @@ var Innovasys;
                             .on("click.search", function () {
                             _this.executeSearch();
                         });
-                        $("#i-search-container", this._rootSelector)
+                        $("#i-results-container", this._rootSelector)
                             .off("click.search", ".i-result")
                             .on("click.search", ".i-result", function (event) {
                             event.preventDefault();
-                            _this.showSearchResult($(event.target).attr("href"), parseInt($(event.target).attr("data-result-index"), 10));
+                            _this.showSearchResult($(event.target).attr("href"), $(event.target).attr("data-result-terms"), parseInt($(event.target).attr("data-result-index"), 10));
                         });
                     }
+                    // Set up click handler for highlight checkbox
+                    $("#i-highlight", rootSelector)
+                        .off("click.search")
+                        .on("click.search", function () {
+                        if (_this._results && _this._results.length > 0) {
+                            _this.outputResults(_this._results);
+                        }
+                        else {
+                            var searchText = $("#i-search", _this._rootSelector).val();
+                            if (searchText.length > 0) {
+                                _this.executeSearch();
+                            }
+                        }
+                    });
                     var querystringSearchText = Content.Browser.getQueryStringParameter("query");
                     if (querystringSearchText != null && querystringSearchText !== "") {
                         $("#i-search", rootSelector).val(querystringSearchText);
@@ -3350,323 +3537,538 @@ var Innovasys;
                 SearchDocumentFeature.prototype.executeSearch = function () {
                     // Show searching div
                     $("#i-search-container", this._rootSelector).hide();
+                    $("#i-results-container", this._rootSelector).hide();
                     $("#i-searching-overlay", this._rootSelector).show();
                     // do search
                     var searchResult = this.buildSearchResults();
-                    // Show resuls div
+                    // Show results div
                     $("#i-searching-overlay", this._rootSelector).hide();
                     $("#i-search-container", this._rootSelector).show();
+                    $("#i-results-container", this._rootSelector).show();
                     // show results
                     if (searchResult === true) {
-                        // show resulta div
+                        // show results div
                         $("#i-results", this._rootSelector).show();
                     }
                 };
                 SearchDocumentFeature.prototype.buildSearchResults = function () {
-                    // get search string
-                    var searchText = $("#i-search", this._rootSelector).val();
-                    if (searchText.length === 0) {
-                        return false;
+                    try {
+                        // get search string
+                        var searchText = $("#i-search", this._rootSelector).val();
+                        if (searchText.length === 0) {
+                            this._results = [];
+                            this.outputResults(this._results);
+                            return false;
+                        }
+                        // make lowercase for easy comparison later on
+                        searchText = searchText.toLowerCase();
+                        // Tokenize and clean search text
+                        var tokens = this.tokenizeSearchText(searchText);
+                        // Build query and search terms
+                        var queryData = this.buildQueryAndTerms(tokens);
+                        var query = queryData.query;
+                        var searchTerms = queryData.searchTerms;
+                        // load files & stopwords arrays
+                        var searchFiles = [];
+                        var allWords = [];
+                        if (this._isFullTextSearchObjects) {
+                            // Pass constructor to initialization function
+                            Features.buildSearchFilesAndKeywords(searchFiles, allWords, SearchFile);
+                        }
+                        else {
+                            // Pass 2 arrays and build SearchFile array from them
+                            var indexFiles = [];
+                            var indexTitles = [];
+                            Features.buildSearchIndexArray(indexFiles, indexTitles, allWords);
+                            for (var fileIndex = 0; fileIndex < indexFiles.length; fileIndex++) {
+                                var newSearchFile = new SearchFile(indexFiles[fileIndex], indexTitles[fileIndex], 0);
+                                searchFiles[fileIndex] = newSearchFile;
+                            }
+                        }
+                        // build results list
+                        var searchResults = this.populateSearchResults(searchFiles, allWords, searchTerms);
+                        if (this.currentPage !== 1) {
+                            this.currentPage = 1;
+                        }
+                        this._results = this.buildResultsArray(query, searchResults);
+                        // write results to document
+                        this.outputResults(this._results);
+                        // return success
+                        return true;
                     }
-                    // make lowercase for easy comparison later on
-                    searchText = searchText.toLowerCase();
-                    // tokenise
-                    var tokens = searchText.split(" ");
-                    // build keywords array & query string
+                    catch (exception) {
+                        console.error("An exception was thrown while implementing the search. Please try again.", exception);
+                        return false; // Error in search
+                    }
+                };
+                SearchDocumentFeature.prototype.tokenizeSearchText = function (searchText) {
+                    if (searchText === null || searchText === undefined || searchText === "")
+                        return [];
+                    var tokens = [];
+                    var regex = /["']([^"']+)["']|[^(]*\([^()]*\)|([^\s]+)/gi;
+                    var match;
+                    while ((match = regex.exec(searchText)) !== null) {
+                        var pushed = false;
+                        // Start from 1 to skip the full match at index 0
+                        for (var i = 1; i < match.length; i++) {
+                            if (match[i]) {
+                                tokens.push(match[i]);
+                                pushed = true;
+                            }
+                        }
+                        // If no group matched, push the whole match
+                        if (!pushed && match[0]) {
+                            tokens.push(match[0]);
+                        }
+                    }
+                    return tokens;
+                };
+                SearchDocumentFeature.prototype.buildQueryAndTerms = function (tokens) {
                     var query = "";
-                    var lastTokenWasOperator = true;
-                    var lastTokenWasKeyword = false;
-                    var phrase = null;
-                    var searchTermIndex = 0;
                     var searchTerms = [];
-                    for (var _i = 0, tokens_1 = tokens; _i < tokens_1.length; _i++) {
-                        var token = tokens_1[_i];
+                    var lastTokenWasOperator = true;
+                    for (var i = 0; i < tokens.length; i++) {
+                        var token = tokens[i];
                         if (token.length > 0) {
-                            // strip out any delimiters & whitespace
-                            token = token.replace(new RegExp(",", "ig"), "");
-                            if (phrase != null) {
-                                phrase += (" " + token);
-                                if (token.charAt(token.length - 1) === "\"") {
-                                    // Last word in the phrase. Set as the token and clear.
-                                    token = phrase.substring(1, phrase.length - 1);
-                                    phrase = null;
-                                }
-                                else {
-                                    token = null;
+                            if (token === "or" || token === "and") {
+                                if (!lastTokenWasOperator) {
+                                    query += token === "or" ? " || " : " && ";
+                                    lastTokenWasOperator = true;
                                 }
                             }
-                            else if (token.charAt(0) === "\"") {
-                                // First word of a phrase
-                                phrase = token;
-                                token = null;
-                            }
-                            if (token != null) {
-                                // add to array
-                                if ((token === "or") || (token === "and")) {
-                                    // only add it if not just had an operator
-                                    if (lastTokenWasOperator === false) {
-                                        // add to the query string
-                                        if (token === "or") {
-                                            query += " || ";
-                                        }
-                                        else if (token === "and") {
-                                            query += " && ";
-                                        }
-                                        lastTokenWasOperator = true;
-                                        lastTokenWasKeyword = false;
-                                    }
+                            else {
+                                if (!lastTokenWasOperator) {
+                                    query += " || ";
                                 }
-                                else {
-                                    // we just had a keyword ?
-                                    if (lastTokenWasKeyword) {
-                                        // add default OR operator
-                                        query += " || ";
-                                    }
-                                    // add to query string
-                                    query += ("(searchTerms.indexOf(\"" + token + "\") >= 0)");
-                                    lastTokenWasOperator = false;
-                                    lastTokenWasKeyword = true;
-                                    // add to keywords array
-                                    searchTerms[searchTermIndex] = token;
-                                    searchTermIndex++;
-                                }
+                                query += '(searchTerms.indexOf("' + token + '") >= 0)';
+                                searchTerms.push(token);
+                                lastTokenWasOperator = false;
                             }
                         }
                     }
-                    if (searchTerms.length === 0) {
-                        return false;
-                    }
-                    if (query !== "" && query.length > searchConstants.minOperatorLength) {
-                        // Handle the case where the last word is an operator
-                        if (query.substring(query.length - searchConstants.minOperatorLength) === " && "
-                            || query.substring(query.length - searchConstants.minOperatorLength) === " || ") {
-                            query = query.substring(0, query.length - searchConstants.minOperatorLength);
-                        }
-                    }
-                    // load files & stopwords arrays
-                    var searchFiles = [];
-                    var allWords = [];
-                    if (this._isFullTextSearchObjects) {
-                        // Pass constructor to initialization function
-                        Features.buildSearchFilesAndKeywords(searchFiles, allWords, SearchFile);
-                    }
-                    else {
-                        // Pass 2 arrays and build SearchFile array from them
-                        var indexFiles = [];
-                        var indexTitles = [];
-                        Features.buildSearchIndexArray(indexFiles, indexTitles, allWords);
-                        for (var fileIndex = 0; fileIndex < indexFiles.length; fileIndex++) {
-                            var newSearchFile = new SearchFile(indexFiles[fileIndex], indexTitles[fileIndex], 0);
-                            searchFiles[fileIndex] = newSearchFile;
-                        }
-                    }
-                    // build list of files containing keywords
-                    var searchResults = this.populateSearchResults(searchFiles, allWords, searchTerms);
-                    // build results list
-                    searchResults = this.buildResultsArray(query, searchResults);
-                    // write results to document
-                    this.outputResults(searchResults);
-                    this._results = searchResults;
-                    // return success
-                    return true;
+                    return { query: query, searchTerms: searchTerms };
                 };
                 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                 SearchDocumentFeature.prototype.populateSearchResults = function (searchFiles, allWords, searchTerms) {
+                    var _this = this;
                     var searchResults = [];
-                    var _loop_1 = function (searchTerm) {
+                    var contentArray = [];
+                    var titleArray = [];
+                    this.populateTitleContentArrays(allWords, searchFiles, titleArray, contentArray);
+                    // Process each search term
+                    var searchTermRegExp = null;
+                    for (var a = 0; a < searchTerms.length; a++) {
+                        var searchTerm = searchTerms[a];
                         var searchTermWordMatch = new SearchTermWordMatch(searchTerm, []);
-                        if (searchTerm.indexOf(" ") !== -1) {
-                            // Phrase - find several matching words where the file matches the first word, and the
-                            //  relative position is the same as in the phrase
-                            var searchTermWords = searchTerm.split(" ");
-                            var firstSearchTermWord_1 = searchTermWords[0];
-                            var baseResults = this_1.populateSearchResults(searchFiles, allWords, [firstSearchTermWord_1]);
-                            var _loop_2 = function (searchTermWord) {
-                                var results = this_1.populateSearchResults(searchFiles, allWords, [searchTermWord]);
-                                baseResults = $.map(baseResults, function (baseResult) {
-                                    if (typeof baseResult != "undefined") {
-                                        // A search result for secondary phrase words requires that the words be in a file we
-                                        //  have already found at the base result + searchTermWordIndex
-                                        var matchingBaseResults = $.map(results, function (searchResult) {
-                                            if (typeof searchResult !== "undefined" && searchResult.fileIndex === baseResult.fileIndex) {
-                                                // Look for a match for any of the keywords in this result
-                                                var thisKeywords = searchResult.keywords.split(",");
-                                                var searchTermWordIndex_1 = 0;
-                                                var _loop_3 = function (thisKeyword) {
-                                                    if (thisKeyword !== "") {
-                                                        // Matching position?
-                                                        var matchingBasePositions = 
-                                                        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                                        $.map((baseResult.keywordPositions[("_" + firstSearchTermWord_1)]), function (basePosition) {
-                                                            var matchingKeywordPositions = $.map(searchResult.keywordPositions[("_" + thisKeyword)], function (position) {
-                                                                if (position === (basePosition + searchTermWordIndex_1)) {
-                                                                    return position;
-                                                                }
-                                                                else {
-                                                                    return null;
-                                                                }
-                                                            });
-                                                            if (matchingKeywordPositions.length > 0) {
-                                                                return basePosition;
-                                                            }
-                                                            else {
-                                                                return null;
-                                                            }
-                                                        });
-                                                        if (matchingBasePositions.length > 0) {
-                                                            // Found a match at the next word position in the same file
-                                                            // Add the keyword and rank to the base result
-                                                            baseResult.searchTerms = searchTerm + ",";
-                                                            baseResult.keywords += searchResult.keywords;
-                                                            baseResult.rank += searchResult.rank;
-                                                            return { value: baseResult };
-                                                        }
-                                                    }
-                                                    searchTermWordIndex_1++;
-                                                };
-                                                for (var _i = 0, thisKeywords_1 = thisKeywords; _i < thisKeywords_1.length; _i++) {
-                                                    var thisKeyword = thisKeywords_1[_i];
-                                                    var state_2 = _loop_3(thisKeyword);
-                                                    if (typeof state_2 === "object")
-                                                        return state_2.value;
-                                                }
-                                            }
-                                            return null;
-                                        });
-                                        if (matchingBaseResults.length > 0) {
-                                            return baseResult;
-                                        }
-                                        else {
-                                            return null;
-                                        }
-                                    }
-                                    return null;
-                                });
-                            };
-                            for (var _i = 0, searchTermWords_1 = searchTermWords; _i < searchTermWords_1.length; _i++) {
-                                var searchTermWord = searchTermWords_1[_i];
-                                _loop_2(searchTermWord);
-                            }
-                            return { value: baseResults };
-                        }
-                        else if (searchTerm.indexOf("*") !== -1 || searchTerm.indexOf("?") !== -1) {
-                            // Wildcard - find potentially several matching words
-                            var searchTermRegExp = new RegExp("^" + SearchDocumentFeature.escapeForRegEx(searchTerm)
+                        if (searchTerm.indexOf("*") !== -1 || searchTerm.indexOf("?") !== -1) {
+                            // Wildcard match
+                            searchTermRegExp = new RegExp("^" + SearchDocumentFeature.escapeForRegEx(searchTerm)
                                 .replace(/\*/g, ".*")
                                 .replace(/\?/g, ".") + "$", "i");
-                            for (var word in allWords) {
-                                if (allWords.hasOwnProperty(word) && word.substring(1).match(searchTermRegExp) != null) {
-                                    // Matched
-                                    searchTermWordMatch.matchedWords.push(word.substring(1));
-                                }
-                            }
-                            // Sort on matched word length (reverse)
-                            searchTermWordMatch.matchedWords
-                                = searchTermWordMatch.matchedWords.sort(function (a, b) { return b.length - a.length; });
+                        }
+                        var sortedResults = null;
+                        if (searchTermRegExp != null) {
+                            sortedResults = this.sort(contentArray, searchTermRegExp);
                         }
                         else {
-                            // Single word - just lookup in index and if found add to list of words
-                            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                            if (typeof allWords["_" + searchTerm] !== "undefined") {
-                                searchTermWordMatch.matchedWords.push(searchTerm);
-                            }
+                            // Regular term match
+                            searchTerm = searchTerm.replace(/"/g, "");
+                            sortedResults = this.sort(contentArray, searchTerm);
                         }
-                        // All of the above will yield one or more words. We then go through the matched words, building a search result
-                        //  entry with a ranking value.
-                        if (searchTermWordMatch != null) {
-                            var searchTermWordMatchIndex = 0;
-                            for (var _a = 0, _b = searchTermWordMatch.matchedWords; _a < _b.length; _a++) {
-                                var matchedWord = _b[_a];
-                                // get indices of files containing word
-                                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                var matchedWordData = allWords["_" + searchTermWordMatch.matchedWords[searchTermWordMatchIndex]];
-                                // tokenize indices
-                                var fileIndexes = matchedWordData.split(",");
-                                for (var _c = 0, fileIndexes_1 = fileIndexes; _c < fileIndexes_1.length; _c++) {
-                                    var fileIndexValue = fileIndexes_1[_c];
-                                    var fileIndex = void 0;
-                                    var rank = 0;
-                                    var positions = null;
-                                    if (this_1._isFullTextSearchPositionDataAvailable) {
-                                        // Store file index, position data and a rank value in the search result
-                                        fileIndex = parseInt(fileIndexValue.split(":")[0], 10);
-                                        var rankAsString = fileIndexValue.split(":")[1];
-                                        positions = $.map(rankAsString.split("|"), function (positionAsString) { return parseInt(positionAsString, 10); });
-                                        if (positions.length > 0) {
-                                            rank = positions[0];
+                        // Build search results for matched words
+                        if (sortedResults != null) {
+                            for (var b = 0; b < sortedResults.length; b++) {
+                                var matchedResult = sortedResults[b].item;
+                                var rank = sortedResults[b].rank;
+                                var fileIndexValue = matchedResult.split('¬')[0];
+                                var fileContent = matchedResult.split("¬")[1];
+                                var searchTerm_1 = searchTermWordMatch.searchTerm.replace(/"/g, "");
+                                var positions = this.getTermOrPhrasePositions(fileContent, searchTerm_1);
+                                var fileIndex = 0;
+                                fileIndex = parseInt(fileIndexValue, 10);
+                                var isPhrase = /\s/.test(searchTerm_1);
+                                if (isPhrase && (!positions || positions.length === 0)) {
+                                    continue; // Skip this result, as it matches invalid phrase locations
+                                }
+                                var locatedSearchResult = searchResults[fileIndex];
+                                if (typeof locatedSearchResult === "undefined") {
+                                    locatedSearchResult = new SearchResult(fileIndex, rank, fileContent + ",", searchTermWordMatch.searchTerm + ",");
+                                    if (typeof searchFiles[fileIndex] !== "undefined") {
+                                        locatedSearchResult.searchFile = searchFiles[fileIndex];
+                                        // Increase rank if the search term is found in the title
+                                        if (searchFiles[fileIndex].title.toLowerCase().indexOf(searchTerm_1.toLowerCase()) !== -1) {
+                                            locatedSearchResult.rank += 10; // Arbitrary boost value
                                         }
                                     }
-                                    else {
-                                        // No positional data available - we store just the file index in the search result
-                                        fileIndex = parseInt(fileIndexValue, 10);
+                                    searchResults[fileIndex] = locatedSearchResult;
+                                }
+                                else {
+                                    if (locatedSearchResult.keywords.indexOf(fileContent + ",") === -1) {
+                                        locatedSearchResult.keywords += fileContent + ",";
                                     }
-                                    var locatedSearchResult = null;
-                                    if (typeof searchResults[fileIndex] === "undefined") {
-                                        // New file not encountered yet
-                                        locatedSearchResult = new SearchResult(fileIndex, rank, matchedWord + ",", searchTermWordMatch.searchTerm + ",");
-                                        if (typeof searchFiles[fileIndex] != "undefined") {
-                                            // Store url and title
-                                            locatedSearchResult.searchFile = searchFiles[fileIndex];
-                                        }
-                                        searchResults[fileIndex] = locatedSearchResult;
-                                    }
-                                    else {
-                                        // Existing file, add to the rank
-                                        locatedSearchResult = searchResults[fileIndex];
-                                        if (locatedSearchResult.keywords.indexOf(matchedWord + ",") === -1) {
-                                            // New word match in this file
-                                            locatedSearchResult.rank += rank;
-                                            locatedSearchResult.keywords += (matchedWord + ",");
-                                        }
-                                        if (locatedSearchResult.searchTerms.indexOf(searchTermWordMatch.searchTerm + ",") === -1) {
-                                            // New search term match in this file
-                                            locatedSearchResult.rank += rank;
-                                            locatedSearchResult.searchTerms += (searchTermWordMatch.searchTerm + ",");
-                                        }
-                                    }
-                                    if (positions != null) {
-                                        if (locatedSearchResult.keywordPositions == null) {
-                                            locatedSearchResult.keywordPositions = [];
-                                        }
-                                        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                        locatedSearchResult.keywordPositions[("_" + matchedWord)] = positions;
+                                    if (locatedSearchResult.searchTerm.indexOf(searchTermWordMatch.searchTerm + ",") === -1) {
+                                        locatedSearchResult.searchTerm += searchTermWordMatch.searchTerm + ",";
+                                        locatedSearchResult.rank += rank;
                                     }
                                 }
-                                searchTermWordMatchIndex++;
+                                if (positions != null) {
+                                    if (locatedSearchResult.keywordPositions == null) {
+                                        locatedSearchResult.keywordPositions = {};
+                                    }
+                                    locatedSearchResult.keywordPositions["_".concat(searchTerm_1)] = positions;
+                                }
+                            }
+                        }
+                    }
+                    // Split search results into title matches and non-title matches
+                    var titleMatches = [];
+                    var nonTitleMatches = [];
+                    searchResults.sort(function (a, b) {
+                        // Helper: returns true if any search term is a phrase and is found in keywords
+                        function hasExactPhrase(result) {
+                            var terms = result.searchTerm.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+                            return terms.some(function (term) { return term.indexOf(' ') !== -1 &&
+                                result.keywords.toLowerCase().indexOf(term.toLowerCase()) !== -1; });
+                        }
+                        // Helper: returns the number of unique search terms found in keywords
+                        function countUniqueTerms(result) {
+                            var terms = result.searchTerm.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+                            var count = 0;
+                            for (var _i = 0, terms_1 = terms; _i < terms_1.length; _i++) {
+                                var term = terms_1[_i];
+                                if (result.keywords.toLowerCase().indexOf(term.toLowerCase()) !== -1) {
+                                    count++;
+                                }
+                            }
+                            return count;
+                        }
+                        // 1. Prioritize exact phrase matches
+                        var aExactPhrase = hasExactPhrase(a);
+                        var bExactPhrase = hasExactPhrase(b);
+                        if (aExactPhrase !== bExactPhrase) {
+                            if (aExactPhrase)
+                                a.rank += 1000;
+                            if (bExactPhrase)
+                                b.rank += 1000;
+                        }
+                        // 2. Prioritize results matching more unique words
+                        var aWordCount = countUniqueTerms(a);
+                        var bWordCount = countUniqueTerms(b);
+                        if (aWordCount !== bWordCount) {
+                            // Boost for multiple words
+                            if (aWordCount > 1)
+                                a.rank += 10 * aWordCount;
+                            if (bWordCount > 1)
+                                b.rank += 10 * bWordCount;
+                        }
+                        // 3. Fallback to rank
+                        return b.rank - a.rank;
+                    });
+                    for (var _i = 0, searchResults_1 = searchResults; _i < searchResults_1.length; _i++) {
+                        var searchResult = searchResults_1[_i];
+                        if (searchResult && searchResult.searchFile) {
+                            var isTitleMatch = false;
+                            for (var _a = 0, searchTerms_1 = searchTerms; _a < searchTerms_1.length; _a++) {
+                                var searchTerm_2 = searchTerms_1[_a];
+                                if (searchResult.searchFile.title.toLowerCase().indexOf(searchTerm_2.toLowerCase()) !== -1) {
+                                    isTitleMatch = true;
+                                    break;
+                                }
+                            }
+                            if (isTitleMatch) {
+                                titleMatches.push(searchResult);
+                            }
+                            else {
+                                nonTitleMatches.push(searchResult);
+                            }
+                        }
+                    }
+                    // Ensure title matches have a higher rank than non-title matches
+                    var wordMatches = [];
+                    var titleLower;
+                    var allTermsInTitle = true;
+                    var isExact = false;
+                    var isWordMatch = false;
+                    var _loop_1 = function (titleMatch) {
+                        for (var _d = 0, nonTitleMatches_1 = nonTitleMatches; _d < nonTitleMatches_1.length; _d++) {
+                            var nonTitleMatch = nonTitleMatches_1[_d];
+                            if (titleMatch.rank <= nonTitleMatch.rank) {
+                                titleMatch.rank = nonTitleMatch.rank + 10;
+                            }
+                        }
+                        // Increment titleMatch rank based on the number of instances of search terms in the keywords
+                        var keywordInstances = 0;
+                        for (var _e = 0, searchTerms_2 = searchTerms; _e < searchTerms_2.length; _e++) {
+                            var searchTerm_3 = searchTerms_2[_e];
+                            var regex = new RegExp(searchTerm_3, 'gi');
+                            var matches = titleMatch.keywords.match(regex);
+                            if (matches) {
+                                keywordInstances += matches.length;
+                            }
+                        }
+                        // Add keyword instances to the rank
+                        titleMatch.rank += keywordInstances;
+                        // Add alphabetical ranking for any title matches that are equal
+                        equalRankTitles = titleMatches.filter(function (t) { return t.rank === titleMatch.rank; });
+                        if (equalRankTitles.length > 1) {
+                            // Sort so titles containing all search terms come first, then exact matches, then substring word matches, then alphabetically
+                            equalRankTitles.sort(function (a, b) {
+                                var aTitle = a.searchFile.title.toLowerCase();
+                                var bTitle = b.searchFile.title.toLowerCase();
+                                // Check if all search terms are in the title
+                                var allTermsInA = true, allTermsInB = true;
+                                for (var c = 0; c < searchTerms.length; c++) {
+                                    if (aTitle.indexOf(searchTerms[c].toLowerCase()) === -1)
+                                        allTermsInA = false;
+                                    if (bTitle.indexOf(searchTerms[c].toLowerCase()) === -1)
+                                        allTermsInB = false;
+                                }
+                                if (allTermsInA !== allTermsInB)
+                                    return allTermsInB ? 1 : -1;
+                                // Check for exact title match
+                                var aExact = false, bExact = false;
+                                for (var d = 0; d < searchTerms.length; d++) {
+                                    if (aTitle === searchTerms[d].toLowerCase())
+                                        aExact = true;
+                                    if (bTitle === searchTerms[d].toLowerCase())
+                                        bExact = true;
+                                }
+                                if (aExact !== bExact)
+                                    return bExact ? 1 : -1;
+                                // Check for whole word match in title (e.g. "RSSItem" in "RSSItem Constructor" but not in "RssItems Property")
+                                function hasWholeWord(title, term) {
+                                    var re = new RegExp("\\b" + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "i");
+                                    return re.test(title);
+                                }
+                                var aWordMatch = false, bWordMatch = false;
+                                for (var e = 0; e < searchTerms.length; e++) {
+                                    if (hasWholeWord(aTitle, searchTerms[e]))
+                                        aWordMatch = true;
+                                    if (hasWholeWord(bTitle, searchTerms[e]))
+                                        bWordMatch = true;
+                                }
+                                if (aWordMatch !== bWordMatch)
+                                    return bWordMatch ? 1 : -1;
+                                return aTitle.localeCompare(bTitle);
+                            });
+                            for (var f = 0; f < equalRankTitles.length; f++) {
+                                wordMatches = [];
+                                titleLower = equalRankTitles[f].searchFile.title.toLowerCase();
+                                allTermsInTitle = true;
+                                isExact = false;
+                                isWordMatch = false;
+                                for (var g = 0; g < searchTerms.length; g++) {
+                                    if (titleLower.indexOf(searchTerms[g].toLowerCase()) === -1)
+                                        allTermsInTitle = false;
+                                    if (titleLower === searchTerms[g].toLowerCase())
+                                        isExact = true;
+                                    // Whole word match
+                                    if (this_1.hasWholeWord(titleLower, searchTerms[g])) {
+                                        isWordMatch = true;
+                                        wordMatches.push(isWordMatch);
+                                    }
+                                }
+                                if (allTermsInTitle || isExact) {
+                                    equalRankTitles[f].rank += 2000; // Boost for exact match
+                                }
+                                if (isWordMatch) {
+                                    for (var w = 0; w < wordMatches.length; w++) {
+                                        if (wordMatches[w]) {
+                                            equalRankTitles[f].rank += 500; // Boost for each whole word match
+                                        }
+                                    }
+                                }
+                                else {
+                                    equalRankTitles[f].rank += f;
+                                }
+                            }
+                            for (var g = 0; g < titleMatches.length; g++) {
+                                wordMatches = [];
+                                titleLower = titleMatches[g].searchFile.title.toLowerCase();
+                                allTermsInTitle = true;
+                                isExact = false;
+                                isWordMatch = false;
+                                for (var h = 0; h < searchTerms.length; h++) {
+                                    if (titleLower.indexOf(searchTerms[h].toLowerCase()) === -1)
+                                        allTermsInTitle = false;
+                                    if (titleLower === searchTerms[h].toLowerCase())
+                                        isExact = true;
+                                    // Whole word match
+                                    if (this_1.hasWholeWord(titleLower, searchTerms[h])) {
+                                        isWordMatch = true;
+                                        wordMatches.push(isWordMatch);
+                                    }
+                                }
+                                if (allTermsInTitle || isExact) {
+                                    titleMatches[g].rank += 2000; // Boost for exact match
+                                }
+                                if (isWordMatch) {
+                                    for (var w = 0; w < wordMatches.length; w++) {
+                                        if (wordMatches[w] === true) {
+                                            titleMatches[g].rank += 500; // Boost for each whole word match
+                                        }
+                                    }
+                                }
+                                else {
+                                    titleMatches[g].rank += g;
+                                }
                             }
                         }
                     };
-                    var this_1 = this;
-                    // build lookup arrays
-                    for (var _i = 0, searchTerms_1 = searchTerms; _i < searchTerms_1.length; _i++) {
-                        var searchTerm = searchTerms_1[_i];
-                        var state_1 = _loop_1(searchTerm);
-                        if (typeof state_1 === "object")
-                            return state_1.value;
+                    var this_1 = this, equalRankTitles;
+                    for (var _b = 0, titleMatches_1 = titleMatches; _b < titleMatches_1.length; _b++) {
+                        var titleMatch = titleMatches_1[_b];
+                        _loop_1(titleMatch);
                     }
-                    // Return array ordered by rank
-                    if (this._isFullTextSearchPositionDataAvailable) {
-                        searchResults = searchResults.sort(function (a, b) {
-                            var value = a.rank - b.rank;
-                            if (value === 0) {
-                                // Use file rank to disambiguate
-                                value = a.searchFile.rank - b.searchFile.rank;
-                                if (value === 0) {
-                                    return a.fileIndex - b.fileIndex;
+                    // Ensure all search results that match titles exact have a higher rank that others
+                    for (var _c = 0, titleMatches_2 = titleMatches; _c < titleMatches_2.length; _c++) {
+                        var titleMatch = titleMatches_2[_c];
+                        wordMatches = [];
+                        titleLower = titleMatch.searchFile.title.toLowerCase();
+                        allTermsInTitle = true;
+                        isExact = false;
+                        isWordMatch = false;
+                        var isTitleStartsWithTerm = false;
+                        for (var k = 0; k < searchTerms.length; k++) {
+                            var termLower = searchTerms[k].toLowerCase();
+                            if (titleLower.indexOf(termLower) === -1)
+                                allTermsInTitle = false;
+                            if (titleLower === termLower)
+                                isExact = true;
+                            // Whole word match
+                            if (this.hasWholeWord(titleLower, searchTerms[k])) {
+                                isWordMatch = true;
+                                wordMatches.push(isWordMatch);
+                            }
+                            // Title starts with term and is followed by space or is the only word
+                            if (titleLower.indexOf(termLower) === 0 &&
+                                (titleLower.length === termLower.length ||
+                                    titleLower.charAt(termLower.length) === ' ')) {
+                                isTitleStartsWithTerm = true;
+                            }
+                        }
+                        if (isTitleStartsWithTerm) {
+                            titleMatch.rank += 3000; // Highest boost for title starting with term
+                        }
+                        if (allTermsInTitle || isExact) {
+                            titleMatch.rank += 2000; // Boost for exact match
+                        }
+                        if (isWordMatch) {
+                            for (var w = 0; w < wordMatches.length; w++) {
+                                if (wordMatches[w] === true) {
+                                    titleMatch.rank += 500; // Boost for each whole word match
                                 }
                             }
-                            return value;
-                        });
+                        }
                     }
+                    // Find the minimum rank among title matches (or use a high default if none)
+                    var minTitleRank = titleMatches.length > 0
+                        ? Math.min.apply(Math, titleMatches.map(function (t) { return t.rank; })) : 1000000;
+                    // Find the max term instance count among non-title matches
+                    var maxInstanceCount = 0;
+                    nonTitleMatches.forEach(function (result) {
+                        var count = _this.countTermInstancesExcludingTitle(result, searchTerms);
+                        result.__instanceCount = count;
+                        if (count > maxInstanceCount)
+                            maxInstanceCount = count;
+                    });
+                    // Sort non-title matches by number of term instances (descending)
+                    nonTitleMatches.forEach(function (result, idx) {
+                        // Spread the ranks just below minTitleRank, highest instance count gets highest rank
+                        // If there are N non-title matches, their ranks will be minTitleRank-1, minTitleRank-2, ...
+                        result.rank = minTitleRank - (maxInstanceCount > 0 ? ((maxInstanceCount - result.__instanceCount) + 1) : (idx + 1));
+                    });
+                    // Combine the lists and sort by rank
+                    searchResults = __spreadArray(__spreadArray([], titleMatches, true), nonTitleMatches, true).sort(function (a, b) {
+                        if (a.rank !== b.rank) {
+                            return b.rank - a.rank; // Descending rank
+                        }
+                        var aTitle = a.searchFile && a.searchFile.title ? a.searchFile.title.toLowerCase() : "";
+                        var bTitle = b.searchFile && b.searchFile.title ? b.searchFile.title.toLowerCase() : "";
+                        return aTitle.localeCompare(bTitle); // Ascending alphabetical
+                    });
                     return searchResults;
                 };
+                SearchDocumentFeature.prototype.countTermInstancesExcludingTitle = function (result, searchTerms) {
+                    if (!result || !result.searchFile || !result.keywords)
+                        return 0;
+                    var title = result.searchFile.title || "";
+                    var keywords = result.keywords || "";
+                    // Remove the title from the keywords string (case-insensitive)
+                    var titleIndex = keywords.toLowerCase().indexOf(title.toLowerCase());
+                    if (titleIndex !== -1) {
+                        keywords = keywords.substring(0, titleIndex) + keywords.substring(titleIndex + title.length);
+                    }
+                    var count = 0;
+                    for (var _i = 0, searchTerms_3 = searchTerms; _i < searchTerms_3.length; _i++) {
+                        var term = searchTerms_3[_i];
+                        var regex = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                        var matches = keywords.match(regex);
+                        if (matches)
+                            count += matches.length;
+                    }
+                    return count;
+                };
+                SearchDocumentFeature.prototype.hasWholeWord = function (title, term) {
+                    if (!title || !term)
+                        return false;
+                    var lowerTitle = title.toLowerCase();
+                    var lowerTerm = term.toLowerCase();
+                    // Exact match
+                    if (lowerTitle === lowerTerm)
+                        return true;
+                    // Whole word match (word boundary)
+                    var re = new RegExp("\\b" + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "i");
+                    if (re.test(title))
+                        return true;
+                    // Substring within a word
+                    return lowerTitle.indexOf(lowerTerm) !== -1;
+                };
+                SearchDocumentFeature.prototype.getTermOrPhrasePositions = function (matchedWord, searchTerm) {
+                    var wordPositions = [];
+                    var searchTermLower = searchTerm.toLowerCase();
+                    var matchedWordLower = matchedWord.toLowerCase();
+                    // Only match contiguous phrases (not across newlines or tags)
+                    // \s matches whitespace, [^\S\r\n] matches whitespace except newlines
+                    var phraseRegex = new RegExp(searchTermLower.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"), "g");
+                    var match;
+                    while ((match = phraseRegex.exec(matchedWordLower)) !== null) {
+                        var position = match.index;
+                        // Calculate the number of words before the matched position
+                        var wordsBefore = matchedWordLower.substring(0, position).split(/\s+/).length - 1;
+                        wordPositions.push([wordsBefore]);
+                    }
+                    return wordPositions;
+                };
+                SearchDocumentFeature.prototype.sort = function (items, sortTerm) {
+                    var _this = this;
+                    var sorterResult = window.matchSorter.matchSorter(items, sortTerm, {
+                        threshold: window.matchSorter.rankings.CONTAINS
+                    });
+                    // Extract the ranking value from the results
+                    var rankIndex = 0;
+                    var rankedResults = sorterResult.map(function (result) {
+                        rankIndex += 1;
+                        return {
+                            item: result,
+                            rank: rankIndex + _this.getTermCount(result, sortTerm)
+                        };
+                    });
+                    return rankedResults;
+                };
+                SearchDocumentFeature.prototype.getTermCount = function (result, term) {
+                    var regex = typeof term === 'string' ? new RegExp(term, 'gi') : term;
+                    var matches = result.match(regex);
+                    return matches ? matches.length : 0;
+                };
+                ;
                 SearchDocumentFeature.prototype.buildResultsArray = function (query, searchResults) {
                     var results = [];
-                    for (var _i = 0, searchResults_1 = searchResults; _i < searchResults_1.length; _i++) {
-                        var searchResult = searchResults_1[_i];
-                        if (typeof searchResult !== "undefined") {
+                    for (var _i = 0, searchResults_2 = searchResults; _i < searchResults_2.length; _i++) {
+                        var searchResult = searchResults_2[_i];
+                        if (searchResult !== undefined && searchResult !== null) {
                             // Note: Used in eval below
-                            var searchTerms = searchResult.searchTerms;
+                            var searchTerms = searchResult.searchTerm.replace(/"/g, "");
                             var result = false;
                             try {
                                 /* eslint-disable-next-line no-eval */
@@ -3683,75 +4085,465 @@ var Innovasys;
                     return results;
                 };
                 SearchDocumentFeature.prototype.getPhrase = function (name) {
-                    var span = $("#phrase_" + name);
+                    var span = $("#phrase_".concat(name));
                     if (span.length > 0) {
                         return span.html();
                     }
                 };
                 SearchDocumentFeature.prototype.outputResults = function (searchResults) {
+                    // Calculate pagination
+                    var totalPages = Math.ceil(searchResults.length / this.resultsPerPage);
+                    var startIndex = (this.currentPage - 1) * this.resultsPerPage;
+                    var endIndex = Math.min(startIndex + this.resultsPerPage, searchResults.length);
+                    if (totalPages === 0) {
+                        this.currentPage = 0;
+                    }
                     // init table html
-                    var tableHtml = "<hr /><p class=\"i-search-title\">" + this.getPhrase("Search_SearchResults") + "</p>";
+                    var tableHtml = "<hr /><p class=\"i-search-title\">".concat(this.getPhrase("Search_SearchResults"), "</p>");
                     tableHtml += "<table class=\"i-result-list\">";
                     // add results to table
-                    var resultCount = 0;
-                    for (var _i = 0, searchResults_2 = searchResults; _i < searchResults_2.length; _i++) {
-                        var searchResult = searchResults_2[_i];
-                        var className = void 0;
+                    for (var i = startIndex; i < endIndex; i++) {
+                        var searchResult = searchResults[i];
                         if (typeof searchResult !== "undefined") {
-                            if (resultCount === 0) {
-                                className = "i-top-row";
+                            var snippetInformation = this.getSnippet(searchResult);
+                            var firstSnippet = snippetInformation.firstSnippet;
+                            var displaySnippet = snippetInformation.displaySnippet;
+                            if (displaySnippet.indexOf(' ...') !== displaySnippet.length - 4) {
+                                displaySnippet += ' ...';
                             }
-                            else if (resultCount === searchResults.length) {
-                                className = "i-bottom-row";
-                            }
-                            else {
-                                className = "i-inner-row";
-                            }
-                            // add row text
-                            tableHtml += "<tr><td class=\"" + className + "\">" + (resultCount + 1) + ":</td><td class=\"" + className + "\"><a class=\"i-result btn\" " + (!this._isFullTextSearchFrameless ? "target=\"i-content\" " : "") + "href=\"" + searchResult.searchFile.url + "\" data-result-index=\"" + resultCount + "\">" + searchResult
-                                .searchFile.title + "</a></td></tr>";
-                            // incr total
-                            resultCount++;
+                            var markedSnippets = '<div>' + displaySnippet + '</div>';
+                            tableHtml += "<tr class=\"i-result-tr\">";
+                            tableHtml += "<td>";
+                            tableHtml += "<h3><a class=\"i-result\" ".concat(!this._isFullTextSearchFrameless ? "target=\"i-content\" " : "", "href=\"").concat(searchResult.searchFile.url, "\" data-result-terms=\"").concat(searchResult.searchTerm, "\" data-result-index=\"").concat(searchResult.fileIndex, "\">").concat(searchResult.searchFile.title, "</a></h3>");
+                            tableHtml += "<div class=\"i-result-url\">".concat(searchResult.searchFile.url, "</div>");
+                            tableHtml += "<div class=\"i-result-snippet\">";
+                            tableHtml += "<div class=\"expander\" onclick=\"const content = this.nextElementSibling; content.style.display = content.style.display === 'none' ? 'block' : 'none'; const icon = this.querySelector('.i-expander-icon'); icon.classList.toggle('expanded');   icon.classList.toggle('collapsed');\"><div class=\"i-expander-icon collapsed\"></div><span class=\"i-snippet-centre\" >".concat(firstSnippet, "</span></div>");
+                            tableHtml += "<div class=\"expander-content\" style=\"display: none;\">".concat(markedSnippets, "</div>");
+                            tableHtml += "<div class=\"i-result-keywords\">".concat(this.formatKeywordInstances(searchResult.searchTerm, snippetInformation.termInstances), "</div>");
+                            tableHtml += "</div>";
+                            tableHtml += "</td>";
+                            tableHtml += "</tr>";
                         }
                     }
-                    // add footer
-                    tableHtml += "</table><p>" + resultCount + " " + this.getPhrase("Search_ResultCount") + "</p>";
+                    // add pagination controls
+                    tableHtml += "</table>";
+                    tableHtml += "<p>".concat(searchResults.length, " ").concat(this.getPhrase("Search_ResultCount"), "</p>");
                     // set it
                     $("#i-results", this._rootSelector).html(tableHtml);
+                    var paginationHtml = "<button id=\"i-first-search-page\" ".concat(this.currentPage === 1 || this.currentPage === 0 ? 'disabled' : '', ">First</button>\n    <button id=\"i-previous-search-page\" ").concat(this.currentPage === 1 || this.currentPage === 0 ? 'disabled' : '', ">Previous</button>\n    <span class=\"pagination-info\">Page ").concat(this.currentPage, " / ").concat(totalPages, "</span>\n    <button id=\"i-next-search-page\" ").concat(this.currentPage === totalPages ? 'disabled' : '', ">Next</button>\n    <button id=\"i-last-search-page\" ").concat(this.currentPage === totalPages ? 'disabled' : '', ">Last</button>");
+                    $(".pagination", this._rootSelector).html(paginationHtml);
+                    // Add event listeners for pagination buttons
+                    var self = this; // Capture the correct `this` context
+                    if (this.currentPage > 1) {
+                        document.getElementById("i-first-search-page").onclick = function () {
+                            searchDocumentFeature.changePage(1);
+                        };
+                        document.getElementById("i-previous-search-page").onclick = function () {
+                            searchDocumentFeature.changePage(self.currentPage - 1);
+                        };
+                    }
+                    if (this.currentPage < totalPages) {
+                        document.getElementById("i-next-search-page").onclick = function () {
+                            searchDocumentFeature.changePage(self.currentPage + 1);
+                        };
+                        document.getElementById("i-last-search-page").onclick = function () {
+                            searchDocumentFeature.changePage(totalPages);
+                        };
+                    }
                 };
-                SearchDocumentFeature.prototype.showSearchResult = function (hRef, resultIndex) {
+                SearchDocumentFeature.prototype.changePage = function (page) {
+                    this.currentPage = page;
+                    this.outputResults(this._results);
+                };
+                SearchDocumentFeature.prototype.getSnippet = function (searchResult) {
                     var highlight = $("#i-highlight", this._rootSelector);
-                    var webframe = null;
+                    var displaySnippet = null;
+                    var searchTerms = searchResult.searchTerm.split(',').map(function (term) { return term.trim(); }).filter(function (term) { return term !== ""; });
+                    var firstHighlightSnippet = null;
+                    var termInstances = {};
+                    var searchText = "";
+                    var term = null;
+                    var i = 0;
+                    var title = searchResult.searchFile.title || "";
+                    var titleLower = title.toLowerCase();
+                    for (i = 0; i < searchTerms.length; i++) {
+                        term = searchTerms[i];
+                        searchText = searchResult.keywords;
+                        var searchTermLower = term.toLowerCase();
+                        var searchTextLower = searchText.toLowerCase();
+                        if ((displaySnippet !== null && displaySnippet !== undefined) || (firstHighlightSnippet !== null && firstHighlightSnippet !== undefined)) {
+                            if (highlight.is(":checked") === true) {
+                                firstHighlightSnippet = this.highlightAvailableTerms(firstHighlightSnippet, searchTermLower, titleLower);
+                                firstHighlightSnippet = this.highlightAvailableTermsWithoutDiacritics(firstHighlightSnippet, searchTermLower, titleLower);
+                                displaySnippet = this.highlightAvailableTerms(displaySnippet, searchTermLower, titleLower);
+                                displaySnippet = this.highlightAvailableTermsWithoutDiacritics(displaySnippet, searchTermLower, titleLower);
+                            }
+                            continue;
+                        }
+                        var position = searchTextLower.indexOf(searchTermLower);
+                        // Fix: declare lowerTermWithoutDiacritics before use
+                        var lowerTermWithoutDiacritics = searchTermLower;
+                        if (position === -1) {
+                            var searchTextWithoutDiacritics = this._diacriticsHelper.removeDiacritics(searchTextLower);
+                            lowerTermWithoutDiacritics = this._diacriticsHelper.removeDiacritics(searchTermLower);
+                            position = searchTextWithoutDiacritics.indexOf(lowerTermWithoutDiacritics);
+                        }
+                        while (position !== -1) {
+                            // Find the end of the title in the keywords string
+                            var searchTextLower = searchText.toLowerCase();
+                            var titleIdx = searchTextLower.indexOf(titleLower);
+                            var snippetStart = 0;
+                            // If the title is found, start after the title
+                            if (titleIdx !== -1) {
+                                snippetStart = titleIdx + title.length;
+                            }
+                            // Only consider matches after the title
+                            if (position < snippetStart) {
+                                position = searchTextLower.indexOf(searchTermLower, snippetStart);
+                                if (position === -1) {
+                                    position = searchTextLower.indexOf(lowerTermWithoutDiacritics, snippetStart);
+                                }
+                                else {
+                                    // If the position is still before the title, continue searching
+                                    continue;
+                                }
+                            }
+                            var start = Math.max(position - 60, snippetStart);
+                            var end = Math.min(position + searchTermLower.length + 60, searchText.length);
+                            var snippet = searchText.substring(start, end);
+                            // Highlight the search term in the snippet (but not in the title)
+                            var highlightSnippet = highlight.is(":checked") === true ? this.highlightAvailableTerms(snippet, searchTermLower, titleLower) : snippet;
+                            highlightSnippet = highlight.is(":checked") === true ? this.highlightAvailableTermsWithoutDiacritics(highlightSnippet, lowerTermWithoutDiacritics, titleLower) : highlightSnippet;
+                            var expandIdx = snippet.indexOf("Expand All");
+                            var collapseIdx = snippet.indexOf("Collapse All");
+                            var afterIdx = -1;
+                            if (expandIdx !== -1) {
+                                afterIdx = expandIdx + "Expand All".length;
+                            }
+                            else if (collapseIdx !== -1) {
+                                afterIdx = collapseIdx + "Collapse All".length;
+                            }
+                            if (afterIdx !== -1) {
+                                // Find the first word after "Expand All" or "Collapse All"
+                                var rest = snippet.substring(afterIdx).trim();
+                                var firstWordMatch = rest.match(/^\w+/);
+                                if (firstWordMatch) {
+                                    var firstWordIdx = snippet.indexOf(firstWordMatch[0], afterIdx);
+                                    // Rebuild snippet from the first word after the marker
+                                    snippet = snippet.substring(firstWordIdx, end);
+                                }
+                            }
+                            // Set the first highlighted snippet (120 characters)
+                            if (firstHighlightSnippet === null || firstHighlightSnippet === undefined) {
+                                firstHighlightSnippet = highlightSnippet;
+                                if (start > snippetStart) {
+                                    firstHighlightSnippet = '... ' + firstHighlightSnippet;
+                                }
+                                if (end < searchText.length) {
+                                    firstHighlightSnippet = firstHighlightSnippet + ' ...';
+                                }
+                            }
+                            // Update or add the term in the termInstances list
+                            if (!termInstances[term]) {
+                                termInstances[term] = 0;
+                            }
+                            start = Math.max(position - 120, snippetStart);
+                            end = Math.min(position + searchTermLower.length + 126, searchText.length);
+                            snippet = searchText.substring(start, end);
+                            // Check for "Expand All" or "Collapse All" in the snippet
+                            afterIdx = -1;
+                            if (expandIdx !== -1) {
+                                afterIdx = expandIdx + "Expand All".length;
+                            }
+                            else if (collapseIdx !== -1) {
+                                afterIdx = collapseIdx + "Collapse All".length;
+                            }
+                            if (afterIdx !== -1) {
+                                // Find the first word after "Expand All" or "Collapse All"
+                                var rest = snippet.substring(afterIdx).trim();
+                                var firstWordMatch = rest.match(/^\w+/);
+                                if (firstWordMatch) {
+                                    var firstWordIdx = snippet.indexOf(firstWordMatch[0], afterIdx);
+                                    // Rebuild snippet from the first word after the marker
+                                    snippet = snippet.substring(firstWordIdx, end);
+                                }
+                            }
+                            // Highlight the search term in the snippet (but not in the title)
+                            displaySnippet = highlight.is(":checked") === true ? this.highlightAvailableTerms(snippet, searchTermLower, titleLower) : snippet;
+                            break;
+                        }
+                        // Ensure all terms in termInstances are accounted for, even if not found in the current snippet
+                        for (var _i = 0, searchTerms_4 = searchTerms; _i < searchTerms_4.length; _i++) {
+                            var currentTerm = searchTerms_4[_i];
+                            if (!termInstances[currentTerm]) {
+                                termInstances[currentTerm] = 0; // Add the term with a count of 0 if it does not exist
+                            }
+                        }
+                    }
+                    // Update any snippets that have any additional search terms in them
+                    for (var k = 0; k < searchTerms.length; k++) {
+                        if (searchText !== null && searchText !== undefined) {
+                            // Find the end of the title in the keywords/content
+                            var title = searchResult.searchFile.title || "";
+                            var searchTextLower = searchText.toLowerCase();
+                            var titleLower = title.toLowerCase();
+                            var titleIdx = searchTextLower.indexOf(titleLower);
+                            var highlightStart = 0;
+                            if (titleIdx !== -1) {
+                                highlightStart = titleIdx + title.length;
+                            }
+                            // Only highlight after the title
+                            var beforeTitle = searchText.substring(0, highlightStart);
+                            var afterTitle = searchText.substring(highlightStart);
+                            if (afterTitle.indexOf(searchTerms[k]) === -1 &&
+                                afterTitle.indexOf(this._diacriticsHelper.removeDiacritics(searchTerms[k])) === -1) {
+                                // If the search term is not found after the title, highlight it
+                                searchText = this.highlightAvailableTerms(searchText, searchTerms[k], titleLower);
+                                searchText = this.highlightAvailableTermsWithoutDiacritics(searchText, searchTerms[k], titleLower);
+                            }
+                            else {
+                                var highlightedAfterTitle = this.highlightAvailableTerms(afterTitle, searchTerms[k], titleLower);
+                                highlightedAfterTitle = this.highlightAvailableTermsWithoutDiacritics(highlightedAfterTitle, searchTerms[k], titleLower);
+                                searchText = beforeTitle + highlightedAfterTitle;
+                            }
+                        }
+                        if (firstHighlightSnippet !== null && firstHighlightSnippet !== undefined && highlight.is(":checked") === true) {
+                            firstHighlightSnippet = this.highlightAvailableTerms(firstHighlightSnippet, searchTerms[k], titleLower);
+                            firstHighlightSnippet = this.highlightAvailableTermsWithoutDiacritics(firstHighlightSnippet, searchTerms[k], titleLower);
+                        }
+                        if (displaySnippet !== null && displaySnippet !== undefined && highlight.is(":checked") === true) {
+                            displaySnippet = this.highlightAvailableTerms(displaySnippet, searchTerms[k], titleLower);
+                            displaySnippet = this.highlightAvailableTermsWithoutDiacritics(displaySnippet, searchTerms[k], titleLower);
+                        }
+                    }
+                    for (var j = 0; j < searchTerms.length; j++) {
+                        var count = 0;
+                        // Only count terms that are actually inside highlight spans
+                        var tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = searchText;
+                        var highlights = tempDiv.querySelectorAll("span.i-search-highlight");
+                        for (var h = 0; h < highlights.length; h++) {
+                            if (this._diacriticsHelper.removeDiacritics(highlights[h].textContent.toLowerCase()) === this._diacriticsHelper.removeDiacritics(searchTerms[j]) ||
+                                highlights[h].textContent.toLowerCase() === searchTerms[j]) {
+                                count++;
+                            }
+                        }
+                        if (!termInstances[searchTerms[j]]) {
+                            termInstances[searchTerms[j]] = 0;
+                        }
+                        termInstances[searchTerms[j]] += count;
+                    }
+                    firstHighlightSnippet = this.cleanSnippet(firstHighlightSnippet);
+                    displaySnippet = this.cleanSnippet(displaySnippet);
+                    return { firstSnippet: firstHighlightSnippet, displaySnippet: displaySnippet, termInstances: termInstances };
+                };
+                SearchDocumentFeature.prototype.cleanSnippet = function (snippet) {
+                    if (!snippet)
+                        return snippet;
+                    // Allow a wide range of non-Latin scripts and pictographs, plus common punctuation, tags, and ellipsis.
+                    // Unicode ranges include: CJK, Hiragana, Katakana, Hangul, Thai, Devanagari, Arabic, Hebrew, Greek, Cyrillic,
+                    // Georgian, Armenian, Ethiopic, Tamil, Bengali, Lao, Khmer, Myanmar, and various pictographs and symbols.
+                    // \u4E00-\u9FFF (CJK Unified Ideographs)
+                    // \u3040-\u309F (Hiragana)
+                    // \u30A0-\u30FF (Katakana)
+                    // \uAC00-\uD7AF (Hangul Syllables)
+                    // \u0E00-\u0E7F (Thai)
+                    // \u0900-\u097F (Devanagari)
+                    // \u0600-\u06FF (Arabic)
+                    // \u0590-\u05FF (Hebrew)
+                    // \u0370-\u03FF (Greek)
+                    // \u0400-\u04FF (Cyrillic)
+                    // \u10A0-\u10FF (Georgian)
+                    // \u0530-\u058F (Armenian)
+                    // \u1200-\u137F (Ethiopic)
+                    // \u0B80-\u0BFF (Tamil)
+                    // \u0980-\u09FF (Bengali)
+                    // \u0ED0-\u0EFF (Lao)
+                    // \u1780-\u17FF (Khmer)
+                    // \u1000-\u109F (Myanmar)
+                    // \u1F300-\u1F5FF (Miscellaneous Symbols and Pictographs)
+                    // \u1F600-\u1F64F (Emoticons)
+                    // \u1F680-\u1F6FF (Transport and Map Symbols)
+                    // \u1F700-\u1F77F (Alchemical Symbols)
+                    // \u1F780-\u1F7FF (Geometric Shapes Extended)
+                    // \u1F800-\u1F8FF (Supplemental Arrows-C)
+                    // \u1F900-\u1F9FF (Supplemental Symbols and Pictographs)
+                    // \u1FA00-\u1FA6F (Chess Symbols)
+                    // \u1FA70-\u1FAFF (Symbols and Pictographs Extended-A)
+                    return snippet.replace(/(?!<[^>]*>)(?!\.\.\.)([^\w\s.,;:!?'"’ء״׳()\[\]{}\-<>=\/\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF\u0E00-\u0E7F\u0900-\u097F\u0600-\u06FF\u0590-\u05FF\u0370-\u03FF\u0400-\u04FF\u10A0-\u10FF\u0530-\u058F\u1200-\u137F\u0B80-\u0BFF\u0980-\u09FF\u0ED0-\u0EFF\u1780-\u17FF\u1000-\u109F\u1F300-\u1F5FF\u1F600-\u1F64F\u1F680-\u1F6FF\u1F700-\u1F77F\u1F780-\u1F7FF\u1F800-\u1F8FF\u1F900-\u1F9FF\u1FA00-\u1FA6F\u1FA70-\u1FAFF])/g, "");
+                };
+                SearchDocumentFeature.prototype.getNextAvailableMatch = function (text, term, startIdx) {
+                    var idx = text.indexOf(term, startIdx);
+                    mainLoop: while (idx !== -1) {
+                        // Fast check for being inside a tag using lastIndexOf instead of char-by-char loop
+                        var lastLt = text.lastIndexOf('<span', idx);
+                        var lastGt = text.lastIndexOf('span>', idx);
+                        if (lastLt === -1 || lastGt > lastLt) {
+                            // Not inside a tag
+                            var before = text.substring(0, idx);
+                            var openTag = before.lastIndexOf('<span class="i-search-highlight">');
+                            var closeTag = before.lastIndexOf('</span>');
+                            if (openTag === -1 || openTag < closeTag) {
+                                return idx;
+                            }
+                        }
+                        idx = text.indexOf(term, idx + term.length);
+                    }
+                    return -1;
+                };
+                SearchDocumentFeature.prototype.highlightAvailableTerms = function (text, term, title) {
+                    var result = '';
+                    var searchText = String(text); // Ensure text is a string
+                    var lowerText = searchText.toLowerCase();
+                    var lowerTerm = String(term).toLowerCase(); // Ensure term is a string
+                    // Find the index of the title
+                    var startIndex = 0;
+                    // Now, search for and highlight the term from the determined startIndex
+                    var lastIdx = startIndex;
+                    var currentSearchText = searchText.substring(startIndex);
+                    var currentLowerText = lowerText.substring(startIndex);
+                    // Re-define idx using the substring
+                    var idx = this.getNextAvailableMatch(currentLowerText, lowerTerm, 0);
+                    while (idx !== -1) {
+                        result += currentSearchText.substring(lastIdx - startIndex, idx);
+                        var highlightedText = currentSearchText.substring(idx, idx + lowerTerm.length);
+                        result += "<span class=\"i-search-highlight\">".concat(highlightedText, "</span>");
+                        lastIdx = idx + lowerTerm.length + startIndex; // Adjust lastIdx to be relative to the original string
+                        idx = this.getNextAvailableMatch(currentLowerText, lowerTerm, idx + lowerTerm.length);
+                    }
+                    // Add any remaining text
+                    if (lastIdx < searchText.length) {
+                        result += searchText.substring(lastIdx);
+                    }
+                    return result;
+                };
+                SearchDocumentFeature.prototype.highlightAvailableTermsWithoutDiacritics = function (text, term, title) {
+                    // ES5 only, diacritic-insensitive fallback used only if there are NO existing highlight spans
+                    if (text == null || term == null)
+                        return text;
+                    var originalText = String(text);
+                    // If already highlighted, don't touch (requirement: only run if no highlight spans)
+                    if (originalText.indexOf('i-search-highlight') !== -1)
+                        return originalText;
+                    var rawTerm = String(term);
+                    if (rawTerm.length === 0)
+                        return originalText;
+                    if (!this._diacriticsHelper || typeof this._diacriticsHelper.removeDiacritics !== "function")
+                        return originalText;
+                    // Normalized (diacritics removed) versions (assumes helper is length-preserving; if not, mapping would be required)
+                    var normText = this._diacriticsHelper.removeDiacritics(originalText);
+                    var normTerm = this._diacriticsHelper.removeDiacritics(rawTerm);
+                    if (!normTerm)
+                        return originalText;
+                    var result = '';
+                    var searchText = String(normText); // Ensure text is a string
+                    var lowerText = searchText.toLowerCase();
+                    var lowerTerm = String(normTerm).toLowerCase(); // Ensure term is a string
+                    // Find the index of the title
+                    var startIndex = 0;
+                    // Now, search for and highlight the term from the determined startIndex
+                    var lastIdx = startIndex;
+                    var currentSearchText = searchText.substring(startIndex);
+                    var currentLowerText = lowerText.substring(startIndex);
+                    // Re-define idx using the substring
+                    var idx = this.getNextAvailableMatch(currentLowerText, lowerTerm, 0);
+                    while (idx !== -1) {
+                        result += originalText.substring(lastIdx - startIndex, idx);
+                        var highlightedText = originalText.substring(idx, idx + lowerTerm.length);
+                        result += "<span class=\"i-search-highlight\">".concat(highlightedText, "</span>");
+                        lastIdx = idx + lowerTerm.length + startIndex; // Adjust lastIdx to be relative to the original string
+                        idx = this.getNextAvailableMatch(currentLowerText, lowerTerm, idx + lowerTerm.length);
+                    }
+                    // Add any remaining text
+                    if (lastIdx < searchText.length) {
+                        result += searchText.substring(lastIdx);
+                    }
+                    return result;
+                };
+                SearchDocumentFeature.prototype.formatKeywordInstances = function (searchTerm, termInstances) {
+                    var formattedInstances = "<strong>Keywords Instances:</strong><br />";
+                    var terms = searchTerm.split(',').map(function (term) { return term.trim(); }).filter(function (term) { return term !== ""; });
+                    for (var _i = 0, terms_2 = terms; _i < terms_2.length; _i++) {
+                        var term = terms_2[_i];
+                        var count = termInstances[term];
+                        if (count !== undefined && count !== null) {
+                            formattedInstances += '<div class="i-keyword">' + term + ' (' + count + ')</div>';
+                        }
+                    }
+                    if (formattedInstances === "<strong>Keywords Instances:</strong><br />") {
+                        formattedInstances = "";
+                    }
+                    else {
+                        formattedInstances = formattedInstances.replace(/<div class="i-keyword">(<\/div>)+/g, ""); // Remove empty divs
+                    }
+                    return formattedInstances;
+                };
+                SearchDocumentFeature.prototype.showSearchResult = function (hRef, resultTerms, resultIndex) {
+                    var highlight = $("#i-highlight", this._rootSelector);
+                    var webFrame = null;
                     if (window.parent != null && window.parent.parent != null) {
-                        webframe = window.parent.parent;
+                        webFrame = window.parent.parent;
                     }
                     if (highlight.is(":checked")) {
                         // message listener takes care of highlight when the content loads
                         this._webSearchPendingHighlight = hRef;
                     }
-                    if (!this._isFullTextSearchFrameless && webframe != null) {
-                        Content.Messaging.routeMessageToWindow(webframe, Features.NavigationMessageNames.navigate, hRef);
-                        Content.Messaging.routeMessageToWindow(webframe, Features.NavigationMessageNames.closeNavigationPane, null);
-                        if (resultIndex != null) {
-                            this._clickedResult = this._results[resultIndex];
+                    if (!this._isFullTextSearchFrameless && webFrame != null) {
+                        // full text search, navigate to the result in the content frame
+                        if (resultTerms != null && highlight.is(":checked")) {
+                            if (resultIndex !== null) {
+                                this._clickedResult = this.getClickedResult(resultIndex);
+                                if (hRef !== this._clickedResult.searchFile.url) {
+                                    hRef = this._clickedResult.searchFile.url;
+                                }
+                                if (resultTerms !== this._clickedResult.searchTerm) {
+                                    resultTerms = this._clickedResult.searchTerm;
+                                }
+                            }
+                            hRef = "".concat(hRef, "?highlight=").concat(encodeURIComponent(resultTerms));
                         }
+                        Content.Messaging.routeMessageToWindow(webFrame, Features.NavigationMessageNames.navigate, hRef);
+                        Content.Messaging.routeMessageToWindow(webFrame, Features.NavigationMessageNames.closeNavigationPane, null);
                     }
                     else {
-                        if (resultIndex != null && highlight.is(":checked")) {
-                            var clickedResult = this._results[resultIndex];
-                            hRef = hRef + "?highlight=" + encodeURIComponent(clickedResult.keywords);
+                        // frameless search, navigate to the result
+                        if (resultTerms != null && highlight.is(":checked")) {
+                            if (resultIndex !== null) {
+                                this._clickedResult = this.getClickedResult(resultIndex);
+                                if (hRef !== this._clickedResult.searchFile.url) {
+                                    hRef = this._clickedResult.searchFile.url;
+                                }
+                                if (resultTerms !== this._clickedResult.searchTerm) {
+                                    resultTerms = this._clickedResult.searchTerm;
+                                }
+                            }
+                            hRef = "".concat(hRef, "?highlight=").concat(encodeURIComponent(resultTerms));
                         }
                         Content.Browser.navigateTo(hRef, false);
                     }
                 };
+                SearchDocumentFeature.prototype.getClickedResult = function (resultIndex) {
+                    var clickedResult = this._results[resultIndex];
+                    if (clickedResult === undefined || clickedResult === null || clickedResult.fileIndex !== resultIndex) {
+                        var foundResult = this._results.filter(function (x) { return x.fileIndex === resultIndex; });
+                        if (foundResult.length > 0) {
+                            clickedResult = foundResult[0];
+                        }
+                        else {
+                            // If not found, fallback to the first result
+                            clickedResult = this._results[resultIndex];
+                        }
+                    }
+                    return clickedResult;
+                };
                 SearchDocumentFeature.prototype.highlightContentFrame = function () {
                     Content.Messaging.routeMessageToWindow(parent, Content.DocumentMessageNames.resetQuickSearch, null);
                     if (this._clickedResult != null) {
-                        var keywords = this._clickedResult.keywords.split(",");
-                        for (var _i = 0, keywords_1 = keywords; _i < keywords_1.length; _i++) {
-                            var keyword = keywords_1[_i];
-                            if (keyword != null && keyword !== "") {
-                                Content.Messaging.routeMessageToWindow(parent, Content.DocumentMessageNames.quickSearch, keyword);
+                        var terms = this._clickedResult.searchTerm.split(",");
+                        for (var _i = 0, terms_3 = terms; _i < terms_3.length; _i++) {
+                            var term = terms_3[_i];
+                            if (term != null && term !== "") {
+                                Content.Messaging.routeMessageToWindow(parent, Content.DocumentMessageNames.quickSearch, term);
                             }
                         }
                     }
@@ -3768,9 +4560,9 @@ var Innovasys;
                     // tokenise
                     var tokens = searchText.split(" ");
                     // build keywords array
-                    var keywords = [];
-                    for (var _i = 0, tokens_2 = tokens; _i < tokens_2.length; _i++) {
-                        var token = tokens_2[_i];
+                    var terms = [];
+                    for (var _i = 0, tokens_1 = tokens; _i < tokens_1.length; _i++) {
+                        var token = tokens_1[_i];
                         if (token.length > 0) {
                             // strip out any delimiters & whitespace
                             token = token.replace(new RegExp("\'", "ig"), "");
@@ -3779,11 +4571,11 @@ var Innovasys;
                             // add to array
                             if (!((token === "or") || (token === "and"))) {
                                 // add to keywords array
-                                keywords.push(token);
+                                terms.push(token);
                             }
                         }
                     }
-                    return keywords;
+                    return terms;
                 };
                 SearchDocumentFeature.prototype.onMessage = function (message) {
                     if (!this._isEnabled) {
@@ -3806,6 +4598,34 @@ var Innovasys;
                             Content.Messaging.routeMessageToWindow(parent, message.messageType, message.messageData);
                             break;
                         // No default
+                    }
+                };
+                SearchDocumentFeature.prototype.populateTitleContentArrays = function (allWords, searchFiles, titleArray, contentArray) {
+                    for (var index = 1; index < searchFiles.length; index++) {
+                        var titleAndContentValue = allWords["_" + index];
+                        if (titleAndContentValue != null) {
+                            var marker = "Content¬";
+                            var markerIdx = titleAndContentValue.indexOf(marker);
+                            if (markerIdx !== -1) {
+                                var title = titleAndContentValue.substring(0, markerIdx - 1);
+                                var content = titleAndContentValue.substring(markerIdx);
+                                var actualTitle = index + "¬" + (title.split('¬')[1] || "");
+                                var actualContent = index + "¬" + (content.split('¬')[1] || "");
+                                if (actualContent !== "" &&
+                                    actualContent !== undefined &&
+                                    contentArray.indexOf(actualContent) === -1) {
+                                    if (content.indexOf(title) === -1) {
+                                        actualContent = "".concat(index, "\u00AC").concat(title.split('¬')[1], " ").concat(content.split('¬')[1]);
+                                    }
+                                    contentArray.push(actualContent);
+                                }
+                                if (actualTitle !== "" &&
+                                    actualTitle !== undefined &&
+                                    titleArray.indexOf(actualTitle) === -1) {
+                                    titleArray.push(actualTitle);
+                                }
+                            }
+                        }
                     }
                 };
                 return SearchDocumentFeature;
@@ -3843,6 +4663,7 @@ var Innovasys;
                     _this._isFilterVisibility = false;
                     _this._isEnabled = false;
                     _this._rootSelector = null;
+                    _this._diacriticsHelper = null;
                     return _this;
                 }
                 IndexDocumentFeature.prototype.getName = function () {
@@ -3858,6 +4679,7 @@ var Innovasys;
                             this._isFilterVisibility = true;
                         }
                     }
+                    this._diacriticsHelper = new Features.DiacriticsHelper;
                     this._rootSelector = rootSelector;
                     if ($("#i-index-container", rootSelector).length > 0) {
                         this._isEnabled = true;
@@ -3887,9 +4709,9 @@ var Innovasys;
                             setTimeout(function () {
                                 var indexContainer = $("#i-index-container");
                                 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                indexContainer.css("height", indexContainer.height() - indexConstants.heightMargin + "px");
+                                indexContainer.css("height", "".concat(indexContainer.height() - indexConstants.heightMargin, "px"));
                                 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                indexContainer.css("width", indexContainer.width() + "px");
+                                indexContainer.css("width", "".concat(indexContainer.width(), "px"));
                             }, 1);
                         });
                     }
@@ -3913,14 +4735,16 @@ var Innovasys;
                     }
                 };
                 IndexDocumentFeature.prototype.findIndexEntry = function () {
+                    var diacriticsRemoverFunc = this._diacriticsHelper.removeDiacritics;
                     var term = $("#i-index-container #i-search", this._rootSelector).val();
-                    term = term.toLowerCase();
+                    term = this._diacriticsHelper.removeDiacritics(term.toLowerCase());
                     if (this._isFilterVisibility) {
                         // Filter the list to only show matching
-                        var regex_1 = new RegExp("^" + term, "i");
+                        var regex_1 = new RegExp("^".concat(term), "i");
+                        var diacriticsRemoverFunc_1 = this._diacriticsHelper.removeDiacritics;
                         $("a,span", this._rootSelector.find("#i-index-body")).each(function (_, element) {
-                            if ($(element)
-                                .text()
+                            if (diacriticsRemoverFunc_1($(element)
+                                .text())
                                 .match(regex_1)) {
                                 $(element).css("display", "inline-block");
                                 $(element)
@@ -3961,8 +4785,8 @@ var Innovasys;
                             var anchor = $("a,span", this._rootSelector.find("#i-index-body"))
                                 .filter(function (_, element) {
                                 if (term != null && term !== ""
-                                    && $(element)
-                                        .text()
+                                    && diacriticsRemoverFunc($(element)
+                                        .text())
                                         .substring(0, term.length)
                                         .toLowerCase() === term) {
                                     return true;

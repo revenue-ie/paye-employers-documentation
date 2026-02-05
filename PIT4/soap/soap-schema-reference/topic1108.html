@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />" --><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%LocalItemTitle%%</title>" --><title>CheckErrSubmissionOperation (Method)</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content=""/><!--DXMETADATA end-->
+    
+    
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{versions:{popupContainer:'#i-after-header-content'}}},{settings:{"dynamictoc":{"initialNodeId":"n0","initialNodeContainer":"c0"},"currentLocale":"-","isFrameless":false,"navigationKind":"frames","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="css"--><link rel="stylesheet" type="text/css" href="template/packages/plugins-webservice/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-webservice/dx.webservice.mshv1.css"" data-responsive-mobile=""template/packages/core-webservice/dx.webservice.mobile.css"" data-responsive-tablet=""template/packages/core-webservice/dx.webservice.tablet.css"""--><link rel="stylesheet" type="text/css" href="template/packages/core-webservice/css/dx.webservice.css"  data-mshv2-stylesheet="/template/packages/core-webservice/dx.webservice.mshv2.css" data-mshv1-stylesheet="/template/packages/core-webservice/dx.webservice.mshv1.css" data-responsive-mobile="template/packages/core-webservice/dx.webservice.mobile.css" data-responsive-tablet="template/packages/core-webservice/dx.webservice.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-webservice" filetype="script"--><script src="template/packages/plugins-webservice/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-webservice" filetype="script"--><script src="template/packages/core-webservice/script/dx.webservice.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="Enhanced Reporting_ws~r-CheckErrSubmissionOperation~o-Method"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+    <!--DXMETADATA start type="CanonicalLink" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+    <div id="i-header-content" class="i-header-content">
+        <!--DXMETADATA start type="LogoImage" --><img class="logoimage" src="RevenueLogo.jpg" border="0"></img><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Enhanced Reporting Web Service<!--DXMETADATA end--></div>
+        <div class="i-page-title"><div class="i-page-title-text">
+			    <!--DXMETADATA start type="Scrap" name="_OPERATION_PAGE_TITLE" --><table class="i-operation-page-title"><tr><td class="i-operation-kind Method">Method</td><td class="i-operation-page-title-text">CheckErrSubmissionOperation</td></tr></table><!--DXMETADATA end-->
+			</div></div>
+    </div>
+    <div id="i-after-header-content" class="i-after-header-content">
+        <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="IsWebOutputRootPageLinkEnabled" format="<a href='#' class='i-page-link i-view-in-frame-link' title='$$VIEW_WITH_NAVIGATION_TOOLS_TIP$$' style='display: none' data-root-page='%%WebOutputRootPage%%%%OutputFileExtension%%' target='_top'>$$VIEW_WITH_NAVIGATION_TOOLS_TEXT$$</a>" --><!--DXMETADATA end-->
+    </div>
+    <!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container"><table><tr><td>
+<a href="topic1105.html">Enhanced Reporting Web Service</a>
+ > <a href="topic1106.html">All Operations Resource Group</a>
+ : CheckErrSubmissionOperation (Method)</td></tr></table></div><!--DXMETADATA end -->
+    
+    
+    <div id="i-body-content" class="i-body-content">
+        <!--DXMETADATA start type="ResourcePath" condition="content:content=""%%ResourcePath%%"",operator=""<>"",value=""%%ItemName%%""" format="<p class=""resource-path-container""><strong>$$RESOURCE_PATH$$</strong> <span class=""i-resource-path"">%%ResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="FullyQualifiedResourcePath" condition="content:content=""%%IncludeFullResourceUriInOperationPages%%"",operator=""="",value=""True""" format="<p class=""resource-path-container""><strong>$$URI$$</strong> <span class=""i-resource-path"">%%FullyQualifiedResourcePath%%</span></p>" --><!--DXMETADATA end -->
+
+            <!--DXMETADATA start type="Description" source="Item" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=description,caption=$$Summary$$%%<div class=""i-description-content"">%%description%%</div></div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##REMARKS" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=remarks,caption=$$Description$$%%%%comment%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="PARAMETER_LIST" namespace="parameter" source="Item" filter="type=!header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Parameters$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="HEADER_LIST" namespace="parameter" source="Item" filter="type=header" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$REQUEST_HEADERS$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+            
+            <!--DXMETADATA start type="FilteredItemList" scrap="REQUEST_LIST" namespace="request" source="Item" -->
+<div class="i-section-heading" id="i-request_CheckErrSubmissionRequest-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">Request  (CheckErrSubmissionRequest)</span></div><div id="i-request_CheckErrSubmissionRequest-section-content" class="i-section-content"><p>The request body is of type <a href="topic362.html">CheckErrSubmissionRequest</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic362.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionRequest" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionRequest" name="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionRequest">
+  <area shape="rect" coords="539, 256, 826, 290" href="topic395.html" alt="SubmissionID Element" title="SubmissionID Element" />
+  <area shape="rect" coords="539, 214, 1036, 248" href="topic394.html" alt="EnhancedReportingRunReference Element" title="EnhancedReportingRunReference Element" />
+  <area shape="rect" coords="925, 172, 1194, 206" href="topic483.html" alt="Version Element" title="Version Element" />
+  <area shape="rect" coords="925, 130, 1188, 164" href="topic482.html" alt="Name Element" title="Name Element" />
+  <area shape="rect" coords="783, 150, 884, 185" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="539, 151, 763, 185" href="topic393.html" alt="SoftwareUsed Element" title="SoftwareUsed Element" />
+  <area shape="rect" coords="539, 88, 763, 122" href="topic392.html" alt="TaxYear Element" title="TaxYear Element" />
+  <area shape="rect" coords="539, 46, 850, 80" href="topic391.html" alt="AgentTain Element" title="AgentTain Element" />
+  <area shape="rect" coords="539, 4, 909, 38" href="topic390.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element" />
+  <area shape="rect" coords="397, 130, 498, 165" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="0, 130, 377, 164" href="topic362.html" alt="CheckErrSubmissionRequest Element" title="CheckErrSubmissionRequest Element" />
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic389.html">CheckErrSubmissionRequest</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Request to check the current status of an Employer's PAYE Enhanced Reporting Submission, based on the Submission ID.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic390.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic514.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 1. Employer's PAYE Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic391.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic503.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission filed by agent on behalf of employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic392.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 6. Used to identify the tax year to which the submission relates (YYYY).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic393.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic481.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Refs: 7 and 8. Third party software product identifier.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic482.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 7. Name of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic483.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 8. Version of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic394.html">EnhancedReportingRunReference</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic516.html">enhancedReportingRunReference Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 4. Used to identify the Enhanced Reporting event to which the submission refers.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic395.html">SubmissionID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic538.html">submissionID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="SUCCESS_RESPONSE_LIST" namespace="response" source="Item" filter="type=success" -->
+<div class="i-section-heading" id="i-response_CheckErrSubmissionResponse-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">200 Response  (CheckErrSubmissionResponse)</span></div><div id="i-response_CheckErrSubmissionResponse-section-content" class="i-section-content"><p>The response body is of type <a href="topic363.html">CheckErrSubmissionResponse</a>.</p><div class="i-xsd-diagram-container"><img class="i-xsd-diagram" border="0" src="xsddiagramimages/topic363.png" usemap="#xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionResponse" /><map id="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionResponse" name="xsddiagrammap-Enhanced Reporting_xsd~e-CheckErrSubmissionResponse">
+  <area shape="rect" coords="966, 928, 1155, 962" href="topic425.html" alt="Id Element" title="Id Element" />
+  <area shape="rect" coords="966, 886, 1254, 920" href="topic424.html" alt="Description Element" title="Description Element" />
+  <area shape="rect" coords="966, 844, 1240, 878" href="topic423.html" alt="Path Element" title="Path Element" />
+  <area shape="rect" coords="966, 802, 1190, 836" href="topic422.html" alt="Code Element" title="Code Element" />
+  <area shape="rect" coords="824, 864, 925, 899" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="554, 865, 804, 899" href="topic403.html" alt="ValidationError Element" title="ValidationError Element" />
+  <area shape="rect" coords="1447, 760, 1755, 794" href="topic496.html" alt="Description Element" title="Description Element" />
+  <area shape="rect" coords="1447, 718, 1741, 752" href="topic495.html" alt="Path Element" title="Path Element" />
+  <area shape="rect" coords="1447, 676, 1691, 710" href="topic494.html" alt="Code Element" title="Code Element" />
+  <area shape="rect" coords="1305, 718, 1406, 753" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="1080, 718, 1285, 752" href="topic499.html" alt="Warning Element" title="Warning Element" />
+  <area shape="rect" coords="1080, 634, 1418, 668" href="topic498.html" alt="LineItemID Element" title="LineItemID Element" />
+  <area shape="rect" coords="938, 696, 1039, 731" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="554, 697, 918, 731" href="topic402.html" alt="WarningExpenseBenefit Element" title="WarningExpenseBenefit Element" />
+  <area shape="rect" coords="1385, 592, 1673, 626" href="topic420.html" alt="Description Element" title="Description Element" />
+  <area shape="rect" coords="1385, 550, 1659, 584" href="topic419.html" alt="Path Element" title="Path Element" />
+  <area shape="rect" coords="1385, 508, 1609, 542" href="topic418.html" alt="Code Element" title="Code Element" />
+  <area shape="rect" coords="1243, 550, 1344, 585" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="1060, 550, 1223, 584" href="topic457.html" alt="Error Element" title="Error Element" />
+  <area shape="rect" coords="1060, 466, 1398, 500" href="topic456.html" alt="LineItemID Element" title="LineItemID Element" />
+  <area shape="rect" coords="918, 528, 1019, 563" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="554, 529, 898, 563" href="topic401.html" alt="InvalidExpenseBenefit Element" title="InvalidExpenseBenefit Element" />
+  <area shape="rect" coords="1232, 424, 1535, 458" href="topic447.html" alt="ExpensesBenefitsToDeleteCount Element" title="ExpensesBenefitsToDeleteCount Element" />
+  <area shape="rect" coords="1232, 382, 1490, 416" href="topic446.html" alt="ExpensesBenefitsCount Element" title="ExpensesBenefitsCount Element" />
+  <area shape="rect" coords="1232, 340, 1389, 374" href="topic445.html" alt="Amount Element" title="Amount Element" />
+  <area shape="rect" coords="1090, 382, 1191, 417" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="554, 382, 1070, 416" href="topic400.html" alt="ExpenseBenefitSubmissionSummary Element" title="ExpenseBenefitSubmissionSummary Element" />
+  <area shape="rect" coords="1379, 298, 1648, 332" href="topic483.html" alt="Version Element" title="Version Element" />
+  <area shape="rect" coords="1379, 256, 1642, 290" href="topic482.html" alt="Name Element" title="Name Element" />
+  <area shape="rect" coords="1237, 276, 1338, 311" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="993, 277, 1217, 311" href="topic492.html" alt="SoftwareUsed Element" title="SoftwareUsed Element" />
+  <area shape="rect" coords="993, 214, 1217, 248" href="topic491.html" alt="TaxYear Element" title="TaxYear Element" />
+  <area shape="rect" coords="993, 172, 1490, 206" href="topic490.html" alt="EnhancedReportingRunReference Element" title="EnhancedReportingRunReference Element" />
+  <area shape="rect" coords="993, 130, 1304, 164" href="topic489.html" alt="AgentTain Element" title="AgentTain Element" />
+  <area shape="rect" coords="993, 88, 1363, 122" href="topic488.html" alt="EmployerRegistrationNumber Element" title="EmployerRegistrationNumber Element" />
+  <area shape="rect" coords="851, 192, 952, 227" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="554, 193, 831, 227" href="topic399.html" alt="SubmissionHeader Element" title="SubmissionHeader Element" />
+  <area shape="rect" coords="554, 46, 877, 80" href="topic398.html" alt="Status Element" title="Status Element" />
+  <area shape="rect" coords="554, 4, 841, 38" href="topic397.html" alt="SubmissionID Element" title="SubmissionID Element" />
+  <area shape="rect" coords="412, 466, 513, 501" alt="Sequence" title="Sequence" />
+  <area shape="rect" coords="0, 466, 392, 500" href="topic363.html" alt="CheckErrSubmissionResponse Element" title="CheckErrSubmissionResponse Element" />
+</map></div><h3>Overview</h3><TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-complextype-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/complextype.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic396.html">CheckErrSubmissionResponse</A> <SPAN class=i-type></SPAN>
+<DIV class=i-child-tree-description>Return the current status of an Employer's PAYE Enhanced Reporting Submission. If processed, includes summary totals of valid data items and validation errors for invalid data items.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic397.html">SubmissionID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic538.html">submissionID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 3. Unique Submission ID of the Employer Enhanced Reporting Submission. Used to identify individual submissions.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic398.html">Status</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic539.html">submissionProcessingStatus Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Current Status of Enhanced Reporting Submission. Possible values are Pending or Completed.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic399.html">SubmissionHeader</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic487.html">SubmissionHeader Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Header elements that were included in submission that is being checked.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic488.html">EmployerRegistrationNumber</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic514.html">employerReg Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 1. Employer's PAYE Registration Number.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic489.html">AgentTain</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic503.html">agentTAIN Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 2. Tax Advisor Identification Number. Required if submission is filed by agent on behalf of employer.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic490.html">EnhancedReportingRunReference</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic516.html">enhancedReportingRunReference Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 4. Enhanced Reporting Run Reference. Used to identify the event to which the submission refers.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic491.html">TaxYear</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic540.html">taxYear Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 6. Tax year to which the submission relates (YYYY).</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic492.html">SoftwareUsed</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic481.html">SoftwareUsed Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Refs: 7 and 8. Third party software product identifier.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic482.html">Name</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 7. Name of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic483.html">Version</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic526.html">NonEmptyString Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: 8. Version of third party software product.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic400.html">ExpenseBenefitSubmissionSummary</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic444.html">ExpenseBenefitSubmissionSummary Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>Summary totals for Expense Benefit Submission. Included when submission has completed processing.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic445.html">Amount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:decimal</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Total amount across valid line items on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic446.html">ExpensesBenefitsCount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Data Item Ref: N/A. Total number of line items included on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic447.html">ExpensesBenefitsToDeleteCount</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type>xs:unsignedInt</SPAN>
+<DIV class=i-child-tree-description>Total number of Expense Benefit line item IDs for deletion included on submission.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic401.html">InvalidExpenseBenefit</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic455.html">InvalidExpenseBenefit Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Invalid Expense Benefits (if any). Any in this list will not have been saved.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic456.html">LineItemID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic521.html">expenseBenefitLineItemID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>LineItemID of the Expense Benefit containing validation errors.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic457.html">Error</A> <SPAN class=i-multiplicity>1..∞</SPAN> <SPAN class=i-type><A href="topic417.html">Error Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of validation errors related to the Expense Benefit.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic418.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic517.html">errorCode Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical Error Code - to be used for mapping to error messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic419.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic520.html">errorPath Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Path to error in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic420.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic518.html">errorDescription Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical description of error.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic402.html">WarningExpenseBenefit</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic497.html">WarningExpenseBenefit Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Expense Benefit Warnings (if any) associated with Valid submission. Any in this list will have been saved.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic498.html">LineItemID</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic521.html">expenseBenefitLineItemID Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>LineItemID of the Expense Benefit containing validation warnings.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic499.html">Warning</A> <SPAN class=i-multiplicity>1..∞</SPAN> <SPAN class=i-type><A href="topic493.html">Warning Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of validation warnings related to the Expense Benefit.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic494.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic542.html">warningCode Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical Code for warning - to be used for mapping to warning messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic495.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic544.html">warningPath Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Path to warning in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic496.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic543.html">warningDescription Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical description of warning.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic403.html">ValidationError</A> <SPAN class=i-multiplicity>0..∞</SPAN> <SPAN class=i-type><A href="topic421.html">ErrorWithId Complex Type</A></SPAN>
+<DIV class=i-child-tree-description>List of Errors (if any) on the CheckErrSubmissionRequest. Validations are returned with an id field where a lineItem deletion validation error has occurred and the lineItem needs to be specified.</DIV></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-sequence-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/sequence.png"></TD>
+<TD>
+<DIV class=i-item-summary>Sequence <SPAN class=i-multiplicity></SPAN></DIV>
+<DIV>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic422.html">Code</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic517.html">errorCode Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Technical Error Code - to be used for mapping to error messages.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic423.html">Path</A> <SPAN class=i-multiplicity>optional</SPAN> <SPAN class=i-type><A href="topic520.html">errorPath Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Path to error in schema, if available.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic424.html">Description</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic518.html">errorDescription Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Description of error - to be used for support.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE>
+<TABLE class=i-child-tree-table>
+<TBODY>
+<TR>
+<TD class=i-element-icon><IMG class=i-item-icon src="template/packages/core-xsd/images/element.png"></TD>
+<TD>
+<DIV class=i-item-summary><A href="topic425.html">Id</A> <SPAN class=i-multiplicity></SPAN><SPAN class=i-type><A href="topic519.html">errorId Simple Type</A></SPAN>
+<DIV class=i-child-tree-description>Optional ID for error - to be used when multiple customers are validated.</DIV></DIV>
+<DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></div>
+<!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="TaggedComment" source="Item" id="##EXAMPLEINTRO" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=""$$Example$$%%designlist:tagidentifier=##EXAMPLECODE,itemtype=Example%%""%%%%comment%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="EXAMPLEGROUP_LIST" namespace="ExampleGroup" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""="",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="INLINE_EXAMPLE" namespace="Example" source="Item" filter="type=inline" condition="content:content=""%%GroupExamples%%"",operator=""<>"",value=""True""" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%taggedcomment:source=item,id=##EXAMPLEINTRO,blankformat=""%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%"",format= %%%%filtereditemlist%%</div>" blankformat="%%taggedcomment:source=item,id=##EXAMPLEINTRO,format=</div>%%" --><!--DXMETADATA end -->
+            <!--DXMETADATA start type="FilteredItemList" scrap="MENU_LINK" namespace="example" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=example,caption=$$Example$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+			
+			<!--DXMETADATA start type="FilteredItemList" scrap="FAULT_RESPONSE_LIST" namespace="response" source="Item" filter="type=fault" format="%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=resources,caption=$$Fault  Responses$$%%%%filtereditemlist%%</div>" --><!--DXMETADATA end -->
+        <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORIZED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""$$See_Also$$%%designlist:tagidentifier=##SEEALSO,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="i-section-heading" id="i-seealso-section-heading"><span class="i-section-heading-icon"><!-- --></span><span class="i-section-heading-text">See Also</span></div><div id="i-seealso-section-content" class="i-section-content"><a href="topic1106.html">All Operations Resource Group</a>
+|&nbsp;<a href="topic1105.html">Enhanced Reporting Web Service</a>
+</p>
+</div><!--DXMETADATA end-->
+    </div>
+    <div id="i-footer-content" class="i-footer-content">
+        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" -->Please register for our <a href="https://revenuehelpdesk.supatools.com/portal/revenueie/register.html">PIT Support Help Desk</a> for the following: <br/>
+<ul>
+  <li>Technical issues encountered using the PIT facility</li>
+  <li>Queries in relation to the PAYE Web Service Specifications, Supporting Documentation or PAYE Web Service Examples</li>
+</ul><!--DXMETADATA end-->
+    </div>
+    
+
+    <!--DXMETADATA start type="IsNew" format="<script type=""text/javascript"">setIsNew = true;</script>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="Responsive" format="<script type=""text/javascript"">setIsResponsiveEnabled = true;</script>" --><!--DXMETADATA end-->
+    <script type="text/javascript">
+        $(function() {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.isNew = !(typeof setIsNew === "undefined");
+            documentInstance.isResponsiveEnabled = !(typeof setIsResponsiveEnabled === "undefined");
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
