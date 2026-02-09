@@ -578,7 +578,7 @@
 				"anchor": "Payroll_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "19/07/2023",
+				"dateLastUpdated": "24/01/2026",
 				"category": "download"
 			},
 			{
@@ -614,7 +614,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/03/2024",
+				"dateLastUpdated": "24/01/2026",
 				"category": "download"
 			},
 			{
@@ -623,7 +623,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "30/04/2024",
+				"dateLastUpdated": "24/01/2026",
 				"category": "navigation"
 			},
 			{
@@ -1570,7 +1570,7 @@
 				"anchor": "SOAP_Schema_Reference",
 				"type": "Link",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/03/2024",
+				"dateLastUpdated": "24/01/2026",
 				"category": "navigation"
 			},
 			{
@@ -1615,7 +1615,7 @@
 				"anchor": "PAYE_Types_Schema",
 				"type": "Schema",
 				"environment": "PIT Next Version",
-				"dateLastUpdated": "20/03/2024",
+				"dateLastUpdated": "24/01/2026",
 				"category": "download"
 			},
 			{
