@@ -55,7 +55,12 @@ viii. Document updated on 25/01/2022
 ======== Version 2.0 Milestone 1 ====================================
 ix. Document updated on 19/07/2023:
 		Added PEPP elements
+
+======== Version 2.1 Milestone 1 ====================================
+x. Document updated on 13/02/2026:
+		Restricting the amount values to 2 digits after the decimal point
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit3.xsd"/>
 	<!--Payroll Request and Response Schema Elements -->
