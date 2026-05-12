@@ -33,6 +33,13 @@
 		"payForUSC": 307.50,
 		"uscStatus": "ORDINARY",
 		"uscPaid": 3.07,
-		"lptDeducted": 3.67
+		"lptDeducted": 3.67,
+		"singlePensionScheme": {
+			"pensionableRemuneration": 4.75,
+			"netPensionableRemuneration": 8.23,
+			"pensionReferableAmount": 1.54,
+			"lumpSumReferableAmount": 6.21,
+			"singleSchemeFullTimeEquivalent": 0.52
+      	}
 	}]
 }
