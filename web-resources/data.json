@@ -65,7 +65,7 @@
         "anchor": "CertTypes",
         "type": "PDF",
         "environment": "All Versions",
-        "dateLastUpdated": "24/03/2026",
+        "dateLastUpdated": "19/05/2026",
         "category": "download"
       }
     ]
@@ -637,7 +637,7 @@
         "anchor": "SOAP_Schema_Reference",
         "type": "Link",
         "environment": "PIT Next Version",
-        "dateLastUpdated": "24/01/2026",
+        "dateLastUpdated": "13/05/2026",
         "category": "navigation"
       },
       {
