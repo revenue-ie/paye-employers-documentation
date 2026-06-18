@@ -59,10 +59,6 @@ ix. Document updated on 19/07/2023:
 ======== Version 2.1 Milestone 1 ====================================
 x. Document updated on 24/01/2026:
 		Restricting the amount values to 2 digits after the decimal point
-
-======== Version 2.2 ====================================
-xi. Document updated on 10/03/2026
-		Added five new Single Pension Scheme elements
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pp="http://www.ros.ie/schemas/paye-employers/v1/payroll/" xmlns:pc="http://www.ros.ie/schemas/paye-employers/v1/common/" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" targetNamespace="http://www.ros.ie/schemas/paye-employers/v1/payroll/" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="0.9">
 	<xs:import namespace="http://www.ros.ie/schemas/paye-employers/v1/common/" schemaLocation="../common/paye-types-pit4.xsd"/>
@@ -631,13 +627,6 @@ xi. Document updated on 10/03/2026
 					<xs:documentation>Other payments, payment code and payment value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SinglePensionScheme" type="pp:SinglePensionScheme" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Single Pension Scheme, pensionableRemuneration, netPensionableRemuneration, pensionReferableAmount,
-						lumpSumReferableAmount, singleSchemeFullTimeEquivalent
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BatchReference">
@@ -769,40 +758,6 @@ xi. Document updated on 10/03/2026
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-    <xs:complexType name="SinglePensionScheme">
-        <xs:annotation>
-            <xs:documentation>Single Pension Scheme, pensionableRemuneration, netPensionableRemuneration, pensionReferableAmount,
-                lumpSumReferableAmount, singleSchemeFullTimeEquivalent
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element name="PensionableRemuneration" type="pc:defaultDecimal">
-                <xs:annotation>
-                    <xs:documentation>pensionableRemuneration</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="NetPensionableRemuneration" type="pc:defaultDecimal">
-                <xs:annotation>
-                    <xs:documentation>netPensionableRemuneration</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="PensionReferableAmount" type="pc:defaultDecimal">
-                <xs:annotation>
-                    <xs:documentation>pensionReferableAmount</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="LumpSumReferableAmount" type="pc:defaultDecimal">
-                <xs:annotation>
-                    <xs:documentation>lumpSumReferableAmount</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="SingleSchemeFullTimeEquivalent" type="pc:spsDouble">
-                <xs:annotation>
-                    <xs:documentation>SingleSchemeFullTimeEquivalent</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
 	<xs:complexType name="BatchStatus">
 		<xs:annotation>
 			<xs:documentation>Status of each batch for a submission recieved in multiple batches.</xs:documentation>

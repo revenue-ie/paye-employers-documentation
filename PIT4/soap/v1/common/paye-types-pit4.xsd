@@ -190,12 +190,6 @@ vii. Document updated on 24/01/2026:
 			<xs:enumeration value="REJECTED"/>
 		</xs:restriction>
 	</xs:simpleType>
-    <xs:simpleType name="spsDouble">
-        <xs:restriction base="xs:double">
-            <xs:minInclusive value="-99.999999"/>
-            <xs:maxInclusive value="99.999999"/>
-        </xs:restriction>
-    </xs:simpleType>
 
 
 

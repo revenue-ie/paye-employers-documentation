@@ -65,12 +65,5 @@ v. Document updated on 24/05/2018
 		<pay:USCStatus>ORDINARY</pay:USCStatus>
 		<pay:USCPaid>3.07</pay:USCPaid>
 		<pay:LPTDeducted>3.67</pay:LPTDeducted>
-		<pay:SinglePensionScheme>
-			<pay:PensionableRemuneration>4.75</pay:PensionableRemuneration>
-			<pay:NetPensionableRemuneration>8.23</pay:NetPensionableRemuneration>
-			<pay:PensionReferableAmount>1.54</pay:PensionReferableAmount>
-			<pay:LumpSumReferableAmount>2.65</pay:LumpSumReferableAmount>
-			<pay:SingleSchemeFullTimeEquivalent>99.99</pay:SingleSchemeFullTimeEquivalent>
-		</pay:SinglePensionScheme>
 	</pay:Payslip>
 </pay:PayrollSubmissionRequest>

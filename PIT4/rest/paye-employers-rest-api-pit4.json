@@ -2834,9 +2834,6 @@
             "items": {
               "$ref": "#/definitions/OtherPayments"
             }
-          },
-          "singlePensionScheme" : {
-            "$ref" : "#/definitions/singlePensionScheme"
           }
         },
         "description": "List of payslips that make up the employer payroll submission. for Original submissions this should include at least one new payslip. For Correction submissions this should include any new or corrected payslips."
@@ -3415,44 +3412,6 @@
           }
         },
         "description": "Validation warning identified at Expense Benefit/Line Item Level."
-      },
-      "singlePensionScheme" : {
-        "type" : "object",
-        "required" : [ "lumpSumReferableAmount", "netPensionableRemuneration", "pensionReferableAmount", "pensionableRemuneration", "singleSchemeFullTimeEquivalent" ],
-        "properties" : {
-          "pensionableRemuneration" : {
-            "type" : "number",
-            "description" : "pensionableRemuneration",
-            "minimum" : -9.99999999E8,
-            "maximum" : 9.9999999999E8
-          },
-          "netPensionableRemuneration" : {
-            "type" : "number",
-            "description" : "netPensionableRemuneration",
-            "minimum" : -9.99999999E8,
-            "maximum" : 9.9999999999E8
-          },
-          "pensionReferableAmount" : {
-            "type" : "number",
-            "description" : "pensionReferableAmount",
-            "minimum" : -9.99999999E8,
-            "maximum" : 9.9999999999E8
-          },
-          "lumpSumReferableAmount" : {
-            "type" : "number",
-            "description" : "lumpSumReferableAmount",
-            "minimum" : -9.99999999E8,
-            "maximum" : 9.9999999999E8
-          },
-          "singleSchemeFullTimeEquivalent" : {
-            "type" : "number",
-            "format" : "double",
-            "description" : "singleSchemeFullTimeEquivalent",
-            "minimum" : -99.999999,
-            "maximum" : 99.999999
-          }
-        },
-        "description" : "singlePensionScheme"
       }
     }
 }
